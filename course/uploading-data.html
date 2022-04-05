@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2 - Uploading Data</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>2 - Uploading Data</h2>
+ <p>In this exercise you will:</p>
+ <ol>
+  <li>Upload a transcript manually</li>
+  <li>Upload many transcripts at once using the batch uploader</li>
+  <li>Import participant data from a CSV file</li>
+  <li>Define a speech elicitation task for gathering data</li></ol>
+ <p>After this you will have a small corpus in your LaBB-CAT database.</p>
+ <p>------------------------------------------------------------------------</p>
+<h3>Manual Upload</h3>
+ <ol>
+  <li>In LaBB-CAT, click the <i>upload</i> option in the menu.</li>
+  <li>Click the first option, <i>upload transcripts</i>.</li>
+  <li>Click the left-hand <i>Choose File</i> button and select the file in the “QuakeStories” folder called:&nbsp;
+  <br>“BR178LK_MargaretSpencer.eaf”.&nbsp;
+  <br>When you select a file, a new row of <i>Choose File</i> buttons will appear below the first. This is for adding more transcripts in the ‘episode’. An ‘episode’ is a set of transcripts that belong together because they were recorded during the same session. In our case, each recording session has only one recording.</li>
+  <li>Next to <i>Media</i> on the first row, click <i>Choose File</i>.</li>
+  <li>Each transcript has an audio file and a video file, and you want to upload both.&nbsp;&nbsp;
+  <br>Click the file called “BR178LK_MargaretSpencer.mp4”, then hold down the <i>&lt;Shift&gt;</i> key on your keyboard and click the file called “BR178LK_MargaretSpencer.wav”. Then click <i>Open</i>.</li>
+  <li>Ensure the <i>Corpus</i> option is <i>QB</i></li>
+  <li>Ensure the <i>Type</i> option is <i>interview</i></li>
+  <li>Click <i>Upload</i>&nbsp;
+  <br>
+  <br>Each ELAN transcript has a number of Tiers defined in it:
+ <ul>
+  <li>one for the participant's utterances,&nbsp;</li>
+  <li>another for an ‘interviewer’ if there is one,&nbsp;</li>
+  <li>one for noise annotations,&nbsp;</li>
+  <li>one for transcriber comments, and</li>
+  <li>one for topic annotations.&nbsp;
+  <br>
+  <br>Each tier must be mapped to a LaBB-CAT annotation layer.</li></ul></li>
+  <li>LaBB-CAT has analysed the structure of the ELAN transcript and pre-selected some default options for layer mappings. For the demo data, these defaults are correct, so you needn't change anything.&nbsp;
+  <br>Click <i>Set Mappings</i> to continue.&nbsp;
+  <br>This will display a page listing all the speakers in the transcript, so you can select which one is the ‘main participant’, which is the speaker selected by default for searches and other processing.</li>
+  <li>Ensure that <i>BR178LK_MargaretSpencer</i> is ticked, and the interviewer is not ticked, and click <i>Set Main Participants</i>.&nbsp;
+  <br>This will display a page with the name of transcript you uploaded, with an <i>edit meta-data</i> link, and a progress bar (which may have already finished).</li>
+  <li>Click <i>edit meta data</i>&nbsp;
+  <br>This will display the attributes for the transcript.</li>
+  <li>Check that you remembered to set <i>Type</i> to <i>interview</i>. If not, you can fix that on this page, and click <i>Save Changes</i>.</li>
+  <li>Below the transcript attributes is a list of participants.&nbsp;
+  <br>Click <i>BR178LK_MargaretSpencer</i>.&nbsp;
+  <br>This will display the participant attributes we defined in an earlier exercise.</li>
+  <li>BR178LK_MargaretSpencer is an ‘English’-speaking ‘female’ who is between ‘66 and 75 years’ old, who grew up in ‘Christchurch’, in the ‘North Canterbury’ region of ‘New Zealand'.&nbsp;
+  <br>Set her attributes to reflect that, and click <i>Save</i>.</li>
+  <li>Below the participant attributes, there is a list of transcripts that the speaker appears in (in this case, only one). Each has various buttons; to find out what each button does, hover your mouse over it, and a ‘tip’ will appear that tells you what the button does.&nbsp;
+  <br>Click name of the <i>BR178LK_MargaretSpencer.eaf</i> transcript.</li>
+  <li>You will now see LaBB-CAT's ‘interactive transcript’ page for the transcript.&nbsp;
+  <br>
+  <br>At the top there is a heading, a list of speakers, and then below this, the lines from the transcript, their speakers in the margin. This includes the words the participants utter, and also any noises, comments, and other events that were put in the transcript in ELAN.&nbsp;
+  <br>
+  <br>In the top right corner are some playback controls; click the play button. You will see a shaded rectangle following the participant's speech.&nbsp;
+  <br>
+  <br>Try the other controls to see what they do.&nbsp;
+  <br>&nbsp;</li>
+  <li>Now click on any word in the transcript.&nbsp;
+  <br>You will see a menu appear, with options for the ‘Utterance’ (the line), and the word.</li>
+  <li>Click the play option in the menu to see what it does.</li>
+  <li>Click on the <i>formats</i> link under the title.&nbsp;
+  <br>You will see a menu, which includes various formats for exporting the transcript.</li>
+  <li>Select ‘Plain Text Document’</li>
+  <li>Save the resulting file on your desktop, and then open it.&nbsp;
+  <br>You will see the transcript in plain-text form.</li>
+  <li>Click the <i>formats</i> link, and select the ‘Praat Text Grid’ option.</li>
+  <li>Save the resulting file on your desktop, and then open it with Praat.&nbsp;
+  <br>You will see that the TextGrid has various tiers, two for utterances (one for each speaker), and two for individual words (one for each speaker).&nbsp;
+  <br>(You will see that each individual word has a 'default' alignment - i.e. the words are evenly spread out during the duration of the line they're in. In a later exercise we will look at ways to make these word alignments actually line up with the words in the audio signal)</li></ol>
+<h3>Batch Upload</h3>
+ <p>If you already have a collection of transcripts and media files (which we have for these exercises), and they are systematically organized (which they are), you may be able to save some manual uploading work by uploading them using the ‘batch upload’ utility.</p>
+ <ol>
+  <li>In LaBB-CAT, click the <i>upload</i> option on the menu.</li>
+  <li>Click the <i>upload transcript batch</i> link.&nbsp;
+  <br>This shows a window with a large blank area in the middle with various buttons above it.</li>
+  <li>Open Windows Explorer or Finder, and navigate to the LaBB-CAT Workshop data folder.</li>
+  <li>Drag the folder called “QuakeStories”, and drop it on to LaBB-CAT, on to the blank area below the buttons.&nbsp;
+  <br>The previously blank area will contain a list of transcripts. Each transcript should have a value filled in for each column - <i>Transcript</i>, <i>Media</i>, <i>Corpus</i>, and <i>Episode</i>.</li>
+  <li>Most of the transcripts are monologues, so set <i>Type</i> to <i>monologue</i> on the top left.</li>
+  <li>One of the transcript is highlighted in orange, and the <i>Status</i> says “Already exists” - this is the transcript you manually uploaded. We don't need to upload it again, so remove it from the list by using the <i>x</i> button on the right hand side of that row.</li>
+  <li>Click the <i>Upload</i> button above the list.&nbsp;
+  <br>You will see that in the <i>Status</i> column, the text changes to “Uploading…” for the first transcript. The progress bar progresses, and once it's complete, the next transcript changes to “Transferring”, and so on.</li>
+  <li>While the files are uploading, click <img src="http://localhost:3121/help.png"> the online help link next to the upload transcript batch link you clicked above and read the conditions that must be met in order to use the batch uploader.&nbsp;
+  <br>&nbsp;</li>
+  <li>Once the uploader is finished, you can verify that all the transcripts are there by clicking the <i>transcripts</i> option on the menu in LaBB-CAT.&nbsp;
+  <br>You should see a list of twenty transcripts.</li>
+  <li>Use the “Transcript” box to find <i>UC013AM_Dom.eaf</i> (You can type just part of the name if you like)</li>
+  <li>Click the <i>Attributes</i> button for <i>UC013AM_Dom.eaf</i> (the one with the spanner/wrench icon).</li>
+  <li>Change <i>type</i> to <i>interview</i> and click <i>Save</i>.</li>
+  <li>Similarly, the following transcripts are interviews, so change their type accordingly
+ <ul>
+  <li>UC215YW_DanielaMaoate-Cox.eaf&nbsp;</li>
+  <li>UC226AD.eaf</li></ul></li></ol>
+<h3>Participant Data Import</h3>
+ <p>The transcripts are now in the database, but the meta-data for the participants hasn't been set yet (because it's not contained in the ELAN files). We could manually add this for each speaker, but fortunately we have it stored in a spreadsheet (actually, a CSV text file) that we can upload in one go.</p>
+ <ol>
+  <li>In LaBB-CAT, click the <i>upload</i> option on the menu.</li>
+  <li>Select the <i>upload participant data</i> option.</li>
+  <li>Click <i>Choose File</i>, and select the file in the LaBB-CAT Exercises data folder called “participants.csv”.</li>
+  <li>Click <i>Upload</i></li>
+  <li>You will now see a list of the columns from the spreadsheet.&nbsp;
+  <br>Firstly, ensure that the <i>Participant identity column</i> is set to <i>name</i>. This ensures that the "name" column in the spreadsheet will be used to match names of participants in the LaBB-CAT database.</li>
+  <li>Below that is listed each column from the spreadsheet, with an arrow pointing to a dropdown box. The box contains various options, including each of the participant attributes set up in LaBB-CAT, an <i>ignore</i> option, and <i>create a new attribute</i> option.&nbsp;
+  <br>Most likely, the correct options are already selected, as we've already set up the correct participant attributes, but just check that they are as follows:&nbsp;
+  <br>
+ <ul>
+  <li>The CSV column <strong>name:</strong> → <i>ignore</i> because it's the <i>Participant Identity Column</i> identified above</li>
+  <li>The CSV column <strong>gender:</strong> → the <i>Gender</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>age_category:</strong> → the <i>Age</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>ethnicity:</strong> → the <i>Ethnicity</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>grew_up:</strong> → the <i>grew_up</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>grew_up_region:</strong> → the <i>grew_up_region</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>grew_up_town:</strong> → the <i>grew_up_town</i> LaBB-CAT attribute</li>
+  <li>The CSV column <strong>languages_spoken:</strong> → the <i>languages_spoken</i> LaBB-CAT attribute</li></ul></li>
+  <li>Click <i>import</i>.&nbsp;
+  <br>You should see a page with information about the import, including the columns that were ignored, and the number of participants that were added.&nbsp;
+  <br>
+  <br>To check the participant attributes really are now set:&nbsp;
+  <br>&nbsp;</li>
+  <li>Click the <i>participants</i> option on the menu.&nbsp;
+  <br>You will see a list of speakers, and page links at the bottom.&nbsp;
+  <br>The page also includes participant attribute values where they are known.</li></ol>
+<h3>Elicitation Tasks</h3>
+ <p>LaBB-CAT can also make recordings of speech directly from the browser.</p>
+ <p>Let's suppose you want to record a number of participants reading lists of words. You can define an ‘Elicitation Task’ that includes a series of steps, one for each set of words you want participants to read.</p>
+ <p>First we're going to create a corpus to receive our recordings, and a transcript type to mark the recordings as word lists ...</p>
+ <ol>
+  <li>In LaBB-CAT, click the <i>corpora</i> option on the menu.</li>
+  <li>Add a corpus called <i>CC</i> with a description <i>Canterbury Corpus</i>.</li>
+  <li>Click the <i>transcript types</i> option on the menu.</li>
+  <li>Add a transcript type called <i>wordlist</i>.</li></ol>
+ <p>Now we'll create the elicitation task, which defines what prompts and texts the participant sees during the task.</p>
+ <ol>
+  <li>Click the 'elicitation tasks' option on the menu. The page you see is a list of elicitation tasks defined, which is currently empty.</li>
+  <li>Fill in the blank form with the following details:
+ <ul>
+  <li><strong>ID:</strong> nze-wordlist</li>
+  <li><strong>description:</strong> New Zealand English Word List</li>
+  <li><strong>corpus:</strong> → <i>CC</i> (the corpus you just created)</li>
+  <li><strong>transcript type:</strong> <i>wordlist</i> (the transcript type you just created)</li>
+  <li><strong>preamble:</strong> “In this task your speech will be recorded. Please ensure you’re in a quiet place.”&nbsp;
+  <br>This is the first text the participant sees when they access the task, before giving consent or going through the steps.</li>
+  <li><strong>consent:</strong> “I give consent for the use of my speech data for this research.”&nbsp;
+  <br>This is the text of the participant's consent for their participation and the use of their data. Before starting the task steps, they must 'sign' this consent by typing their name in a box at the bottom. The text, with their name and the date incorporated, with be made into a PDF file which is uploaded with their recordings, and is made available for them to download.&nbsp;
+  <br>
+  <br>For both the preamble and the consent form, you can format the text with bold, italic, and underlined text, etc. by using the controls above the text area.&nbsp;
+  <br>
+  <br><img src="http://localhost:3121/help.png"> Check the online help on this page for further details about settings and important information about browser limitations.&nbsp;
+  <br>&nbsp;</li></ul></li>
+  <li>Click <i>New</i> to add the task.</li>
+  <li>Click <i>Define Steps</i>.&nbsp;
+  <br>
+  <br>On this page you are going to add steps for the task. The first step, called “Welcome”, has already been added, and we'll use it for giving the participant some detailed instructions about what follows. We'll add a series of steps after the “Welcome” step, one for each group of words we want the participant to read.&nbsp;
+  <br>&nbsp;</li>
+  <li>The form you can see defines the details of the first “Welcome” step.&nbsp;
+  <br><img src="http://localhost:3121/help.png"> Check the online help on this page for further details about this page and the options on it.</li>
+  <li>Close the online help page to return to the “define elicitation steps” page.</li>
+  <li>Fill in the following details:
+ <ul>
+  <li><strong>Show:</strong> <i>Always</i></li>
+  <li><strong>Countdown Seconds:</strong> 0</li>
+  <li><strong>Title:</strong> Instructions</li>
+  <li><strong>Prompt:</strong> Please read aloud the following sets of words. Press "Next" after each set.</li>
+  <li><strong>Elicit:</strong> <i>Nothing</i></li>
+  <li><strong>Transcript:</strong> (leave this box blank)</li>
+  <li><strong>Image/Video:</strong> <i>no image/video</i>&nbsp;
+  <br>
+  <br>Next we'll define what demographic information we will ask each&nbsp;
+  <br>participant before they start recording. In this case, we will ask for&nbsp;
+  <br>their gender and what languages they speak.&nbsp;
+  <br>&nbsp;</li></ul></li>
+  <li>Click the <img src="./add.png"> button to add a new step.</li>
+  <li>Fill in the following details:
+ <ul>
+  <li><strong>Show:</strong> <i>Always</i></li>
+  <li><strong>Countdown Seconds:</strong> 0</li>
+  <li><strong>Title:</strong> Languages</li>
+  <li><strong>Prompt:</strong> What languages do you speak?</li>
+  <li><strong>Elicit:</strong> <i>Attribute Value</i></li>
+  <li><strong>Attribute:</strong> <i>participant_languages_spoken</i></li>
+  <li><strong>Image/Video:</strong> <i>no image/video</i></li></ul></li>
+  <li>Click the <img src="./add.png"> button to add a new step</li>
+  <li>Fill in the following details:
+ <ul>
+  <li><strong>Show:</strong> <i>Always</i></li>
+  <li><strong>Countdown Seconds:</strong> 0</li>
+  <li><strong>Title:</strong> Gender</li>
+  <li><strong>Prompt:</strong> What is your gender?</li>
+  <li><strong>Elicit:</strong> <i>Attribute Value</i></li>
+  <li><strong>Attribute:</strong> <i>participant_gender</i></li>
+  <li><strong>Image/Video:</strong> <i>no image/video</i>&nbsp;
+  <br>
+  <br>Now we can defined some prompts for them to read aloud.</li></ul></li>
+  <li>Click the <img src="./add.png"> button to add a new step</li>
+  <li>Fill in the following details:
+ <ul>
+  <li><strong>Show:</strong> <i>Always</i></li>
+  <li><strong>Countdown Seconds:</strong> 0</li>
+  <li><strong>Title:</strong> (leave this box blank)</li>
+  <li><strong>Prompt:</strong> Please read the following aloud:</li>
+  <li><strong>Elicit:</strong> <i>Audio</i></li>
+  <li><strong>Transcript:</strong> 1. hit hid hint</li>
+  <li><strong>Max Seconds:</strong> 30</li>
+  <li><strong>Next Button:</strong> <i>Shown</i></li>
+  <li><strong>Image/Video:</strong> <i>no image/video</i></li></ul></li>
+  <li>Click the <img src="./add.png"> button to add a new step</li>
+  <li>Fill in the same details as the previous step, except:&nbsp;
+  <br><strong>Transcript:</strong> 2. boot booed boo tune dune</li>
+  <li>Add a new step for <strong>Transcript:</strong> 3. bird curt burn</li>
+  <li>Add a new step for <strong>Transcript:</strong> 4. bat bad back bag ban</li>
+  <li>Add a new step for <strong>Transcript:</strong> 5. bet bed beck beg ben</li>
+  <li>Add one last step, with the following details:
+ <ul>
+  <li><strong>Show:</strong> <i>Always</i></li>
+  <li><strong>Countdown Seconds:</strong> 0</li>
+  <li><strong>Title:</strong> Finished</li>
+  <li><strong>Prompt:</strong> Thanks for your participation!</li>
+  <li><strong>Elicit:</strong> <i>Nothing</i></li>
+  <li><strong>Transcript:</strong> (leave this box blank)</li>
+  <li><strong>Image/Video:</strong> <i>no image/video</i>&nbsp;
+  <br>
+  <br>This last step is what is displayed to the participant when they've finished all the steps.&nbsp;
+  <br>&nbsp;</li></ul></li>
+  <li>Click <i>Save Changes</i>&nbsp;
+  <br><i><img src="./TaskDefinition.png"></i>
+  <br>
+  <br>Your task is almost ready. We just need to define which options for <i>gender</i> they can see.</li>
+  <li>Click the <i>elicitation tasks</i> option on the menu.</li>
+  <li>Click <i>Participant Attributes</i>.</li>
+  <li>Click <i>Options</i>&nbsp;
+  <br>This displays a list of the gender options that are visible to the participant. As you can see it's currently empty. In this case, we want to display all options for them to select.</li>
+  <li>Click <i>Add All</i>&nbsp;
+  <br>You will see that all the options (M, F, and '(not specified)') have been added to the list. If you wanted to, you could edit the “description” of the individual items (e.g. translate them to another language if your participants don't speech English), or delete options you don't want them to be able to select.</li>
+  <li>Click the <i>Delete</i> button next to the ‘(not specified)’ option, and click <i>OK</i> to confirm.</li>
+  <li>Click <i>Save Changes</i>.&nbsp;
+  <br>
+  <br>Your task is now fully defined and ready to go.&nbsp;
+  <br>
+  <br>Now you're going to run through the elicitation task yourself …&nbsp;
+  <br>&nbsp;</li>
+  <li>Click the <i>elicitation tasks</i> option on the menu.</li>
+  <li>Click the <i>Elicitation Task</i> button on the bottom right.&nbsp;
+  <br>You should see a page that displays the task's 'preamble' that you defined earlier.</li>
+  <li>Click <i>Next</i>.&nbsp;
+  <br>You should see a page that displays the task's <i>consent</i> form that you defined earlier, with a box to enter your name in order to ‘sign’ the consent.</li>
+  <li>Enter your name and click <i>Next</i>.&nbsp;
+  <br>You will be given the chance to save your copy of the consent form.</li>
+  <li>Save the consent form and open it to check the contents.</li>
+  <li>Close the consent form to return to the task.&nbsp;
+  <br>You should see a page with some text about enabling your microphone.&nbsp;
+  <br>If you don't, and instead see a message about your browser not being supported, this means that your web browser doesn't support recording sound. In this case, copy the address of the page at the top, and paste it into another browser (e.g. Google Chrome or Mozilla Firefox).</li>
+  <li>Click <i>Next</i> and follow the instructions.&nbsp;
+  <br>
+  <br>Once you've enabled your browser for access to your microphone, you will be asked for the demographic details you defined earlier.&nbsp;
+  <br>
+  <br>After you enter these, the task steps will begin, and you should follow the instructions, reading the prompts aloud and clicking <i>Next</i> after each group of words.&nbsp;
+  <br>
+  <br>Each time somebody performs the task, they're assigned a unique Participant ID, which is linked to their demographic data and the recordings.&nbsp;
+  <br>&nbsp;</li>
+  <li>Click the <i>Back</i> button on your browser to return to the <i>define elicitation tasks</i> page in LaBB-CAT.</li>
+  <li>Click the <i>participants</i> option on the menu.</li>
+  <li>Click the <i>CC</i> corpus from the list.&nbsp;
+  <br>You will see one participant; the one you just created by doing the task.</li>
+  <li>Click the participant ID to open their attributes page, and check that the demographic information you entered has been saved.&nbsp;
+  <br>You will see that the participant has five transcripts, one for each of the task steps where audio was recorded.</li>
+  <li>Open the first transcript.&nbsp;
+  <br>You will see that the transcript starts with a comment, which is the prompt text you were shown during the step, and that the transcript contains one utterance.</li>
+  <li>Play the audio to ensure it was recorded correctly.&nbsp;
+  <br>(If the last transcript you looked at had video, you may need to tick the checkbox next to the “wav” option in the top right corner, in order to select audio for playback.)</li></ol>
+ <p>Although these 'task step' transcripts are very short, they behave the same as any other transcript; they can be exported, annotated, searched, etc.</p>
+ <p>------------------------------------------------------------------------</p>
+ <p>You now have a small database with a number of speakers in it, so we can start creating some annotations and doing some searches ...&nbsp;
+  <br>&nbsp;</p></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>
