@@ -1,0 +1,28 @@
+header {
+    text-align: left;
+    font-size: small;
+}
+
+footer {
+    text-align: right;
+    font-size: small;
+}
+
+header img, footer img {
+    height: 30px;
+}
+
+button#post {
+    display: none;
+}
+
+@media print {
+    nav, button {
+        display: none;
+    }
+    footer {
+        position: fixed;
+        bottom: -10px;
+        right: 0px;
+    }
+}

@@ -1,0 +1,102 @@
+body, #main {
+    display: flex;
+    flex-direction: column;
+}
+#main > article { order: 1; } /* article first */
+#main > aside   { order: 2; } /* save buttons etc. below so that edit tools don't cover them */
+#main > nav     { order: 3; } /* navigation menu at the bottom */
+
+header, footer {
+    display: block;
+}
+#main > article {
+    margin: auto;
+    width: 100%;
+}
+.index details {
+    padding-left: 10px;
+}
+.index div {
+    padding-left: 25px;
+}
+.index span {
+    float: right;
+    cursor: default;
+}
+.current > a {
+    font-weight: bold;
+}
+header, footer, aside {
+    text-align: center;
+}
+.index button, aside button {
+    border-radius: 50%;
+    aspect-ratio: 1;
+    line-height: 100%;
+}
+aside button {
+    font-size: x-large;
+    float: right;
+}
+
+button#post {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+button#edit, button# {
+    float: right;
+}
+
+a.new-page {
+    text-decoration: none;
+    color: lightgray;
+}
+
+/* Wide enough to support three columns */
+@media all and (min-width: 640px) {
+    #main { flex-direction: row; }
+    #main > nav     { order: 1; } /* navigation menu on the left */
+    #main > article { order: 2; } /* article in the middle */
+    #main > aside   { order: 3; } /* save button etc. on the right */
+    
+    #main > nav {
+        text-align: left;
+        min-width: 20%;
+    }
+    #main > aside {
+        text-align: left;
+        min-width: 50px;
+    }
+    #main > article {
+        padding: 20px;
+        width: 70%;
+    }
+    .index button, aside button { /** Buttons don't need to be finger size */
+        font-size: inherit;
+    }
+}
+
+iframe {
+    width: 100%;
+    border: none;
+    padding: 0px;
+    transition: height 0.5s;
+}
+
+body.resource {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+nav iframe {
+    height: 100%;
+}
+
+.index button {
+    width: fit-content;
+}
+
+figure img {
+    max-width: 100%;
+}
