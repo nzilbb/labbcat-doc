@@ -24,13 +24,14 @@
  <p>------------------------------------------------------------------------</p>
  <p>We'll start with a very simple search - all the instances of the word "the" uttered by monolingual English-speaking males.</p>
  <ol>
-  <li>In LaBB-CAT, click on the <i>search</i> link on the menu.&nbsp;
-  <br>This takes you to a page entitled "filter", where you can list participants and filter them by their attributes. You can see various participant attributes listed across the page.</li>
-  <li>We're interested in male participants, so under the word <i>Gender</i>, select <i>Male</i> from the list.&nbsp;
-  <br>The page will then display a list of all the male participants in the database.</li>
-  <li>We want the participants who speak only English, so select <i>English </i>under <i>Languages Spoken</i>&nbsp;
-  <br>The page will then display a list of male participants who list only <i>English</i> as their language.</li>
-  <li>Click <i>Layered Search</i> at the bottom.&nbsp;
+  <li>In LaBB-CAT, click on the <i>participant</i> link on the menu.&nbsp;
+  <br>This takes you to a page listing all participants, where you can filter participants by their attributes. You can see various participant attributes listed across the top of page.</li>
+  <li>We're interested in male participants, so under the <i>Gender</i>, select <i>M</i>.&nbsp;
+  <br>After a short delay the page will display a list of all the male participants in the database.</li>
+  <li>We want the participants who speak only English, so enter <i>English </i>under <i>Languages Spoken</i>&nbsp;
+  <br>The page will then display a list of male participants who include <i>English</i> in their languages. It also includes participants who speak other languages, who we want to eliminate.
+  <br>The <i>Languages</i> filter box accepts a ‘regular expression’ so if we enter <i>^English$</i> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <i>^</i> means “the beginning” and <i>$</i> means “the end”, so <i>^English$</i> means, “English at the beginning, and at the end”</li>
+  <li>Click <i>Layered Search</i> at the top.&nbsp;
   <br>You will see the participants you selected listed at the top, above a list of annotation layers. Below that, there's a “Search Matrix”, although it doesn't look much like a matrix yet, because it's only one layer high and one word wide…</li>
   <li>In the box next to the word “orthography” type the word <i>the</i>&nbsp;
   <br><img src="./orthography-the.png"></li>
@@ -99,7 +100,7 @@
   <br>&nbsp;</li>
   <li>Click <i>Search</i>.&nbsp;
   <br>You will now see that the results include words like "think", "that", "thought", etc.&nbsp;
-  <br><img src="http://localhost:3121/help.png"> You can get more information about regular expressions by using the online help on the search page, and also by clicking the the <i>regular expressions</i> link above the search matrix.&nbsp;
+  <br><img src="help.png"> You can get more information about regular expressions by using the online help on the search page, and also by clicking the the <i>regular expressions</i> link above the search matrix.&nbsp;
   <br>
   <br>Up until now, we've only been matching against one word at a time. Now&nbsp;we're going to include patterns for a chain of words…&nbsp;
   <br>&nbsp;</li>
@@ -110,7 +111,7 @@
   <br>Check the search results are giving you what you expected.</li>
   <li>Now search for "the" followed, within two words, by a word that starts with a vowel.</li>
   <li>Dream up some other searches that interest you, and try out other options on the search page.&nbsp;</li></ol>
- <p><img src="http://localhost:3121/help.png"> If in doubt about a search option, try the online help page.&nbsp;
+ <p><img src="help.png"> If in doubt about a search option, try the online help page.&nbsp;
   <br>&nbsp;</p></article>
       <nav>
         <iframe src="index.html" id="nav" name="nav"></iframe>
