@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>6 - Integrating with CELEX</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>6 - Integrating with CELEX</h2>
+ <p>LaBB-CAT can be integrated with the CELEX lexicon, which can be purchased from the Linguistic Data Consortium (LDC) and includes lemma, part of speech, morphological, phonological, and frequency information for English, German, and Dutch.</p>
+ <p>(If you don't have CELEX, there is an alternative version of this exercise that uses the free 'CMU Pronunouncing Dictionary' lexicon, which you can work through instead.)</p>
+ <p>In this exercise you will:</p>
+ <ul>
+  <li>Install the CELEX layer manager</li>
+  <li>Use it to create new annotations for word morphology, syntactic category, and phonology</li>
+  <li>Compute speech rate in syllables per minute</li>
+  <li>Incorporate the new layers in more sophisticated searches</li></ul>
+ <p>------------------------------------------------------------------------</p>
+ <p>The first thing we're going to do is install the CELEX layer manager.</p>
+ <p>This requires having the LDC's CELEX data files on your computer, which will be processed by the layer manager in order to insert the data into the LaBB-CAT database. If you received the CELEX files in a ZIP file, you need to unzip that into a folder, and remember the location of that&nbsp;&nbsp;&nbsp;
+  <br>folder, as you'll need it during the installation process.</p>
+ <ol>
+  <li>First of all, create a new project called <i>CELEX</i> with a description: <i>CELEX Annotations</i></li>
+  <li>Click the <i>layer managers</i> menu option.</li>
+  <li>Click the <i>List of layer managers that are not yet installed</i> link near the bottom.</li>
+  <li>Find “CELEX English” in the list, and click its <i>Install</i> button.</li>
+  <li>You will see a form asking for various details. You can leave most of these with their default values. The one exception is the <i>CELEX &nbsp;ENGLISH data folder</i> option.&nbsp;&nbsp;
+  <br>Set the <i>CELEX ENGLISH data folder</i> parameter to the directory path that leads to the CELEX files on your LaBB-CAT computer.</li>
+  <li>Click <i>Install</i>.&nbsp;&nbsp;
+  <br>You will see a progress bar while the layer manager loads the data from the CELEX files into the LaBB-CAT database. This will take a few minutes.</li>
+  <li>Once it's finished, you will see a new window open with information &nbsp;about the CELEX English layer manager.&nbsp;&nbsp;
+  <br>Reading this information page, you will see some instructions on how to create CELEX annotation layers - leave this tab open for now, as we're going to need those instructions next.&nbsp;&nbsp;
+  <br>
+  <br>Now that we've installed the layer manager, we'll create our first&nbsp;&nbsp;&nbsp;
+  <br>annotations from CELEX -- a layer with morphological annotations.</li>
+  <li>Follow the instructions on the information page to create a layer for word morphology - i.e.:
+ <ul>
+  <li><strong>Layer ID:</strong> morphology</li>
+  <li><strong>Type:</strong> <i>Text</i></li>
+  <li><strong>Alignment:</strong> <i>None</i></li>
+  <li><strong>Manager:</strong> <i>CELEX English</i></li>
+  <li><strong>Project:</strong> <i>CELEX</i></li>
+  <li>...configured with the <i>Morphology</i> option selected, and the default values for everything else.&nbsp;&nbsp;
+  <br><img src="./help.png"> If you're curious about what the configuration options do, and how you can test out the results of your configuration, check the online help page when you are configuring the layer.</li></ul></li>
+  <li>Once the layer has finished generating, click the <i>transcripts</i> menu option, and open the first transcript in the list.</li>
+  <li>Tick the <i>CELEX</i> project, and then tick your new <i>morphology </i>layer.&nbsp;&nbsp;
+  <br>You will see that each word is tagged with morphological information.&nbsp;&nbsp;
+  <br>
+  <br>If you were to do a search for words ending in "ing" on the orthography layer, you would get both gerunds like “coming” and also words like “thing” and “anything” whose “ing” is part of the base word, not a morphological affix. You can now tell these apart in searches, by searching the <i>morphology</i> layer for words that end in “+ing”.</li>
+  <li>Do a search on the <i>orthography</i> layer of words ending in “ing”. Leave the results tab open, so you can compare these results with the next search …</li>
+  <li>Now do a search on the <i>morphology</i> layer of words ending in "+ing", and compare the results.&nbsp;&nbsp;
+  <br><strong>NB</strong> remember that in regular expressions the 'plus' character + has a special meaning - it means “one or more of the previous thing”. In order to search for a literal "+" in the annotation, you have to ‘escape’ the +. Consult the <i>Regular Expression</i> help page to figure out how to do that.&nbsp;&nbsp;
+  <br>
+  <br>Now we will create a layer for syntactic categories from CELEX.</li>
+  <li>Create a new layer for annotating words with their syntactic categories from CELEX:
+ <ul>
+  <li><strong>Layer ID:</strong> syntactic_category</li>
+  <li><strong>Type:</strong> <i>Text</i></li>
+  <li><strong>Alignment:</strong> <i>None</i></li>
+  <li><strong>Manager:</strong> <i>CELEX English</i></li>
+  <li><strong>Project:</strong> <i>CELEX</i></li>
+  <li>...configured with the <i>Syntax</i> option ticked, and the default values for everything else.</li></ul></li>
+  <li>Once the layer has finished generating, go to the search page and do a search for the word “fine” on the <i>orthography</i> layer.</li>
+  <li>Open the transcript of the first match.</li>
+  <li>Tick the syntactic category layer to display the annotations that have just been computed.</li>
+  <li>Now find your instance of the word “fine” again (it's highlighted in the transcript text).&nbsp;&nbsp;
+  <br>You will see that it has “A” for adjective above it.</li>
+  <li>Click on the word “fine” and select the <i>Edit</i> option on the menu that appears.&nbsp;&nbsp;
+  <br>Now look for the <i>syntactic_category</i> layer. You will see that, in addition to “A”, there are several other annotations that are invisible on the transcript.&nbsp;&nbsp;
+  <br>These are all the possible syntactic categories for the word “fine” ordered most-frequent first. Only the first one is displayed in the transcript, but when you do searches, all of them are searched.</li>
+  <li>On the search page, do a search for <i>fine</i> on the <i>orthography </i>layer and <i>A</i> on the syntactic category layer in the same column.&nbsp;&nbsp;
+  <br>This has the effect of ‘ANDing’ together the patterns for a single word, so it will give you words that have “fine” on the <i>orthography</i> layer have <i>A</i> on the <i>syntactic_category</i>* layer.&nbsp;&nbsp;
+  <br><img src="./search-fine-A.png"></li>
+  <li>Do another search, for <i>fine</i> on the <i>orthography</i> layer and <i>V</i> on the <i>syntactic_category</i> layer.&nbsp;&nbsp;
+  <br>Notice that the results are the same. This is because all of the instances of “fine” are marked as ‘possibly an adjective’ and also ‘possibly a verb’.&nbsp;&nbsp;
+  <br>
+  <br>As you can see, simply tagging tokens with all possible syntactic categories from the CELEX lexicon leads to search results that are heavy on false positives. In order to tag tokens with a single syntactic category, we would need to perform ‘disambiguation’ by taking the surrounding transcript into account, in order to decide which of all the possibilities is the correct syntactic category. LaBB-CAT has two layer managers that perform such part-of-speech tagging: the “StanfordPosTagger” and the “MorTagger”. Neither of these use the exact same syntactic labels that are used by CELEX.&nbsp;&nbsp;
+  <br>
+  <br>CELEX can be used to retrieve syllable-counts for words, which in turn can be used, with duration information, to compute speech rate. For each line in each transcript, we already have the start time and the end time, from which we can calculate the duration of the line. All we need now is the number of syllables per line, and we can compute the syllables-per-minute speech rate for each line.</li>
+  <li>Create a new word layer:
+ <ul>
+  <li><strong>Layer ID:</strong> syllable_count</li>
+  <li><strong>Type:</strong> <i>Number</i></li>
+  <li><strong>Alignment:</strong> <i>None</i></li>
+  <li><strong>Manager:</strong> <i>CELEX English</i></li>
+  <li><strong>Project:</strong> <i>CELEX</i></li>
+  <li>...configured with the <i>Syllable count</i> option ticked&nbsp;&nbsp;
+  <br>
+  <br><strong>IMPORTANT</strong>: Ensure tick the <i>First match only</i> option for this layer.&nbsp;&nbsp;&nbsp;
+  <br><img src="./help.png"> If you're not sure why, this is explained in the online help for the layer configuration page.</li></ul></li>
+  <li>Once the layer has finished generating, have a look at a transcript or two to check the results.</li>
+  <li>Click the <i>phrase layers</i> menu option.</li>
+  <li>Add a new phrase layer for speech rate. Key points are:
+ <ul>
+  <li>The layer manager to use is the <i>Statistics Layer Manager.</i></li>
+  <li>The layer to summarize should be the <i>syllable_count</i> layer.</li>
+  <li>The statistic to compute is <i>Label-Sum Rate (per minute)</i>&nbsp;&nbsp;
+  <br><img src="./help.png"> If in doubt, the online help may help.</li>
+  <li>You can calculate over whatever scopes you like, but if you select <i>Utterances</i> this will give you a local speech rate which might be useful when looking at individual search results, and <i>Participants</i> might be interesting if you want to compare speech rate between speakers.</li></ul></li>
+  <li>Have a look in a transcript or two, and a participant or two, to see what the annotations you just generated look like.&nbsp;&nbsp;
+  <br>
+  <br>Now we're going to create a phonemic-transcription layer.</li>
+  <li>Create a new word layer, called <i>phonemes</i>, similar to previous CELEX layers. Key points are:
+ <ul>
+  <li>The layer type should be set to <i>Phonological</i>.</li>
+  <li>The <i>Phonology</i> option should be selected in the layer configuration.</li>
+  <li>Make sure the <i>Pronounce Event Override</i> option is ticked.&nbsp;&nbsp;
+  <br>This means that if the original ELAN transcript contained a ‘pronounce’ annotation for a word (these are marked in ELAN with square brackets), specifying its pronunciation, then the 'pronounce' annotation is used instead of the phonemic transcription from CELEX.</li>
+  <li>Ensure the <i>Generates Segments</i> option is un-ticked.&nbsp;&nbsp;
+  <br>This option allows the layer manager to create <i>segment</i> (sub-word) annotations from the phonemic transcriptions, but we don't want this because in the next exercise, we're going to get HTK to do that instead.</li></ul></li>
+  <li>Once the layer is finished generating, go to a transcript to see what it looks like.&nbsp;&nbsp;
+  <br>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn't use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <i>ASCII</i> option on the layer in the transcript.</li>
+  <li>Select <i>ASCII</i> on the <i>phonemes</i> layer, to see what CELEX is actually producing.&nbsp;&nbsp;
+  <br>You may find that this is somewhat harder to read. Diphthongs are generally represented by digits, schwa is <i>@</i>, and various other characters are used to represent affricates, etc.</li></ol>
+ <p>It's nice to display the IPA symbols, but it's important to understand&nbsp;&nbsp;&nbsp;
+  <br>the DISC symbols (shown in Table&nbsp;&nbsp;&nbsp;
+  <br>[\[table:IPADISC\]](#table:IPADISC){reference-type="ref"&nbsp;&nbsp;&nbsp;
+  <br>reference="table:IPADISC"}), because they are what we have to use when&nbsp;&nbsp;&nbsp;
+  <br>searching on the *phonemes* layer, which we are going to try now.</p>
+ <figure class="table"><table><tbody>
+ <tr><td>IPA</td><td>DISC</td><td>&nbsp;</td><td>&nbsp;</td><td>IPA</td><td>DISC</td><td>&nbsp;</td></tr>
+ <tr><td>p</td><td>p</td><td><strong>p</strong>at</td><td>&nbsp;</td><td>ɪ</td><td>I</td><td>K<strong>I</strong>T</td></tr>
+ <tr><td>b</td><td>b</td><td><strong>b</strong>ad</td><td>&nbsp;</td><td>ε</td><td>E</td><td>DR<strong>E</strong>SS</td></tr>
+ <tr><td>t</td><td>t</td><td><strong>t</strong>ack</td><td>&nbsp;</td><td>æ</td><td>{</td><td>TR<strong>A</strong>P</td></tr>
+ <tr><td>d</td><td>d</td><td><strong>d</strong>ad</td><td>&nbsp;</td><td>ʌ</td><td>V</td><td>STR<strong>U</strong>T</td></tr>
+ <tr><td>k</td><td>k</td><td><strong>c</strong>ad</td><td>&nbsp;</td><td>ɒ</td><td>Q</td><td>L<strong>O</strong>T</td></tr>
+ <tr><td>g</td><td>g</td><td><strong>g</strong>ame</td><td>&nbsp;</td><td>ʊ</td><td>U</td><td>F<strong>OO</strong>T</td></tr>
+ <tr><td>ŋ</td><td>N</td><td>ba<strong>ng</strong></td><td>&nbsp;</td><td>ə</td><td>@</td><td><strong>a</strong>nother</td></tr>
+ <tr><td>m</td><td>m</td><td><strong>m</strong>at</td><td>&nbsp;</td><td>i:</td><td>i</td><td>FL<strong>EE</strong>CE</td></tr>
+ <tr><td>n</td><td>n</td><td><strong>n</strong>at</td><td>&nbsp;</td><td>α:&nbsp;</td><td>#</td><td>f<strong>a</strong>ther</td></tr>
+ <tr><td>l</td><td>l</td><td><strong>l</strong>ad</td><td>&nbsp;</td><td>ɔ:</td><td>$</td><td>TH<strong>OU</strong>GHT</td></tr>
+ <tr><td>r</td><td>r</td><td><strong>r</strong>at</td><td>&nbsp;</td><td>u:</td><td>u</td><td>G<strong>OO</strong>SE</td></tr>
+ <tr><td>f</td><td>f</td><td><strong>f</strong>at</td><td>&nbsp;</td><td>ɜ:</td><td>3</td><td>N<strong>UR</strong>SE</td></tr>
+ <tr><td>v</td><td>v</td><td><strong>v</strong>at</td><td>&nbsp;</td><td>eɪ</td><td>1</td><td>F<strong>A</strong>CE</td></tr>
+ <tr><td>θ</td><td>T</td><td><strong>th</strong>in</td><td>&nbsp;</td><td>αɪ</td><td>2</td><td>PR<strong>I</strong>CE</td></tr>
+ <tr><td>ð</td><td>D</td><td><strong>th</strong>en</td><td>&nbsp;</td><td>ɔɪ</td><td>4</td><td>CH<strong>OI</strong>CE</td></tr>
+ <tr><td>s</td><td>s</td><td><strong>s</strong>ap</td><td>&nbsp;</td><td>əʊ</td><td>5</td><td>G<strong>OA</strong>T</td></tr>
+ <tr><td>z</td><td>z</td><td><strong>z</strong>ap</td><td>&nbsp;</td><td>αʊ</td><td>6</td><td>M<strong>OU</strong>TH</td></tr>
+ <tr><td>&nbsp;∫</td><td>S</td><td><strong>sh</strong>eep</td><td>&nbsp;</td><td>ɪə</td><td>7</td><td>N<strong>EAR</strong></td></tr>
+ <tr><td>ʒ</td><td>Z</td><td>mea<strong>s</strong>ure</td><td>&nbsp;</td><td>εə</td><td>8</td><td>SQU<strong>ARE</strong></td></tr>
+ <tr><td>j</td><td>j</td><td><strong>y</strong>ank</td><td>&nbsp;</td><td>ʊə</td><td>9</td><td>C<strong>URE</strong></td></tr>
+ <tr><td>x</td><td>x</td><td>lo<strong>ch</strong></td><td>&nbsp;</td><td>æ</td><td>c</td><td>t<strong>i</strong>mbre</td></tr>
+ <tr><td>h</td><td>h</td><td><strong>h</strong>ad</td><td>&nbsp;</td><td>ɑ̃ː</td><td>q</td><td>dét<strong>en</strong>te</td></tr>
+ <tr><td>w</td><td>w</td><td><strong>w</strong>et</td><td>&nbsp;</td><td>æ̃ː</td><td>0</td><td>l<strong>in</strong>gerie</td></tr>
+ <tr><td>ʧ</td><td>J</td><td><strong>ch</strong>eap</td><td>&nbsp;</td><td>ɒ̃ː</td><td>~</td><td>bouill<strong>on</strong></td></tr>
+ <tr><td>ʤ</td><td>_</td><td><strong>j</strong>eep</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>ŋ̩</td><td>C</td><td>bac<strong>on</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>m̩</td><td>F</td><td>idealis<strong>m</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>n̩</td><td>H</td><td>burd<strong>en</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>l̩</td><td>P</td><td>&nbsp;dang<strong>le</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure>
+ <ol>
+  <li>Go to the <i>participants</i> page and click <i>Layered Search</i>.</li>
+  <li>Create a search matrix that's two words wide, and includes the&nbsp;<i>orthography</i> and <i>phonemes</i> layers.
+  <br>Now we're going to do a search for the word “the” followed by a word&nbsp;that starts with schwa.</li>
+  <li>Type <i>the</i> in the first <i>orthography</i> box.</li>
+  <li>Click the second box on the <i>phonemes</i> layer, but don't enter anything in the box yet.</li>
+  <li>The box has a little « button to the right of it.
+  <br>Hover the mouse over it to see what it says, and then click it.
+  <br>You will see that a section opens with a bunch of phoneme symbols on&nbsp;it.</li>
+  <li>Find the schwa symbol <i>ə</i> and click it.
+  <br>You will see that a <i>@</i> symbol appears in the box.
+  <br><i>@</i> is the DISC symbol for <i>ə</i>, so in order to search for schwa, wehave to use it in our search pattern.</li>
+  <li>We want words that start with schwa, so type <i>.*</i> after the <i>@ </i>symbol.</li>
+  <li>Click <i>Search</i>.
+  <br>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against *all their possible phonemic transcriptions*, so if CELEX has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.
+  <br>You can check this by clicking on a match, and then clicking on the word in the transcript and selecting <i>Edit</i>, which displays all the annotations for the given token.
+  <br>
+  <br>Now that we have phonemic transcripts, we can do a better job of the search we tried in an earlier exercise -- "the" followed by a word starting with a vowel…</li>
+  <li>Change your search so that, instead of just <i>@</i> at the beginning of the word, it matches any vowel.
+  <br>You could use the square-brackets <i>[]</i> at the start of your pattern, and type all vowel symbols inside them - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.
+  <br><i>Alternatively</i>, you can simply click the <i>VOWEL</i> link in the ‘IPA helper’, which will add all the DISC vowels for you, already enclosed in square-brackets.</li>
+  <li>Run the search and check that it's giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li></ol>
+ <p>Now that you've generated a few different layers, and have seen how the search matrix works, you might want to try out some of the following searches, or invent some others:</p>
+ <ul>
+  <li>Instances of an article followed by a noun</li>
+  <li>Words which have the DRESS vowel as the second phoneme</li>
+  <li>The word “the” followed by a word beginning with the phoneme /k/</li>
+  <li>Words ending with schwa, followed by words beginning with /p/ or /b/</li>
+  <li>Words that begin with "k" in their spelling, but begin with the phoneme /n/</li>
+  <li>Words that begin with "k" in their spelling, but <i>do not</i> begin with the phoneme /n/</li>
+  <li>Plurals that end in /s/ or /z/ or /ɪz/
+  <br>&nbsp;</li></ul></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>
