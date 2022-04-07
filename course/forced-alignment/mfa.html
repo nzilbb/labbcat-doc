@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>7 - MFA</title>
+    <base href="../">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>7 - MFA</h2>
+ <p>The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by Michael McAuliffe and others that can use words with phonemic transcriptions, and the corresponding audio, to force-align words and phones; i.e. determine the start and end time of each speech sound within each word, and thus the start/end times of the words.</p>
+ <p>The annotator can work in two modes:</p>
+ <ul>
+  <li><i>Train and Align</i> - acoustic models are trained on the data you want to align, which can be in any language as long as you have a pronunciation dictionary for it.</li>
+  <li><i>Pre-trained Models/Dictionaries</i> - pre-trained models and pronunciation dictionaries are supplied by the Montreal Forced Aligner and used for forced alignment. Languages for which dictionaries are available include:
+ <ul>
+  <li>English</li>
+  <li>French</li>
+  <li>German</li>
+  <li>Brazilian Portuguese</li>
+  <li>Spanish</li>
+  <li>Catalan</li></ul></li></ul>
+ <p>As the data we have is in English, we will use the <i>Pre-trained Models/Dictionaries</i> approach in this exercise.</p>
+ <p>In this exercise you will</p>
+ <ul>
+  <li>install the MFA Layer Manager,</li>
+  <li>force-align the speech of all of the participants in your database, and</li>
+  <li>check and manually correct the alignments.</li></ul>
+ <p><i><strong>NB</strong>: In this exercise, you will set up Praat Integration in your web browser. There is currently no Praat integration support for Microsoft's Edge' browser, so if you normally use 'Edge' on Windows, you may need to swap to another browser for this exercise - e.g. Microsoft Internet Explorer, Google Chrome, or Mozilla Firefox.</i></p>
+ <p>------------------------------------------------------------------------</p>
+ <p>MFA is a 3rd-party tool (<a target="_blank" rel="noopener noreferrer" href="https://montrealcorpustools.github.io/Montreal-Forced-Aligner">https://montrealcorpustools.github.io/Montreal-Forced-Aligner/</a>) that LaBB-CAT integrates with via a Layer Manager module. MFA is not included as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.</p>
+ <p>If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server:</p>
+<h3>Linux</h3>
+ <p>To install the Montreal Forced Aligner on Linux systems for all users, so that your web server can access it if required:</p>
+ <ol>
+  <li>Download Miniconda:&nbsp;
+  <br><i>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</i></li>
+  <li>Start the installer:&nbsp;
+  <br><i>sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</i></li>
+  <li>When asked the location to install Miniconda, use:&nbsp;
+  <br><i>/opt/conda</i></li>
+  <li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond no</li>
+  <li>Change ownership of the conda files):&nbsp;
+  <br><i>sudo chown -R $USERNAME:$USERNAME /opt/conda</i></li>
+  <li>Make conda accessible to all users (so you web server can access MFA):&nbsp;
+  <br><i>chmod -R go-w /opt/conda</i>&nbsp;
+  <br><i>chmod -R go+rX /opt/conda</i></li>
+  <li>Install the Montreal Forced Aligner&nbsp;
+  <br><i>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</i></li></ol>
+<h3>Windows</h3>
+ <p>To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:</p>
+ <ol>
+  <li>Download the Miniconda installer:&nbsp;
+  <br><a target="_blank" rel="noopener noreferrer" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
+  <li>Start the installer by double-clicking it.</li>
+  <li>When asked, select the “Install for all users” option. This willinstall conda somewhere like&nbsp;
+  <br><i>C:\ProgramData\Miniconda3</i></li>
+  <li>When asked, tick the <i>add to PATH</i> option.</li>
+  <li>Install the Montreal Forced Aligner by specifying a path to the environment&nbsp;
+  <br><i>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</i></li></ol>
+<h3>Docker Container</h3>
+ <p>If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager (below)</p>
+ <p>&nbsp;</p>
+ <p>Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.</p>
+ <ol>
+  <li>Click the <i>layer managers</i> menu option.</li>
+  <li>Click the <i>List of layer managers that are not yet installed</i> link.</li>
+  <li>Find MFA Manager in the list, and click its <i>Install</i> button and then click <i>Install</i> again.&nbsp;
+  <br>
+  <br>As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to in the <i>Path to MFA</i> box.
+  <br>
+  <br>If the <i>Path to MFA</i> box is empty and there's an <i>Attempt to Install MFA</i> button, click the button, and LaBB-CAT will try to install MFA on the server for you. This process can take a few minutes, and the <i>Configure</i> button will be disabled until it's finished.</li>
+  <li>Click <i>Configure</i> to continue the layer manager installation.&nbsp;
+  <br>You will see a window open with some information about integrating with MFA, including the information you've already read above.</li>
+  <li>Now you need to add a <i>phrase layer</i> for the MFA configuration:
+ <ul>
+  <li><strong>Layer ID:</strong> mfa</li>
+  <li><strong>Type:</strong> <i>Text</i></li>
+  <li><strong>Alignment:</strong> <i>Intervals</i></li>
+  <li><strong>Manager:</strong> <i>MFA Manager</i></li>
+  <li><strong>Generate:</strong> <i>always</i></li>
+  <li><strong>Description:</strong> MFA alignment time</li></ul></li>
+  <li>When you configure the layer, set the following options:
+ <ul>
+  <li><strong>Dictionary Name:</strong> <i>english</i></li>
+  <li><strong>Pretrained Acoustic Models:</strong> <i>english</i></li>
+  <li>The rest of the options can be left as their default values.&nbsp;
+  <br>
+  <br>If you're curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</li></ul></li>
+  <li>Click <i>Set Parameters</i></li>
+  <li>Click <i>Regenerate</i>&nbsp;
+  <br>You will see a progress bar while LaBB-CAT force-aligns all the transcripts in the corpus, which may take a few minutes.</li>
+  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are nowaligned.”&nbsp;
+  <br>
+  <br>You can inspect/correct alignments using LaBB-CAT's integration with Praat.</li>
+  <li>Go back to the <i>UC207YW.eaf</i> transcript.</li>
+  <li>Tick both the <i>htk</i> layer and the <i>segments</i> layer.&nbsp;&nbsp;
+  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).&nbsp;&nbsp;
+  <br>
+  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;&nbsp;
+  <br>be done once:</li>
+  <li>On the top-right of the page, above the playback controls, there's a Praat icon &nbsp;- click it.</li>
+  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;&nbsp;
+  <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.&nbsp;&nbsp;
+  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.&nbsp;&nbsp;
+  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.&nbsp;&nbsp;
+  <br>
+  <br>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</li>
+  <li>Click on a line that has been aligned, and select the <i>Open Text Grid in Praat</i> option on the menu.&nbsp;&nbsp;
+  <br>You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <i>Allow</i>.&nbsp;&nbsp;
+  <br>Praat should open, and show you a spectrogram of the line's audio, with a TextGrid below that includes the words and the segments.</li>
+  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.&nbsp;&nbsp;
+  <br>Try this out with different lines in the transcript.&nbsp;&nbsp;
+  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.&nbsp;&nbsp;
+  <br>
+  <br>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <i>Import Changes</i>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</li>
+  <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they're more accurate, and then click the <i>Import Changes</i> button in the transcript.&nbsp;&nbsp;
+  <br>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because HTK will never change them again.&nbsp;&nbsp;
+  <br>
+  <br>There are some rules about what you can change:
+ <ol>
+  <li>You're not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead).</li>
+  <li>All the phones must be within the bounds of their own word.</li>
+  <li>The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.</li>
+  <li>You should not change the alignment of the utterance itself (which would only be possible if you select the <i>Open Text Grid incl. ± 1 utterance in Praat</i> option).</li></ol></li></ol>
+ <p>In this exercise, you have seen how MFA can be used to compute word and phone alignments automatically from your data, and when using a pronunciation dictionary and pre-trained acoustic models, the process is very straightforward.</p>
+ <p>Such dictionaries/models are only available for a limited number of languages, but if you have a pronunciation dictionary for the language your corpus uses, MFA can also be used to train its own acoustic models from your corpus, and then use them for forced alignment. This process involves a fair amount of careful transcription, tagging, and dictionary filling.</p>
+ <p>Perfect automatic alignments are not guaranteed, but LaBB-CAT has a mechanism for manually correcting poor alignments.</p></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>

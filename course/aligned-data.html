@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>8 - Aligned Data</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>8 - Aligned Data</h2>
+ <p>In a previous exercise, we force-aligned words and their segments, and also did a little hand-correction of the alignments. Now that we've got some relatively reliable phone-level alignments, we're going to explore their search and annotation possibilities.</p>
+ <p>In this exercise you will</p>
+ <ul>
+  <li>see how the alignments affect speech rate computations,&nbsp;</li>
+  <li>automatically annotate pauses between words,</li>
+  <li>search for tokens of individual, time-aligned segments,</li>
+  <li>create time-aligned segment annotations via Praat, and</li>
+  <li>automatically extract features from search-result intervals using Praat</li></ul>
+ <p>------------------------------------------------------------------------</p>
+ <p>You will have noticed that HTK introduces pauses between the words - almost always at the beginnings and ends of utterances, and also sometimes in between. These pauses will affect the speech-rate statistics that are computed by the Statistics layer manager for the speech rate layer that we set up earlier. Now that there are pauses, these are excluded (i.e. not counted as speech) for the speech-rate statistics.</p>
+ <p>However, for this change to be affected, the speech rate layer needs to be regenerated.</p>
+ <ol>
+  <li>Go to the <i>transcripts</i> page and open the transcript we force-aligned earlier, <i>UC207YW.eaf</i>, if you don't still have it open.</li>
+  <li>Tick the <i>speech rate</i> layer for display, and make a note of some of the speech rate annotations (which ones are there depends on what you selected as the scopes for the layer).</li>
+  <li>At the top of the transcript, in the <i>formats</i> menu, click the <i>regenerate layers</i> option.
+  <br>This will display a list of managed layers.</li>
+  <li>Select the <i>speech rate</i> layer and click <i>Regenerate</i>.
+  <br>You will see a progress bar while the statistics for the transcript are computed again.</li>
+  <li>Once that's finished, go back to the transcript and check the speech rate annotations again. You should see that at least some of them are different.
+  <br>
+  <br>These pauses can also be directly annotated, in case you're interesting in finding them for analysis.&nbsp;</li>
+  <li>Add a new word layer with the following attributes:
+ <ul>
+  <li><strong>Layer ID:</strong> previous_pause</li>
+  <li><strong>Type:</strong> <i>Number</i></li>
+  <li><strong>Alignment:</strong> <i>None</i></li>
+  <li><strong>Manager:</strong> <i>Context Layer Manager</i></li>
+  <li><strong>Generate:</strong> <i>Always</i></li>
+  <li><strong>Project:</strong> <i>pauses</i></li></ul></li>
+  <li>Configure the layer with the following settings:
+ <ul>
+  <li><strong>Source layer:</strong> <i>word</i></li>
+  <li>Select the <i>Pause Detection</i> option</li>
+  <li><strong>Minimum Pause Length:</strong> unticked</li>
+  <li><strong>Maximum Pause Length:</strong> unticked</li>
+  <li><i>Only pauses within the same turn:</i> unticked</li>
+  <li>Leave the <i>Annotate the word following the pause</i> option selected.
+  <br><img src="./help.png"> You may be interested in looking at the online help to find out what kinds of annotations the <i>Context</i> layermanager can create.
+  <br>Click <i>Save</i>.</li></ul></li>
+  <li>Once the layer is generated, go back to the <i>UC207YW.eaf</i> transcript and display the <i>previous_pause</i> layer (you might have to tick the pauses project to make the layer option visible).
+  <br>(You also might want to un-tick some of the other layers, to avoid clutter.)</li>
+  <li>You should see that a subset of words are annotated with a number, which is the length of the pause before that word.
+  <br>Open one or two such utterances in Praat to check that the lengths are accurate.
+  <br>
+  <br>You may notice that pauses in the middle of utterances are always right, but the pause before the first word in the utterance seems wrong. See if you can figure out why.
+  <br>
+  <br>Now we're going to search for some instances of vowels of interest (the <i>FLEECE</i> vowel in this case), and annotate them with formant measurements.</li>
+  <li>First of all, create a new project called <i>formants</i></li>
+  <li>Now click the <i>segment layers</i> menu option.
+  <br>We're going to add a layer that annotates segments - i.e. individual phones within words</li>
+  <li>Fill in the new-layer form at the bottom with the following details:
+ <ul>
+  <li><strong>Layer ID:</strong> F1</li>
+  <li><strong>Type:</strong> <i>Number</i></li>
+  <li><strong>Alignment:</strong> <i>Instants</i></li>
+  <li><strong>Manager:</strong> (don't select any of the options, this is a manual annotation layer)</li>
+  <li><strong>Generate:</strong> (not relevant as it's not a managed layer)</li>
+  <li><strong>Project:</strong> <i>formants</i></li>
+  <li><strong>Description:</strong> First Formant
+  <br>Click <i>New</i>.</li></ul></li>
+  <li>Select <i>participants</i> on the menu, and click <i>Layered Search</i>.</li>
+  <li>Tick the <i>segment</i> layer.
+  <br>The segments layer contains annotations at the sub-word level - i.e. there are potentially multiple annotations per word, each annotation representing a phone of the word. You will see that, as with other layers, there is a box on the segments layer for a regular expression.
+  <br>As with other patterns in the search matrix, the pattern that you enter in the box is matched against individual annotations. So if you enter <i>i</i> in the in the box, it will match each <i>FLEECE</i> vowel segment in each word in the database.
+  <br>
+  <br><strong>NB</strong> It's important to realise that if you enter a pattern that would match more than a single character on this layer (i.e. more than a single phoneme) then no search results will be returned, because each annotation on this layer is only a single character long (remember the DISC encoding uses one character per phoneme).
+  <br>For example, if you enter <i>.*IN</i> for your search, intending to match all words ending in “...ing”, then no results will be returned, because no single segment will ever match that pattern.</li>
+  <li>We want to search for all instances of the <i>FLEECE</i> vowel, so enter <i>i</i> in the segments pattern box.</li>
+  <li>In our particular database, if there's any annotation on the segments layer, then we can be sure that it's been aligned at least by HTK or MFA (if not manually corrected). However, there are configurations of CELEX layers that would put unaligned annotations on that layer.
+  <br>To make sure we only get words that have been aligned by HTK/MFA or manually, tick the <i>only match words that are aligned</i> option.</li>
+  <li>Click <i>Search</i>.
+  <br>Once the search is finished, you should notice that the only transcripts returned are those that include speakers you've done force-alignment on.</li>
+  <li>Click on the first result, to open its transcript.</li>
+  <li>Scroll to the top and tick the <i>include empty layers</i> option.</li>
+  <li>Tick the <i>formants</i> project option.
+  <br>This will reveal the (empty) <i>F1</i> layer below segments in the list of layers.</li>
+  <li>Tick the <i>F1</i> layer.
+  <br>The transcript will reload to include that layer (even though it's currently empty).</li>
+  <li>Click on the first search result (which is highlighted in green).</li>
+  <li>Select the <i>Open TextGrid in Praat</i> option.
+  <br>This will open the audio of the line, with a TextGrid that includes the aligned words and segments.
+  <br>There's also a tier for the <i>F1</i> layer. (If there isn't, it's because the alignment setting for the layer is set to <i>Not aligned </i>instead of <i>Instants</i>)</li>
+  <li>In Praat, find our instance of the <i>FLEECE</i> vowel, and click on a good point in the spectrogram for measuring it's F1 value.</li>
+  <li>Get the F1 value (hit the <i>&lt;F1&gt;</i> key on your keyboard)</li>
+  <li>Copy the value that is displayed on to the clipboard (i.e. select it and hit <i>&lt;Ctrl&gt;+&lt;C&gt;</i> on your keyboard)</li>
+  <li>Back in the TextGrid, add a boundary on the <i>F1</i> tier at that point (if it's the fourth tier, hit <i>&lt;Ctrl&gt;+&lt;F4&gt;</i> on your keyboard)</li>
+  <li>Paste the F1 value that you copied earlier (i.e. hit <i>&lt;Ctrl&gt;+&lt;V&gt;</i> on your keyboard)
+  <br>Now you've annotated the vowel with its F1 value, and we want to save that annotation back to the LaBB-CAT database.</li>
+  <li>Click back on the LaBB-CAT transcript window.</li>
+  <li>Click the <i>Import Changes</i> button that has appeared to the left ofthe line with the first match.
+  <br>You should see a message indicating that the annotations has been saved.</li>
+  <li>Repeat the above steps for the next few matches in the transcript.</li>
+  <li>Once you've added at least a handful of annotations on the <i>F1 </i>layer, refresh the interactive transcript page (i.e. use the reload button in your browser, or the <i>&lt;F5&gt;</i> key).
+  <br>You will see that for each match you've annotated, the F1 value you entered appears below the corresponding word. The transcript doesn't display the time-alignment information, but that is also stored in the database.</li>
+  <li>Open the TextGrid for one of the lines you've annotated.
+  <br>You should see the annotation that you made is in the TextGrid, at the corresponding point in time.
+  <br>
+  <br>These manual annotations are also searchable (so for example you could search for all the <i>FLEECE</i> vowels with an F1 measure within acparticular range), and can be exported in CSV search results. To see that in action:</li>
+  <li>Repeat the segment search we did before (i.e. all aligned <i>FLEECE</i> vowels).</li>
+  <li>Once you see the results page, click the ▼ button next to the <i>CSV Export</i> button link, and tick the <i>F1</i> layer.</li>
+  <li>Click <i>CVS Export</i>.</li>
+  <li>Save and open the resulting file.
+  <br>You will see that there are two columns, one called “Target F1”, which contains the annotations you have made, and the other called “Target F1 start”, which contains the time of the annotation, in seconds from the beginning of the recording.
+  <br>
+  <br>We will now see that you can use Praat to automatically extract certain measurements, given start and end times from search results. In order for this to work, we first need to ensure that the LaBB-CAT server knows where Praat is installed:</li>
+  <li>In LaBB-CAT, click the <i>system attributes</i> menu option.
+  <br>This shows a form with various options on it, one of which is <strong>Praat Path</strong></li>
+  <li>If the <strong>Praat Path</strong> option is blank, enter the location of Praat on your LaBB-CAT server, and click <i>Save</i>. The setting should be the path to the folder that contains praat, e.g.
+ <ul>
+  <li>on Windows, this might be <i>C:\Program Files\Praat</i></li>
+  <li>on OS X, this might be <i>/Applications</i>
+  <br>
+  <br>Let's say we want to extract F1 and F2 from all our aligned <i>FLEECE </i>vowels.</li></ul></li>
+  <li>We are going to use the CSV file you just extracted.
+  <br>If you don't have it any more, repeat the search and export the results to CSV.
+  <br>The CSV file includes a column called “Target segment”, which contains the annotation that matched the pattern (in this case they will all be “i”), and columns called “Target segment start” and “Target segment end” - these are the start and end times of each matching <i>FLEECE</i> vowel.
+  <br>We are going to use these start/end times to get Praat to take formant measurements for us.</li>
+  <li>In LaBB-CAT, click the <i>upload</i> menu option.</li>
+  <li>Click the <i>process with praat</i> option.
+  <br>If the option is not there, it means that the <strong>Praat Path </strong>attribute is not set. Go back to the steps above and ensure that <strong>Praat Path</strong> is set before continuing…</li>
+  <li>Click <i>Choose File</i> and select the CSV results that you saved above.
+  <br>You will see a form to fill in, and the first couple of settings (<i>Transcript Name column</i> and <i>Participant column</i> should be already filled in.</li>
+  <li>For the <i>Start Time column</i> ensure that the <i>Target segment start</i> option is selected.</li>
+  <li>For the <i>End Time column</i> ensure the <i>Target segment end</i> option is selected.
+  <br>
+  <br>These two settings define the start/end times of the phone.&nbsp;
+  <br>
+  <br>For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You'll see there's a setting for that (which you can leave at the default of <i>0.025</i>s), and you will see options for various measurements.
+  <br>
+  <br>The default options are for <i>F1</i> and <i>F2</i> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand the advanced settings section by clicking the triangular bullet next to “Formants” and other measurements, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</li>
+  <li>Click <i>Process</i>.
+  <br>You will see a progress bar while LaBB-CAT generates a Praat scripts and runs them with Praat.</li>
+  <li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <i>CSV file with measurements</i> link) - save and open it.
+  <br>You will see that it's a copy of the CSV file you uploaded, with some extra columns added on the right.
+  <br>Depending on your settings, this will include at least one column per measurement you selected (the formant columns also include on that contains the time at which the measurements were taken), and a final column called “Error” which is hopefully blank, but which might contain errors reported back by Praat (e.g. if it couldn't find the audio file or ran into any other problem during processing).</li></ol>
+ <p>During this exercise, you have seen that the inter-word pauses created by forced alignment introduce the possibility of more accurate speech-rate statistics, and can themselves be automatically annotated, in case they are of interest for search or analysis.</p>
+ <p>You've also seen that you can create manual time-aligned annotation layers, which can be used to annotate phones (they can also be used for words or spans of words, by creating word layers or phrase/span layers), and that you can also use intervals from CSV search results to extract acoustic measurements automatically using Praat.</p>
+ <p>Obviously these measurements are as reliable as the intervals themselves, so care needs to be taken to maximise the likelihood of good HTK alignments, and to check and possibly manually-correct those alignments.</p></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>
