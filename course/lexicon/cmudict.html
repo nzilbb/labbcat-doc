@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>6 - Integrating with the CMU Pronouncing </title>
+    <base href="../">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>6 - Integrating with the CMU Pronouncing Dictionary</h2>
+ <p>LaBB-CAT can be integrated with the CMU Pronouncing Dictionary, which is a free pronunciation dictionary of English maintained by the Speech Group in the School of Computer Science at Carnegie Mellon University. The pronunciations are based on ‘American English’, so are suitable for ‘American English’ recordings.</p>
+ <p>It can also serve as a free alternative to the CELEX lexicon (which is based on ‘British English’), for those that have not purchased CELEX, although is less ideal for 'non-rhotic' varieties of English.</p>
+ <p>In this exercise you will:</p>
+ <ul>
+  <li>Install the CMU Pronouncing Dictionary layer manager</li>
+  <li>Use it to create new annotations for word pronunciations</li>
+  <li>Incorporate the new layers in more sophisticated searches</li></ul>
+ <p>------------------------------------------------------------------------</p>
+ <p>The first thing we're going to do is install the CMU Dict layer&nbsp;manager...</p>
+ <ol>
+  <li>Click the <i>layer managers</i> menu option.</li>
+  <li>Click the <i>List of layer managers that are not yet installed</i> link near the bottom.</li>
+  <li>Find “CMU Pronouncing Dictionary” in the list, and click its <i>Install</i> button, <i>Install</i> again, and then the <i>Configure</i> button. You will see a progress bar while the layer manager loads the data from the dictionary file into the LaBB-CAT database. This will take a minute or so.</li>
+  <li>Once it's finished, you will see a page with information about the CMU Pronouncing Dictionary layer manager.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>Now that we've installed the layer manager, we'll create a layer that contains word pronunciations.</li>
+  <li>Add a <i>word layer</i> managed by the <i>CMU Pronouncing Dictionary</i> for word pronunciation - i.e.:
+ <ul>
+  <li><strong>Layer ID:</strong> phonemes</li>
+  <li><strong>Type:</strong> <i>Phonological</i></li>
+  <li><strong>Alignment:</strong> <i>None</i></li>
+  <li><strong>Manager:</strong> <i>CMU Pronouncing Dictionary</i></li>
+  <li>...configured with the <strong>Encoding:</strong> field set to <i>CELEX DISC</i>, and the default values for everything else.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>If you're curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</li></ul></li>
+  <li>Once the layer has finished generating, click the transcripts menu option, and open the first transcript in the list.</li>
+  <li>Tick your new <i>phonemes</i> layer.&nbsp;&nbsp;&nbsp;
+  <br>You will see that each word is tagged with a phonemic transcription. You will notice that the annotations are displayed using IPA symbols. However, the layer manager doesn't use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme.&nbsp;&nbsp;&nbsp;
+  <br>The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <i>ASCII</i> option on the layer in the transcript.</li>
+  <li>Select <i>ASCII</i> on the phonemes layer, to see what the layer manager is actually producing.&nbsp;&nbsp;&nbsp;
+  <br>You may find that this is somewhat harder to read. Diphthongs are generally represented by digits, and various other characters are used to represent affricates, etc.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>It's nice to display the IPA symbols, but it's important to understand the DISC symbols (shown in the table below), because they are what we have to use when searching on the phonemes layer, which we are going to try now.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>As you may have seen on the layer configuration page, there is another possible representation of the pronunciations, called ‘ARPABET’; this is what is used in the original dictionary file published by CMU, and uses up to three uppercase characters per phoneme. While we're not using ARPABET in this exercise, you can use it if you like, and the ARPABET&nbsp;&nbsp;&nbsp;
+  <br>symbols are included in the table. In the table, you will see that there are gaps where no ARPABET version of the phoneme is shown; this means that the CMU Pronouncing Dictionary contains no entries that include that phoneme.&nbsp;&nbsp;&nbsp;
+  <br>&nbsp;</li></ol>
+ <figure class="table"><table><tbody>
+ <tr><td>IPA</td><td>DISC</td><td>ARPABET</td><td>&nbsp;</td><td>&nbsp;</td><td>IPA</td><td>DISC</td><td>ARPABET</td><td>&nbsp;</td></tr>
+ <tr><td>p</td><td>p</td><td>P</td><td><strong>p</strong>at</td><td>&nbsp;</td><td>ɪ</td><td>I</td><td>IH</td><td>K<strong>I</strong>T</td></tr>
+ <tr><td>b</td><td>b</td><td>B</td><td><strong>b</strong>ad</td><td>&nbsp;</td><td>ε</td><td>E</td><td>EH</td><td>DR<strong>E</strong>SS</td></tr>
+ <tr><td>t</td><td>t</td><td>T</td><td><strong>t</strong>ack</td><td>&nbsp;</td><td>æ</td><td>{</td><td>AE</td><td>TR<strong>A</strong>P</td></tr>
+ <tr><td>d</td><td>d</td><td>D</td><td><strong>d</strong>ad</td><td>&nbsp;</td><td>ʌ</td><td>V</td><td>AH</td><td>STR<strong>U</strong>T</td></tr>
+ <tr><td>k</td><td>k</td><td>K</td><td><strong>c</strong>ad</td><td>&nbsp;</td><td>ɒ</td><td>Q</td><td>AH</td><td>L<strong>O</strong>T</td></tr>
+ <tr><td>g</td><td>g</td><td>G</td><td><strong>g</strong>ame</td><td>&nbsp;</td><td>ʊ</td><td>U</td><td>UH</td><td>F<strong>OO</strong>T</td></tr>
+ <tr><td>ŋ</td><td>N</td><td>NG</td><td>ba<strong>ng</strong></td><td>&nbsp;</td><td>ə</td><td>@</td><td>[vowel ending in 0]</td><td><strong>a</strong>nother</td></tr>
+ <tr><td>m</td><td>m</td><td>M</td><td><strong>m</strong>at</td><td>&nbsp;</td><td>i:</td><td>i</td><td>IY</td><td>FL<strong>EE</strong>CE</td></tr>
+ <tr><td>n</td><td>n</td><td>N</td><td><strong>n</strong>at</td><td>&nbsp;</td><td>α:&nbsp;</td><td>#</td><td>AA</td><td>f<strong>a</strong>ther</td></tr>
+ <tr><td>l</td><td>l</td><td>L</td><td><strong>l</strong>ad</td><td>&nbsp;</td><td>ɔ:</td><td>$</td><td>AO</td><td>TH<strong>OU</strong>GHT</td></tr>
+ <tr><td>r</td><td>r</td><td>R</td><td><strong>r</strong>at</td><td>&nbsp;</td><td>u:</td><td>u</td><td>UW</td><td>G<strong>OO</strong>SE</td></tr>
+ <tr><td>f</td><td>f</td><td>F</td><td><strong>f</strong>at</td><td>&nbsp;</td><td>ɜ:</td><td>3</td><td>ER</td><td>N<strong>UR</strong>SE</td></tr>
+ <tr><td>v</td><td>v</td><td>V</td><td><strong>v</strong>at</td><td>&nbsp;</td><td>eɪ</td><td>1</td><td>EY</td><td>F<strong>A</strong>CE</td></tr>
+ <tr><td>θ</td><td>T</td><td>TH</td><td><strong>th</strong>in</td><td>&nbsp;</td><td>αɪ</td><td>2</td><td>AY</td><td>PR<strong>I</strong>CE</td></tr>
+ <tr><td>ð</td><td>D</td><td>DH</td><td><strong>th</strong>en</td><td>&nbsp;</td><td>ɔɪ</td><td>4</td><td>OY</td><td>CH<strong>OI</strong>CE</td></tr>
+ <tr><td>s</td><td>s</td><td>S</td><td><strong>s</strong>ap</td><td>&nbsp;</td><td>əʊ</td><td>5</td><td>OW</td><td>G<strong>OA</strong>T</td></tr>
+ <tr><td>z</td><td>z</td><td>Z</td><td><strong>z</strong>ap</td><td>&nbsp;</td><td>αʊ</td><td>6</td><td>AW</td><td>M<strong>OU</strong>TH</td></tr>
+ <tr><td>&nbsp;∫</td><td>S</td><td>SH</td><td><strong>sh</strong>eep</td><td>&nbsp;</td><td>ɪə</td><td>7</td><td>&nbsp;</td><td>N<strong>EAR</strong></td></tr>
+ <tr><td>ʒ</td><td>Z</td><td>ZH</td><td>mea<strong>s</strong>ure</td><td>&nbsp;</td><td>εə</td><td>8</td><td>&nbsp;</td><td>SQU<strong>ARE</strong></td></tr>
+ <tr><td>j</td><td>j</td><td>Y</td><td><strong>y</strong>ank</td><td>&nbsp;</td><td>ʊə</td><td>9</td><td>&nbsp;</td><td>C<strong>URE</strong></td></tr>
+ <tr><td>x</td><td>x</td><td>&nbsp;</td><td>lo<strong>ch</strong></td><td>&nbsp;</td><td>æ</td><td>c</td><td>&nbsp;</td><td>t<strong>i</strong>mbre</td></tr>
+ <tr><td>h</td><td>h</td><td>HH</td><td><strong>h</strong>ad</td><td>&nbsp;</td><td>ɑ̃ː</td><td>q</td><td>&nbsp;</td><td>dét<strong>en</strong>te</td></tr>
+ <tr><td>w</td><td>w</td><td>W</td><td><strong>w</strong>et</td><td>&nbsp;</td><td>æ̃ː</td><td>0</td><td>&nbsp;</td><td>l<strong>in</strong>gerie</td></tr>
+ <tr><td>ʧ</td><td>J</td><td>CH</td><td><strong>ch</strong>eap</td><td>&nbsp;</td><td>ɒ̃ː</td><td>~</td><td>&nbsp;</td><td>bouill<strong>on</strong></td></tr>
+ <tr><td>ʤ</td><td>_</td><td>JH</td><td><strong>j</strong>eep</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>ŋ̩</td><td>C</td><td>&nbsp;</td><td>bac<strong>on</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>m̩</td><td>F</td><td>&nbsp;</td><td>idealis<strong>m</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>n̩</td><td>H</td><td>&nbsp;</td><td>burd<strong>en</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>l̩</td><td>P</td><td>&nbsp;</td><td>&nbsp;dang<strong>le</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></figure>
+ <ol>
+  <li>Go to the <i>participants</i> page and click <i>Layered Search</i>.</li>
+  <li>Search your new <i>phonemes</i> layer for words that start with <i>h</i>&nbsp;&nbsp;&nbsp;
+  <br>You will see that the results contain words that you might not expect, like “where”, “which” and “when”.</li>
+  <li>Click one of these unexpected results, to open the transcript.&nbsp;&nbsp;&nbsp;
+  <br>You will see that, in the transcript, the pronunciation appears to start with /w/, not with /h/.</li>
+  <li>Click on the word and select the <i>Edit</i> option on the menu that appears.&nbsp;&nbsp;&nbsp;
+  <br>Now look for the <i>phonemes</i> layer. You will see that, in addition to the pronunciation that starts with /w/, there's another annotation that starts with /h/, which is invisible on the transcript.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>These are all the possible phonemic transcriptions for the word. Only the first one is displayed in the transcript, but when you do searches, all of them are searched. This can result in unexpected matches like this, but it can be useful, as it ensures that when you search for a particular phonemic pattern, all possible tokens are returned, not just those that match on the most ‘normal’ transcription.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>Now we're going to try to do a search for the word "the" followed by a word that starts with schwa.</li>
+  <li>Go to the <i>participants</i> page and click <i>Layered Search</i>.</li>
+  <li>Create a search matrix that's two words wide, and includes the <i>orthography</i> and <i>phonemes </i>layers.</li>
+  <li>Type <i>the</i> in the first <i>orthography</i> box.</li>
+  <li>Click the second box on the <i>phonemes</i> layer, but don't enter anything in the box yet.</li>
+  <li>The box has a little « button to the right of it.&nbsp;&nbsp;&nbsp;
+  <br>Hover the mouse over it to see what it says, and then click it.&nbsp;&nbsp;&nbsp;
+  <br>You will see that a section opens with a bunch of phoneme symbols on it.</li>
+  <li>Find the schwa symbol <i>ə</i> and click it.&nbsp;&nbsp;&nbsp;
+  <br>You will see that an <i>@</i> symbol appears in the box.&nbsp;&nbsp;&nbsp;
+  <br><i>@</i> is the DISC symbol for /<i>ə</i>/, so in order to search for schwa, we have to use it in our search pattern.</li>
+  <li>We want words that start with schwa, so type <i>.*</i> after the <i>@</i> symbol.</li>
+  <li>Click <i>Search</i>.&nbsp;&nbsp;&nbsp;
+  <br>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against <i>all their possible phonemic transcriptions</i>, so if the CMU dictionary has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.&nbsp;&nbsp;&nbsp;
+  <br>You can check this by clicking on a match, and then clicking on the word in the transcript and selecting <i>Edit</i>, which displays all the annotations for the given token.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>If you check the table above, you will see that <i>ə</i> has no specific representation in ARPABET. This means that no CMU Pronouncing Dictionary pronunciations include schwa explicitly. Instead, 'unstressed' versions of other vowels are used. For example, the word “transcription” is transcribed <i>T R AE2 N S K R IH1 P SH AH0 N</i> in the original dictionary&nbsp;&nbsp;&nbsp;
+  <br>file; the final vowel <i>AH</i> is the ‘STRUT’ vowel, and the <i>0</i> means it's ‘unstressed’. The layer manager translates this to DISC as <i>tr{nskrIpS@n</i>.&nbsp;&nbsp;&nbsp;
+  <br>
+  <br>Now that we have phonemic transcripts, we can do a better job of the search we tried in the first exercise - “the” followed by a word starting with a vowel…</li>
+  <li>Change your search so that, instead of just <i>@</i> at the beginning of the word, it matches any vowel.&nbsp;&nbsp;&nbsp;
+  <br>You could use the square-brackets <i>[]</i> at the start of your pattern, and type all vowel symbols inside them - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.&nbsp;&nbsp;&nbsp;
+  <br><i>Alternatively</i>, you can simply click the <i>VOWEL</i> link in the ‘IPA helper’, which will add all the DISC vowels for you, already enclosed in square-brackets.</li>
+  <li>Run the search and check that it's giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li></ol>
+ <p>Now that you've generated a few different layers, and have seen how the search matrix works, you might want to try out some of the following searches, or invent some others:</p>
+ <ul>
+  <li>Words which have the DRESS vowel as the second phoneme</li>
+  <li>The word "the" followed by a word beginning with the phoneme /k/</li>
+  <li>Words ending with a front vowel, followed by words beginning with /p/ or /b/</li>
+  <li>Words that begin with "k" in their spelling, but begin with the phoneme /n/</li>
+  <li>Words that begin with "k" in their spelling, but *do not* begin with the phoneme /n/&nbsp;&nbsp;&nbsp;
+  <br>&nbsp;</li></ul></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>
