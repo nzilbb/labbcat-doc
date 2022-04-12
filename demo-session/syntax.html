@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>5 - Syntax</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>5 - Syntax</h2>
+ <p>The Stanford Parser is an open-source PCFG parser that can use grammars for a variety of languages including English.</p>
+ <p>LaBB-CAT includes a Layer Manager that handles integration with the parser. The Stanford Parser Layer Manager:</p>
+ <ul>
+  <li>extracts chunks of transcripts (ideally sentences or clauses),</li>
+  <li>gives them to the Stanford Parser for processing, which produces a ‘best parse’ for the utterance provided, and</li>
+  <li>saves the parse on a ‘tree’ layer, and optionally saves the resulting part-of-speech tags on a word layer.</li></ul>
+ <p>One of the problems with parsing speech is that speakers often don't speak in complete, well-formed sentences. In addition, the demo corpus you are using was not generally transcribed with parsing in mind, and so grammatically complete units have not been marked with full-stops, commas, etc. (Instead, full-stop has been used to mark short pauses in speech).</p>
+ <p>For these reasons, the parses you will see in this data may not be perfect. However, it's possible to get a sense of the kinds of things that could be achieved with well-formed written texts, or speech that has been transcribed with grammatical punctuation included.</p>
+ <ol>
+  <li>Click the <i>transcripts</i> link on the menu.
+  <br>
+  <br>One transcript in the database has delimiters inserted which divide the transcript into more or less grammatical units. As the ‘full-stop’ symbol is already being used to mark pauses, the ‘vertical bar’ symbol | has been used as a grammatical delimiter.
+  <br>The transcript is called <i>BR2044_OllyOhlson.eaf</i></li>
+  <li>In the <i>Transcript</i> box, type <i>olly</i>.
+  <br>After a short pause, <i>BR2044_OllyOhlson.eaf</i> will be the only transcript in the filtered list.</li>
+  <li>Click <i>BR2044_OllyOhlson.eaf</i></li>
+  <li>Untick all except the <i>word</i> layer, to avoid clutter.</li>
+  <li>When the transcript re-loads, tick the <i>syntax</i> project.
+  <br>This reveals three layers.</li>
+  <li>Tick the <i>parseable</i> layer.</li></ol>
+ <p>When the transcript re-loads, you will see that almost all words in the transcript have been tagged with their own orthography. However, some words have not been tagged:</p>
+ <ul>
+  <li>filled pauses like “um”, "ah , etc. and</li>
+  <li>incomplete words like “re~”, “na~”, etc. - i.e. cases where the participant started saying something but changed their mind.</li></ul>
+ <p>These have been identified by the Pattern Matcher Layer Manager, which can pick out words by regular expression, and has been configured to tag as ‘parseable’ all tokens <i>except</i> those that matching the following patterns:</p>
+ <ul>
+  <li><i>a+h+</i> - e.g. “ah”, “aah”, “ahh”, …</li>
+  <li><i>m+h*m+</i> - e.g. “mm”, “mmm”, “mhmm”, …</li>
+  <li><i>e+r+</i> - e.g. “er”, “err”, “eeerr”, …</li>
+  <li><i>u+m+</i> - e.g. “um”, “uum”, “ummm”, …</li>
+  <li><i>.+~</i> - e.g. “re~”, “na~”, “w~”, ...</li></ul>
+ <p>The result is that the <i>parseable</i> layer includes all words except filled pauses and incomplete words. This is the layer that is passed to the Stanford Parser for syntactic parsing.</p>
+ <p>One of the results of parsing is that each word token is tagged with its part-of-speech.</p>
+ <ol>
+  <li>Untick the <i>parseable</i> layer and tick the <i>pos</i> layer.
+  <br>You will see that most of the words have been tagged with a syntactic category:
+ <ul>
+  <li>"CC" Coordinating conjunction</li>
+  <li>"DT" Determiner</li>
+  <li>"JJ" Adjective</li>
+  <li>"NN" Noun</li>
+  <li>"NNS" Plural noun</li>
+  <li>"NNP" Proper noun</li>
+  <li>"PRP" Personal pronoun</li>
+  <li>"PRP$" Possessive pronoun</li>
+  <li>"VB" Verb</li>
+  <li>"VBD" Past tense verb</li>
+  <li>"VBG" Gerund</li>
+  <li>"VBZ" 3rd person singular present verb</li>
+  <li>...etc.
+  <br>
+  <br>These, like any other word tags you have seen, can be included in searches or exported to CSV results files.
+  <br>
+  <br>You may notice that, in addition to the filled pauses and interrupted words, there are some other lines that have no part-of-speech tags. These are utterances in Te reo Māori; these utterances have been manually marked as in a different language - if you tick the <i>language </i>layer, you can see the language annotation. The Stanford Parser Manager has been configure to parse only English utterances, so the Te reo Māori ones are skipped.
+  <br>The other result from parsing is, of course, a 'parse tree' of each utterance.</li></ul></li>
+  <li>Untick the <i>pos</i> layer (and the <i>language</i> layer if it's ticked) and tick the <i>parse</i> layer.
+  <br>You will see that above the words, there are bracketing annotations that are labelled with parts-of-speech or phrase labels.
+  <br>Each of these brackets represents a syntactic constituent constructed by the parser, smaller constituents at the bottom, building into larger constituents going up.</li>
+  <li>Click on any constituent label (e.g. "NP" or "S").
+  <br>A new window will open, which shows the selected utterance, using the familiar ‘upside-down tree’ representation.
+  <br>If the tree appears far off and small, you can make it larger by widening the window, or ‘zooming in’ with you mouse wheel.
+  <br>
+  <br>You can also search the parses themselves.</li>
+  <li>Close the parse tree window.</li>
+  <li>Click the <i>search</i> option on the menu.</li>
+  <li>Tick the <i>syntax</i> project.</li>
+  <li>Tick the <i>parse</i> and <i>pos</i> layers.
+  <br>
+  <br>On the <i>parse</i> layer you'll see that you can enter a search expression for annotations on that layer, just like any other.
+  <br>
+  <br>However, it also has a checkbox before and after the pattern. If you tick the checkbox before the pattern, it will anchor the search to the first word in the matching constituent. Similarly the checkbox after the pattern anchors to the last word in the constituent.
+  <br>
+  <br>Let's say you want all the noun phrases that <i>don't</i> start with a determiner like “the”, “this”, “a”, etc.</li>
+  <li>Enter a pattern that matches <i>NP</i> (noun phrase) on the <i>parse </i>layer…</li>
+  <li>...and tick the checkbox to anchor to the first word in the consituent.</li>
+  <li>Enter a pattern that would match <i>DT</i> (determiner) on the <i>pos </i>layer…</li>
+  <li>...and in the dropdown box before the pattern, select <i>doesn't match</i>.
+  <br>
+  <br>This will match words who have an annotation that doesn't match “DT” on the *pos* layer.
+  <br><img src="./NP-not-DET.png"></li>
+  <li>Press <i>Search</i>.
+  <br>
+  <br>When the search finishes, you should see that lots of nouns are returned, but nothing preceded by “the”, “a”, “that”, or any other determiner.</li></ol>
+ <p>------------------------------------------------------------------------</p>
+ <p>In this worksheet you have seen that:</p>
+ <ul>
+  <li>the Stanford Parser can we used to annotate transcripts with part-of-speech tags and constituent annotations, and</li>
+  <li>the resulting annotations can be included in syntax-based searches.</li></ul></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>

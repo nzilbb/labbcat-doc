@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>4 - Alignment</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>4 - Alignment</h2>
+<h3>HTK</h3>
+ <p>The Hidden Markov Model Toolkit (HTK) is a speech recognition toolkit developed at Cambridge University. It is a set of programs that can be used to build speech recognition systems. Part of the process of building such systems involves force-aligning training data - i.e. automatically lining up phonemic-transcriptions of known words with the audio signal in the training recordings. LaBB-CAT takes advantage of this capability to facilitate forced-alignment for your transcripts.</p>
+ <p>In order to do this, HTK needs the following ingredients:</p>
+ <ol>
+  <li>a set of recordings broken up into short utterances</li>
+  <li>orthographic transcriptions of each utterance</li>
+  <li>phonemic transcriptions of each of the words in each utterance</li></ol>
+ <p>In the demo database you have all of these three ingredients, and the data has be force-aligned using HTK.</p>
+ <p>This means that, in addition to the manually alignment of utterance start/end times, HTK has automatically provided start and end times for words, and also for the speech sounds (‘phones’) within each word.</p>
+ <ol>
+  <li>Click the <i>transcripts</i> option on the menu, and open a transcript in the list.</li>
+  <li>Tick the <i>segment</i> layer; this is the layer that contains the phone that HTK has aligned.
+  <br>
+  <br>The <i>segment</i> layer looks similar to the <i>phonemes</i> layer on the transcript page, but there are several important differences:
+ <ul>
+  <li>Each of the <i>phonemes</i> layer annotations has the transcription for the whole word, e.g. &nbsp;&nbsp;
+  <br>- /dɪfrənt/
+  <br>...but the <i>segment</i> layer has, for each word, several annotations, one for each phone.
+  <br>- /d/
+  <br>- /ɪ/
+  <br>- /f/
+  <br>- /r/
+  <br>- /ə/
+  <br>- /n/
+  <br>- /t/</li>
+  <li>The <i>phonemes</i> layer annotation are word tags that are not aligned, but the <i>segment</i> layer annotations have a start and end time specified.</li>
+  <li>The <i>phonemes</i> layer can include more than one phonemic transcription for a word - all possible pronunciations found in CELEX are tagged on each token, e.g.
+  <br>- /dɪfrənt/
+  <br>- /dɪfrn̩t/
+  <br>- /dɪfərənt/
+  <br>- /dɪfərn̩t/
+  <br>...but the <i>segment</i> layer annotations represent only one pronunciation; the pronunciation that HTK determined to be the one that best matched the audio.
+  <br>
+  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using the "EMU webApp" that is integrated into LaBB-CAT.
+  <br>(For more information about EMU, see: <a target="_blank" rel="noopener noreferrer" href="http://ips-lmu.github.io/EMU.html)">http://ips-lmu.github.io/EMU.html)</a></li></ul></li>
+  <li>Click on a line that has been aligned (i.e. that has segments under the words).</li>
+  <li>Select the ‘View in EMU webApp’ option on the menu.
+  <br>A new window will appear, and after a short delay, you will see the wave form of the utterance audio, with a spectrogram, and below this, <i>segment</i> annotations which are aligned with the audio above and represent individual sounds within each word.</li>
+  <li>You can check the alignments by clicking on a <i>segment</i> to selected it, and then clicking the <i>Play Selected</i> button below.</li></ol>
+<h3>Praat Browser Integration</h3>
+ <p>LaBB-CAT also integrates directly with Praat, if you have it installed on your computer. With Praat integration installed, you can similarly inspect alignments, but you can also correct them by moving the alignments in Praat and then saving them back to LaBB-CAT.</p>
+ <p><i>If you don't use Praat, or don't have it installed on your computer, you can skip this section.</i></p>
+ <p>Although you can't actually correct the Demo LaBB-CAT alignments, because you have read-only access to the data, you may like to install the Praat integration to get an idea of how it works:</p>
+ <p>First, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+ <ol>
+  <li>On the top-right of the transcript page, above the playback controls, there's a Praat icon <img src="./praat-integration.png">- click it.</li>
+  <li>Follow the instructions that appear (these vary depending on what web browser you use).
+  <br>
+  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.
+  <br>
+  <br>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</li>
+  <li>Click on a line that has been aligned, and select the ‘Open Text Grid in Praat’ option on the menu.
+  <br>
+  <br>You may also be prompted to download and run a program called “install-jsendpraat.jar”. If so, click the link, save the resulting file, run the program, and then do this step again.
+  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.
+  <br>
+  <br>If in doubt, check the <img src="./help.png"> online help on the transcript page; it has a section explaining how to set up Praat integration on various browsers and operating systems.
+  <br>
+  <br>After a short delay, Praat should open, and show you a spectrogram of the line's audio, with a TextGrid below that includes the words and the segments.</li>
+  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.
+  <br>Try this out with different lines in the transcript.
+  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.</li></ol>
+ <p>If you had ‘edit’ rather than ‘read-only’ permissions in LaBB-CAT, then each time you opened an utterance in Praat, a button would appear in the transcript to the left of the line, labelled <i>Import Changes</i>. This button would allow you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
+ <p><img src="./Import-Changes.png"></p>
+ <p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments.</p>
+ <p>This mechanism can also be used to add other annotations from Praat into LaBB-CAT annotation layers.</p>
+<h3>Annotating Aligned Data</h3>
+ <p>Once the words and phone have been aligned with HTK there are a number of annotation possibilities that arise.</p>
+ <p>For example, word syllabification information can be retrieved from CELEX and combined with the aligned phones to construct aligned syllable annotations.</p>
+ <ol>
+  <li>Tick the <i>alignment</i> project at the top of the transcript.
+  <br>This reveals several layers.</li>
+  <li>Tick the <i>syllables</i> layer</li>
+  <li>Once the transcript has re-loaded, open an utterance with the EMU webApp or with Praat.
+  <br>You will see that, in addition to aligned words and phones, the syllables are also aligned, and labelled with their phonemic transcription, and stressed syllables are prepended with an apostrophe.
+  <br>
+  <br>Also, with exact word durations (i.e. excluding pauses in speech) and syllable counts, the speaker's articulation rate, in syllables per minute, can be computed. The Statistics Layer Manager is a module that can be configured to compute sums, counts, and rates of various kinds over different scopes, including syllables per minute.</li>
+  <li>Tick the <i>syllables per minute</i> layer.
+  <br>You will see that each utterance has a spanning annotation across the top of it, labelled with a number; that number is the articulation rate for that particular utterance.
+  <br>Both local and global articulation rate can be calculated …</li>
+  <li>Click on the name of the speaker at the top of the transcript.
+  <br>This will open the participant attributes page for that speaker.
+  <br>You will see that one of the attributes is <i>Syllables per Minute</i>; this is the speakers overall articulation rate, across all their utterances.
+  <br>
+  <br>Articulation rate is calculated by excluding the durations of inter-word pauses. These pauses themselves can be annotated, for search or analysis purposes.</li>
+  <li>Go back to the transcript page.</li>
+  <li>Tick the <i>previous pause</i> layer.
+  <br>You will see that many of the word tokens in the transcript are tagged with a number. These words are preceded by a pause in speech, and the number is the length of that pause in seconds.</li>
+  <li>Open an utterance in the EMU webApp or in Praat to confirm these pauses are correct.</li></ol>
+ <p>You may notice that pauses in the middle of utterances are always right, but the pause before the first word in the utterance seems wrong. See if you can figure out why.</p>
+<h3>Searching</h3>
+ <p>Given that HTK has created individually aligned phones in the database, those speech sounds can be searched and exported.</p>
+ <p>Let's say you're particularly interested in the vowel in the word ‘KIT’. You can now identify and extract instances of that phoneme.</p>
+ <ol>
+  <li>Click the <i>search</i> link on the menu.</li>
+  <li>Tick the <i>segment</i> layer.
+  <br>The segments layer contains annotations at the sub-word level -
+  <br>i.e. there are potentially multiple annotations per word, each annotation representing a phone of the word. You will see that, as with other layers, there is a box on the segments layer for a regular expression.
+  <br>As with other patterns in the search matrix, the pattern that you enter in the box is matched against individual annotations. So if you enter <i>I</i> (i.e. capital I) in the in the box, it will match each ‘KIT’ vowel segment in each word in the database.
+  <br>
+  <br><strong>NB</strong> It's important to realise that if you enter a pattern that would match more than a single character on this layer (i.e. more than a single phoneme) then no search results will be returned, because each annotation on this layer is only a single character long (remember the DISC encoding uses one character per phoneme). For example, if you enter <i>.*IN</i> for your search, intending to match all words ending in “...ing”, then no results will be returned, because no single segment will ever match that pattern.</li>
+  <li>We want to search for all instances of the ‘KIT’ vowel, so enter <i>I</i> in the segments pattern box.</li>
+  <li>Click <i>Search</i>
+  <br>After a short delay, you should see a list of results.
+  <br>
+  <br>You will see that the results list words that have the ‘KIT’, but in many cases it's not the main stressed vowel. What if we're only interested in <i>stressed</i> ‘KIT’ vowels?
+  <br>
+  <br>That's ok, because we also have stress-marked syllable annotations, so we can add that layer to the search matrix, and identify only stressed vowels …</li>
+  <li>Note down the number of results returned by your last search.</li>
+  <li>Back on the search form, add the <i>syllables</i> layer to the search matrix.</li>
+  <li>As we have seen, stressed syllables are labelled with an apostrophe at the start. Enter a regular expression that will identify all syllables that start with apostrophe.
+  <br>
+  <br>In this way, the results will give use all KIT vowels that are within a stressed syllable.</li>
+  <li>Click <i>Search</i> again.
+  <br>This time you will see fewer results returned, because we've filtered out the un-stressed version of the vowel.
+  <br>
+  <br>You can export all these vowel tokens to a CSV file for analysis or further processing. The CSV file can include all kinds of other information, including participant and transcript attributes and other annotations.</li>
+  <li>On the results page, next to the <i>CSV Export</i> button there's a ▼ button. Press it.
+  <br>You will see several columns of checkboxes appear.</li>
+  <li>Tick the following checkboxes:
+  <br>
+ <ul>
+  <li>Under <i>Participant</i> tick <i>gender</i>, <i>age_category</i>, and <i>syllables per minute</i></li>
+  <li>Under <i>Span</i> tick <i>topic</i></li>
+  <li>Under <i>Phrase</i> tick <i>syllables per minute</i></li></ul></li>
+  <li>Now click the <i>CSV Export</i> button above.</li>
+  <li>Save and open the resulting file.
+  <br>You will see that the file includes extra columns for the attributes and layers that you ticked (e.g. the topic marked in the original ELAN transcript, the speaker's articulation rate, the local articulation rate, etc.).</li></ol>
+ <p>The CSV file includes whatever annotation you might be interested, so you can go on to do qualitative or statistical analysis with other tools like Microsoft Excel or R. You can even add your own annotations to the CSV file and import them back into LaBB-CAT.</p>
+<h3>Acoustic Measurement</h3>
+ <p>The CSV file also includes the columns “Target segments start” and “Target segments end”; these columns have the start and end time of the matching ‘KIT’ vowel token. Given this information, LaBB-CAT can extract acoustic measurements on the speech sounds using Praat.</p>
+ <p><strong>NB:</strong> The following steps work <i>even if you don't have Praat installed on your own computer</i>, because Praat is used on the LaBB-CAT server ...</p>
+ <ol>
+  <li>In LaBB-CAT, click the <i>upload</i> menu option.</li>
+  <li>Click the <i>process with praat</i> option.</li>
+  <li>Click <i>Browse</i> and select the CSV results that you saved above.
+  <br>You will see a form to fill in, and the first couple of settings (<i>Transcript Name column</i> and <i>Participant column</i> should be already filled in).</li>
+  <li>For the <i>Start Time column</i>, ensure that the <i>Target segment start</i> option is selected.</li>
+  <li>For the <i>End Time column</i>, ensure the <i>Target segment end</i> option is selected.
+  <br>
+  <br>These two settings define the start/end times of the phone. For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You'll see there's a setting for that (which you can leave at the default of 0.025s), and you will see options for various measurements.
+  <br>
+  <br>The default options are for <i>F1</i> and <i>F2</i> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand each section with the ⯈ button to reveal more settings, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</li>
+  <li>Click <i>Process</i>.
+  <br>You will see a progress bar while LaBB-CAT generates Praat scripts and runs them.</li>
+  <li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <i>CSV file with measurements</i> link) - save and open it.
+  <br>
+  <br>You will see that it's a copy of the CSV file you uploaded, with some extra columns added on the right.
+  <br>
+  <br>Depending on your settings, this will include at least one column per measurement you selected (the formant columns also include on that contains the time at which the measurements were taken), and a final column called <i>Error</i> which is hopefully blank, but which might contain errors reported back by Praat (e.g. if it couldn't find the audio file or ran into any other problem during processing).</li></ol>
+ <p>------------------------------------------------------------------------</p>
+ <p>In this worksheet you have seen that:</p>
+ <ul>
+  <li>HTK can be used to compute word and phone alignments automatically from your data.</li>
+  <li>The resulting alignments can be inspected and corrected directly from the transcript page.</li>
+  <li>Articulation rate can be computed, excluding inter-word pauses.</li>
+  <li>Inter-word pauses can also be tagged.</li>
+  <li>Individual phone tokens can be searched for and extracted.</li>
+  <li>Acoustic measurements for matching phones can also be made.</li></ul></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>

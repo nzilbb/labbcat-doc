@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2 - Search</title>
+    <base href="./">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="wysiwiki/wysiwiki.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />    
+    <link rel="shortcut icon" href="favicon.ico" />    
+    <script src="wysiwiki/wysiwiki.js"></script>
+  </head>
+  <body>
+    <header><a rel='author' href='https://www.canterbury.ac.nz/nzilbb/'><img src='nzilbb.svg' alt='Te Kāhui Roro Reo | The New Zealand Institute of Language, Brain and Behaviour' title='🄯 NZILBB'></a></header>
+    <div id="main">
+      <aside></aside>
+      <article>
+<h2>2 - Search</h2>
+ <p>In addition to storing recordings and orthographic transcripts, the data can also be annotated in various ways with different information. Each type of annotation is stored on its own 'layer', so you can display and search on the basis of different aspects of the transcripts, including:</p>
+ <ul>
+  <li>frequency</li>
+  <li>lemma</li>
+  <li>part of speech</li>
+  <li>pronunciation</li>
+  <li>speech rate</li>
+  <li>pause duration</li>
+  <li>...and more.</li></ul>
+ <p>Annotations can be made manually, and LaBB-CAT includes modules (called ‘Layer Managers’) for doing certain annotations automatically.</p>
+ <p>Various automatically generated annotation layers have been configured in the demo instance of LaBB-CAT, and we will start to explore some of them in this worksheet.</p>
+<h3>Layered Search Matrix</h3>
+ <p>Layered search is a two-step process: first you select which participants you want to search, using their participant attributes. And then you specify the pattern you want to search for.</p>
+ <p>If we were interested only in monolingual speakers, for example, we would filter out those that speak various language by setting the attribute values appropriately on the filter page.</p>
+ <ol>
+  <li>Firstly, return to LaBB-CAT's home page by clicking the <i>Home</i> link on the menu, and then click the <i>Layered Search</i> icon.&nbsp;
+  <br>You will see a page called “participants”.</li>
+  <li>Click ‘M’ in the <i>Gender</i> box.&nbsp;
+  <br>You will see a list of the male participants only.&nbsp;
+  <br>Notice that each participant has a check-box; if we wanted to, we could select specific participants from the list by checking/unchecking the boxes. (But in this case, let's search all of them, so leave all the boxes ticked.)</li>
+  <li>Click the <i>Layered Search</i> button at the bottom of the list.&nbsp;
+  <br>You will see a page that lists the speakers at the top, a number of tickable annotation layers in the middle, a ‘Search Matrix’ below. (It doesn't look much like a matrix yet, as it only includes the ‘orthography’ layer, but we will be adding rows and columns later on.)</li>
+  <li>In the box labelled “orthography” type the regular expression <i>th[aeiou].+</i>&nbsp;
+  <br>As you saw earlier, <i>[aeiou]</i> means ‘any vowel’, and a full-stop/period means ‘any character’&nbsp;
+  <br>The plus-sign means ‘one or more of the previous thing’, so <i>.+ </i>means ‘at least one character’.</li>
+  <li>Now click the <i>Search</i> button at the bottom (or hit <i>&lt;Enter&gt;</i>).&nbsp;
+  <br>A progress bar will appear, and then shortly after that, a new window will open, which has a list of search results in it. Your browser's popup-blocker might prevent the results page from opening - you can fix that either by allowing the popups in your browser, or by clicking the <i>Display results</i> link that appears after the search finishes.&nbsp;
+  <br>You will see that the results include words like “that”, “there”, “then”, etc. - i.e. words that start with “th”, followed by a vowel, followed by at least one more letter.&nbsp;
+  <br>
+  <br><img src="./help.png"> You can get more information about regular expressions by using the online help back on the search page, and also by clicking the the <i>regular expressions</i> link above the tickable layers.&nbsp;
+  <br>
+  <br>As we previously saw with the ‘easy search’, each match is highlighted and shown within a few words context. However, this results page has a few more options available.</li>
+  <li>In the <i>Context</i> drop-down box at the top, select the <i>5 words</i> option, to show more context in the llist of results.</li>
+  <li>Each result line has a ticked checkbox next to it. At the bottom of the list, you'll see that there are various buttons, which perform operations on the ticked results, including <i>CSV Export</i>, <i>Utterance Export</i>, and <i>Audio Export</i>.</li>
+  <li>Untick the “<i>Select all result</i>” &nbsp;checkbox, and then tick a handful of results in the list.&nbsp;
+  <br><strong>Tip:</strong> You can select a group of matches by ticking the first one, and then holding down the <i>&lt;Shift&gt;</i> key while ticking the last one.</li>
+  <li>Click the <i>Audio Export</i> button.</li>
+  <li>Save and open the resulting zip file.&nbsp;
+  <br>You'll see that extracted wav files are systematically named to include:
+ <ul>
+  <li>the name of the transcript</li>
+  <li>the start and end time of the extracted utterance</li></ul></li>
+  <li>If you also have Praat installed on your computer, go back to the results page and click <i>Utterance Export</i> button. Save and open the resulting zip file.&nbsp;
+  <br>You'll see that the TextGrid names match the audio file names in the previous zip file.&nbsp;
+  <br>If you open a TextGrid in Praat, you'll see it includes a tier for the whole utterance transcript, a tier with an interval for each word, and a <i>target…</i> tier which tags the word that matched the regular expression you searched for.</li>
+  <li>Back on the results page, click the <i>CSV Export</i> button.</li>
+  <li>Save the resulting file, and open it.&nbsp;
+  <br>You may have to specify some import options, in which case it may be handy to know that the field separator is comma, and the fields are quoted by speech marks.&nbsp;
+  <br><strong>Tip:</strong> If you're using Microsoft Excel and you find it doesn't open all the columns correctly:
+ <ol>
+  <li>Create a new workbook in Excel.</li>
+  <li>Click the ‘Data’ tab.</li>
+  <li>On the “Get External Data” ribbon click ‘From Text’.</li>
+  <li>Select the CSV file you downloaded.</li>
+  <li>Select ‘Delimited’ and click <i>Next</i>.</li>
+  <li>Ensure ‘Comma’ is the only delimiter ticked and click <i>Next</i>.</li>
+  <li>Click <i>Finish</i> and then <i>OK</i>.&nbsp;
+  <br>
+  <br>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.&nbsp;
+  <br>With this spreadsheet, you can work ‘offline’ with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We'll look at a few more uses for the CSV results files later…</li></ol></li>
+  <li>Close the CSV file, and got back to the results page.&nbsp;
+  <br>
+  <br>Up until now, we've only been matching against one word at a time. Now we're going to include patterns for a chain of words. Unlike the simple search, adding a space in the regular won't work, because each column in the search matrix only matches a single word. To match a chain of two words, we need to have two columns in the search matrix.</li>
+  <li>On the search page, next to the <i>orthography</i> box where you entered the regular expression, there's a ➕ button for adding a column to the matrix. Click it.&nbsp;
+  <br><img src="./two-words-wide.png">&nbsp;
+  <br>Now you will see that our search matrix is one layer high by two words wide.</li>
+  <li>Change the entries on the <i>orthography</i> layer so that it will match the word “the” followed immediately by a word that starts with a vowel, and click <i>Search</i>.&nbsp;
+  <br>
+  <br>Check the search results are giving you what you expected. You may note that some of the following words start with a vowel in the spelling, even though they are not <i>pronounced</i> with a vowel sound. We will see how to search on the basis of pronunciation in another worksheet.</li>
+  <li>Now search for “the” followed, within two words, by a word that starts with a vowel.</li></ol>
+ <p><img src="./help.png"> If in doubt about a search option, try the online help page.</p>
+<h3>Searching Other Layers</h3>
+ <p>So far we have only searched the <i>orthography</i> layer - i.e. the ordinary spellings of words. But LaBB-CAT has been configured to generate a number of other annotation layers.</p>
+ <p>Let's say we're interested in how rare or common words are in our data.</p>
+ <p>LaBB-CAT's ‘Frequency Layer Manager’ is a module that counts up the number of times each word type appears in the database. It generates a frequency list, and also annotates each word token with its frequency.</p>
+ <p>We'll now search for tokens of words that appear only once in the database.</p>
+ <p>The annotation layers are grouped into a number of ‘projects’ to avoid clutter. We will initially be interested in the layers related to frequency.</p>
+ <ol>
+  <li>In the box labelled <i>Tick layers to include</i>, there's a <i>Projects </i>column. Tick the <i>frequency'</i> project.&nbsp;
+  <br>Some addition layers will appear in the layer list on the right.</li>
+  <li>Tick the <i>word frequency</i> layer.</li>
+  <li>Set the word matrix to be 1 word wide again by clicking the ➖ button to the right.&nbsp;
+  <br>You will see that the search matrix now has two layers in it.&nbsp;
+  <br><img src="./frequency-search.png"></li>
+  <li>Unlike the <i>orthography</i> layer, which has one box for a regular expression, the <i>word frequency</i> layer has two boxes, marked “≥” and “&lt;”. This is because the annotation values are numbers.&nbsp;
+  <br>We want all the words that appeared only once in the database. Enter a number or numbers in the appropriate box (you can leave either box blank) and click <i>Search</i>.&nbsp;
+  <br><strong>Tip</strong>: ensure the orthography box is empty, otherwise it will be trying to find in instances of the word “the” that appear only once in the corpus; there are lots of instances of the word “the”, so the search will return no results, as the frequency is greater than 1.</li>
+  <li>Click on the first result in the list.</li></ol>
+<h3>Layered Transcript</h3>
+ <p>This displays the ‘layered transcript’ page for the recording. This is similar to the previous ‘easy’ transcript page, but has a number of extra options and functions.</p>
+ <p>The most obvious difference is that each word token has a number above it. This is the frequency of that word, which is displayed because the <i>word frequency</i> layer is selected; there's a list of layers at the top of the transcript, and you can see that both <i>word frequency</i> and <i>word </i>are ticked.</p>
+ <ol>
+  <li>Untick the <i>word frequency</i> layer.&nbsp;
+  <br>After a short delay, the transcript will be displayed again, with only the transcript text visible.&nbsp;
+  <br>
+  <br>The transcript also includes any noises (e.g. “tuts”), comments, and other events that were put in the transcript in ELAN.</li>
+  <li>The video is the top right corner as before; click the play button. Again you will see a shaded rectangle following the participant's speech.</li>
+  <li>Try clicking the magnifying-glass icon <img src="./zoom-in.png"> below the video, to see what it does.</li>
+  <li>Now click on any word in the transcript.&nbsp;
+  <br>You will see a menu appear.</li>
+  <li>Click the play option in the menu to see what it does.</li>
+  <li>Click on the <i>formats</i> link under the title.&nbsp;
+  <br>You will see a menu, which includes various formats for exporting the transcript.</li>
+  <li>Select <i>Plain Text Document</i></li>
+  <li>Save the resulting file on your desktop, and then open it.&nbsp;
+  <br>You will see the transcript in plain-text form.</li>
+  <li>If you have Praat installed on your computer, click the <i>formats </i>link, and select the <i>Praat &nbsp;Text Grid</i> option. Save the resulting file on your desktop, and then open it with Praat.&nbsp;
+  <br>
+  <br>You will see that the TextGrid has various tiers, one for whole utterances (or two if there are two speakers), and one for individual words (or two if there are two speakers).&nbsp;
+  <br>
+  <br>(You will see that each individual word has a ‘default’ alignment - i.e. the words are evenly spread out during the duration of the line they're in. In a later exercise we will look at ways to make these word alignments actually line up with the words in the audio signal)</li></ol>
+ <p>Using frequencies of full wordforms can be useful, but in some circumstances it may be more informative to group together different forms of the same word; e.g. treat “damage”, “damaged” and “damaging” as variants of the same thing for the purposes of frequency-counting.</p>
+ <p>We'll see a way to do that in the next worksheet.</p>
+ <p>------------------------------------------------------------------------</p>
+ <p>In this worksheet you have seen that:</p>
+ <ul>
+  <li>Annotations can be automatically added to transcripts in layers, using Layer Managers.</li>
+  <li>The Frequency Layer Manager can tag words with their frequencies, and maintains a frequency list.</li>
+  <li>Annotation layers can be searched using the search matrix, using numeric value or regular expressions.</li>
+  <li>Layers can be optionally displayed in transcripts.&nbsp;
+  <br>&nbsp;</li></ul></article>
+      <nav>
+        <iframe src="index.html" id="nav" name="nav"></iframe>
+      </nav>
+    </div>
+    <footer><a rel='license' href='http://creativecommons.org/licenses/by-sa/2.0/'><img alt='CC-BY-SA Creative Commons Licence ' src='cc-by-sa.svg' title='This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License' /></a></footer>
+  </body>
+</html>
