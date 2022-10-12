@@ -31,7 +31,7 @@
   <li>force-align the speech of one of the participants in your database, and</li>
   <li>check and manually correct the alignments.</li></ul>
  <p><i><strong>NB</strong>: In this exercise, you will set up Praat Integration in your web browser. There is currently no Praat integration support for Microsoft's Edge' browser, so if you normally use 'Edge' on Windows, you may need to swap to another browser for this exercise - e.g. Microsoft Internet</i> <i>Explorer, Google Chrome, or Mozilla Firefox.</i></p>
- <p>------------------------------------------------------------------------</p>
+<hr>
  <p>HTK is not free software in the “GNU” sense - i.e. we can not distribute it with LaBB-CAT, instead you have to download it yourself from the Cambridge University website -- however it is free in the “no cost” sense, you just need to register on the HTK website, and you can then download and use HTK free of charge.</p>
  <ol>
   <li>Register at <a target="_blank" rel="noopener noreferrer" href="http://htk.eng.cam.ac.uk/register.shtml">http://htk.eng.cam.ac.uk/register.shtml</a></li>
@@ -45,13 +45,13 @@
  <ol>
   <li>Click the <i>layer managers</i> menu option.</li>
   <li>Click the <i>List of layer managers that are not yet installed</i> link.</li>
-  <li>Find HTK Manager in the list, and click its <i>Install</i> button, then click <i>Install</i> again.&nbsp;
+  <li>Find HTK Manager in the list, and click its <i>Install</i> button, then click <i>Install</i> again.&nbsp;&nbsp;
   <br>You will see a form with three boxes, one of them probably already filled in.</li>
-  <li>The layer manager needs to know where the HTK programs have been saved, which is what you need to enter in the blank <i>Path to HTK tools</i> box.&nbsp;
-  <br>If this box is not blank, it means that LaBB-CAT has already found HTK for you, so you should leave the default value already set.&nbsp;&nbsp;
+  <li>The layer manager needs to know where the HTK programs have been saved, which is what you need to enter in the blank <i>Path to HTK tools</i> box.&nbsp;&nbsp;
+  <br>If this box is not blank, it means that LaBB-CAT has already found HTK for you, so you should leave the default value already set.&nbsp;&nbsp;&nbsp;
   <br>
   <br>(The other two boxes are for the username and password you registered on the HTK website. On some systems, if you have not already installed the HTK tools on your LaBB-CAT computer, providing the username and password allows LaBB-CAT to attempt to download and install HTK itself. This may not work in all cases, as LaBB-CAT may not have the resources or privileges it requires to compile or install software.)</li>
-  <li>Click <i>Configure</i>.&nbsp;
+  <li>Click <i>Configure</i>.&nbsp;&nbsp;
   <br>You will see a window open with some information about the HTK Layer Manager. This page has some useful instructions on it, so keep the page open for now.</li>
   <li>Now you need to add a <i>phrase layer</i> for the HTK configuration:
  <ul>
@@ -64,15 +64,15 @@
   <li>When you configure the layer:
  <ul>
   <li>Your <i>Pronunciation Layer</i> will be the <i>phonemes</i> layer you created in the last exercise.</li>
-  <li>To the list of <i>Pause Markers</i> you should add a full-stop (period).&nbsp;
-  <br>This is because the exercise transcripts use “.” as a 'short-pause' marker, not an 'end of sentence' marker. i.e. your Pause Markers should be:&nbsp;
-  <br>-- - .&nbsp;
+  <li>To the list of <i>Pause Markers</i> you should add a full-stop (period).&nbsp;&nbsp;
+  <br>This is because the exercise transcripts use “.” as a 'short-pause' marker, not an 'end of sentence' marker. i.e. your Pause Markers should be:&nbsp;&nbsp;
+  <br>-- - .&nbsp;&nbsp;
   <br>(two hyphens, then a space, then a hyphen, then a space, then a full-stop/period)</li>
-  <li>The rest of the settings should be left with the default values.&nbsp;
+  <li>The rest of the settings should be left with the default values.&nbsp;&nbsp;
   <br>
-  <br>If you're curious about what the configuration options do, hover your mouse over each option to see a 'tool tip' that describes what the option is for.&nbsp;
+  <br>If you're curious about what the configuration options do, hover your mouse over each option to see a 'tool tip' that describes what the option is for.&nbsp;&nbsp;
   <br>
-  <br>We configure the layer to 'never' generate, because we're going to trigger forced-alignments manually, one speaker at a time, once we're happy that the phonemic transcriptions are in place.&nbsp;
+  <br>We configure the layer to 'never' generate, because we're going to trigger forced-alignments manually, one speaker at a time, once we're happy that the phonemic transcriptions are in place.&nbsp;&nbsp;
   <br>
   <br>Now we're going to check the situation of our pronunciations on the phonemes layer more carefully…</li></ul></li>
   <li>Go to the <i>transcripts</i> page and open the transcript <i>UC207YW</i></li>
@@ -84,47 +84,47 @@
   <li>Contractions like “me's” and “thing's”</li>
   <li>Proper names like “Bealey”</li>
   <li>Possibly filled pauses like “um”</li>
-  <li>Hesitations and interrupted words like "exac~", etc.&nbsp;
+  <li>Hesitations and interrupted words like "exac~", etc.&nbsp;&nbsp;
   <br>
   <br>HTK needs a phonemic transcription for every word on a line in order to force-align that line. So every line where there's a gap on the phonemes layer would be ignored by the HTK layer manager.</li></ul></li>
-  <li>There's another problem in this transcript, which isn't necessarily immediately obvious.&nbsp;
-  <br>Look for the hesitiation "w-" and the filled-pause "mm" to see if you can see what it is.&nbsp;
+  <li>There's another problem in this transcript, which isn't necessarily immediately obvious.&nbsp;&nbsp;
+  <br>Look for the hesitiation "w-" and the filled-pause "mm" to see if you can see what it is.&nbsp;&nbsp;
   <br>
-  <br>‘False positives’ from the lexicon will also play havoc with forced alignment, as HTK believes what it's told about the pronunciations given to it, and will do it's best to find an alignment that includes every phoneme.&nbsp;
+  <br>‘False positives’ from the lexicon will also play havoc with forced alignment, as HTK believes what it's told about the pronunciations given to it, and will do it's best to find an alignment that includes every phoneme.&nbsp;&nbsp;
   <br>
   <br>Each of these problems needs to be addressed before we do forced alignment, although the solution for each will vary. Some involve improving the transcript, others will involve adding new words to our dictionary.
  <ul>
   <li>For false-positives like “w-” and “mm”, the easiest solution is to transcribe these differently. Hesitations like “w-” are discussed below. We will use “mmm” instead of “mm”.</li>
   <li>For very short false-starts like “w-”, the CELEX layer manager has been built to give a helping hand. In addition to looking up phonemic transcriptions in CELEX, it will also compute them for very short tagged false-starts. The tag it recognizes is a trailing tilde ~, so we need to change “w-” to “w~” etc. Then the CELEX layer manager will append a schwa to the initial consonant, and save that as the pronunciation (i.e. /ə/).</li>
   <li>For invented or misspoken words, or longer interrupted words, which we're not likely to see again in any other transcript like, “me's” and “exac~”, we will add a ‘pronounce’ tag in the transcript, which includes the correct pronunciation. Again, the CELEX layer manager knows to check for pronounce annotations, and uses the given phonemic transcription instead of looking up the CELEX data.</li>
-  <li>For proper names and contractions like “thing's” that we're likely to see over and over again in different transcripts, instead of tagging each one individually, we will add them to the dictionary of pronunciations that the lexicon layer manager looks up.&nbsp;
+  <li>For proper names and contractions like “thing's” that we're likely to see over and over again in different transcripts, instead of tagging each one individually, we will add them to the dictionary of pronunciations that the lexicon layer manager looks up.&nbsp;&nbsp;
   <br>
-  <br>As you can see, the first three methods involve editing the transcript. This can be done by editing the original file in ELAN, and then re-uploading it into the database for processing.&nbsp;
+  <br>As you can see, the first three methods involve editing the transcript. This can be done by editing the original file in ELAN, and then re-uploading it into the database for processing.&nbsp;&nbsp;
   <br>
   <br>Alternatively, LaBB-CAT has a mechanism for editing the transcript ‘in-situ’; this doesn't update the original file, but it's sometimes much more convenient, and this is the method we'll use for this exercise.</li></ul></li>
-  <li>Click on the word “Febuary”, and select the <i>Edit Transcript</i> option from the menu.&nbsp;
+  <li>Click on the word “Febuary”, and select the <i>Edit Transcript</i> option from the menu.&nbsp;&nbsp;
   <br>A window will open that allows you to edit that line in the transcript.</li>
   <li>Correct the spelling of the word to be “February”</li>
   <li>Click <i>Update</i></li>
   <li>Click <i>Close</i></li>
   <li>Similarly change “w-” to be “w~” and “mm” to be “mmm”</li>
-  <li>Click on the word “me's”, and select the <i>Edit Transcript</i> option from the menu.&nbsp;
+  <li>Click on the word “me's”, and select the <i>Edit Transcript</i> option from the menu.&nbsp;&nbsp;
   <br>It seems unlikely that anyone else will say “me's”, so instead of adding it to the lexicon, we're simply going to tag this token with a <i>pronounce</i> tag. This is achieved by adding the pronunciation we want to tag it with in square brackets, using the DISC phoneme symbols. We have to add the <i>pronounce</i> tag immediately after the word, with no intervening space. (This transcription convention also works if you edit the original transcript in ELAN)</li>
   <li>Change the line text from “...bit of me's a bit …” to be “…bit of me’s[miz] a bit …” instead.</li>
-  <li>Click <i>Update</i> and then <i>Close</i>&nbsp;
+  <li>Click <i>Update</i> and then <i>Close</i>&nbsp;&nbsp;
   <br>The <i>pronounce</i> annotation you've just added isn't displayed in the transcript. It's added to the <i>pronounce</i> layer, which is for this type of manual pronunciation tagging.</li>
-  <li>Scroll to the top of the transcript and tick the <i>pronounce</i> layer so that it will be displayed.&nbsp;
+  <li>Scroll to the top of the transcript and tick the <i>pronounce</i> layer so that it will be displayed.&nbsp;&nbsp;
   <br>When the transcript is reloaded, you will be able to see “miz” as an annotation on “me's”, and that this has been copied into the <i>phonemes</i> layer by its layer manager.</li>
-  <li>Similarly you should tag the word “exac~” with the pronunciation “Igz{k”&nbsp;
+  <li>Similarly you should tag the word “exac~” with the pronunciation “Igz{k”&nbsp;&nbsp;
   <br>
   <br>This method takes care of instances where the transcript is incorrect, and ‘one off’ missing pronunciations. However, for missing words that are likely to appear over and again in the corpus, including names like “Bealey”, “Wainoni”, and “Lyttleton”, and filled pauses like “mmm”, “um”, etc. it's not efficient to tag every token. Instead, we add these to the lexicon.</li>
   <li>Click the <i>participants</i> menu option.</li>
   <li>Find <i>UC207YW</i> in the list, and click their <i>All Utterances</i> button.</li>
-  <li>Leave the default selections and click <i>List</i>.&nbsp;
+  <li>Leave the default selections and click <i>List</i>.&nbsp;&nbsp;
   <br>This displays a page with a list of all the speaker's utterances, from which you can do various things with all the utterances of a particular participant in the database.</li>
-  <li>Click the <i>Htk</i> button.&nbsp;
+  <li>Click the <i>Htk</i> button.&nbsp;&nbsp;
   <br>You will see a progress bar while LaBB-CAT identifies missing words. Then a page will appear that lists unknown words.</li>
-  <li>Basically you need to fill in the boxes with the pronunciations and click <i>Save Pronunciations</i>.&nbsp;
+  <li>Basically you need to fill in the boxes with the pronunciations and click <i>Save Pronunciations</i>.&nbsp;&nbsp;
   <br>Things to note:
  <ul>
   <li>You don't have to fill them all in at once, you can do a few, and click <i>Save</i>, which will save your work and list what's left.</li>
@@ -133,44 +133,44 @@
   <li>The pronunciations have to be in the ‘DISC’ format - i.e. one character per phoneme, with no spaces. There's a ‘helper’ link on the right of each pronunciation box - if you click it, it expands into a list of clickable phonemes - just the ones that aren't ordinary letters, and diphthongs etc.</li>
   <li>The <i>search</i> button lets you look up the lexicon for similar words - this probably won't help for place names, but for words like “tarseal”, you can click the <i>lookup</i> button, enter “tar seal” in the box as two separate words, and you'll get back the DISC pronunciation of each word, with clickable buttons to copy the given pronunciation into the box. This is useful for digits and numbers too, which may not be in the lexicon - so for “1”, search for “one” and copy the pronunciation.</li>
   <li>If you click on the word itself, the transcript for the first instance of that word is opened, in case you want to listen to it, or in case it's actually just a typo and you want to correct the transcript.</li>
-  <li>If you're using CELEX, when you specify the pronunciations, it's recommended to put syllable separators (-) and primary stress markers (') too - e.g. for “tarseal” you can put <i>t#sil</i> but it would actually be better to put <i>t#-’sil</i>. These markers are entered into the dictionary even though they're stripped out for HTK, and they may come in handy later (e.g. the syllable separators are used by the CELEX layer manager to count syllables).&nbsp;
+  <li>If you're using CELEX, when you specify the pronunciations, it's recommended to put syllable separators (-) and primary stress markers (') too - e.g. for “tarseal” you can put <i>t#sil</i> but it would actually be better to put <i>t#-’sil</i>. These markers are entered into the dictionary even though they're stripped out for HTK, and they may come in handy later (e.g. the syllable separators are used by the CELEX layer manager to count syllables).&nbsp;&nbsp;
   <br>
   <br>When you add pronunciations this way, they're added to the dictionary and all the instances of those words in LaBB-CAT are updated with the pronunciations - not just the participant you're looking at, but all participants in the database. So you only have to come up with a pronunciation for each word once.</li></ul></li>
-  <li>Once you've filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you've entered all pronunciations, click the <i>Start</i> button at the bottom of the page.&nbsp;
+  <li>Once you've filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you've entered all pronunciations, click the <i>Start</i> button at the bottom of the page.&nbsp;&nbsp;
   <br>
-  <br>You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.&nbsp;
+  <br>You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.&nbsp;&nbsp;
   <br>
   <br>Once HTK has produced the word and segment alignments, it:
  <ul>
   <li>sets the start/end times of the words on the transcript layer accordingly,&nbsp;</li>
   <li>adds new phone annotations to the *segments* layer with the alignments of the phones, and</li>
   <li>saves a timestamp in the <i>htk</i> layer.</li></ul></li>
-  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are now aligned.”&nbsp;
+  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are now aligned.”&nbsp;&nbsp;
   <br>
   <br>You can inspect/correct alignments using LaBB-CAT's integration with Praat.</li>
   <li>Go back to the <i>UC207YW.eaf</i> transcript.</li>
-  <li>Tick both the <i>htk</i> layer and the <i>segments</i> layer.&nbsp;
-  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).&nbsp;
+  <li>Tick both the <i>htk</i> layer and the <i>segments</i> layer.&nbsp;&nbsp;
+  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).&nbsp;&nbsp;
   <br>
-  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;
+  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;&nbsp;
   <br>be done once:</li>
   <li>On the top-right of the page, above the playback controls, there's a Praat icon &nbsp;- click it.</li>
-  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;
-  <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.&nbsp;
-  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.&nbsp;
-  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.&nbsp;
+  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;&nbsp;
+  <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.&nbsp;&nbsp;
+  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.&nbsp;&nbsp;
+  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.&nbsp;&nbsp;
   <br>
   <br>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</li>
-  <li>Click on a line that has been aligned, and select the <i>Open Text Grid in Praat</i> option on the menu.&nbsp;
-  <br>You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <i>Allow</i>.&nbsp;
+  <li>Click on a line that has been aligned, and select the <i>Open Text Grid in Praat</i> option on the menu.&nbsp;&nbsp;
+  <br>You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <i>Allow</i>.&nbsp;&nbsp;
   <br>Praat should open, and show you a spectrogram of the line's audio, with a TextGrid below that includes the words and the segments.</li>
-  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.&nbsp;
-  <br>Try this out with different lines in the transcript.&nbsp;
-  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.&nbsp;
+  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.&nbsp;&nbsp;
+  <br>Try this out with different lines in the transcript.&nbsp;&nbsp;
+  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.&nbsp;&nbsp;
   <br>
   <br>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <i>Import Changes</i>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</li>
-  <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they're more accurate, and then click the <i>Import Changes</i> button in the transcript.&nbsp;
-  <br>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because HTK will never change them again.&nbsp;
+  <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they're more accurate, and then click the <i>Import Changes</i> button in the transcript.&nbsp;&nbsp;
+  <br>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because HTK will never change them again.&nbsp;&nbsp;
   <br>
   <br>There are some rules about what you can change:
  <ul>
@@ -179,7 +179,7 @@
   <li>The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.</li>
   <li>You should not change the alignment of the utterance itself (which would only be possible if you select the <i>Open Text Grid incl. ± 1 utterance in Praat</i> option).</li></ul></li></ol>
  <p>In this exercise, you have seen how HTK can be used to compute word and phone alignments automatically from your data, but that there is a fair amount of careful transcription, tagging, and dictionary filling required. Even after all that work, perfect automatic alignments are not guaranteed, but LaBB-CAT has a mechanism for manually correcting poor alignments.</p>
- <p>All this manual annotation and correction means a lot of work, but obviously somewhat less work than would be involved in aligning by hand the transcripts from scratch!&nbsp;
+ <p>All this manual annotation and correction means a lot of work, but obviously somewhat less work than would be involved in aligning by hand the transcripts from scratch!&nbsp;&nbsp;
   <br>&nbsp;</p></article>
       <nav>
         <iframe src="index.html" id="nav" name="nav"></iframe>
