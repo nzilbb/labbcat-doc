@@ -10,5 +10,5 @@ jobs:
         with:
           args: >-
             --standalone
-            --output=./pdf/course.pdf
-            ./course/home.html
+            --output=index.pdf
+            index.html
