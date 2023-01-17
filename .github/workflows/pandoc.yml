@@ -6,9 +6,10 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-18.04
     steps:
-      - uses: docker://pandoc/core:2.9
+      - name: Install
+        uses: pandoc/actions/setup
         with:
-          args: >-
-            --standalone
-            --output=index.pdf
-            index.html
+          version: 2.19
+
+      - name: Run pandoc
+        run: pandoc --version
