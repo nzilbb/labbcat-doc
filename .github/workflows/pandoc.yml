@@ -4,7 +4,7 @@ on: push
 
 jobs:
   convert_via_pandoc:
-  uses: https://github.com/rseng/rse-action/releases
+  uses: rseng/rse-action@0.0.13
   with:        
 
      # The markdown file to render,path is relative to repository
