@@ -1,16 +1,14 @@
-name: Generate PDFs
+ - name: Generate Minimal PDF
+ 
+   # Important! Update to release https://github.com/rseng/rse-action/releases
+   uses: https://github.com/rseng/rse-action/releases
+   with:        
 
-on: push
+     # The markdown file to render,path is relative to repository
+     paper_markdown: course/home.html
 
-jobs:
-  convert_via_pandoc:
-    runs-on: ubuntu-18.04
-    steps:
-      - name: Install
-        uses: pandoc/actions/setup@main
-        with:
-          version: 2.19
+     # The paper pdf to save
+     paper_outfile: course.pdf
 
-      - name: Run pandoc
-        run: pandoc -o course.pdf home.html
-        working-directory: course
+     # One of "minimal" or "pdf" for the template with image, etc.
+     pdf_type: minimal
