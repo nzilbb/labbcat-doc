@@ -12,4 +12,5 @@ jobs:
           version: 2.19
 
       - name: Run pandoc
-        run: pandoc -o course.pdf course/home.html
+        run: pandoc -o course.pdf home.html
+        working-directory: courses
