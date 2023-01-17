@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - name: Install
-        uses: pandoc/actions@main
+        uses: pandoc/actions@main/setup
         with:
           version: 2.19
 
