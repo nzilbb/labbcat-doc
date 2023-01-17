@@ -13,4 +13,4 @@ jobs:
 
       - name: Run pandoc
         run: pandoc -o course.pdf home.html
-        working-directory: courses
+        working-directory: course
