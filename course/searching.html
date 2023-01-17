@@ -25,48 +25,48 @@
 <hr>
  <p>We'll start with a very simple search - all the instances of the word "the" uttered by monolingual English-speaking males.</p>
  <ol>
-  <li>In LaBB-CAT, click on the <i>participant</i> link on the menu.&nbsp;&nbsp;&nbsp;
+  <li>In LaBB-CAT, click on the <i>participant</i> link on the menu.
   <br>This takes you to a page listing all participants, where you can filter participants by their attributes. You can see various participant attributes listed across the top of page.</li>
-  <li>We're interested in male participants, so under the <i>Gender</i>, select <i>M</i>.&nbsp;&nbsp;&nbsp;
+  <li>We're interested in male participants, so under the <i>Gender</i>, select <i>M</i>.
   <br>After a short delay the page will display a list of all the male participants in the database.</li>
-  <li>We want the participants who speak only English, so enter <i>English </i>under <i>Languages Spoken</i>&nbsp;&nbsp;&nbsp;
-  <br>The page will then display a list of male participants who include <i>English</i> in their languages. It also includes participants who speak other languages, who we want to eliminate.&nbsp;&nbsp;
-  <br>The <i>Languages</i> filter box accepts a ‘regular expression’ so if we enter <i>^English$</i> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <i>^</i> means “the beginning” and <i>$</i> means “the end”, so <i>^English$</i> means, “English at the beginning, and at the end”</li>
-  <li>Click <i>Layered Search</i> at the top.&nbsp;&nbsp;&nbsp;
+  <li>We want the participants who speak only English, so enter <code>English</code><i> </i>under <i>Languages Spoken</i>
+  <br>The page will then display a list of male participants who include <i>English</i> in their languages. It also includes participants who speak other languages, who we want to eliminate.
+  <br>The <i>Languages</i> filter box accepts a ‘regular expression’ so if we enter <code>^English$</code> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <i>^</i> means “the beginning” and <i>$</i> means “the end”, so <i>^English$</i> means, “English at the beginning, and at the end”</li>
+  <li>Click <i>Layered Search</i> at the top.
   <br>You will see the participants you selected listed at the top, above a list of annotation layers. Below that, there's a “Search Matrix”, although it doesn't look much like a matrix yet, because it's only one layer high and one word wide…</li>
-  <li>In the box next to the word “orthography” type the word <i>the</i>&nbsp;&nbsp;&nbsp;
+  <li>In the box next to the word “orthography” type the word <code>the</code>
   <br><img src="./orthography-the.png"></li>
-  <li>Now click the <i>Search</i> button at the bottom (or hit <i>&lt;Enter&gt;</i>).&nbsp;&nbsp;&nbsp;
+  <li>Now click the <i>Search</i> button at the bottom (or hit <i>&lt;Enter&gt;</i>).
   <br>A progress bar will appear, and then shortly after that, a new tab will open, which has a list of search results in it. Your browser's popup-blocker might prevent the results page from opening - you can fix that either by allowing the popups in your browser, or by clicking the <i>Display results</i> link that appears after the search finishes.</li>
-  <li>Each match is highlighted and shown with some context (the previous word and the following word in the transcript). The amount of context is controlled by a drop-down list at the top.&nbsp;&nbsp;&nbsp;
+  <li>Each match is highlighted and shown with some context (the previous word and the following word in the transcript). The amount of context is controlled by a drop-down list at the top.
   <br>Select <i>5 words</i> to see more context around each match.</li>
-  <li>Click on the first match.&nbsp;&nbsp;&nbsp;
+  <li>Click on the first match.
   <br>You will see that the interactive transcript page opens in a new browser tab, with the match at the top, and highlighted. You will also see that all the other matches from the same transcript are also highlighted.</li>
   <li>We've already seen what can be done in the interactive transcript page, so close the tab to return to the results page.</li>
-  <li>Each result line has a ticked checkbox next to it. Scroll to the bottom of the list.&nbsp;
+  <li>Each result line has a ticked checkbox next to it. Scroll to the bottom of the list.
   <br>You'll see that there are buttons at the bottom, which perform operations on the ticked results, including <i>CSV Export</i>, <i>Utterance Export</i>, and <i>Audio Export</i>.</li>
-  <li>Un-tick the “Select all results” checkbox, and then tick a handful of results in the list.&nbsp;&nbsp;&nbsp;
+  <li>Un-tick the “Select all results” checkbox, and then tick a handful of results in the list.&nbsp;&nbsp;&nbsp;&nbsp;
   <br><i>Tip:</i> You can select a group of matches by ticking the first one, and then holding down the <i>&lt;Shift&gt;</i> key while ticking the last one.</li>
   <li>Click the <i>Audio Export</i> button.</li>
-  <li>Save and open the resulting zip file.&nbsp;&nbsp;&nbsp;
+  <li>Save and open the resulting zip file.
   <br>You'll see that the files are systematically named to include:
  <ul>
   <li>the name of the transcript</li>
   <li>the start and end time of the extracted utterance</li></ul></li>
   <li>Now go back to the results page and tick the <i>Prefix Names </i>checkbox.</li>
   <li>Click the <i>Audio Export</i> button again.</li>
-  <li>Save and open the resulting zip file.&nbsp;&nbsp;&nbsp;
-  <br>This time you'll see that the files are also prefixed by the result number.&nbsp;&nbsp;&nbsp;
+  <li>Save and open the resulting zip file.
+  <br>This time you'll see that the files are also prefixed by the result number.
   <br>You may notice that there are more audio files this time; that's because there were multiple results in the same utterance. Previously, only one copy of the utterance was exported, but this time, each match has its own copy of the utterance audio, prefixed by the result number.</li>
   <li>Now go back to the results page and un-tick the <i>Prefix Names</i> checkbox.</li>
   <li>Click the <i>Utterance Export</i> button.</li>
-  <li>Save and open the resulting zip file.&nbsp;&nbsp;&nbsp;
+  <li>Save and open the resulting zip file.
   <br>You'll see that the TextGrid names match the audio file names in the first zip file.</li>
-  <li>Open one of the TextGrids in Praat.&nbsp;&nbsp;&nbsp;
+  <li>Open one of the TextGrids in Praat.
   <br>You'll see that the TextGrid includes a tier named <i>target… </i>which indicates which token(s) in the <i>word…</i> tier matched the search pattern.</li>
   <li>Back on the results page, click the <i>CSV Export</i> button.</li>
-  <li>Save the resulting file, and open it.&nbsp;&nbsp;&nbsp;
-  <br>You may have to specify some import options, in which case it may be handy to know that the field separator is comma, and the fields are quoted by speech marks.&nbsp;&nbsp;&nbsp;
+  <li>Save the resulting file, and open it.
+  <br>You may have to specify some import options, in which case it may be handy to know that the field separator is comma, and the fields are quoted by speech marks.&nbsp;&nbsp;&nbsp;&nbsp;
   <br><i>Tip:</i> If you're using Microsoft Excel and you find it doesn't open all the columns correctly:
  <ol>
   <li>Create a new workbook in Excel.</li>
@@ -75,45 +75,44 @@
   <li>Select the CSV file you downloaded.</li>
   <li>Select 'Delimited' and click <i>Next</i>.</li>
   <li>Ensure 'Comma' is the only delimiter ticked and click <i>Next</i>.</li>
-  <li>Click <i>Finish</i> and then <i>OK</i>.&nbsp;&nbsp;&nbsp;
+  <li>Click <i>Finish</i> and then <i>OK</i>.
   <br>
-  <br>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.&nbsp;&nbsp;&nbsp;
-  <br>With this spreadsheet, you can work 'offline' with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We'll look at a few more uses for the CSV results files later…&nbsp;&nbsp;
+  <br>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.
+  <br>With this spreadsheet, you can work 'offline' with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We'll look at a few more uses for the CSV results files later…
   <br>&nbsp;</li></ol></li>
-  <li>Close the CSV file, and the results page, and go back to the search matrix page.&nbsp;&nbsp;&nbsp;
+  <li>Close the CSV file, and the results page, and go back to the search matrix page.
   <br>
-  <br>We've seen that you can search for exact word matches, but you can also&nbsp;search for patterns, using 'regular expressions'. Now we're going to search for words <i>beginning with</i> “the...”&nbsp;&nbsp;&nbsp;
+  <br>We've seen that you can search for exact word matches, but you can also&nbsp;search for patterns, using 'regular expressions'. Now we're going to search for words <i>beginning with</i> “the...”
   <br>&nbsp;</li>
-  <li>Change the <i>orthography</i> search text to <i>the.*</i> (i.e. after the word "the", append a full-stop and an asterisk.&nbsp;&nbsp;&nbsp;
-  <br><img src="./starts-the.png"> &nbsp;&nbsp;
+  <li>Change the <i>orthography</i> search text to <code>the.*</code> (i.e. after the word "the", append a full-stop and an asterisk.
+  <br><img src="./starts-the.png"> &nbsp;&nbsp;&nbsp;
   <br>&nbsp;The full-stop means “any character at all”, and the asterisk means “zero or more of the previous thing”, so <i>.*</i> means "zero or more characters".</li>
-  <li>Click <i>Search</i>.&nbsp;&nbsp;&nbsp;
+  <li>Click <i>Search</i>.
   <br>You will see that now the search results include the word "the" and also words like "then", "there", "they", etc.</li>
-  <li>Now go back to the search page, and change the asterisk to a plus-sign, which means “one or more of the previous thing”&nbsp;&nbsp;&nbsp;
+  <li>Now go back to the search page, and change the asterisk to a plus-sign, which means “one or more of the previous thing”
   <br><img src="./prefix-the.png"></li>
-  <li>Click <i>Search</i>&nbsp;&nbsp;&nbsp;
+  <li>Click <i>Search</i>
   <br>You will see that now the search results exclude the word "the", only including words where the initial "the..." is followed by at least one character.</li>
-  <li>Now change your search by replacing the <i>e</i> in "the" with <i>[aeiou]</i> - so your search pattern will be:&nbsp;&nbsp;&nbsp;&nbsp;
-  <br><i>th[aeiou].+</i>&nbsp;&nbsp;&nbsp;
-  <br>The square-brackets mean “any one of the things inside the brackets”, so <i>[aeiou]</i> means “any vowel”.&nbsp;&nbsp;
+  <li>Now change your search by replacing the <i>e</i> in "the" with <i>[aeiou]</i> - so your search pattern will be:
+  <br><code>th[aeiou].+</code>
+  <br>The square-brackets mean “any one of the things inside the brackets”, so <i>[aeiou]</i> means “any vowel”.
   <br>
-  <br><i>Tip:</i> while you are typing the regular expression, you may notice that the text goes red; this means that what's currently in the box is not a valid regular expression. That's fine while you're still typing, but when you're ready to search, if the text is read, the search will likely fail. If the regular expression text is red, you can see what the problem with it is by hovering your mouse over the red text; a ‘tip’ will appear showing an error message.&nbsp;&nbsp;
+  <br><i>Tip:</i> while you are typing the regular expression, you may notice that the text goes red; this means that what's currently in the box is not a valid regular expression. That's fine while you're still typing, but when you're ready to search, if the text is red, the search will likely fail. If the regular expression text is red, you can see what the problem with it is by hovering your mouse over the red text; a ‘tip’ will appear showing an error message.
   <br>&nbsp;</li>
-  <li>Click <i>Search</i>.&nbsp;&nbsp;&nbsp;
-  <br>You will now see that the results include words like "think", "that", "thought", etc.&nbsp;&nbsp;&nbsp;
-  <br><img src="help.png"> You can get more information about regular expressions by using the online help on the search page, and also by clicking the the <i>regular expressions</i> link above the search matrix.&nbsp;&nbsp;&nbsp;
+  <li>Click <i>Search</i>.
+  <br>You will now see that the results include words like "think", "that", "thought", etc.
+  <br><img src="help.png"> You can get more information about regular expressions by using the online help on the search page, and also by clicking the the <i>regular expressions</i> link above the search matrix.
   <br>
-  <br>Up until now, we've only been matching against one word at a time. Now&nbsp;we're going to include patterns for a chain of words…&nbsp;&nbsp;&nbsp;
+  <br>Up until now, we've only been matching against one word at a time. Now&nbsp;we're going to include patterns for a chain of words…
   <br>&nbsp;</li>
-  <li>On the search page, to the right of the search matrix, there's a <i>+ </i>button. Click it.&nbsp;&nbsp;&nbsp;
-  <br><img src="./two-words-wide.png"> &nbsp;&nbsp;
+  <li>On the search page, to the right of the search matrix, there's a <i>+ </i>button. Click it.
+  <br><img src="./two-words-wide.png"> &nbsp;&nbsp;&nbsp;
   <br>Now you will see that our search matrix is one layer high by two words wide.</li>
-  <li>Change the entries on the <i>orthography</i> layer so that it will match the word "the" followed immediately by a word that starts with a vowel, and click <i>Search</i>.&nbsp;&nbsp;&nbsp;
+  <li>Change the entries on the <i>orthography</i> layer so that it will match the word "the" followed immediately by a word that starts with a vowel, and click <i>Search</i>.
   <br>Check the search results are giving you what you expected.</li>
   <li>Now search for "the" followed, within two words, by a word that starts with a vowel.</li>
-  <li>Dream up some other searches that interest you, and try out other options on the search page.&nbsp;</li></ol>
- <p><img src="help.png"> If in doubt about a search option, try the online help page.&nbsp;&nbsp;&nbsp;
-  <br>&nbsp;</p></article>
+  <li>Dream up some other searches that interest you, and try out other options on the search page.</li></ol>
+ <p><img src="help.png"> If in doubt about a search option, try the online help page.</p></article>
       <nav>
         <iframe src="index.html" id="nav" name="nav"></iframe>
       </nav>

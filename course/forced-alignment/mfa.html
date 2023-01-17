@@ -41,44 +41,43 @@
 <h3>Linux</h3>
  <p>To install the Montreal Forced Aligner on Linux systems for all users, so that your web server can access it if required:</p>
  <ol>
-  <li>Download Miniconda:&nbsp;&nbsp;
-  <br><i>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</i></li>
-  <li>Start the installer:&nbsp;&nbsp;
-  <br><i>sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</i></li>
-  <li>When asked the location to install Miniconda, use:&nbsp;&nbsp;
-  <br><i>/opt/conda</i></li>
-  <li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond no</li>
-  <li>Change ownership of the conda files):&nbsp;&nbsp;
-  <br><i>sudo chown -R $USERNAME:$USERNAME /opt/conda</i></li>
-  <li>Make conda accessible to all users (so you web server can access MFA):&nbsp;&nbsp;
-  <br><i>chmod -R go-w /opt/conda</i>&nbsp;&nbsp;
-  <br><i>chmod -R go+rX /opt/conda</i></li>
-  <li>Install the Montreal Forced Aligner&nbsp;&nbsp;
-  <br><i>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</i></li></ol>
+  <li>Download Miniconda:
+  <br><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
+  <li>Start the installer:
+  <br><code>sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
+  <li>When asked the location to install Miniconda, use:
+  <br><code>/opt/conda</code></li>
+  <li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond <code>no</code></li>
+  <li>Change ownership of the conda files):
+  <br><code>sudo chown -R $USERNAME:$USERNAME /opt/conda</code></li>
+  <li>Make conda accessible to all users (so you web server can access MFA):
+  <br><code>chmod -R go-w /opt/conda</code>
+  <br><code>chmod -R go+rX /opt/conda</code></li>
+  <li>Install the Montreal Forced Aligner
+  <br><code>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</code></li></ol>
 <h3>Windows</h3>
  <p>To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:</p>
  <ol>
-  <li>Download the Miniconda installer:&nbsp;&nbsp;
+  <li>Download the Miniconda installer:&nbsp;&nbsp;&nbsp;
   <br><a target="_blank" rel="noopener noreferrer" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
   <li>Start the installer by double-clicking it.</li>
-  <li>When asked, select the “Install for all users” option. This willinstall conda somewhere like&nbsp;&nbsp;
+  <li>When asked, select the “Install for all users” option. This will install conda somewhere like
   <br><i>C:\ProgramData\Miniconda3</i></li>
   <li>When asked, tick the <i>add to PATH</i> option.</li>
-  <li>Install the Montreal Forced Aligner by specifying a path to the environment&nbsp;&nbsp;
-  <br><i>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</i></li></ol>
+  <li>Install the Montreal Forced Aligner by specifying a path to the environment
+  <br><code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</code></li></ol>
 <h3>Docker Container</h3>
  <p>If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager (below)</p>
- <p>&nbsp;</p>
  <p>Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.</p>
  <ol>
   <li>Click the <i>layer managers</i> menu option.</li>
   <li>Click the <i>List of layer managers that are not yet installed</i> link.</li>
-  <li>Find MFA Manager in the list, and click its <i>Install</i> button and then click <i>Install</i> again.&nbsp;&nbsp;
+  <li>Find MFA Manager in the list, and click its <i>Install</i> button and then click <i>Install</i> again.
   <br>
-  <br>As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to in the <i>Path to MFA</i> box.&nbsp;
+  <br>As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to in the <i>Path to MFA</i> box.
   <br>
   <br>If the <i>Path to MFA</i> box is empty and there's an <i>Attempt to Install MFA</i> button, click the button, and LaBB-CAT will try to install MFA on the server for you. This process can take a few minutes, and the <i>Configure</i> button will be disabled until it's finished.</li>
-  <li>Click <i>Configure</i> to continue the layer manager installation.&nbsp;&nbsp;
+  <li>Click <i>Configure</i> to continue the layer manager installation.
   <br>You will see a window open with some information about integrating with MFA, including the information you've already read above.</li>
   <li>Now you need to add a <i>phrase layer</i> for the MFA configuration:
  <ul>
@@ -90,40 +89,40 @@
   <li><strong>Description:</strong> MFA alignment time</li></ul></li>
   <li>When you configure the layer, set the following options:
  <ul>
-  <li><strong>Dictionary Name:</strong> <i>english</i></li>
-  <li><strong>Pretrained Acoustic Models:</strong> <i>english</i></li>
-  <li>The rest of the options can be left as their default values.&nbsp;&nbsp;
+  <li><strong>Dictionary Name:</strong> <i>english_mfa</i></li>
+  <li><strong>Pretrained Acoustic Models:</strong> <i>english_mfa</i></li>
+  <li>The rest of the options can be left as their default values.
   <br>
   <br>If you're curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</li></ul></li>
   <li>Click <i>Set Parameters</i></li>
-  <li>Click <i>Regenerate</i>&nbsp;&nbsp;
+  <li>Click <i>Regenerate</i>
   <br>You will see a progress bar while LaBB-CAT force-aligns all the transcripts in the corpus, which may take a few minutes.</li>
-  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are nowaligned.”&nbsp;&nbsp;
+  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are now aligned.”&nbsp;&nbsp;&nbsp;
   <br>
   <br>You can inspect/correct alignments using LaBB-CAT's integration with Praat.</li>
-  <li>Go back to the <i>UC207YW.eaf</i> transcript.</li>
-  <li>Tick both the <i>htk</i> layer and the <i>segments</i> layer.&nbsp;&nbsp;&nbsp;
-  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).&nbsp;&nbsp;&nbsp;
+  <li>Go to the <i>transcripts</i> page and open the <i>UC207YW.eaf</i> transcript.</li>
+  <li>Tick both the <i>mfa</i> layer and the <i>segments</i> layer.
+  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).
   <br>
-  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;&nbsp;&nbsp;
+  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;&nbsp;&nbsp;&nbsp;
   <br>be done once:</li>
   <li>On the top-right of the page, above the playback controls, there's a Praat icon &nbsp;- click it.</li>
-  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;&nbsp;&nbsp;
-  <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.&nbsp;&nbsp;&nbsp;
-  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.&nbsp;&nbsp;&nbsp;
-  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.&nbsp;&nbsp;&nbsp;
+  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;&nbsp;&nbsp;&nbsp;
+  <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.
+  <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.
+  <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.
   <br>
   <br>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</li>
-  <li>Click on a line that has been aligned, and select the <i>Open Text Grid in Praat</i> option on the menu.&nbsp;&nbsp;&nbsp;
-  <br>You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <i>Allow</i>.&nbsp;&nbsp;&nbsp;
+  <li>Click on a line that has been aligned, and select the <i>Open Text Grid in Praat</i> option on the menu.
+  <br>You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <i>Allow</i>.
   <br>Praat should open, and show you a spectrogram of the line's audio, with a TextGrid below that includes the words and the segments.</li>
-  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.&nbsp;&nbsp;&nbsp;
-  <br>Try this out with different lines in the transcript.&nbsp;&nbsp;&nbsp;
-  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.&nbsp;&nbsp;&nbsp;
+  <li>If you click on a word, and hit the <i>&lt;tab&gt;</i> key, the word's interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.
+  <br>Try this out with different lines in the transcript.
+  <br>You will see that in some cases the alignment is pretty good, and in other cases, it's not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.
   <br>
   <br>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <i>Import Changes</i>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</li>
-  <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they're more accurate, and then click the <i>Import Changes</i> button in the transcript.&nbsp;&nbsp;&nbsp;
-  <br>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because HTK will never change them again.&nbsp;&nbsp;&nbsp;
+  <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they're more accurate, and then click the <i>Import Changes</i> button in the transcript.
+  <br>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because HTK will never change them again.
   <br>
   <br>There are some rules about what you can change:
  <ol>

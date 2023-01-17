@@ -23,14 +23,14 @@
   <li>For the 'true positives', perform some auditory analysis (i.e. listen to them) and tag each token accordingly.</li></ul>
 <hr>
  <ol>
-  <li>To embark on this mini project, we're first going to create a ‘project’ in LaBB-CAT to categorize our annotations.&nbsp;&nbsp;&nbsp;
+  <li>To embark on this mini project, we're first going to create a ‘project’ in LaBB-CAT to categorize our annotations.
   <br>Click on the <i>projects</i> link on the menu.</li>
   <li>Add a project called “the” with a description something like <i>Pronunciation of the vowel in the when followed by a word-initial vowel</i>.
   <br>
-  <br>Now we're going to create a layer to store our annotations…&nbsp;&nbsp;&nbsp;
+  <br>Now we're going to create a layer to store our annotations…
   <br>&nbsp;</li>
-  <li>Click on the <i>word layers</i> option on the menu.&nbsp;&nbsp;&nbsp;
-  <br>You will see a list of existing word layers, including the <i>orthography</i> layer, the <i>lexical</i> layer, etc.&nbsp;&nbsp;&nbsp;
+  <li>Click on the <i>word layers</i> option on the menu.
+  <br>You will see a list of existing word layers, including the <i>orthography</i> layer, the <i>lexical</i> layer, etc.
   <br>The row of column headings at the top is also a form for adding a new layer.</li>
   <li>Fill in the top row with the following details:
  <ul>
@@ -41,46 +41,45 @@
   <li><strong>Generate:</strong> don't select any option (this setting is only relevant for managed layers, so it doesn't actually matter what you select here)</li>
   <li><strong>Project:</strong> <i>the</i></li>
   <li><strong>Description:</strong> "the" followed by a word-initial vowel</li></ul></li>
-  <li>Click <i>New</i> to add the layer.&nbsp;&nbsp;&nbsp;
+  <li>Click <i>New</i> to add the layer.
   <br>
-  <br>Now we're ready to find some tokens…&nbsp;&nbsp;&nbsp;
+  <br>Now we're ready to find some tokens…
   <br>&nbsp;</li>
   <li>Click <i>participants</i> on the menu.</li>
   <li>We're going to search all male monolinguals, so filter by the appropriate attribute values and then click <i>Layered Search</i>.</li>
   <li>Search for instances of the word “the” followed immediately by a word starting with a vowel, on the <i>orthography</i> layer.</li>
-  <li>Export the results to a CSV file and open it.&nbsp;&nbsp;&nbsp;
+  <li>Export the results to a CSV file and open it.
   <br>
   <br>Now we're going to annotate the CSV file to identify false positives.</li>
-  <li>Add a column to the right-hand side of the spreadsheet, called “The” - i.e. on the first line, in the cell to the right the last column header, enter the word <i>The</i>&nbsp;&nbsp;&nbsp;
+  <li>Add a column to the right-hand side of the spreadsheet, called “The” - i.e. on the first line, in the cell to the right the last column header, enter the word <i>The</i>
   <br><img src="./add-the-column.png"></li>
-  <li>For each row in the spreadsheet check the contents of the “Match transcript” column, and decide whether the match is a ‘false positive’ or not. False positives are cases like "the one", where the second word actually starts with a non-vowel sound (i.e. the word “one” actually starts with a /w/ phoneme).&nbsp;&nbsp;&nbsp;
+  <li>For each row in the spreadsheet check the contents of the “Match transcript” column, and decide whether the match is a ‘false positive’ or not. False positives are cases like "the one", where the second word actually starts with a non-vowel sound (i.e. the word “one” actually starts with a /w/ phoneme).
   <br>For false positives, enter <i>FP</i> in your new “The” column. For all the others, enter <i>TP.</i></li>
-  <li>Save the CSV file.&nbsp;&nbsp;&nbsp;
-  <br>You may be asked if you want to change the format of the file. Resist the temptation to do this - we are going to upload this file into LaBB-CAT, and it can only understand CSV files.&nbsp;&nbsp;&nbsp;
+  <li>Save the CSV file.
+  <br>You may be asked if you want to change the format of the file. Resist the temptation to do this - we are going to upload this file into LaBB-CAT, and it can only understand CSV files.
   <br>
   <br>Now that we've annotated our results, we're going to to load our annotations into the new layer we created in LaBB-CAT…</li>
   <li>In LaBB-CAT, click the <i>upload</i> menu option.</li>
   <li>Click the <i>upload csv annotations</i> option.</li>
   <li>Click <i>Choose File</i> and select the annotated CSV file you just saved.</li>
   <li>Click <i>Upload</i>.</li>
-  <li>On the form that appears, you can leave the default choices for the options. Ensure that at the bottom the <i>The</i> column in the spreadsheet is mapped to the <i>the</i> layer in LaBB-CAT.</li>
-  <li>Click <i>Insert Annotations</i>.&nbsp;&nbsp;&nbsp;
+  <li>On the form that appears, you can leave the default choices for the options. Just ensure that the <i>Tag Words</i> option is selected at the top, and at the bottom the <i>The</i> column in the spreadsheet is mapped to the <i>the</i> layer in LaBB-CAT.</li>
+  <li>Click <i>Insert Annotations</i>.
   <br>You will see a message about how many annotations were added. Now, within LaBB-CAT, each token mentioned in your CSV file has been tagged with either “TP” or “FP”
   <br>
-  <br>Now that we've seen one way to add annotations to the database, using CSV files, we will try another way - editing word annotations directly from the interactive transcript.&nbsp;&nbsp;&nbsp;
+  <br>Now that we've seen one way to add annotations to the database, using CSV files, we will try another way - editing word annotations directly from the interactive transcript.
   <br>
   <br>We're going to find our ‘true positive’ tokens of the word “the”, and annotate each depending on how the speaker pronounces it in the recording.</li>
-  <li>In LaBB-CAT, click the <i>participants</i> menu option.</li>
-  <li>Click <i>Layered Search</i>.&nbsp;&nbsp;&nbsp;
+  <li>In LaBB-CAT, click the <i>search</i> menu option, which by default searches utterances of all participants.
   <br>This time we're going to search for the true-positive annotations we just inserted.</li>
   <li>Under the “Tick layers to include” heading, there's now a “Project” column that includes the “the” project we added at the start. Tick that project, so that the layer associated with it is displayed in the list of <i>Word</i> layers to the right.</li>
-  <li>Tick your custom layer (called “the”) in the <i>Word</i> column.&nbsp;&nbsp;&nbsp;
+  <li>Tick your custom layer (called “the”) in the <i>Word</i> column.
   <br>Your search matrix is now two layers high by one word wide.</li>
-  <li>Search for <i>TP</i> on the <i>the</i> layer.&nbsp;&nbsp;&nbsp;
+  <li>Search for <i>TP</i> on the <i>the</i> layer.
   <br>The results page should show you all the words you annotated with <i>TP</i> in your CSV file above.</li>
-  <li>Click on the first match.&nbsp;&nbsp;&nbsp;
+  <li>Click on the first match.
   <br>This will open the interactive transcript for the match. You'll be able to see not only the transcript text, but also the <i>TP</i>/<i>FP</i> tags you have added.</li>
-  <li>Click on the first match in the transcript, and select the <i>Play</i> option to play the line.&nbsp;&nbsp;&nbsp;
+  <li>Click on the first match in the transcript, and select the <i>Play</i> option to play the line.
   <br>
   <br>Listen carefully to see whether the speaker pronounces the word “the” like “thee” or not. If they do, we're going to annotate the word with the code “i”. Otherwise we're going to annotate it with the code “@”.</li>
   <li>Click the match word again, and select the last option on the menu: <i>Edit</i>. A window will appear, with a list of layers. Each line has the token's annotation on the given row. So at the bottom, the value on the <i>word</i> layer is probably “the” or maybe “The” or "the ." or something similar. On the <i>orthography</i> layer, the annotation will be “the”. Other layers may be blank, except for your <i>the </i>layer, whose annotation will be “TP”.</li>
@@ -92,14 +91,13 @@
   <li>Similarly annotate the rest of the matches in the transcript.
   <br>
   <br>You may notice that, although you're changing labels to “i” or “@”, the tags still appear as “TP” in the transcript page; this is simply because that's what the tag was when you opened the transcript. If you refresh the page, you'll see your new tags instead of the old ones.</li>
-  <li>Once you've annotated the last match in the transcript, close the browser's tab.&nbsp;&nbsp;&nbsp;
+  <li>Once you've annotated the last match in the transcript, close the browser's tab.
   <br>This will take you back to the search results page.</li>
   <li>You've already annotated all the matches in the first transcript, so move to the next transcript in the results list, and click the first match.</li>
   <li>Annotate all the “TP” tokens in the transcript.</li>
   <li>Repeat the above steps until you've annotated all the matches.</li></ol>
  <p>You've now used two methods for annotating words. Although this is a small, toy example, you can hopefully see that you could manage a larger annotation project involving much more tokens, possibly multiple annotators, and working either offline (with a CSV file and maybe extracted WAV files) or online (directly in the interactive transcript page), as preferred.</p>
- <p>There are other ways to add manual annotations, which relate to concrete points or intervals in time during the recording. We will see how to do this later...&nbsp;&nbsp;&nbsp;
-  <br>&nbsp;</p></article>
+ <p>There are other ways to add manual annotations, which relate to concrete points or intervals in time during the recording. We will see how to do this later…&nbsp;</p></article>
       <nav>
         <iframe src="index.html" id="nav" name="nav"></iframe>
       </nav>
