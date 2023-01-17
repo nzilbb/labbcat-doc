@@ -2,9 +2,10 @@ name: Generate PDFs
 
 on: push
 
-   # Important! Update to release https://github.com/rseng/rse-action/releases
-   uses: https://github.com/rseng/rse-action/releases
-   with:        
+jobs:
+  convert_via_pandoc:
+  uses: https://github.com/rseng/rse-action/releases
+  with:        
 
      # The markdown file to render,path is relative to repository
      paper_markdown: course/home.html
