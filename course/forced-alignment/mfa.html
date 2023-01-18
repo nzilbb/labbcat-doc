@@ -94,20 +94,44 @@
   <li>The rest of the options can be left as their default values.
   <br>
   <br>If you're curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</li></ul></li>
-  <li>Click <i>Set Parameters</i></li>
-  <li>Click <i>Regenerate</i>
-  <br>You will see a progress bar while LaBB-CAT force-aligns all the transcripts in the corpus, which may take a few minutes.</li>
-  <li>When the layer manager has finished, you'll see a message saying “Complete - words and phones from selected utterances are now aligned.”&nbsp;&nbsp;&nbsp;
+  <li>Click <i>Set Parameters</i>
+  <br>We will not click <i>Regenerate</i> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant's speech.
   <br>
-  <br>You can inspect/correct alignments using LaBB-CAT's integration with Praat.</li>
+  <br>When forced-alignment is done, the resulting aligned phones are saved on the <i>segment</i> layer. By default, this has it's type set to <i>Phonological</i>, which assumes that the phoneme symbols will be those defined by the CELEX DISC encoding. However, MFA uses its own phoneme symbols, which are different from the CELEX DISC ones.&nbsp;
+  <br>To make later processing easier, we're going to change the type of the <i>segment</i> layer to <i>Text</i>, and let LaBB-CAT know what the possible phoneme labels are.</li>
+  <li>Click the <i>segment layers</i> menu option.
+  <br>You will see a single layer listed, called <i>segment</i>.</li>
+  <li>Change the <i>Type</i> of the <i>segment</i> layer to <i>Text</i>.</li>
+  <li>Click <i>Save</i>.
+  <br>A new button appears with a tag <img src="./forced-alignment/tag.svg"> icon - if you hover the mouse over this button, you'll see it's for setting <i>Valid labels</i>.</li>
+  <li>Click the <i>Valid labels</i> button.
+  <br>You will see a page that allows you to add a list of possible labels.
+  <br>But we don't know what the valid labels are yet. The labels used by MFA depend on the dictionary/models selected when defining the layer. The details for all dictionaries are in <a target="_blank" rel="noopener noreferrer" href="https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary">MFA Models documentation</a>.</li>
+  <li>Open the <a target="_blank" rel="noopener noreferrer" href="https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0">MFA Models documentation for <i>english_mfa</i></a>.
+  <br>You will see a page that includes information about the dictionary including the <i>Phones</i> used by it.</li>
+  <li>Select and copy the list of phones used by the <i>english_mfa</i> dictionary - i.e. all of these:
+  <br><code>a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj ə əw ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ</code></li>
+  <li>Back in the <i>Valid Labels</i> page in LaBB-CAT, paste all of the phone symbols into the box labelled <i>Label</i>
+  <br><img src="./forced-alignment/pasted-mfa-labels.png" alt="The Valid Labels form with teh text box filled with all the MFA phoneme symbols"></li>
+  <li>Click <i>New</i>.
+  <br>You will see that all of the labels are separately added to the list of valid labels.
+  <br><img src="./forced-alignment/valid-mfa-labels-list.png" alt="The Valid Labels list is now populated, with each phoneme symbol on a separate line">
+  <br>Defining this list for the <i>segment</i> layer means that, when you search the <i>segment</i> layer for specific phones, LaBB-CAT can display a clickable list of possibilities.</li>
+  <li>At the bottom of the list, there's a <i>Save</i> button. Click it to save your changes.</li>
+  <li>Click the <i>participants</i> option on the menu.</li>
+  <li>Find the participant <i>UC207YW</i> and tick their checkbox.</li>
+  <li>Click the <i>All Utterances</i> button and then click <i>List</i>.
+  <br>You will see a progress bar while all their utterances are identified. Then a results page will be displayed, listing the first 20 utterances.</li>
+  <li>Click the <i>Mfa</i> button at the bottom.
+  <br>You will see a progress bar appear, while LaBB-CAT gathers the files that MFA needs, runs MFA, and parses the resulting alignments. This will take a few minutes.
+  <br>Once it's complete, you can inspect/correct alignments using LaBB-CAT's integration with Praat.</li>
   <li>Go to the <i>transcripts</i> page and open the <i>UC207YW.eaf</i> transcript.</li>
-  <li>Tick both the <i>mfa</i> layer and the <i>segments</i> layer.
-  <br>You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <i>segments</i> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).
+  <li>Tick both the <i>mfa</i> layer and the <i>segment</i> layer.&nbsp;
+  <br>You will see which lines have been force-aligned, as they have an MFA timestamp, and have the <i>segment</i> layer filled in.
   <br>
-  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to&nbsp;&nbsp;&nbsp;&nbsp;
-  <br>be done once:</li>
+  <br>The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</li>
   <li>On the top-right of the page, above the playback controls, there's a Praat icon &nbsp;- click it.</li>
-  <li>Follow the instructions that appear (these vary depending on what web browser you use).&nbsp;&nbsp;&nbsp;&nbsp;
+  <li>Follow the instructions that appear (these vary depending on what web browser you use).
   <br>You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.
   <br>You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.
   <br>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.
