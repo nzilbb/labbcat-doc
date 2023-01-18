@@ -19,7 +19,7 @@
  <p>In a previous exercise, we force-aligned words and their segments, and also did a little hand-correction of the alignments. Now that we've got some relatively reliable phone-level alignments, we're going to explore their search and annotation possibilities.</p>
  <p>In this exercise you will</p>
  <ul>
-  <li>see how the alignments affect speech rate computations,&nbsp;</li>
+  <li>see how the alignments affect speech rate computations,</li>
   <li>automatically annotate pauses between words,</li>
   <li>search for tokens of individual, time-aligned segments,</li>
   <li>create time-aligned segment annotations via Praat, and</li>
@@ -30,9 +30,9 @@
  <ol>
   <li>Go to the <i>transcripts</i> page and open the transcript we force-aligned earlier, <i>UC207YW.eaf</i>, if you don't still have it open.</li>
   <li>Tick the <i>speech rate</i> layer for display, and make a note of some of the speech rate annotations (which ones are there depends on what you selected as the scopes for the layer).</li>
-  <li>At the top of the transcript, in the <i>formats</i> menu, click the <i>regenerate layers</i> option.&nbsp;&nbsp;
+  <li>At the top of the transcript, in the <i>formats</i> menu, click the <i>regenerate layers</i> option.
   <br>This will display a list of managed layers.</li>
-  <li>Select the <i>speech rate</i> layer and click <i>Regenerate</i>.&nbsp;&nbsp;
+  <li>Select the <i>speech rate</i> layer and click <i>Regenerate</i>.
   <br>You will see a progress bar while the statistics for the transcript are computed again.</li>
   <li>Once that's finished, go back to the transcript and check the speech rate annotations again. You should see that at least some of them are different.
   <br>
@@ -74,16 +74,18 @@
   <li><strong>Manager:</strong> (don't select any of the options, this is a manual annotation layer)</li>
   <li><strong>Generate:</strong> (not relevant as it's not a managed layer)</li>
   <li><strong>Project:</strong> <i>formants</i></li>
-  <li><strong>Description:</strong> First Formant&nbsp;&nbsp;
+  <li><strong>Description:</strong> First Formant
   <br>Click <i>New</i>.</li></ul></li>
   <li>Select <i>search</i> on the menu.</li>
   <li>Tick the <i>segment</i> layer.
   <br>The segments layer contains annotations at the sub-word level - i.e. there are potentially multiple annotations per word, each annotation representing a phone of the word. You will see that, as with other layers, there is a box on the segments layer for a regular expression.
   <br>As with other patterns in the search matrix, the pattern that you enter in the box is matched against individual annotations. So if you enter <code>i</code> in the in the box, it will match each <i>FLEECE</i> vowel segment in each word in the database.
   <br>
-  <br><strong>NB</strong> It's important to realise that if you enter a pattern that would match more than a single character on this layer (i.e. more than a single phoneme) then no search results will be returned, because each annotation on this layer is only a single character long (remember the DISC encoding uses one character per phoneme).
+  <br><strong>NB</strong> It's important to realise that if you enter a pattern that would match more than a single phoneme symbol on this layer then no search results will be returned, because each annotation on this layer is only a single character long (remember the DISC encoding uses one character per phoneme).
   <br>For example, if you enter <code>.*IN</code> for your search, intending to match all words ending in “...ing”, then no results will be returned, because no single segment will ever match that pattern.</li>
-  <li>We want to search for all instances of the <i>FLEECE</i> vowel, so enter <i>i</i> in the segments pattern box.</li>
+  <li>We want to search for all instances of the <i>FLEECE</i> vowel, so use the label selector - the button labelled « - to find the right symbol for the <i>FLEECE</i> vowel and click it.
+  <br>If you used HTK for forced alignment, this will be <code>i</code>
+  <br>If you used MFA for forced alignment, this will be <code>iː</code></li>
   <li>In our particular database, if there's any annotation on the segments layer, then we can be sure that it's been aligned at least by HTK or MFA (if not manually corrected). However, there are configurations of CELEX layers that would put unaligned annotations on that layer.
   <br>To make sure we only get words that have been aligned by HTK/MFA or manually, tick the <i>only match words that are aligned</i> option.</li>
   <li>Click <i>Search</i>.
@@ -102,7 +104,7 @@
   <li>Get the F1 value (hit the <i>&lt;F1&gt;</i> key on your keyboard)</li>
   <li>Copy the value that is displayed on to the clipboard (i.e. select it and hit <i>&lt;Ctrl&gt;+&lt;C&gt;</i> on your keyboard)</li>
   <li>Back in the TextGrid, add a boundary on the <i>F1</i> tier at that point (if it's the fourth tier, hit <i>&lt;Ctrl&gt;+&lt;F4&gt;</i> on your keyboard)</li>
-  <li>Paste the F1 value that you copied earlier (i.e. hit <i>&lt;Ctrl&gt;+&lt;V&gt;</i> on your keyboard)&nbsp;&nbsp;
+  <li>Paste the F1 value that you copied earlier (i.e. hit <i>&lt;Ctrl&gt;+&lt;V&gt;</i> on your keyboard)
   <br>Now you've annotated the vowel with its F1 value, and we want to save that annotation back to the LaBB-CAT database.</li>
   <li>Click back on the LaBB-CAT transcript window.</li>
   <li>Click the <i>Import Changes</i> button that has appeared to the left ofthe line with the first match.
