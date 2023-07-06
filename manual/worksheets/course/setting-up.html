@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>setting-up</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="setting-up_files/libs/clipboard/clipboard.min.js"></script>
+<script src="setting-up_files/libs/quarto-html/quarto.js"></script>
+<script src="setting-up_files/libs/quarto-html/popper.min.js"></script>
+<script src="setting-up_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="setting-up_files/libs/quarto-html/anchor.min.js"></script>
+<link href="setting-up_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="setting-up_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="setting-up_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="setting-up_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="setting-up_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="setting-up" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up">Setting Up</h2>
+<p>In this exercise you will:</p>
+<ul>
+<li>Install the LaBB-CAT software</li>
+<li>Define corpora</li>
+<li>Define transcript types</li>
+<li>Define speaker meta data</li>
+</ul>
+<p>After this you will have an empty LaBB-CAT database set up ready to upload transcripts into.</p>
+<ol type="1">
+<li>You have a file called <em>install-labbcat.jar</em> - double click this file to start the installer.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+If you are using OS X, you may see a message that the file can’t be opened:&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<img src="install-labbcat-OSX-warning.png" class="img-fluid"> &nbsp;&nbsp;<br>
+If this happens:&nbsp;
+<ol type="1">
+<li>Click the Apple icon in the top left corner of the screen.&nbsp;</li>
+<li>Select <em>System Preferences</em></li>
+<li>Click <em>Security &amp; Privacy</em>&nbsp;&nbsp;&nbsp;<br>
+Near the bottom it says “<em>install-labbcat.jar’’ was blocked from opening because it is not from an identified developer.</em>&nbsp;&nbsp;&nbsp;<br>
+<img src="install-labbcat-OSX-open-anyway.png" class="img-fluid"></li>
+<li>Click <em>Open Anyway</em>&nbsp;&nbsp;&nbsp;<br>
+You may see another warning about the program being downloaded from the internet&nbsp;&nbsp;&nbsp;<br>
+<img src="install-labbcat-OSX-open.png" class="img-fluid"></li>
+<li>Click <em>Open</em>&nbsp;&nbsp;&nbsp;<br>
+<br>
+<img src="install-labbcat.png" class="img-fluid"></li>
+</ol></li>
+<li>Click <em>Start</em>&nbsp;&nbsp;&nbsp;<br>
+You will see the progress bar move as files are installed. &nbsp;Once this is finished, you’ll see a message saying <em>Installation complete</em>.</li>
+<li>Click <em>Finished</em> to close the installer.</li>
+</ol>
+<p>The software is now installed. LaBB-CAT is a browser-based system, which means that it works as a mini web server on your computer, and you need to access it using your web browser.</p>
+<p>Each time you want to use LaBB-CAT, you must start it up, and which you’ve finished, you close it down again.</p>
+<p>To start LaBB-CAT, click the LaBB-CAT icon in your applications area.&nbsp;</p>
+<ul>
+<li>On Windows, open the <em>Start</em> menu and type LaBB-CAT.</li>
+<li>On OS X you will find LaBB-CAT in your <em>Applications</em> folder.&nbsp;</li>
+</ul>
+<p>A window called “LaBB-CAT Server” will open, and after a short delay, your default web browser will open on a page called “LaBB-CAT” (The first time only, this page will initially display the LaBB-CAT licence).</p>
+<p>Now that the software is installed, we will set up a basic structure for receiving data:</p>
+<ol type="1">
+<li>Start LaBB-CAT as described above.&nbsp;&nbsp;&nbsp;<br>
+This will open your web browser on LaBB-CAT’s start page.&nbsp;</li>
+<li>The start page has a link on it called <em>Where do I start?</em> - you may like to click on this link and read the first section, which explains a little about how to navigate around LaBB-CAT and where to find online help and hints.&nbsp;</li>
+<li>Click back on the start page of LaBB-CAT (the page with the <em>Where do I start?</em> link).&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+Now we will set up some corpus names…&nbsp;&nbsp;&nbsp;<br>
+&nbsp;</li>
+<li>On the menu at the top, click the <em>corpora</em> link.&nbsp;&nbsp;&nbsp;<br>
+This page shows a list of current corpora, which only contains one corpus, called <em>corpus</em>.&nbsp;</li>
+<li>Above the <em>corpus</em> corpus, there’s a form that you can fill in to add a new corpus. Fill in the following information:&nbsp;
+<ul>
+<li><strong>Name</strong> : QB</li>
+<li><strong>Language</strong> : <em>English</em></li>
+<li><strong>Description</strong> : Quakebox recordings</li>
+</ul></li>
+<li>Click the <em>New</em> button to add the “QB” corpus.&nbsp;&nbsp;&nbsp;<br>
+You should see a message at the top of the page saying <em>Record created</em> and now the <em>QB</em> corpus is in the list, under the “corpus” corpus.</li>
+<li>Add another corpus called <em>UC</em> with the description <em>Campus recordings</em>.</li>
+<li>We won’t actually be using the corpus called <em>corpus</em>, so we want to delete it. To do this, click the <em>Delete</em> button to the right of the <em>corpus</em> corpus in the list.&nbsp;</li>
+<li>You will be asked <em>Are you sure you want to delete corpus?</em> You are sure, so click <em>OK</em>.&nbsp;&nbsp;&nbsp;<br>
+The row will be deleted from the list.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+Now you have some corpora set up with the names you’ve provided.&nbsp;&nbsp;&nbsp;<br>
+<br>
+The data we are using is a collection of stories about peoples’ experiences during the devastating earthquakes that hit the Canterbury region of New Zealand in 2010 and 2011. Some recordings are interviews, where an interviewer asks the participant questions, and others are monologues. Now we’re going to set up these two transcript types…&nbsp;&nbsp;&nbsp;<br>
+&nbsp;</li>
+<li>Click on the <em>transcript types</em> menu option.&nbsp;&nbsp;&nbsp;<br>
+You will see a list of transcript types, although there’s currently only one type in the list, called <em>interview</em>.</li>
+<li>Above this, fill in the empty <em>Type</em> box with the word: <em>monologue</em></li>
+<li>Click the <em>New</em> button.&nbsp;&nbsp;&nbsp;<br>
+You will notice that now the list has two transcript types, <em>interview</em> and <em>monologue</em>. A <em>Save</em> button has appeared, because your changes aren’t yet saved to LaBB-CAT.&nbsp;</li>
+<li>Click the <em>Save</em> button.&nbsp;&nbsp;&nbsp;<br>
+You will see a message at the top saying \txt{Updated transcript types}.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+Now that we have both corpora and transcript types, we’re going to set up meta-data options for the participants in our corpus…&nbsp;&nbsp;&nbsp;<br>
+&nbsp;</li>
+<li>Click on the <em>participant attributes</em> menu option.&nbsp;&nbsp;&nbsp;<br>
+You will see a list of fields or attributes that participants (or speakers) can have. There are currently only three attributes:&nbsp;
+<ul>
+<li><em>Gender</em> - i.e.&nbsp;whether the participant is female or male or something else&nbsp;</li>
+<li><em>Birth Year</em> - i.e.&nbsp;the year the participant was born&nbsp;</li>
+<li><em>Notes</em> - general arbitrary notes&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<br>
+For our corpus data, we don’t have the exact year of birth. Instead we have the age of the participant, defined by various age group categories.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;</li>
+</ul></li>
+<li>Each of the three attributes already in the list has a form specifying its definition, and below all three, there’s an empty form, which we will now fill in with the following information:&nbsp;
+<ul>
+<li><strong>Attribute</strong> : age_category</li>
+<li><strong>Label</strong> : Age</li>
+<li><strong>Description</strong> : Age Category</li>
+<li><strong>Category</strong> : <em>General</em>&nbsp;</li>
+<li><strong>Type</strong> : select (this is because we want to be able to select from a list of possible values)&nbsp;</li>
+<li><strong>Access</strong> : <em>Public</em>&nbsp;&nbsp;&nbsp;</li>
+<li><strong>Searchable</strong> : <em>Searchable</em> (so that it appears on the search page)&nbsp;</li>
+<li><strong>Style</strong> : leave all the three options un-ticked&nbsp;</li>
+<li><strong>Peers</strong> : leave <em>Single Value</em> selected&nbsp;</li>
+<li><strong>Order</strong> : 4 (this will position the <em>Age</em> attribute between the <em>Birth Year</em> attribute, whose order=3 and the <em>Notes</em> attribute, whose order=100)&nbsp;<br>
+<img src="help.png" class="img-fluid"> If you want more information about what each of these are for, check the online help for this page.&nbsp;&nbsp;</li>
+</ul></li>
+<li>Click the <em>New</em> button.&nbsp;&nbsp;<br>
+You will now see the new <em>Age</em> attribute below the <em>Birth Year</em> field. Now we need to define the options for it…</li>
+<li>Underneath the <em>Age</em> attribute details, there’s a button called <em>Options</em>; press it.&nbsp;&nbsp;<br>
+This shows a (currently empty) list of options for the <em>age_category</em> attribute.&nbsp;&nbsp;</li>
+<li>In the blank row, fill in the following details:&nbsp;&nbsp;
+<ul>
+<li><strong>Value</strong> : 18-25</li>
+<li><strong>Description</strong> : 18-25 years</li>
+</ul></li>
+<li>Click the <em>New</em> button to add the option.&nbsp;&nbsp;</li>
+<li>In the blank row at the bottom, fill in the following details:&nbsp;&nbsp;
+<ul>
+<li><strong>Value</strong> : 26-35</li>
+<li><strong>Description</strong> : 26-35 years</li>
+</ul></li>
+<li>Click the <em>New</em> button to add the option.&nbsp;&nbsp;</li>
+<li>Similarly, add the following age categories:&nbsp;&nbsp;
+<ul>
+<li>36-45</li>
+<li>46-55</li>
+<li>56-65</li>
+<li>66-75</li>
+<li>76-85</li>
+</ul></li>
+<li>Add a final option:&nbsp;&nbsp;
+<ul>
+<li><strong>Value</strong> : 85+</li>
+<li><strong>Description</strong> : 85 years or more</li>
+</ul></li>
+<li>Lastly, add a ‘default’ option for participants with missing data:&nbsp;&nbsp;
+<ul>
+<li><strong>Value</strong> : <em>(Leave the box blank)</em>&nbsp;&nbsp;</li>
+<li><strong>Description</strong> : (not specified)</li>
+</ul></li>
+<li>Now click the <em>participant attributes</em> option on the menu to return the list of all attributes.&nbsp;&nbsp;<br>
+<br>
+We are going to add a few more attributes, but they will be ‘free text’ fields without predefined options.&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;</li>
+<li>Add another attribute, called <em>ethnicity</em>. For ‘Type’ select <em>string</em>, and make it <em>Searchable</em>.</li>
+<li>Similarly, add the following <em>Searchable</em> <em>string</em> attribute:
+<ul>
+<li><em>languages_spoken</em> - a list of languages they speak&nbsp;&nbsp;<br>
+… and the following <em>Not Searchable</em> attributes:&nbsp;&nbsp;</li>
+<li><em>grew_up</em> - what country they grew up in&nbsp;&nbsp;</li>
+<li><em>grew_up_region</em> - what region of New Zealand they grew up in&nbsp;&nbsp;</li>
+<li><em>grew_up_town</em> - what town or city they grew up in&nbsp;&nbsp;</li>
+</ul></li>
+<li>Lastly, as we will not be using it, delete the <em>Birth Year</em> attribute.&nbsp;&nbsp;</li>
+</ol>
+<p>Now you have an empty database for which you’ve:&nbsp;&nbsp;</p>
+<ul>
+<li>created two corpora, <em>QB</em> and <em>UC</em>,&nbsp;&nbsp;</li>
+<li>created a new transcript type, so that we can have monologues as well as interviews, and&nbsp;&nbsp;</li>
+<li>created some new attributes for participants, so we can record the ages of our speakers, their place of origin, and the languages they speak, in addition to their genders.&nbsp;&nbsp;</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

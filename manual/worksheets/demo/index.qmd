@@ -1,0 +1,13 @@
+# LaBB-CAT Demo Session {.unnumbered}
+
+{{< include ../../../site/worksheets/demo/exploration.qmd >}}
+
+{{< include ../../../site/worksheets/demo/search.qmd >}}
+
+{{< include ../../../site/worksheets/demo/celex.qmd >}}
+
+{{< include ../../../site/worksheets/demo/alignment.qmd >}}
+
+{{< include ../../../site/worksheets/demo/syntax.qmd >}}
+
+{{< include ../../../site/worksheets/demo/other-processing.qmd >}}

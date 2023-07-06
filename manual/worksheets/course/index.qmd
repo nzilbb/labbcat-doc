@@ -1,0 +1,25 @@
+# LaBB-CAT Course {.unnumbered}
+
+{{< include ../../../site/worksheets/course/setting-up.qmd >}}
+
+{{< include ../../../site/worksheets/course/uploading-data.qmd >}}
+
+{{< include ../../../site/worksheets/course/searching.qmd >}}
+
+{{< include ../../../site/worksheets/course/manual-annotation.qmd >}}
+
+{{< include ../../../site/worksheets/course/automatic-annotation.qmd >}}
+
+{{< include ../../../site/worksheets/course/lexicon.qmd >}}
+
+{{< include ../../../site/worksheets/course/lexicon-celex.qmd >}}
+
+{{< include ../../../site/worksheets/course/lexicon-cmudict.qmd >}}
+
+{{< include ../../../site/worksheets/course/forced-alignment.qmd >}}
+
+{{< include ../../../site/worksheets/course/forced-alignment-htk.qmd >}}
+
+{{< include ../../../site/worksheets/course/forced-alignment-mfa.qmd >}}
+
+{{< include ../../../site/worksheets/course/aligned-data.qmd >}}

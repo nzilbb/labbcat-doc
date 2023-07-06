@@ -1,0 +1,4 @@
+# Introduction {.unnumbered}
+
+This is the manual for the [LaBB-CAT](https://labbcat.canterbury.ac.nz) corpus management system.
+

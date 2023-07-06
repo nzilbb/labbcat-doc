@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "LaBB-CAT Manual"
+  author: "Robert Fromont"
+  date: today
+  date-format: D MMMM YYYY
+  chapters:
+    - index.qmd
+    - part: howto/index.qmd
+    - part: worksheets/index.qmd
+      chapters:
+        - worksheets/demo/index.qmd
+        - worksheets/course/index.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+#  pdf:
+#    documentclass: scrreprt
+
+editor: source
+
