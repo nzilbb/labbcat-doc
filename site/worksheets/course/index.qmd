@@ -1,0 +1,14 @@
+# LaBB-CAT Course
+
+This course is intended to teach participants how to use LaBB-CAT from scratch,
+including:
+- installing and setting up the software
+- uploading data
+- defining speech-elicitation tasks
+- manually annotating the transcripts
+- setting up automatic annotations of different types
+- forced alignment
+
+It is designed to be taught in three two-hour sessions.
+
+Much of this material is demonstrated in [these YouTube videos](https://www.youtube.com/watch?v=ymD1WDHthw0&list=PLdsZeeCVYnY3em55M2d3Iq3H-jSPLIWBF)

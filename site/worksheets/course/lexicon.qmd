@@ -1,0 +1,11 @@
+# 6 - Lexicons
+
+LaBB-CAT can be integrated with various lexicon to facilitate automatic
+tagging of word tokens.
+
+For our English data, there are two main options:
+
+-   [CELEX](lexicon-celex.qmd), a 'British English' lexicon which must be purchased from the
+    LDC, and
+-   The [CMU Pronouncing Dictionary](lexicon-cmudict), an 'American English' lexicon
+    that\'s free to download.

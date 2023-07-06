@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "LaBB-CAT Documentation"
+  sidebar: 
+    style: docked
+    search: true
+    contents: 
+      - href: index.qmd
+        text: Home
+      - section: worksheets/index.qmd
+        contents: 
+          - section: worksheets/demo/index.qmd
+            contents: 
+              - href: worksheets/demo/exploration.qmd
+              - href: worksheets/demo/search.qmd
+              - href: worksheets/demo/celex.qmd
+              - href: worksheets/demo/alignment.qmd
+              - href: worksheets/demo/syntax.qmd
+              - href: worksheets/demo/other-processing.qmd
+          - section: worksheets/course/index.qmd
+            contents:
+              - href: worksheets/course/setting-up.qmd
+              - href: worksheets/course/uploading-data.qmd
+              - href: worksheets/course/searching.qmd
+              - href: worksheets/course/manual-annotation.qmd
+              - href: worksheets/course/automatic-annotation.qmd
+              - section: worksheets/course/lexicon.qmd
+                contents:
+                  - href: worksheets/course/lexicon-celex.qmd
+                  - href: worksheets/course/lexicon-cmudict.qmd
+              - section: worksheets/course/forced-alignment.qmd
+                contents:
+                  - href: worksheets/course/forced-alignment-htk.qmd
+                  - href: worksheets/course/forced-alignment-mfa.qmd
+              - href: worksheets/course/aligned-data.qmd
+      - section: howto/index.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+

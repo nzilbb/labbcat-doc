@@ -1,0 +1,9 @@
+# Worksheets
+
+Here you will find various learning resources for LaBB-CAT, including:
+
+-   a course for learning how to use LaBB-CAT, from scratch (3x2-hour sessions)
+
+-   a series of worksheets for exploring the capabilities of LaBB-CAT using a demo corpus (one 2-hour session)
+
+-   a brief hands-on introduction setting up a LaBB-CAT corpus from scratch, then annotating, and exploring it (one 1-hour session)
