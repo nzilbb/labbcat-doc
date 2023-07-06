@@ -4,8 +4,15 @@ project:
 
 website:
   title: "LaBB-CAT Documentation"
+  favicon: favicon.ico
+  twitter-card: 
+    description: "Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system."
+    creator: "@robertfromont"
+    site: "@labbcat"
+  open-graph: true
+
   sidebar: 
-    style: docked
+    style: floating
     search: true
     contents: 
       - href: index.qmd
@@ -43,5 +50,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
-
+    copyright: "2023 NZILBB"
+    license: CC BY-SA
+    description-meta: "Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system."
+    author-meta: "Robert Fromont"
