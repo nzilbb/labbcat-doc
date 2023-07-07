@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 3 - CELEX
 
 ### Lemma
@@ -217,7 +224,3 @@ In this worksheet you have seen that:
     pronunciation.
 -   Although pronunciations can be displayed with IPA symbols, CELEX
     uses DISC to encode phonemes, so DISC must be used for searches.
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)

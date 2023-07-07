@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 5 - Syntax
 
 The Stanford Parser is an open-source PCFG parser that can use grammars
@@ -150,7 +157,3 @@ In this worksheet you have seen that:
 -   the Stanford Parser can we used to annotate transcripts with
     part-of-speech tags and constituent annotations, and
 -   the resulting annotations can be included in syntax-based searches.
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)

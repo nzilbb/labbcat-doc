@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 6 - Other Processing
 
 ### Aggregate Measures
@@ -163,7 +170,3 @@ In this worksheet you have seen that:
 -   LIWC text analysis can be automatically performed, and
 -   personality metrics can be obtained for participants, based on their
     utterances.
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)

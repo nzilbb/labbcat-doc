@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 1 - Exploration
 
 LaBB-CAT is a speech/language corpus management system that:
@@ -175,7 +182,3 @@ In this worksheet you have seen that:
 -   You can search for patterns as well as exact spelling, by using
     regular expressions; \
      
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)

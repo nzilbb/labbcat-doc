@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 4 - Alignment
 
 ### HTK
@@ -332,7 +339,3 @@ In this worksheet you have seen that:
 -   Inter-word pauses can also be tagged.
 -   Individual phone tokens can be searched for and extracted.
 -   Acoustic measurements for matching phones can also be made.
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)

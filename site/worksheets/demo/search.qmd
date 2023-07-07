@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 2 - Search
 
 In addition to storing recordings and orthographic transcripts, the data
@@ -253,7 +260,3 @@ In this worksheet you have seen that:
     numeric value or regular expressions.
 -   Layers can be optionally displayed in transcripts. \
      
-:::
-
-[![CC-BY-SA Creative Commons Licence
-](cc-by-sa.svg "This work is licensed under a Creative Commons Attribution-ShareAlike 2.0 Generic License")](http://creativecommons.org/licenses/by-sa/2.0/)
