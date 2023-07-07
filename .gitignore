@@ -1,5 +1,6 @@
 # Editor backups
 *~
 .Rproj.user
+.Rhistory
 
 /.quarto/
