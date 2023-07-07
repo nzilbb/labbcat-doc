@@ -1,4 +1,4 @@
-# 4 - Manual Annotation
+# 5. Manual Annotation
 
 Now we\'re going to create our own layer for manual annotations, and
 explore ways of populating it. Let\'s say we\'re interested in the

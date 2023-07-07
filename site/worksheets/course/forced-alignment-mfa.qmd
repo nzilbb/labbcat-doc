@@ -1,4 +1,4 @@
-# 7 - MFA
+# 8b. MFA
 
 The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by
 Michael McAuliffe and others that can use words with phonemic

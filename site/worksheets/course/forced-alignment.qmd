@@ -1,4 +1,4 @@
-# 7 - Forced Alignment
+# 8. Forced Alignment
 --------------------
 
 Forced alignment is the process of automatically determining the start

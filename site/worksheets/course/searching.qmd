@@ -1,4 +1,4 @@
-# 3 - Searching
+# 4. Searching
 
 Now that you have some transcripts in your database, we\'ll try out
 LaBB-CAT\'s search functions a little.

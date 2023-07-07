@@ -1,4 +1,4 @@
-# 5 - Automatic Annotation
+# 6. Automatic Annotation
 ------------------------
 
 You can configure LaBB-CAT to automatically generate annotations, using

@@ -1,4 +1,4 @@
-# 8 - Aligned Data
+# 9. Aligned Data
 
 In a previous exercise, we force-aligned words and their segments, and
 also did a little hand-correction of the alignments. Now that we\'ve got

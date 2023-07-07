@@ -1,4 +1,4 @@
-# 6 - Lexicons
+# 7. Lexicons
 
 LaBB-CAT can be integrated with various lexicon to facilitate automatic
 tagging of word tokens.

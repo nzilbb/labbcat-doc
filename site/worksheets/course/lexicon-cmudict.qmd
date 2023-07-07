@@ -1,4 +1,4 @@
-# 6 - CMU Pronouncing Dictionary
+# 7b. CMU Pronouncing Dictionary
 
 LaBB-CAT can be integrated with the CMU Pronouncing Dictionary, which is
 a free pronunciation dictionary of English maintained by the Speech

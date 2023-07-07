@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # LaBB-CAT Course
 
 This course is intended to teach participants how to use LaBB-CAT from scratch,

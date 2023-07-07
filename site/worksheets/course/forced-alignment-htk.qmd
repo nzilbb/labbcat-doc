@@ -1,4 +1,4 @@
-# 7 - HTK
+# 8a. HTK
 
 The Hidden Markov Model Toolkit (HTK) is a speech recognition toolkit
 developed at Cambridge University. It is a set of programs that can be

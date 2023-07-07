@@ -1,4 +1,4 @@
-# 6 - CELEX
+# 7a. CELEX
 
 LaBB-CAT can be integrated with the CELEX lexicon, which can be
 purchased from the Linguistic Data Consortium (LDC) and includes lemma,
