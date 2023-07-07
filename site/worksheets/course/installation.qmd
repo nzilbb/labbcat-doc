@@ -1,0 +1,54 @@
+---
+format:
+  html:
+    toc: false
+  pdf: 
+    toc: false
+---
+## 1. Installation
+
+In this exercise you will install the LaBB-CAT software. 
+
+::: {.callout-note}
+
+You should only follow these steps if you will be running LaBB-CAT on your own computer.
+
+If you are using a LaBB-CAT server that's already been installed for you elsewhere, you can skip with exercise.
+
+:::
+
+After this you will have an empty LaBB-CAT database set up ready to set up.
+
+1.  You have a file called *install-labbcat.jar* - double click this file to start the installer.\
+    If you are using OS X, you may see a message that the file can't be opened:\
+    ![](install-labbcat-OSX-warning.png) \
+    If this happens:
+    1.  Click the Apple icon in the top left corner of the screen.
+    2.  Select *System Preferences*
+    3.  Click *Security & Privacy*\
+        Near the bottom it says "*install-labbcat.jar'' was blocked from opening because it is not from an identified developer.*\
+        ![](install-labbcat-OSX-open-anyway.png)
+    4.  Click *Open Anyway*\
+        You may see another warning about the program being downloaded from the internet\
+        ![](install-labbcat-OSX-open.png)
+    5.  Click *Open*\
+        \
+        ![](install-labbcat.png)
+2.  Click *Start*\
+    You will see the progress bar move as files are installed. Once this is finished, you'll see a message saying *Installation complete*.
+3.  Click *Finished* to close the installer.
+
+The software is now installed. LaBB-CAT is a browser-based system, which means that it works as a mini web server on your computer, and you need to access it using your web browser.
+
+Each time you want to use LaBB-CAT, you must start it up, and which you've finished, you close it down again.
+
+To start LaBB-CAT, click the LaBB-CAT icon in your applications area.
+
+-   On Windows, open the *Start* menu and type LaBB-CAT.
+-   On OS X you will find LaBB-CAT in your *Applications* folder.
+
+A window called "LaBB-CAT Server" will open, and after a short delay, your default web browser will open on a page called "LaBB-CAT" (The first time only, this page will initially display the LaBB-CAT licence).
+
+---
+
+Now that the software is installed, we will set up a basic structure for receiving data, in the following exercise.
