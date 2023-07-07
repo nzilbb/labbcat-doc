@@ -422,11 +422,11 @@ recordings.
     You will see that the participant has five transcripts, one for each
     of the task steps where audio was recorded.
 (@) Press the *Transcripts* link at the bottom to lilst the transcripts.
-42. Open the first transcript.\
+(@) Open the first transcript.\
     You will see that the transcript starts with a comment, which is the
     prompt text you were shown during the step, and that the transcript
     contains one utterance.
-43. Play the audio to ensure it was recorded correctly.\
+(@) Play the audio to ensure it was recorded correctly.\
     (If the last transcript you looked at had video, you may need to
     tick the checkbox next to the "wav" option in the top right corner,
     in order to select audio for playback.)
