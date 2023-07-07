@@ -29,6 +29,7 @@ website:
               - href: worksheets/demo/other-processing.qmd
           - section: worksheets/course/index.qmd
             contents:
+              - href: worksheets/course/installation.qmd
               - href: worksheets/course/setting-up.qmd
               - href: worksheets/course/uploading-data.qmd
               - href: worksheets/course/searching.qmd
@@ -50,7 +51,9 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-    copyright: "2023 NZILBB"
+    copyright: "© 2023 NZILBB"
     license: CC BY-SA
     description-meta: "Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system."
     author-meta: "Robert Fromont"
+#  pdf:
+#    documentclass: scrreprt
