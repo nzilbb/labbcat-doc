@@ -1,3 +1,10 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+---
 # 8b. MFA
 
 The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by
@@ -32,13 +39,17 @@ In this exercise you will
     and
 -   check and manually correct the alignments.
 
-***NB**: In this exercise, you will set up Praat Integration in your web
+:::{.callout-important}
+In this exercise, you will set up Praat Integration in your web
 browser. There is currently no Praat integration support for
-Microsoft\'s Edge\' browser, so if you normally use \'Edge\' on Windows,
+Microsoft's Edge' browser, so if you normally use 'Edge' on Windows,
 you may need to swap to another browser for this exercise - e.g.
-Microsoft Internet Explorer, Google Chrome, or Mozilla Firefox.*
+*Google Chrome*, or *Mozilla Firefox*.
+:::
 
-------------------------------------------------------------------------
+## Installation
+
+### MFA
 
 MFA is a 3rd-party tool
 ([https://montrealcorpustools.github.io/Montreal-Forced-Aligner/](https://montrealcorpustools.github.io/Montreal-Forced-Aligner))
@@ -50,7 +61,7 @@ it.
 If MFA has not been installed already, please follow the following
 steps, depending on the operatings system of your LaBB-CAT server:
 
-### Linux
+#### Linux
 
 To install the Montreal Forced Aligner on Linux systems for all users,
 so that your web server can access it if required:
@@ -72,7 +83,7 @@ so that your web server can access it if required:
 7.  Install the Montreal Forced Aligner\
     `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner`
 
-### Windows
+#### Windows
 
 To install the Montreal Forced Aligner on Windows systems for all users,
 so that your web server can access it if required:
@@ -88,176 +99,214 @@ so that your web server can access it if required:
     environment\
     `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner`
 
-### Docker Container
+#### Docker Container
 
 If your LaBB-CAT server is installed in a Docker Container, it can
 download and install Miniconda and MFA itself, as part of the process of
 installing the MFA Manager (below)
 
+### MFA Manager
+
 Once MFA has been installed, you have to install the MFA Manager, which
 is the LaBB-CAT module that provides MFA with all the data it needs, and
 then saves to alignments MFA produces back to your database.
 
-1.  Click the *layer managers* menu option.
-2.  Click the *List of layer managers that are not yet installed* link.
-3.  Find MFA Manager in the list, and click its *Install* button and
-    then click *Install* again.\
+(@) Select the *layer managers* menu option.
+(@) Follow the *List of layer managers that are not yet installed* link at the bottom.
+(@) Find MFA Manager in the list, and press its *Install* button and
+    then press *Install* again.\
     \
     As long as MFA has been installed for all users, you should see a
-    box that\'s already filled in with the location that MFA was
+    box that's already filled in with the location that MFA was
     installed to in the *Path to MFA* box.\
     \
-    If the *Path to MFA* box is empty and there\'s an *Attempt to
+    If the *Path to MFA* box is empty and there's an *Attempt to
     Install MFA* button, click the button, and LaBB-CAT will try to
     install MFA on the server for you. This process can take a few
-    minutes, and the *Configure* button will be disabled until it\'s
+    minutes, and the *Configure* button will be disabled until it's
     finished.
-4.  Click *Configure* to continue the layer manager installation.\
+(@) Press *Configure* to continue the layer manager installation.\
     You will see a window open with some information about integrating
-    with MFA, including the information you\'ve already read above.
-5.  Now you need to add a *phrase layer* for the MFA configuration:
-    -   **Layer ID:** mfa
+    with MFA, including the information you've already read above.
+(@) Now you need to add a *phrase layer* for the MFA configuration:
+    -   **Layer ID:** `mfa`
     -   **Type:** *Text*
     -   **Alignment:** *Intervals*
     -   **Manager:** *MFA Manager*
     -   **Generate:** *always*
-    -   **Description:** MFA alignment time
-6.  When you configure the layer, set the following options:
-    -   **Dictionary Name:** *english\_mfa*
-    -   **Pretrained Acoustic Models:** *english\_mfa*
-    -   The rest of the options can be left as their default values.\
-        \
-        If you\'re curious about what the configuration options do,
-        hover your mouse over each option to see a 'tool tip' that
-        describes what the option is for.
-7.  Click *Set Parameters*\
+    -   **Description:** `MFA alignment time`
+
+:::{.callout-note}
+After saving the layer, the MFA configuraion form will appear.
+
+Initially, there will be a 'spinner' and the form will be disabled while LaBB-CAT is making internet requests in order to retrieve lists of available dictionaries and acoustic models.
+
+This process may take a few seconds, depending on LaBB-CAT's connection to the internet.
+:::
+
+(@) When you configure the layer, set the following options:
+    -   **Dictionary Name:** *english_mfa*
+    -   **Pretrained Acoustic Models:** *english_mfa*
+    -   The rest of the options can be left as their default values.
+
+:::{.callout-tip}
+If you're curious about what the configuration options do,
+hover your mouse over each option to see a 'tool tip' that
+describes what the option is for.
+:::
+
+(@) Press *Set Parameters*
     We will not click *Regenerate* to force-align the whole corpus just
     yet. We need to tweak a few other settings, and then align a single
-    participant\'s speech.\
-    \
-    When forced-alignment is done, the resulting aligned phones are
-    saved on the *segment* layer. By default, this has it\'s type set to
-    *Phonological*, which assumes that the phoneme symbols will be those
-    defined by the CELEX DISC encoding. However, MFA uses its own
-    phoneme symbols, which are different from the CELEX DISC ones. \
-    To make later processing easier, we\'re going to change the type of
-    the *segment* layer to *Text*, and let LaBB-CAT know what the
-    possible phoneme labels are.
-8.  Click the *segment layers* menu option.\
+    participant's speech.
+    
+When forced-alignment is done, the resulting aligned phones will be
+saved on the *segment* layer. By default, this has it's type set to
+*Phonological*, which assumes that the phoneme symbols will be those
+defined by the CELEX DISC encoding. However, MFA uses its own
+phoneme symbols, which are different from the CELEX DISC ones.
+
+To make later processing easier, we're going to change the type of
+the *segment* layer to *Text*, and let LaBB-CAT know what the
+possible phoneme labels are.
+
+(@) Select the *segment layers* menu option.\
     You will see a single layer listed, called *segment*.
-9.  Change the *Type* of the *segment* layer to *Text*.
-10. Click *Save*.\
-    A new button appears with a tag ![](forced-alignment/tag.svg) icon -
-    if you hover the mouse over this button, you\'ll see it\'s for
+(@) Change the *Type* of the *segment* layer to *Text*.
+(@) Press *Save*.\
+    A new icon appears with a tag ![](tag.svg) icon -
+    if you hover the mouse over this button, you'll see it's for
     setting *Valid labels*.
-11. Click the *Valid labels* button.\
+(@) Click the *Valid labels* icon\
     You will see a page that allows you to add a list of possible
     labels.\
-    But we don\'t know what the valid labels are yet. The labels used by
+    But we don't know what the valid labels are yet. The labels used by
     MFA depend on the dictionary/models selected when defining the
     layer. The details for all dictionaries are in [MFA Models
     documentation](https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary).
-12. Open the [MFA Models documentation for
+(@) Open the [MFA Models documentation for
     *english\_mfa*](https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0).\
     You will see a page that includes information about the dictionary
     including the *Phones* used by it.
-13. Select and copy the list of phones used by the *english\_mfa*
+(@) Select and copy the list of phones used by the *english_mfa*
     dictionary - i.e. all of these:\
     `a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj ə əw ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ`
 14. Back in the *Valid Labels* page in LaBB-CAT, paste all of the phone
     symbols into the box labelled *Label*\
-    ![The Valid Labels form with teh text box filled with all the MFA
-    phoneme symbols](forced-alignment/pasted-mfa-labels.png)
-15. Click *New*.\
+    ![The Valid Labels form with the text box filled with all the MFA
+    phoneme symbols](pasted-mfa-labels.png)
+(@) Press *New*.\
     You will see that all of the labels are separately added to the list
     of valid labels.\
     ![The Valid Labels list is now populated, with each phoneme symbol
-    on a separate line](forced-alignment/valid-mfa-labels-list.png)\
-    Defining this list for the *segment* layer means that, when you
-    search the *segment* layer for specific phones, LaBB-CAT can display
-    a clickable list of possibilities.
-16. At the bottom of the list, there\'s a *Save* button. Click it to
+    on a separate line](valid-mfa-labels-list.png)
+    
+Defining this list for the *segment* layer means that, when you
+search the *segment* layer for specific phones, LaBB-CAT can display
+a clickable list of possibilities.
+
+(@) At the bottom of the list, there's a *Save* button. Click it to
     save your changes.
-17. Click the *participants* option on the menu.
-18. Find the participant *UC207YW* and tick their checkbox.
-19. Click the *All Utterances* button and then click *List*.\
+    
+## Alignment
+
+(@) Select the *participants* option on the menu.
+(@) Find the participant *UC207YW* and tick their checkbox.
+
+:::{.callout-note}
+Although we're only going to force-align the utterances of a single speaker in this exercise, you can align the utterances of multiple speakers at once, by ticking all their checkboxes on the *participants* page before continuing with the next step...
+:::
+
+(@) Press the *All Utterances* button above the list of participants
+(@) Press *List*.\
     You will see a progress bar while all their utterances are
     identified. Then a results page will be displayed, listing the first
     20 utterances.
-20. Click the *Mfa* button at the bottom.\
+(@) Click the *Mfa* button at the bottom.\
     You will see a progress bar appear, while LaBB-CAT gathers the files
     that MFA needs, runs MFA, and parses the resulting alignments. This
-    will take a few minutes.\
-    Once it\'s complete, you can inspect/correct alignments using
-    LaBB-CAT\'s integration with Praat.
-21. Go to the *transcripts* page and open the *UC207YW.eaf* transcript.
-22. Tick both the *mfa* layer and the *segment* layer. \
+    will take a few minutes.
+
+## Inspection/Correction
+
+Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT's integration with Praat.
+
+(@) Go to the *transcripts* page and open the *UC207YW.eaf* transcript.
+(@) Tick both the *mfa* layer and the *segment* layer. \
     You will see which lines have been force-aligned, as they have an
     MFA timestamp, and have the *segment* layer filled in.\
-    \
-    The interactive transcript page doesn\'t show you the alignments of
-    the words or phones, but you can see those using Praat. You can open
-    individual utterances in Praat directly from the transcript page,
-    but first, the LaBB-CAT/Praat integration has to be set up; this
-    only has to be done once:
-23. On the top-right of the page, above the playback controls, there\'s
+    
+The interactive transcript page doesn't show you the alignments of
+the words or phones, but you can see those using Praat. You can open
+individual utterances in Praat directly from the transcript page,
+but first, the LaBB-CAT/Praat integration has to be set up; this
+only has to be done once:
+
+i.  On the top-right of the page, above the playback controls, there's
     a Praat icon  - click it.
-24. Follow the instructions that appear (these vary depending on what
+ii. Follow the instructions that appear (these vary depending on what
     web browser you use).\
     You may be asked whether to allow the "LaBB-CAT Integration Applet"
     to run. If you tick the "Do not show this again" option, then this
     message will not appear every time you open a transcript.\
     You may need to grant a browser extension permission to install, and
-    it\'s possible you will need a connection to the internet in order
+    it's possible you will need a connection to the internet in order
     to download this extension.\
     You also may be asked where Praat is installed; Navigate to the
     location where Praat is installed, and double-click the "Praat.exe"
     file (on some systems the file may simply be called "Praat"). The
     Praat program may open, and then immediately close, as LaBB-CAT
-    tests it can communicate with Praat.\
-    \
-    Now Praat integration has been set up, and you should be able to
-    access Praat options in the transcript page from now on...
-25. Click on a line that has been aligned, and select the *Open Text
+    tests it can communicate with Praat.
+    
+Now Praat integration has been set up, and you should be able to
+access Praat options in the transcript page from now on...
+
+(@) Click on a line that has been aligned, and select the *Open Text
     Grid in Praat* option on the menu.\
     You may be asked you if want to allow access to the "LaBB-CAT
     Integration Applet" - if so, tick "Do not show this again", and
     click *Allow*.\
-    Praat should open, and show you a spectrogram of the line\'s audio,
+    Praat should open, and show you a spectrogram of the line's audio,
     with a TextGrid below that includes the words and the segments.
-26. If you click on a word, and hit the *\<tab\>* key, the word\'s
+(@) If you click on a word, and hit the {{< kbd tab >}} key, the word's
     interval is played. Try out various words, and see what you think
     about how accurate HTK has been with its alignment.\
     Try this out with different lines in the transcript.\
     You will see that in some cases the alignment is pretty good, and in
-    other cases, it\'s not so good. In the not-so-good cases, see if you
+    other cases, it's not so good. In the not-so-good cases, see if you
     can figure out why HTK got it wrong.\
-    \
-    You may have noticed that, each time you open an utterance in Praat,
-    a button appears in the transcript to the left of the line, labelled
-    *Import Changes*. This button allows you to save any adjustments you
-    might want to make to the alignments back into the LaBB-CAT
-    database.
+
+You may have noticed that, each time you open an utterance in Praat,
+a button appears in the transcript to the left of the line, labelled
+*Import Changes*. This button allows you to save any adjustments you
+might want to make to the alignments back into the LaBB-CAT
+database.
+
 27. If you feel confident using Praat, open an utterance TextGrid,
-    adjust the alignments of the words an phones so that they\'re more
+    adjust the alignments of the words an phones so that they're more
     accurate, and then click the *Import Changes* button in the
-    transcript.\
-    These changes are flagged as manual edits, so if forced-alignment is
-    run again, they will not be over-written with new bad alignments.
-    Therefore it\'s important that the changes you make are actually
-    improvements, because HTK will never change them again.\
-    \
-    There are some rules about what you can change:
-    1.  You\'re not allowed to add or delete words (if this is
-        necessary, it should be done by correcting the transcript
-        instead).
-    2.  All the phones must be within the bounds of their own word.
-    3.  The start of the first phone should line up with the start of
-        the word, and the end of the last phone should line up with the
-        end of the word.
-    4.  You should not change the alignment of the utterance itself
-        (which would only be possible if you select the *Open Text Grid
-        incl. ± 1 utterance in Praat* option).
+    transcript.
+
+:::{.callout-warning}
+These changes are flagged as manual edits, so if forced-alignment is
+run again, they will not be over-written with new bad alignments.
+Therefore it's important that the changes you make are actually
+improvements, because HTK will never change them again.
+:::
+
+:::{.callout-important}
+There are some rules about what you can change:
+1.  You're not allowed to add or delete words (if this is
+    necessary, it should be done by correcting the transcript
+    instead).
+2.  All the phones must be within the bounds of their own word.
+3.  The start of the first phone should line up with the start of
+    the word, and the end of the last phone should line up with the
+    end of the word.
+4.  You should not change the alignment of the utterance itself
+    (which would only be possible if you select the *Open Text Grid
+    incl. ± 1 utterance in Praat* option).
+:::
 
 In this exercise, you have seen how MFA can be used to compute word and
 phone alignments automatically from your data, and when using a
