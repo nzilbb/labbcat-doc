@@ -21,35 +21,35 @@ website:
         contents: 
           - section: worksheets/demo/index.qmd
             contents: 
-              - href: worksheets/demo/exploration.qmd
-              - href: worksheets/demo/search.qmd
-              - href: worksheets/demo/celex.qmd
-              - href: worksheets/demo/alignment.qmd
-              - href: worksheets/demo/syntax.qmd
-              - href: worksheets/demo/other-processing.qmd
+              - href: worksheets/demo/1-exploration.qmd
+              - href: worksheets/demo/2-search.qmd
+              - href: worksheets/demo/3-celex.qmd
+              - href: worksheets/demo/4-alignment.qmd
+              - href: worksheets/demo/5-syntax.qmd
+              - href: worksheets/demo/6-other-processing.qmd
           - section: worksheets/express-tutorial/index.qmd
             contents: 
-              - href: worksheets/express-tutorial/install-and-configure-labb-cat.qmd
-              - href: worksheets/express-tutorial/upload-data.qmd
-              - href: worksheets/express-tutorial/basic-searching.qmd
-              - href: worksheets/express-tutorial/cmudict-and-cross-layer-search.qmd
+              - href: worksheets/express-tutorial/1-install-and-configure-labb-cat.qmd
+              - href: worksheets/express-tutorial/2-upload-data.qmd
+              - href: worksheets/express-tutorial/3-basic-searching.qmd
+              - href: worksheets/express-tutorial/4-cmudict-and-cross-layer-search.qmd
           - section: worksheets/course/index.qmd
             contents:
-              - href: worksheets/course/installation.qmd
-              - href: worksheets/course/setting-up.qmd
-              - href: worksheets/course/uploading-data.qmd
-              - href: worksheets/course/searching.qmd
-              - href: worksheets/course/manual-annotation.qmd
-              - href: worksheets/course/automatic-annotation.qmd
-              - section: worksheets/course/lexicon.qmd
+              - href: worksheets/course/1-installation.qmd
+              - href: worksheets/course/2-setting-up.qmd
+              - href: worksheets/course/3-uploading-data.qmd
+              - href: worksheets/course/4-searching.qmd
+              - href: worksheets/course/5-manual-annotation.qmd
+              - href: worksheets/course/6-automatic-annotation.qmd
+              - section: worksheets/course/7-lexicon.qmd
                 contents:
-                  - href: worksheets/course/lexicon-celex.qmd
-                  - href: worksheets/course/lexicon-cmudict.qmd
-              - section: worksheets/course/forced-alignment.qmd
+                  - href: worksheets/course/7a-lexicon-celex.qmd
+                  - href: worksheets/course/7b-lexicon-cmudict.qmd
+              - section: worksheets/course/8-forced-alignment.qmd
                 contents:
-                  - href: worksheets/course/forced-alignment-htk.qmd
-                  - href: worksheets/course/forced-alignment-mfa.qmd
-              - href: worksheets/course/aligned-data.qmd
+                  - href: worksheets/course/8a-forced-alignment-htk.qmd
+                  - href: worksheets/course/8b-forced-alignment-mfa.qmd
+              - href: worksheets/course/9-aligned-data.qmd
       - section: howto/index.qmd
 
 format:
