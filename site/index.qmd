@@ -2,3 +2,11 @@
 
 This is the documentation for the [LaBB-CAT](https://labbcat.canterbury.ac.nz/) corpus management system.
 
+LaBB-CAT is a browser-based linguistics research tool that stores audio or video recordings, text transcripts, and other annotations.
+
+Annotations of various types can be automatically generated or manually added.
+
+The transcripts and annotations can be searched for particular text or regular expressions. The search results, or entire transcripts, can be viewed or saved in a variety of formats, and the related parts of the recordings can be played or opened in acoustic analysis software, all directly through the web-browser.
+
+{{< video https://youtu.be/Z81dJu6JAi8 >}}
+
