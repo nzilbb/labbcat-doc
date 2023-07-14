@@ -6,6 +6,28 @@ format:
     toc: false
 ---
 # 8b. MFA
+<!-- TODO Add stuff about server needing internet access for dictionaries etc. -->
+<!-- Crusty's tip for Windows: -->
+<!--  I had to download and use PSexec to get it to work. Just in case you have someone else in the same boat. -->
+
+<!-- Download PStool.zip from microsoft -->
+<!-- http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx -->
+
+<!-- and then unzipped it and put PSexec.exe into C:\Windows\System32 -->
+
+<!-- Open cmd "Run as Administrator" -->
+
+<!-- Psexec.exe -i -s cmd.exe  (opens new cmd for local system account) -->
+<!-- In the new cmd window check you have the correct account type in whomai -->
+<!-- to update proxy server type inetcpl.cpl -->
+<!-- goto Connections tab -->
+<!-- click on LAN Settings button -->
+<!-- Fill in Proxy section -->
+
+<!-- FYI - for your document please include that -->
+<!-- tomcat needs to run as (Logon) Local System and not Local Service. -->
+<!-- Local System has more permissions. -->
+<!-- Also the PsExec.exe. instructions are for Local System. -->
 
 The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by
 Michael McAuliffe and others that can use words with phonemic

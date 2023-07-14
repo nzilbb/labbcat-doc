@@ -1,13 +1,13 @@
 # LaBB-CAT Demo Session
 
-[1 - Exploration](exploration.qmd)
+[1 - Exploration](1-exploration.qmd)
 
-[2 - Search](search.qmd)
+[2 - Search](2-search.qmd)
 
-[3 - CELEX](celex.qmd)
+[3 - CELEX](3-celex.qmd)
 
-[4 - Alignment](alignment.qmd)
+[4 - Alignment](4-alignment.qmd)
 
-[5 - Syntax](syntax.qmd)
+[5 - Syntax](5-syntax.qmd)
 
-[6 - Other Processing](other-processing.qmd)
+[6 - Other Processing](6-other-processing.qmd)

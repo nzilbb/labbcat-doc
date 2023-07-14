@@ -97,6 +97,8 @@ phoneme.
 
 {{< pagebreak >}}
 
+<!-- TODO IPA characters don't render in PDF -->
+
   ----- ------ --------- -------------- --- ----- ------ ----------------------- --------------
   IPA   DISC   ARPABET                      IPA   DISC   ARPABET                  
   p     p      P         **p**at            ɪ     I      IH                      K**I**T

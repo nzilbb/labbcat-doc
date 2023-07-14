@@ -251,6 +251,8 @@ now.
 
 {{< pagebreak >}}
 
+<!-- TODO IPA characters don't render in PDF -->
+
   ----- ------ -------------- --- ----- ------ --------------
   IPA   DISC                      IPA   DISC    
   p     p      **p**at            ɪ     I      K**I**T

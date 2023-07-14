@@ -79,7 +79,9 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
 (@) Press the *New* button to add the attribute.\
     You will see a message saying *Layer added: participant_age_category* and the new attribute will now appear at the bottom of the list. Now we need to define the options for it...
 
-<!-- TODO        ![](help.png) If you want more information about what each of these are for, check the online help for this page.-->
+:::{.callout-tip}
+![](help.png) If you want more information about what each of these are for, check the online help for this page.
+:::
 
 (@) To the right of the *Age* attribute's *Category* there's an icon like a tag 🏷.\
     Hover your mouse over this icon to see what it does. 
