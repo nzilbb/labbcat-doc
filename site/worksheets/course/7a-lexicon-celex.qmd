@@ -13,7 +13,7 @@ part of speech, morphological, phonological, and frequency information
 for English, German, and Dutch.
 
 (If you don't have CELEX, there is an 
-[alternative version of this exercise](lexicon-cmudict.qmd)
+[alternative version of this exercise](7b-lexicon-cmudict.qmd)
 that uses the free 'CMU Pronunouncing Dictionary' lexicon,
 which you can work through instead.)
 

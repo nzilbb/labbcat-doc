@@ -5,7 +5,7 @@ tagging of word tokens.
 
 For our English data, there are two main options:
 
--   [CELEX](lexicon-celex.qmd), a 'British English' lexicon which must be purchased from the
+-   [CELEX](7a-lexicon-celex.qmd), a 'British English' lexicon which must be purchased from the
     LDC, and
--   The [CMU Pronouncing Dictionary](lexicon-cmudict), an 'American English' lexicon
+-   The [CMU Pronouncing Dictionary](7b-lexicon-cmudict), an 'American English' lexicon
     that\'s free to download.

@@ -6,5 +6,5 @@ and end times of words, and the phones within each word.
 
 The options for forced alignment are:
 
--   [HTK](forced-alignment-htk.qmd) - the Hidden Markov Model Toolkit
--   [MFA](forced-alignment-mfa.qmd) - the Montreal Forced Aligner
+-   [HTK](8a-forced-alignment-htk.qmd) - the Hidden Markov Model Toolkit
+-   [MFA](8b-forced-alignment-mfa.qmd) - the Montreal Forced Aligner
