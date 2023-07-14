@@ -1,0 +1,13 @@
+---
+format:
+  html:
+    toc: false
+---
+# LaBB-CAT Express Tutorial
+
+This tutorial is a very brief introduction to the LaBB-CAT corpus analysis tool. There are four exercises, in which you:
+
+- [install and configure LaBB-CAT](install-and-configure-labb-cat.qmd),
+- [upload a small corpus of recordings into your database and explore the transcript page](upload-data.qmd),
+- [search for some tokens using regular expressions](basic-searching.qmd) and,
+- [install and configure a module for automatically annotating tokens](cmudict-and-cross-layer-search.qmd) with their phonemic transcriptions, and search for tokens based on pronunciation instead of spelling.

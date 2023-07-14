@@ -27,6 +27,12 @@ website:
               - href: worksheets/demo/alignment.qmd
               - href: worksheets/demo/syntax.qmd
               - href: worksheets/demo/other-processing.qmd
+          - section: worksheets/express-tutorial/index.qmd
+            contents: 
+              - href: worksheets/express-tutorial/install-and-configure-labb-cat.qmd
+              - href: worksheets/express-tutorial/upload-data.qmd
+              - href: worksheets/express-tutorial/basic-searching.qmd
+              - href: worksheets/express-tutorial/cmudict-and-cross-layer-search.qmd
           - section: worksheets/course/index.qmd
             contents:
               - href: worksheets/course/installation.qmd
