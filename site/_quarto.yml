@@ -50,7 +50,7 @@ website:
                   - href: worksheets/course/8a-forced-alignment-htk.qmd
                   - href: worksheets/course/8b-forced-alignment-mfa.qmd
               - href: worksheets/course/9-aligned-data.qmd
-      - section: howto/index.qmd
+#      - section: howto/index.qmd
 
 format:
   html:
