@@ -7,6 +7,7 @@ format:
 ---
 # 8b. MFA
 <!-- TODO Add stuff about server needing internet access for dictionaries etc. -->
+<!-- TODO Add this to the HowTo on MFA (when it exists) instead of here -->
 <!-- Crusty's tip for Windows: -->
 <!--  I had to download and use PSexec to get it to work. Just in case you have someone else in the same boat. -->
 
@@ -83,6 +84,7 @@ it.
 If MFA has not been installed already, please follow the following
 steps, depending on the operatings system of your LaBB-CAT server:
 
+:::{.callout-note collapse=true}
 #### Linux
 
 To install the Montreal Forced Aligner on Linux systems for all users,
@@ -104,7 +106,9 @@ so that your web server can access it if required:
     `chmod -R go+rX /opt/conda`
 7.  Install the Montreal Forced Aligner\
     `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner`
+:::
 
+:::{.callout-note collapse=true}
 #### Windows
 
 To install the Montreal Forced Aligner on Windows systems for all users,
@@ -120,6 +124,7 @@ so that your web server can access it if required:
 5.  Install the Montreal Forced Aligner by specifying a path to the
     environment\
     `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner`
+:::
 
 #### Docker Container
 
