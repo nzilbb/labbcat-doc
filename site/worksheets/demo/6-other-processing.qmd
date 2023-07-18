@@ -7,14 +7,14 @@ format:
 ---
 # 6 - Other Processing
 
-### Aggregate Measures
+## Aggregate Measures
 
 You have seen in a previous worksheet that articulation rate can be
 calculated over the words in individual utterances, and also over all
 the words uttered by each participant. There are other useful
 computations that can be computed over different scopes.
 
-1.  Click the *transcripts* link on the menu.\
+1.  Select the *transcripts* link on the menu.\
     You may have previously noticed that the top of the page includes a
     form with various transcript attributes. This form allows you to
     both filter and sort the list of transcripts by transcript attribute
@@ -26,12 +26,13 @@ computations that can be computed over different scopes.
     have up to 1000 words.\
     This word count was computed by the Statistics Layer Manager, which
     has also been configured to compute speech duration in seconds and
-    save the result in the "Duration" transcript attribute.\
-    \
-    Another simply aggregate calculation is type/token ratio. The Demo
-    LaBB-CAT has been configured to compute the type/token ratio for
-    each participant.
-3.  Click the *participants* link on the menu.
+    save the result in the "Duration" transcript attribute.
+
+Another simply aggregate calculation is type/token ratio. The Demo
+LaBB-CAT has been configured to compute the type/token ratio for
+each participant.
+
+3.  Select the *participants* link on the menu.
 4.  For the *corpus* attribute, tick the *QB* option to list only
     participants recorded in the "Quake Box" portable recording studio.
 5.  At the top of the participant list, press the *Export Attributes*
@@ -43,22 +44,22 @@ computations that can be computed over different scopes.
     and age, and also a column for type/token ratio; this is the ratio
     expressed as a percentage.
 
-### Other Media
+## Other Media
 
 The transcripts in this database each have a video and an audio file.
 
 However, some of the recordings have also been processed with a facial
 feature location algorithm. One of the results of this process was an
-annotated video; a copy of the original video, with the participant\'s
+annotated video; a copy of the original video, with the participant's
 face located, along with various facial landmarks (position of the
 eyes,\
 shape of mouth, etc.).
 
-LaBB-CAT supports having multiple media \'track\' files for the same
+LaBB-CAT supports having multiple media 'track' files for the same
 transcript, and for some of the transcripts, the annotated video has
 been uploaded as well as the original video.
 
-1.  On the *transcripts* page, list the transcripts with the *Quake
+9.  On the *transcripts* page, list the transcripts with the *Quake
     Face* attribute set to *1 - true*.
 2.  Open one of the listed transcripts.\
     \
@@ -66,14 +67,14 @@ been uploaded as well as the original video.
     selected for display, but all the other media files available for
     the transcript are listed below the video, with a checkbox next to
     each.
-3.  Tick the checkbox next to the media file that ends with "...\_face".
+3.  Tick the checkbox next to the media file that ends with "..._face".
     The transcript will reload and display the annotated video.
 4.  Press *Play* to see the annotations (marked in green and red) change
     with the facial features.\
     It may be easier to see the annotations if you put the video in
     'full screen' mode.
 
-### Keyness
+## Keyness
 
 In addition to calculating word frequencies for direct analysis,
 frequencies can be compared to a reference corpus to calculated their
@@ -84,7 +85,7 @@ The Demo LaBB-CAT has been configured to compute keyness compared to the
 frequencies available in the CELEX lexicon, which come from the Cobuild
 corpus.
 
-1.  Click the *home* link on the menu.
+13. Select the *home* link on the menu.
 2.  Click the 'Keyness' icon.\
     You will see a form that allows you to search for particular
     spelling patterns, or export a list.
@@ -106,7 +107,7 @@ data compared to any corpus for which you have word frequency data, or
 if you have several corpora within one LaBB-CAT database, each corpus
 can be compared to all the rest.
 
-### Linguistic Inquiry and Word Count
+## Linguistic Inquiry and Word Count
 
 Linguistic Inquiry and Word Count (LIWC) text analysis can be done with
 the LIWC Layer Manager and categorised word lists.\
@@ -122,11 +123,11 @@ liwc.wpengine.com, or can be compiled by hand.
 LIWC text analysis has been done on the Demo LaBB-CAT database, and also
 on the Cobuild corpus as a comparison corpus.
 
-1.  Click the *home* link on the menu.
+16. Click the *home* link on the menu.
 2.  Click the 'LIWC' icon.\
     You will see a horizontal bar graph: each bar represents category of
     words, with the bar length representing the percentage of that
-    category\'s usage in the database.
+    category's usage in the database.
 3.  Tick the *Cobuild* checkbox.\
     Bars representing the percentages for the Cobuild corpus will be
     added to the graph, for comparison.
@@ -136,7 +137,7 @@ on the Cobuild corpus as a comparison corpus.
     percentages for each category, first the percentage for the LaBB-CAT
     data, and then the percentage for the Cobuild corpus.
 
-### Personality
+## Personality
 
 LaBB-CAT can also integrate with the IBM Watson Personality Insights
 service.\
@@ -148,25 +149,22 @@ The transcripts in the Demo LaBB-CAT have been processed by the
 Personality Insights service. The results can be listed and visualised
 per speaker.
 
-1.  Click the *home* link on the menu.
-2.  Click the \'Personality\' icon.\
+21. Select the *home* link on the menu.
+2.  Click the 'Personality' icon.\
     You will see a list of participants that have been analysed.
 3.  Click on the name of a participant.\
-    You will see a 'sunburst' style visualisation of the participant\'s
+    You will see a 'sunburst' style visualisation of the participant's
     personality metrics.\
     Below the visualisation, the categorised metrics are listed in a
     table.
 
-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\--
+---
 
 In this worksheet you have seen that:
 
--   the Statistics Layer Manager can provide a variety of summary
-    computations,
--   the transcript list can be filtered and sorted by transcript
-    attributes,
+-   the Statistics Layer Manager can provide a variety of summary computations,
+-   the transcript list can be filtered and sorted by transcript attributes,
 -   transcripts can be linked to multiple media files,
 -   unusually frequent or infrequent words can be identified,
 -   LIWC text analysis can be automatically performed, and
--   personality metrics can be obtained for participants, based on their
-    utterances.
+-   personality metrics can be obtained for participants, based on their utterances.

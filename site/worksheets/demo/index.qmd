@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # LaBB-CAT Demo Session
 
 [1 - Exploration](1-exploration.qmd)
