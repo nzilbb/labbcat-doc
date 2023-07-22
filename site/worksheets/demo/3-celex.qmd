@@ -4,6 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
+    fontfamily: libertinus
 ---
 # 3 - CELEX
 
@@ -135,35 +136,35 @@ to try now.
 
   ----- ------ -------------- --- ----- ------ --------------
   IPA   DISC                      IPA   DISC    
-  p     p      **p**at            ɪ     I      K**I**T
-  b     b      **b**ad            ε     E      DR**E**SS
-  t     t      **t**ack           æ     {      TR**A**P
-  d     d      **d**ad            ʌ     V      STR**U**T
-  k     k      **c**ad            ɒ     Q      L**O**T
-  g     g      **g**ame           ʊ     U      F**OO**T
-  ŋ     N      ba**ng**           ə     @      **a**nother
-  m     m      **m**at            i:    i      FL**EE**CE
-  n     n      **n**at            α:    \#     f**a**ther
-  l     l      **l**ad            ɔ:    \$     TH**OU**GHT
-  r     r      **r**at            u:    u      G**OO**SE
-  f     f      **f**at            ɜ:    3      N**UR**SE
-  v     v      **v**at            eɪ    1      F**A**CE
-  θ     T      **th**in           αɪ    2      PR**I**CE
-  ð     D      **th**en           ɔɪ    4      CH**OI**CE
-  s     s      **s**ap            əʊ    5      G**OA**T
-  z     z      **z**ap            αʊ    6      M**OU**TH
-   ∫    S      **sh**eep          ɪə    7      N**EAR**
-  ʒ     Z      mea**s**ure        εə    8      SQU**ARE**
-  j     j      **y**ank           ʊə    9      C**URE**
-  x     x      lo**ch**           æ     c      t**i**mbre
-  h     h      **h**ad            ɑ̃ː    q      dét**en**te
-  w     w      **w**et            æ̃ː    0      l**in**gerie
-  ʧ     J      **ch**eap          ɒ̃ː    \~     bouill**on**
-  ʤ     \_     **j**eep                         
-  ŋ̩     C      bac**on**                        
-  m̩     F      idealis**m**                     
-  n̩     H      burd**en**                       
-  l̩     P       dang**le**                      
+  p     `p`    **p**at            ɪ     `I`    K**I**T
+  b     `b`    **b**ad            ε     `E`    DR**E**SS
+  t     `t`    **t**ack           æ     `{`    TR**A**P
+  d     `d`    **d**ad            ʌ     `V`    STR**U**T
+  k     `k`    **c**ad            ɒ     `Q`    L**O**T
+  g     `g`    **g**ame           ʊ     `U`    F**OO**T
+  ŋ     `N`    ba**ng**           ə     `@`    **a**nother
+  m     `m`    **m**at            i:    `i`    FL**EE**CE
+  n     `n`    **n**at            α:    `#`    f**a**ther
+  l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
+  r     `r`    **r**at            u:    `u`    G**OO**SE
+  f     `f`    **f**at            ɜ:    `3`    N**UR**SE
+  v     `v`    **v**at            eɪ    `1`    F**A**CE
+  θ     `T`    **th**in           αɪ    `2`    PR**I**CE
+  ð     `D`    **th**en           ɔɪ    `4`    CH**OI**CE
+  s     `s`    **s**ap            əʊ    `5`    G**OA**T
+  z     `z`    **z**ap            αʊ    `6`    M**OU**TH
+  ∫     `S`    **sh**eep          ɪə    `7`    N**EAR**
+  ʒ     `Z`    mea**s**ure        εə    `8`    SQU**ARE**
+  j     `j`    **y**ank           ʊə    `9`    C**URE**
+  x     `x`    lo**ch**           æ     `c`    t**i**mbre
+  h     `h`    **h**ad            ɑ̃ː    `q`    dét**en**te
+  w     `w`    **w**et            æ̃ː    `0`    l**in**gerie
+  ʧ     `J`    **ch**eap          ɒ̃ː    `~`    bouill**on**
+  ʤ     `_`    **j**eep                         
+  ŋ̩     `C`    bac**on**                        
+  m̩     `F`    idealis**m**                     
+  n̩     `H`    burd**en**                       
+  l̩     `P`    dang**le**                       
   ----- ------ -------------- --- ----- ------ --------------
 
 6.  Go to the *search* page.

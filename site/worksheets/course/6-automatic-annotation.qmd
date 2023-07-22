@@ -4,6 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
+    fontfamily: libertinus
 ---
 # 6. Automatic Annotation
 

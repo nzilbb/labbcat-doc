@@ -61,5 +61,3 @@ format:
     license: CC BY-SA
     description-meta: "Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system."
     author-meta: "Robert Fromont"
-#  pdf:
-#    documentclass: scrreprt
