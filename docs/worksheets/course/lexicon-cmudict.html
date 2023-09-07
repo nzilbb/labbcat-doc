@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>LaBB-CAT Documentation – lexicon-cmudict</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/index.html">LaBB-CAT Course</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/lexicon.html">7. Lexicons</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/lexicon-cmudict.html">7b. CMU Pronouncing Dictionary</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">LaBB-CAT Documentation</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 - Syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/other-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 - Other Processing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/lexicon-cmudict.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">How-to</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lexicon-cmudict.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="b.-cmu-pronouncing-dictionary" class="level1">
+<h1>7b. CMU Pronouncing Dictionary</h1>
+<p>LaBB-CAT can be integrated with the CMU Pronouncing Dictionary, which is a free pronunciation dictionary of English maintained by the Speech Group in the School of Computer Science at Carnegie Mellon University. The pronunciations are based on ‘American English’, so are suitable for ‘American English’ recordings.</p>
+<p>It can also serve as a free alternative to the CELEX lexicon (which is based on ‘British English’), for those that have not purchased CELEX, although is less ideal for ‘non-rhotic’ varieties of English.</p>
+<p>In this exercise you will:</p>
+<ul>
+<li>Install the CMU Pronouncing Dictionary layer manager</li>
+<li>Use it to create new annotations for word pronunciations</li>
+<li>Incorporate the new layers in more sophisticated searches</li>
+</ul>
+<hr>
+<p>The first thing we’re going to do is install the CMU Dict layer manager…</p>
+<ol class="example" type="1">
+<li>Select the <em>layer managers</em> menu option.</li>
+<li>Follow the <em>List of layer managers that are not yet installed</em> link near the bottom.</li>
+<li>Find “CMU Pronouncing Dictionary” in the list, and press its <em>Install</em> button, <em>Install</em> again, and then the <em>Configure</em> button. You will see a progress bar while the layer manager loads the data from the dictionary file into the LaBB-CAT database. This will take a minute or so.</li>
+<li>Once it’s finished, you will see a page with information about the CMU Pronouncing Dictionary layer manager.</li>
+</ol>
+<p>Now that we’ve installed the layer manager, we’ll create a layer that contains word pronunciations.</p>
+<ol start="5" class="example" type="1">
+<li>Add a <em>word layer</em> managed by the <em>CMU Pronouncing Dictionary</em> for word pronunciation - i.e.:
+<ul>
+<li><strong>Layer ID:</strong> <code>phonemes</code></li>
+<li><strong>Type:</strong> <em>Phonological</em></li>
+<li><strong>Alignment:</strong> <em>None</em></li>
+<li><strong>Manager:</strong> <em>CMU Pronouncing Dictionary</em></li>
+<li><strong>Description:</strong> <code>CMU Pronouncing Dictionary pronunciations</code></li>
+<li>...configured with the <strong>Encoding:</strong> field set to <em>CELEX DISC</em>, and the default values for everything else.</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</p>
+</div>
+</div>
+<ol start="6" class="example" type="1">
+<li>Once the layer has finished generating, select the <em>transcripts</em> menu option, and find and open <em>NB926_IsobelleDoig.eaf</em>.</li>
+<li>Tick your new <em>phonemes</em> layer.<br>
+You will see that each word is tagged with a phonemic transcription.</li>
+</ol>
+<p>You will notice that the annotations are displayed using IPA symbols. However, the layer manager doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme.</p>
+<p>The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>ASCII</em> option on the layer in the transcript.</p>
+<ol start="8" class="example" type="1">
+<li>Select <em>ASCII</em> on the phonemes layer, to see what the layer manager is actually producing.</li>
+</ol>
+<p>You may find that this is somewhat harder to read. Diphthongs are generally represented by digits, and various other characters are used to represent affricates, etc.</p>
+<p>It’s nice to display the IPA symbols, but it’s important to understand the DISC symbols (shown in the table below), because they are what we have to use when searching on the phonemes layer, which we are going to try now.</p>
+<p>As you may have seen on the layer configuration page, there is another possible representation of the pronunciations, called ‘ARPABET’; this is what is used in the original dictionary file published by CMU, and uses up to three uppercase characters per phoneme. While we’re not using ARPABET in this exercise, you can use it if you like, and the ARPABET symbols are included in the table. In the table, you will see that there are gaps where no ARPABET version of the phoneme is shown; this means that the CMU Pronouncing Dictionary contains no entries that include that phoneme.</p>
+<div style="page-break-after: always;"></div>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">ARPABET</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">ARPABET</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">p</td>
+<td style="text-align: left;">P</td>
+<td style="text-align: left;"><strong>p</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪ</td>
+<td style="text-align: left;">I</td>
+<td style="text-align: left;">IH</td>
+<td style="text-align: left;">K<strong>I</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">b</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;"><strong>b</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ε</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: left;">EH</td>
+<td style="text-align: left;">DR<strong>E</strong>SS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t</td>
+<td style="text-align: left;">t</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;"><strong>t</strong>ack</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;">{</td>
+<td style="text-align: left;">AE</td>
+<td style="text-align: left;">TR<strong>A</strong>P</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;"><strong>d</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʌ</td>
+<td style="text-align: left;">V</td>
+<td style="text-align: left;">AH</td>
+<td style="text-align: left;">STR<strong>U</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">k</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;"><strong>c</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ</td>
+<td style="text-align: left;">Q</td>
+<td style="text-align: left;">AH</td>
+<td style="text-align: left;">L<strong>O</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">g</td>
+<td style="text-align: left;">g</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;"><strong>g</strong>ame</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊ</td>
+<td style="text-align: left;">U</td>
+<td style="text-align: left;">UH</td>
+<td style="text-align: left;">F<strong>OO</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ŋ</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">NG</td>
+<td style="text-align: left;">ba<strong>ng</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ə</td>
+<td style="text-align: left;">@</td>
+<td style="text-align: left;">[vowel ending in 0]</td>
+<td style="text-align: left;"><strong>a</strong>nother</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">m</td>
+<td style="text-align: left;">M</td>
+<td style="text-align: left;"><strong>m</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">i:</td>
+<td style="text-align: left;">i</td>
+<td style="text-align: left;">IY</td>
+<td style="text-align: left;">FL<strong>EE</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;">n</td>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;"><strong>n</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">α:&nbsp;</td>
+<td style="text-align: left;">#</td>
+<td style="text-align: left;">AA</td>
+<td style="text-align: left;">f<strong>a</strong>ther</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">l</td>
+<td style="text-align: left;">l</td>
+<td style="text-align: left;">L</td>
+<td style="text-align: left;"><strong>l</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔ:</td>
+<td style="text-align: left;">$</td>
+<td style="text-align: left;">AO</td>
+<td style="text-align: left;">TH<strong>OU</strong>GHT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;"><strong>r</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">u:</td>
+<td style="text-align: left;">u</td>
+<td style="text-align: left;">UW</td>
+<td style="text-align: left;">G<strong>OO</strong>SE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">f</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;"><strong>f</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɜ:</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">ER</td>
+<td style="text-align: left;">N<strong>UR</strong>SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">v</td>
+<td style="text-align: left;">v</td>
+<td style="text-align: left;">V</td>
+<td style="text-align: left;"><strong>v</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">eɪ</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">EY</td>
+<td style="text-align: left;">F<strong>A</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">θ</td>
+<td style="text-align: left;">T</td>
+<td style="text-align: left;">TH</td>
+<td style="text-align: left;"><strong>th</strong>in</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αɪ</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">AY</td>
+<td style="text-align: left;">PR<strong>I</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ð</td>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">DH</td>
+<td style="text-align: left;"><strong>th</strong>en</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔɪ</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">OY</td>
+<td style="text-align: left;">CH<strong>OI</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">s</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;"><strong>s</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">əʊ</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">OW</td>
+<td style="text-align: left;">G<strong>OA</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: left;">z</td>
+<td style="text-align: left;">Z</td>
+<td style="text-align: left;"><strong>z</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αʊ</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">AW</td>
+<td style="text-align: left;">M<strong>OU</strong>TH</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&nbsp;∫</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">SH</td>
+<td style="text-align: left;"><strong>sh</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪə</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">N<strong>EAR</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʒ</td>
+<td style="text-align: left;">Z</td>
+<td style="text-align: left;">ZH</td>
+<td style="text-align: left;">mea<strong>s</strong>ure</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">εə</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">SQU<strong>ARE</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">j</td>
+<td style="text-align: left;">Y</td>
+<td style="text-align: left;"><strong>y</strong>ank</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊə</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">C<strong>URE</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">lo<strong>ch</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;">c</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">t<strong>i</strong>mbre</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">h</td>
+<td style="text-align: left;">HH</td>
+<td style="text-align: left;"><strong>h</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɑ̃ː</td>
+<td style="text-align: left;">q</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">dét<strong>en</strong>te</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">w</td>
+<td style="text-align: left;">w</td>
+<td style="text-align: left;">W</td>
+<td style="text-align: left;"><strong>w</strong>et</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ̃ː</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">l<strong>in</strong>gerie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ʧ</td>
+<td style="text-align: left;">J</td>
+<td style="text-align: left;">CH</td>
+<td style="text-align: left;"><strong>ch</strong>eap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ̃ː</td>
+<td style="text-align: left;">~</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">bouill<strong>on</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʤ</td>
+<td style="text-align: left;">_</td>
+<td style="text-align: left;">JH</td>
+<td style="text-align: left;"><strong>j</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ŋ̩</td>
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">bac<strong>on</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m̩</td>
+<td style="text-align: left;">F</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">idealis<strong>m</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">n̩</td>
+<td style="text-align: left;">H</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">burd<strong>en</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">l̩</td>
+<td style="text-align: left;">P</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;dang<strong>le</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>In the transcript, you may notice there are gaps in the layer - i.e.&nbsp;words that are not tagged with a pronunciation.</p>
+<p>For example, around the middle of the transcript, the word “compactums” is not tagged, because the CMU Pronouncing Dictionary has no entry for that word.</p>
+<p>There are various possible solutions for this, but one is to tag word tokens with their pronunciations directly in the transcript. This has been done in the case of “compactums”; manual pronunciation tags are saved on the <em>pronounce</em> layer</p>
+<ol start="9" class="example" type="1">
+<li>Scroll to the top of the transcript, un-tick the <em>phonemes</em> layer and tick the <em>pronounce</em> layer.</li>
+<li>When the transcript re-loads to show the <em>pronounce</em> layer tags, find “compactums” again.</li>
+</ol>
+<p>You will see it has been tagged with an annotation labelled “kəmpæktəmz”, which was manually added by the transcriber of the transcript, in the original ELAN file.</p>
+<p>We want all pronunciations to be present on the <em>phonemes</em> layer, which is currently managed by the CMU Pronouncing Dictionary layer manager. LaBB-CAT allows layers to have more than one layer manager, however; a layer can have a main layer manager, and a number of ‘auxiliary’ managers that perform extra annotation tasks.</p>
+<p>We are going to add an auxiliary layer manager to the <em>phonemes</em> layer, which will copy any <em>pronounce</em> annotations it finds to the <em>phonemes</em> layer. This will fill in the gaps in the CMU Pronouncing dictionary, at least for the tokens that have manual <em>pronounce</em> tags.</p>
+<ol start="11" class="example" type="1">
+<li>Select the <em>word layers</em> option on the menu.</li>
+<li>On the <em>phonemes</em> layer row, there are a number of buttons on the right, including one with a <img src="pronounce-auxiliary-icon.png" class="img-fluid"> icon. Hover your mouse over this button to see what it does, and then click it.<br>
+You will see a page explaining that will copy any manually tagged pronunciations from the from the <em>pronounce</em> layer into the <em>phonemes</em>.</li>
+<li>Click <em>yes</em> to continue.<br>
+You will see a progress bar while the auxiliary layer manager copies the <em>pronounce</em> annotations to the <em>phonemes</em> layer.</li>
+<li>When it’s finished, select the <em>transcripts</em> menu option, and open <em>NB926_IsobelleDoig.eaf</em> again.</li>
+<li>Tick the <em>phonemes</em> layer.</li>
+<li>Find the word “compactums” in the transcript.</li>
+</ol>
+<p>You will see it now has a <em>phonemes</em> tag, just like the rest of the word tokens.</p>
+<ol start="17" class="example" type="1">
+<li>Select the <em>search</em> option from the menu.</li>
+<li>Search your new <em>phonemes</em> layer for words that start with <em>h</em></li>
+</ol>
+<p>You will see that the results contain words that you might not expect, like “where”, “which” and “when”.</p>
+<ol start="19" class="example" type="1">
+<li>Click one of these unexpected results, to open the transcript.&nbsp;&nbsp;&nbsp;<br>
+You will see that, in the transcript, the pronunciation appears to start with /w/, not with /h/.</li>
+<li>Click on the word and select the <em>Edit</em> option on the menu that appears.<br>
+Now look for the <em>phonemes</em> layer. You will see that, in addition to the pronunciation that starts with /w/, there’s another annotation that starts with /h/, which is invisible on the transcript.<br>
+</li>
+</ol>
+<p>These are all the possible phonemic transcriptions for the word. Only the first one is displayed in the transcript, but when you do searches, all of them are searched. This can result in unexpected matches like this, but it can be useful, as it ensures that when you search for a particular phonemic pattern, all possible tokens are returned, not just those that match on the most ‘normal’ transcription.</p>
+<p>Now we’re going to try to do a search for the word “the” followed by a word that starts with schwa.</p>
+<ol start="21" class="example" type="1">
+<li>Select the <em>search</em> option from the menu.</li>
+<li>Create a search matrix that’s two words wide, and includes the <em>orthography</em> and <em>phonemes</em> layers.</li>
+<li>Type <em>the</em> in the first <em>orthography</em> box.</li>
+<li>Click the second box on the <em>phonemes</em> layer, but don’t enter anything in the box yet.</li>
+<li>The box has a little <code>«</code> button to the right of it.<br>
+Hover the mouse over it to see what it says, and then click it.<br>
+You will see that a section opens with a bunch of phoneme symbols on it.</li>
+<li>Find the schwa symbol <em>ə</em> and click it.<br>
+You will see that an <code>@</code> symbol appears in the box.<br>
+<code>@</code> is the DISC symbol for /<em>ə</em>/, so in order to search for schwa, we have to use it in our search pattern.</li>
+<li>We want words that start with schwa, so type <code>.*</code> after the <code>@</code> symbol.</li>
+<li>Click <em>Search</em>.</li>
+</ol>
+<p>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against <em>all their possible phonemic transcriptions</em>, so if the CMU dictionary has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.</p>
+<p>You can check this by clicking on a match, and then clicking on the word in the transcript and selecting <em>Edit</em>, which displays all the annotations for the given token.</p>
+<p>If you check the table above, you will see that <em>ə</em> has no specific representation in ARPABET. This means that no CMU Pronouncing Dictionary pronunciations include schwa explicitly. Instead, ‘unstressed’ versions of other vowels are used. For example, the word “transcription” is transcribed <code>T R AE2 N S K R IH1 P SH AH0 N</code> in the original dictionary file; the final vowel <em>AH</em> is the ‘STRUT’ vowel, and the <em>0</em> means it’s ‘unstressed’. The layer manager translates this to DISC as <code>tr{nskrIpS@n</code>.</p>
+<p>Now that we have phonemic transcripts, we can do abetter job of the search we tried in the first exercise - “the” followed by a word starting with a vowel…</p>
+<ol start="29" class="example" type="1">
+<li>Change your search so that, instead of just <code>@</code> at the beginning of the word, it matches any vowel.</li>
+</ol>
+<p>You could use the square-brackets <code>[]</code> at the start of your pattern, and type all vowel symbols inside them - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.</p>
+<p><em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘IPA helper’, which will add all the DISC vowels for you, already enclosed in square-brackets.</p>
+<ol start="30" class="example" type="1">
+<li>Run the search and check that it’s giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li>
+</ol>
+<p>Now that you’ve generated a few different layers, and have seen how the search matrix works, you might want to try out some of the following searches, or invent some others:</p>
+<ul>
+<li>Words which have the DRESS vowel as the second phoneme</li>
+<li>The word “the” followed by a word beginning with the phoneme /k/</li>
+<li>Words ending with a front vowel, followed by words beginning with /p/ or /b/</li>
+<li>Words that begin with “k” in their spelling, but begin with the phoneme /n/</li>
+<li>Words that begin with “k” in their spelling, but <strong>do not</strong> begin with the phoneme /n/</li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>© 2023 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

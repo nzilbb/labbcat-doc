@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>LaBB-CAT Documentation – exploration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/index.html">LaBB-CAT Demo Session</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/1-exploration.html">1 - Exploration</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">LaBB-CAT Documentation</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/3-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/4-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/5-syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 - Syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/6-other-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 - Other Processing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exploration" id="toc-exploration" class="nav-link active" data-scroll-target="#exploration">1 - Exploration</a>
+  <ul class="collapse">
+  <li><a href="#easy-exploration" id="toc-easy-exploration" class="nav-link" data-scroll-target="#easy-exploration">Easy exploration</a></li>
+  <li><a href="#basic-search" id="toc-basic-search" class="nav-link" data-scroll-target="#basic-search">Basic search</a></li>
+  <li><a href="#regular-expressions" id="toc-regular-expressions" class="nav-link" data-scroll-target="#regular-expressions">Regular Expressions</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1-exploration.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="exploration" class="level1">
+<h1>1 - Exploration</h1>
+<p>LaBB-CAT is a speech/language corpus management system that:</p>
+<ul>
+<li>stores transcripts with audio/video
+<ul>
+<li>supporting a variety of formats</li>
+<li>and the definition of speech elicitation tasks;</li>
+</ul></li>
+<li>allows the addition of different layers of annotation, which can
+<ul>
+<li>be manual or automatic, and</li>
+<li>have different granularities, from topic tagging to individual phones;</li>
+</ul></li>
+<li>supports forced alignment to phone level using a speech recognition toolkit called “HTK”, or the <a href="https://montreal-forced-aligner.readthedocs.io/">Montreal Forced Aligner</a>, or the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic">WebMAUS</a> service provided by <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/">BAS Web Services</a>;</li>
+<li>allows cross-layer regular-expression search;</li>
+<li>search results are exportable to CSV for further analysis;</li>
+<li>batch acoustic measurement of segments using Praat is also supported, and</li>
+<li>transcripts and fragments of them are exportable in a variety of formats.</li>
+</ul>
+<p>In this worksheet you will start exploring a demo LaBB-CAT corpus, to get a general idea of how to find your way around LaBB-CAT and how the language data is presented.</p>
+<p>The demo corpus contains a collection of videos of people telling stories about their experiences during the earthquakes that struck Canterbury during 2010 and 2011. They have been orthographically transcribed using a tool called <a href="https://archive.mpi.nl/tla/elan">ELAN</a>, so they have been time aligned to the utterance level; i.e.&nbsp;the start and end time of each line in the transcript has been manually synchronized with the recording. The ELAN transcripts, and their video and audio files, have been uploaded into LaBB-CAT.</p>
+<p>LaBB-CAT is a browser-based system so the first thing to do is access it with your web browser. Generally, any modern browser should be fine (although some features you’ll see in later worksheets are only supported by Mozilla Firefox or Google Chrome).</p>
+<ol type="1">
+<li>In your web browser, type in the following URL:<br>
+<a href="https://labbcat.canterbury.ac.nz/demo/">https://labbcat.canterbury.ac.nz/demo</a><br>
+You will be asked for a username and password.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If typing this out manually, ensure you enter ‘https’ not ‘http’</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li>The username is <em>demo</em> and the password is <em>demo</em><br>
+The very first time you access LaBB-CAT, you will see its licence agreement.</li>
+<li>Scroll to the bottom of the page and click <em>I Agree</em> to continue.<br>
+You will see a page called “LaBB-CAT Demo” which has a menu of links along the top and a number of icons. Below the icons is some information about the corpus. This is the LaBB-CAT home page.</li>
+<li>Click the <em>where do I start?</em> icon on the left.<br>
+The help page that pops up includes a brief description of LaBB-CAT and some tips for navigation and getting more information.</li>
+<li>Read through the page, and then close the browser tab to return to the home page.</li>
+</ol>
+<p>There are two main ways to use LaBB-CAT:</p>
+<ul>
+<li>easy exploration and plain text search (this worksheet)</li>
+<li>layered filtering and search (the following worksheets)</li>
+</ul>
+<section id="easy-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="easy-exploration">Easy exploration</h2>
+<p>Using the ‘easy’ method for exploring LaBB-CAT is simple, as annotation layers are largely ignored; each transcript is essentially treated as a plain text that you can search and display based on ordinary orthographic spelling.</p>
+<ol type="1">
+<li>On the LaBB-CAT home page, click the <em>explore</em> icon to access the easy exploration pages.<br>
+You will see a similar home page, with <em>Browse</em> icon, <em>Easy Search</em>, and <em>Layered Search</em> icons.</li>
+<li>Click the <em>Browse</em> icon.<br>
+You will see a page that lists the collections of recordings (or ‘corpora’) in the LaBB-CAT database. Each corpus contains a number of recordings.</li>
+<li>Click the first corpus listed.<br>
+You will see a page that lists the first 20 recordings in the corpus. The recording names are on the left, followed by some meta data (called ‘participant attributes’) about the participant in the recording. At the bottom is a list of pages, so you can access further recordings in the corpus.</li>
+<li>Click the name of the first recording.<br>
+You will see a page with transcript text, and the video appears in the top right corner of the page.</li>
+<li>Hover the mouse over the video.<br>
+The video pane grows larger.</li>
+<li>Press the play button.<br>
+As the video plays, you will see the current utterance highlighted in the transcript. You will also see that the current utterance appears as closed captions in the video. You can use the video controls as normal, including the <em>full-screen</em> button in the bottom right, to make the video occupy the whole screen.</li>
+<li>Pause the recording.</li>
+<li>Move the mouse over one of the utterances further down the transcript.<br>
+You will notice that the video pane shrinks again, and that the mouse pointer becomes a <em>play</em> button.</li>
+<li>Click the utterance.<br>
+You will see that playback starts at that utterance. Playback will stop when the participant finishes the utterance.</li>
+<li>At the top of the page, you will see a tab button labelled <em>General</em>; click it.<br>
+You will see some meta-data about the transcript and recording.<br>
+LaBB-CAT attaches meta-data both to transcripts (called ‘transcript attributes’), and also to participants (‘participant attributes’).</li>
+<li>Below the transcript attributes is the name of the participant. Click their name.<br>
+You will see a page with the participant attributes, and a list of the recordings they appear in. In this case, they appear in only one recording; if you were to click the name of the recording, you would be taken back to the transcript page you’ve just seen.</li>
+</ol>
+</section>
+<section id="basic-search" class="level2">
+<h2 class="anchored" data-anchor-id="basic-search">Basic search</h2>
+<ol type="1">
+<li>On the menu at the top of the page, there’s a <em>Search</em> option. Click it.<br>
+You will see a search form with a “Text” search box at the top, and options for meta data below.</li>
+<li>In the “Text” box enter the word <code>quake</code> and press the <em>Search</em> button at the bottom.<br>
+You will see a list of hits, with the name of the transcript on the left and the matched word on the right, highlighted within its immediate context.</li>
+<li>Click the <em>Search again</em> link (or the <em>Search</em> link on the menu at the top)<br>
+You’ll see that the search form remembers the last search text.</li>
+<li>Select ‘Female’ from the <em>Gender</em> drop-down box, leave the word <code>quake</code> in the “Text” box, and click <em>Search</em>.<br>
+This time the results are narrowed down to only female participants.</li>
+<li>Click the first result.<br>
+You will see the transcript page, as we saw earlier, but with each match from the search highlighted.</li>
+</ol>
+</section>
+<section id="regular-expressions" class="level2">
+<h2 class="anchored" data-anchor-id="regular-expressions">Regular Expressions</h2>
+<p>You can also search across multiple words, and search for patterns as well as exact spellings.</p>
+<p>For example, let’s say you want to investigate how the pronunciation of the word ‘the’ changes when the following word starts with a vowel. You can search for this pattern using the search form:</p>
+<ol start="6" type="1">
+<li>Click the <em>Search</em> option on the menu.</li>
+<li>Search for the word <code>the</code><br>
+You will see that there are lots of results, including many where ‘the’ is followed by a word that starts with a consonant.</li>
+<li>Go back to the <em>Search</em> page.</li>
+<li>Now search for: <code>the [aeiou].*</code><br>
+This is a ‘regular expression’ that allows you to identify a pattern, with the following parts:
+<ul>
+<li>the word ‘the’</li>
+<li>followed by a space</li>
+<li>followed by any vowel (<code>[aeiou]</code>)</li>
+<li>followed anything at all - <code>.</code> in a regular expression means ‘any character’, and <code>*</code> means ‘zero or more of the previous thing’, so <code>.*</code> means ‘zero or more characters’<br>
+<br>
+You will see that the results include only instances where the word that follows ‘the’ starts with a vowel.</li>
+</ul></li>
+<li>See if you can create a search for all words ending in ‘ing’</li>
+</ol>
+<hr>
+<p>In this worksheet you have seen that:</p>
+<ul>
+<li>LaBB-CAT is a repository for recordings and their transcripts;</li>
+<li>Transcripts are grouped together into corpora;</li>
+<li>Meta-data can be attached to transcripts (transcript attributes) and to participants (participant attributes);</li>
+<li>You can search the texts of the transcripts;</li>
+<li>You can filter the search results on the basis of meta-data;</li>
+<li>You can search for patterns as well as exact spelling, by using regular expressions.</li>
+</ul>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>© 2023 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
