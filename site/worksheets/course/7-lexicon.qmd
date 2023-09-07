@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # 7. Lexicons
 
 LaBB-CAT can be integrated with various lexicon to facilitate automatic
