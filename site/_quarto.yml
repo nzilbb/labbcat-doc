@@ -50,14 +50,30 @@ website:
                   - href: worksheets/course/8a-forced-alignment-htk.qmd
                   - href: worksheets/course/8b-forced-alignment-mfa.qmd
               - href: worksheets/course/9-aligned-data.qmd
-#      - section: howto/index.qmd
-
+      - section: howto/index.qmd
+        contents:
+          - section: howto/transcription/index.qmd
+            text: Transcription
+            contents:
+              - section: howto/transcription/elan.qmd
+                contents:
+                  - href: howto/transcription/elan-language.qmd
+          - section: howto/phonemic-tagging/index.qmd
+            text: Phonemic Tagging
+            contents:
+              - href: howto/phonemic-tagging/celex.md
+              - href: howto/phonemic-tagging/cmudict.md
+              - href: howto/phonemic-tagging/unisyn.md
+              - href: howto/phonemic-tagging/flat-file.md
+              - href: howto/phonemic-tagging/spanish.md
+              - href: howto/phonemic-tagging/g2p.md
+              - href: howto/phonemic-tagging/character-mapper.md
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-    copyright: "© 2023 NZILBB"
+    copyright: "© 2023-2024 NZILBB"
     license: CC BY-SA
     description-meta: "Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system."
     author-meta: "Robert Fromont"

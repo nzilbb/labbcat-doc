@@ -1,0 +1,21 @@
+---
+format:
+  html:
+    toc: false
+---
+# Phonemic Tagging
+
+Depending on your speech data, there are several ways to obtain phonemic transcriptions for words:
+
+
+- Lexical tagging
+  - [CELEX](celex.qmd) - for British English, German, Dutch, using one of the CELEX layer managers.
+  - [CMU Pronouncing Dictionary](cmudict.qmd) - for US English, using th CMU Pronouncing Dictionary layer manager.
+  - [Unisyn](unisyn.qmd) - for various English varieties, using the Unisyn layer manager.
+  - [Define your own lexicon](flat-file.qmd), and use the Flat File Dictionary layer manager to integrate it into LaBB-CAT.
+- Inferring pronunciation from orthography
+  - [Spanish](spanish.qmd), using the Spanish Phonological Transcriber layer manager
+  - [Bas Web Service: G2P](g2p.qmd) - for various languages.
+  - [Define your own simple mapping rules](character-mapper.qmd) from orthography to phonology, using the Character Mapper layer manager.
+
+If the speech corpus includes data in more than one language, it is possible to ensure that the utterances are phonemically tagged in a way that's sensitive to the language of the specific utterance, using the language layers and attributes, and auxiliary layer managers.
