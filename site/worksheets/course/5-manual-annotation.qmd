@@ -4,6 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
+    fontfamily: libertinus
 ---
 # 5. Manual Annotation
 

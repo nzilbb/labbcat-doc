@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>LaBB-CAT Documentation – automatic-annotation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/index.html">LaBB-CAT Course</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/6-automatic-annotation.html">6. Automatic Annotation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">LaBB-CAT Documentation</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/3-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/4-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/5-syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 - Syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/6-other-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 - Other Processing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#automatic-annotation" id="toc-automatic-annotation" class="nav-link active" data-scroll-target="#automatic-annotation">6. Automatic Annotation</a>
+  <ul class="collapse">
+  <li><a href="#frequency" id="toc-frequency" class="nav-link" data-scroll-target="#frequency">Frequency</a></li>
+  <li><a href="#porter-stemmer" id="toc-porter-stemmer" class="nav-link" data-scroll-target="#porter-stemmer">Porter Stemmer</a></li>
+  <li><a href="#pattern-matcher" id="toc-pattern-matcher" class="nav-link" data-scroll-target="#pattern-matcher">Pattern Matcher</a></li>
+  <li><a href="#statistics-layer-manager" id="toc-statistics-layer-manager" class="nav-link" data-scroll-target="#statistics-layer-manager">Statistics Layer Manager</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="6-automatic-annotation.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="automatic-annotation" class="level1">
+<h1>6. Automatic Annotation</h1>
+<p>You can configure LaBB-CAT to automatically generate annotations, using ‘layer managers’. Basically, layer managers are automatic annotation modules that take data in one annotation layer, do some kind of computation on it, and save the result to another annotation layer.</p>
+<p>In this exercise, we will use the following layer managers:</p>
+<ul>
+<li><em>Frequency Layer Manager</em>, which counts tokens of each word type, over a configurable scope.</li>
+<li><em>Porter Stemmer</em>, which applies the Porter algorithm to word orthographies to compute word stems.</li>
+<li><em>Pattern Matcher</em>, which creates annotations based on matching regular expressions against words.</li>
+<li><em>Statistics Layer Manager</em>, which computes aggregated information, like word count or duration, over groups of words.</li>
+</ul>
+<p>LaBB-CAT comes with number of layer managers pre-installed; you can see a list of installed layer managers by clicking the <em>layer managers</em> menu option. Other layer managers have to be manually installed.</p>
+<hr>
+<p>For this exercise, we’ll pretend we’ve got a couple more mini-research&nbsp;projects:</p>
+<ul>
+<li>we’re interested in looking at how rare or common words are in our data, and</li>
+<li>we want to study ‘filled pauses’ like “um”, “ah”, etc.</li>
+</ul>
+<section id="frequency" class="level2">
+<h2 class="anchored" data-anchor-id="frequency">Frequency</h2>
+<p>To start with, we’ll simply annotate each word token in the database with the count of how many times that word appears in the database...</p>
+<ol class="example" type="1">
+<li>First of all, create a new project called <em>frequency</em>, using the steps we saw before.</li>
+<li>Select the <em>word layers</em> menu option.<br>
+You will see a list of word layers (including the ‘custom’ layer for the “the” project we created earlier).</li>
+<li>Add a new layer, with the following settings:
+<ul>
+<li><strong>Layer ID:</strong> <code>frequency</code></li>
+<li><strong>Type:</strong> <em>Number</em></li>
+<li><strong>Alignment:</strong> <em>None</em></li>
+<li><strong>Manager:</strong> <em>Frequency Layer Manager</em></li>
+<li><strong>Generate:</strong> <em>Always</em></li>
+<li><strong>Project:</strong> <em>frequency</em></li>
+<li><strong>Description:</strong> <code>Count of tokens of the same type within each corpus</code><br>
+Press the <em>New</em> button</li>
+</ul></li>
+<li>You will see the layer configuration form. Fill it in with the following details:
+<ul>
+<li><strong>Summary:</strong> <em>Raw Count</em></li>
+<li><strong>Layer to summarize:</strong> <em>orthography</em></li>
+<li><strong>Scope of Summary:</strong> <em>Corpus</em> (leave the box next to that with the <em>[each corpus]</em> option selected)</li>
+<li><strong>Main participants only:</strong> ticked</li>
+<li><strong>Participants:</strong> un-ticked</li>
+<li><strong>Filter Layer:</strong> un-ticked</li>
+<li><strong>Word pairs:</strong> un-ticked</li>
+<li><strong>Pause Markers:</strong> [leave this blank]</li>
+<li><strong>Transcript types:</strong> un-tick <em>wordlist</em> (as counting word list tokens would artificially inflate frequencies of those words)</li>
+<li><strong>Annotate tokens:</strong> ticked</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="help.png" class="img-fluid"> If you want more information about what these options mean, check the online help page.</p>
+</div>
+</div>
+<ol start="5" class="example" type="1">
+<li>Press <em>Save</em><br>
+You will see a message asking you if you want generate the layer data now.</li>
+<li>Press <em>Regenerate</em>.<br>
+You will see a progress bar moving across the page while the counts are being generated. When it is finished, you will see a message saying “Layer complete…”</li>
+</ol>
+<p>Now each word in each transcript is annotated with the count of the number of instances of that word with the corpus of the transcript.</p>
+<p>To see what that looks like…</p>
+<ol start="7" class="example" type="1">
+<li>Select the <em>transcripts</em> menu option.</li>
+<li>Select the name of the first transcript in the list.</li>
+<li>At the top of the transcript there is now a list of projects. Tick the “frequency” project.<br>
+This will reveal the frequency layer in the list of layers.</li>
+<li>Tick the <em>frequency</em> layer.<br>
+When the transcript reloads, you will see that above each word is a number. That number is the number of times that word appears in the transcript’s corpus.<br>
+e.g.&nbsp;if the word “and” has 669 above it, and the transcript is in the <em>QB</em> corpus, that means that the word “and” appears in the <em>QB</em> corpus 669 times.</li>
+</ol>
+<p>The newly-generated annotations are also searchable…</p>
+<ol start="11" class="example" type="1">
+<li>Select the <em>search</em> menu option.</li>
+<li>If the <em>frequency</em> project and layer are not already ticked, tick them to add the <em>frequency</em> layer to the search matrix.<br>
+<br>
+In the search matrix, you will notice that, unlike the <em>orthography</em> layer, which has one box for a regular expression, the <em>frequency</em> layer has two boxes, marked “≥” and “&lt;”. For a layer of type <em>Number</em> (which is what you specified above), instead of a regular expression, you can match by numeric range.</li>
+<li>We want all the words that appeared only once in their corpus. Enter a number or numbers in the appropriate box (you can leave either box blank) and press <em>Search</em>.</li>
+<li>Press <em>▼ 20 More Matches</em> a couple of times, to get a good idea of the range of results.</li>
+</ol>
+<p>The results you see may contain words that don’t seem rare at all. That they only appear once is a product of two factors:</p>
+<ol type="i">
+<li>there isn’t that much data in our example database, and<br>
+</li>
+<li>these are counts of ‘wordforms’ - i.e.&nbsp;the surface spelling of the word; e.g.&nbsp;the word “damaging” might be quite rare, even though there are more instances of words from the same stem like “damage”, and “damaged”. This second factor will be addressed soon…</li>
+</ol>
+<p>You can also extract the annotations into CSV results from other searches…</p>
+<ol start="15" class="example" type="1">
+<li>On the search page, do a search for “the” followed by a word that starts with a vowel.</li>
+<li>When the results page appears, click the ▼ button next to the <em>CSV Export</em> button.</li>
+<li>Under the list of <em>Word</em> layers, tick the <em>frequency</em> layer.</li>
+<li>Click the <em>CSV Export</em> button.</li>
+<li>Save and open the resulting CSV file.<br>
+You will notice that in the spreadsheet there are two columns:
+<ul>
+<li><em>Match frequency:</em> this lists the frequency of each word that matched, in order. i.e.&nbsp;in this case two numbers, the frequency of “the”, followed by the frequency of the word after it.</li>
+<li><em>Target frequency:</em> this contains a single frequency, in this case the frequency of the first word that matched a pattern - i.e.&nbsp;“the”</li>
+</ul></li>
+<li>As an aside, you can also select other layers to include in the CSV file. For example, some of the transcripts include topic-tags that were made in the original ELAN transcript.<br>
+Export your search results to CSV again, this time including the <em>topic</em> layer, and see what that looks like.<br>
+</li>
+</ol>
+<p>The Frequency Layer Manager also keeps a word-list with token counts for each corpus…</p>
+<ol start="21" class="example" type="1">
+<li>Click the <em>layer managers</em> menu option.</li>
+<li>On the “Frequency Layer Manager” row, click the <em>Extensions</em> button.</li>
+<li>You will see a drop-down box with each corpus in it.<br>
+Select <em>QB</em> and click <em>Export</em>.</li>
+<li>Save and open the resulting CSV file.<br>
+You will see an alphabetical list of all the distinct word types in the QB corpus, and next to each, a count of the number of tokens of that type in the QB corpus.</li>
+</ol>
+</section>
+<section id="porter-stemmer" class="level2">
+<h2 class="anchored" data-anchor-id="porter-stemmer">Porter Stemmer</h2>
+<p>As pointed out above, although the ‘wordform’ counts might be useful, it also may be useful to lump together different forms of the same stem for the counts. e.g.&nbsp;if there’s 1 “damaging” token, 28 “damage” token, and 18 “damaged” token, it may be useful to count these all together as 47 tokens of the same stem.</p>
+<p>In order to achieve this, we first need to ‘stem’ all the words in the database - i.e.&nbsp;reduce all the wordforms so that tokens like “damaging”, “damage”, “damaged”, and “damages” all have the same ‘stem’ annotation. Then we can gather frequency statistics on the stems.</p>
+<p>The <em>Porter Stemmer Layer Manager</em> is one way to achieve this. First, we need to install this layer manager (which only works on English data, so it’s not installed by default).</p>
+<ol start="25" class="example" type="1">
+<li>Select the <em>layer managers</em> menu option.</li>
+<li>Near the bottom of the page, select the <em>List of layer managers that are not yet installed</em> link.</li>
+<li>Find the “Porter Stemmer” in the list, and press its <em>Install</em> button, and then <em>Install</em> again to continue.</li>
+<li>After it is installed, a tab appears with some information about what the layer manager does. You may wish to read this page for your information. Afterwards, you can close the tab to take you back to the LaBB-CAT browser tab.</li>
+<li>Select the <em>word layers</em> menu option.</li>
+<li>Add a new layer with the following attributes:
+<ul>
+<li><strong>Layer ID:</strong> <code>stem</code></li>
+<li><strong>Type:</strong> <em>Text</em></li>
+<li><strong>Alignment:</strong> <em>None</em></li>
+<li><strong>Manager:</strong> <em>Porter Stemmer</em></li>
+<li><strong>Generate:</strong> <em>Always</em></li>
+<li><strong>Project:</strong> <em>frequency</em></li>
+<li><strong>Description:</strong> <code>The stem of the word according to the Porter algorithm</code><br>
+<br>
+Click the <em>New</em> button.</li>
+</ul></li>
+<li>The Porter Stemmer’s default configuration is fine for our purposes, so press <em>Set Parameters</em>.</li>
+<li>Press <em>Regenerate</em>.<br>
+You will see a progress bar, and once it’s finished, you will see a message saying “Layer complete…”</li>
+<li>Select the <em>transcripts</em> menu option.</li>
+<li>Click the name of the first transcript.</li>
+<li>Tick the <em>stem</em> layer we just added.<br>
+When the transcript refreshes, you will see, above each word, its ‘stem’ according to the Porter algorithm.</li>
+</ol>
+<p>You will notice that, although the stems are not what you might regard as being the ‘lemma’ of each word (i.e.&nbsp;not necessarily valid words of English in themselves), they nevertheless generally strip off plural and 3rd-person-present suffixes, such that different wordforms of the same lemma will have the same ‘stem’.</p>
+<p>Now that we have generated a layer of ‘stems’ for the wordforms on the <em>orthography</em> layer, we can generate frequency data from the <em>stem</em> layer as well…</p>
+<ol start="36" class="example" type="1">
+<li>Click the <em>word layers</em> menu option.</li>
+<li>Add a new layer with the following attributes:
+<ul>
+<li><strong>Layer ID:</strong> <code>stemFrequency</code></li>
+<li><strong>Type:</strong> <em>Number</em></li>
+<li><strong>Alignment:</strong> <em>None</em></li>
+<li><strong>Manager:</strong> <em>Frequency Layer Manager</em></li>
+<li><strong>Project:</strong> <em>frequency</em></li>
+<li><strong>Description:</strong> <code>Count of tokens of the same stem within each corpus</code><br>
+<br>
+Press the <em>New</em> button.</li>
+</ul></li>
+<li>Configure the layer exactly as before, except this time, set the <strong>Layer to summarize:</strong> setting to the <em>stem</em> layer we created above. <em>Save</em> your settings and press <em>Regenerate</em>.<br>
+The layer will be generated.</li>
+<li>Do a search of all speakers, for words with a value of 1 on your new <em>stemFrequency</em> layer.<br>
+You should notice that the variety of words returned seem a little ‘rarer’ that those returned previously when you were searching the wordform <em>frequency</em> layer.</li>
+</ol>
+</section>
+<section id="pattern-matcher" class="level2">
+<h2 class="anchored" data-anchor-id="pattern-matcher">Pattern Matcher</h2>
+<p>We will now create some automatic annotations of a different kind. Let’s suppose that we’re interested in ‘filled pauses’ – words like “um”, “ah”, “er”, “mmm”, etc. You can actually identify them using regular expressions…</p>
+<ol start="40" class="example" type="1">
+<li>Do a search of all speakers, for the word <code>ah</code>. Select the <em>no matches, only a summary of results</em> option.<br>
+Note the number of results you get back.</li>
+<li>Now do a similar search, for the pattern: <code>a+h+</code> i.e.&nbsp;1 or more <em>a</em>’s followed by one or more <em>h</em>’s.<br>
+Note the number of result you get back is more than in the previous search. It turns out the transcribers, when transcribing the word “ah” weren’t entirely consistent in their spelling of that word. That’s ok, because with a little imagination, we can invent searches that will identify filled pauses like “um”, “ah”, and “mm”, even if they’ve been spelt “umm”, “ahh”, or “mmm”.<br>
+(It turns out that there’s a good reason to prefer “mmm” over “mm”, but we’ll see that in a later exercise)</li>
+<li>Try out a few different searches to see if you can identify different ways that transcribers have spelt filled pauses like this.</li>
+</ol>
+<p>We could annotate these as filled pauses by searching, annotating a CSV file, and uploading the CSV annotations, as we did previously. However, there is a layer manager that can do this for us, for all the existing data, and for any new transcripts that might be uploaded in the future: the “Pattern Matcher” layer manager.</p>
+<ol start="43" class="example" type="1">
+<li>First of all, create a new project called <em>pauses</em>.</li>
+<li>Now create a new word layer, with the following attributes:
+<ul>
+<li><strong>Layer ID:</strong> <code>pause</code></li>
+<li><strong>Type:</strong> <em>Text</em></li>
+<li><strong>Alignment:</strong> <em>None</em></li>
+<li><strong>Manager:</strong> <em>Pattern Matcher</em></li>
+<li><strong>Generate:</strong> <em>Always</em></li>
+<li><strong>Project:</strong> <em>pauses</em></li>
+<li><strong>Description:</strong> <code>Filled pauses annotated by regular expression</code><br>
+<br>
+Press the <em>New</em> button</li>
+</ul></li>
+<li>Set the <strong>Source Layer</strong> to be <em>orthography</em>.<br>
+The <strong>Destination Layer</strong> and language-related settings can be left with their default values.</li>
+</ol>
+<p>Below this, there is a currently empty list of “Mappings”. We are going to add regular expressions to this list, which will identify filled pauses.</p>
+<ol start="46" class="example" type="1">
+<li>On the new empty row that’s already in the list by default, click on the box labelled “Source pattern”, and enter: <code>u+m+</code></li>
+<li>To the right of this, click in the “Destination Label” box and enter: <em>um</em><br>
+This will make the layer manager find any instances of words that match the pattern “<em>u+m+”</em> on the <em>orthography</em> layer, and in each case, save the annotation”um” on our new <em>pause</em> layer.</li>
+<li>Press the + button to add a new blank row, and add another regular expression:
+<ul>
+<li><strong>Source Pattern:</strong> <code>a+h+</code></li>
+<li><strong>Destination Label:</strong> <code>ah</code></li>
+</ul></li>
+<li>Press the + button again, and add another regular expression:
+<ul>
+<li><strong>Source Pattern:</strong> <code>mm+</code></li>
+<li><strong>Destination Label:</strong> <code>mm</code></li>
+</ul></li>
+<li>Add any more regular expressions you think might help identify filled pauses.</li>
+<li>Under the patterns, select the option to <em>Delete annotations in target layer whose source matches no pattern</em></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ⓘ If you would like more information about the pattern configuration and what kinds of target annotations you can create, you will find that clicking on the brief description of the layer manager above the form expands to provide more detail.</p>
+</div>
+</div>
+<ol start="52" class="example" type="1">
+<li>Press <em>Set Parameters</em> and <em>Regenerate</em> to generate the layer.<br>
+You will see a progress bar while the layer manager annotates all the filled pauses in the database.</li>
+<li>To see what this looks like in a transcript, perform a search for <em>um</em> on your new <em>pause</em> layer, and click on the first match.<br>
+You should see that each instance of the word “um” (or its variants) has been annotated, as have instances of “ah” and “mm”.</li>
+</ol>
+<p>Now that these filled pauses are automatically annotated, there are various things you might do with the annotations. You could:</p>
+<ul>
+<li>include them in the context of multi-word searches, for example you might want to study the effects of a filled pause on the following or preceding word, or</li>
+<li>search for only the pauses themselves, for selected speakers, in order to study what kinds of filled pauses are used by which speakers in what contexts, what their durations are, etc.</li>
+</ul>
+</section>
+<section id="statistics-layer-manager" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-layer-manager">Statistics Layer Manager</h2>
+<p>In fact, we can use another layer manager to automatically count them for each speaker, and for each utterance in the transcript. In order to do this, we are going to create a ‘phrase layer’, which is a layer that can contain annotations over groups of words (as opposed to against individual words). The layer manager we will use can also annotate participants…</p>
+<ol start="54" class="example" type="1">
+<li>Click the <em>phrase layers</em> option on the menu.<br>
+You will see a list of phrase layers that are already set up, including <em>language</em> and (named) <em>entity</em>.</li>
+<li>Add a new layer with the following characteristics:
+<ul>
+<li><strong>Layer ID:</strong> <code>pauseCount</code></li>
+<li><strong>Type:</strong> <em>Number</em></li>
+<li><strong>Alignment:</strong> <em>Intervals</em></li>
+<li><strong>Manager:</strong> <em>Statistics Layer Manager</em></li>
+<li><strong>Generate:</strong> <em>Always</em></li>
+<li><strong>Project:</strong> <em>pauses</em></li>
+<li><strong>Description:</strong> <code>Count of filled pauses, for the utterance and the speaker</code><br>
+<br>
+Click <em>New</em></li>
+</ul></li>
+<li>You will see a form for the layer’s configuration. Fill in the details as follows:
+<ul>
+<li><strong>Layer to summarize:</strong> <em>pause</em></li>
+<li><strong>Statistic:</strong> <em>Token Count</em></li>
+<li><strong>Pattern to match:</strong> [leave this blank]</li>
+<li><strong>Context:</strong> [leave this blank]</li>
+<li><strong>Pause Threshold:</strong> [leave this blank]</li>
+<li><strong>Main-participant utterances only:</strong> ticked</li>
+<li><strong>Scopes:</strong> tick <em>Utterances</em>, and under <em>Participants:</em>, select the option <em>add new attribute called pauseCount</em></li>
+<li><strong>Transcript types:</strong> leave all the options ticked</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="help.png" class="img-fluid"> If you would like more information about what these settings and the other options do, try the online help for this page.</p>
+</div>
+</div>
+<ol start="57" class="example" type="1">
+<li><em>Save</em> the layer configuration, and then press <em>Regenerate</em>.<br>
+You will see a progress bar while the layer manager annotates all the transcripts in the database.</li>
+<li>To see what this looks like in the transcripts, select the <em>transcripts</em> option on the menu and open the first transcript in the list.</li>
+<li>Under the list of projects, if the <em>pauses</em> project isn’t already ticked, tick it, which will reveal the <em>pauseCount</em> layer in the list of layers.</li>
+<li>Tick the <em>pauseCount</em> layer.<br>
+Scrolling down the transcript, you will see that, wherever there is a filled pause like “um”, the entire utterance in which it appears has a bracket across the top of the words, labelled with the number of filled-pauses that occurs in that utterance.</li>
+<li>Scroll to the top of the transcript, and click on the name of the main participant.<br>
+You will see the participant’s attributes page, which now includes the participant’s <em>pauseCount</em> attribute.</li>
+<li>Both the local utterance count, and the participant’s overall count, can also be exported to CSV search results files.<br>
+Select <em>search</em> and perform a search involving the <em>pause</em> layer.</li>
+<li>At the bottom of the results page, click the ▼ button next to the <em>CSV Export</em> button, to reveal the layer options.</li>
+<li>Under <em>Participant</em> layers tick the <em>pauseCount</em> attribute.</li>
+<li>Under <em>Phrase</em> layers tick the <em>pauseCount</em> layer.</li>
+<li>Press <em>CSV Export</em>, and save and open the resulting file.<br>
+You will notice that there is a column called “participant_pauseCount” with the participant’s global count, and another called “Target pauseCount” with the local utterance count.</li>
+</ol>
+<p>The Statistics Layer Manager can also incorporate time information in its computation, so it can be used to compute speech-rate. We could use it on our example database to compute words-per-minute for utterances, turns, speakers, etc.</p>
+<p>If you like, you can try to figure out how to set up a “words-per-minute” layer now.</p>
+<p>However, normally speech-rate is expressed in syllables per minute. We don’t have any way to get syllable-counts for our words yet, but we will be doing that in a later exercise...</p>
+<p>In this exercise, you’ve seen how layer managers can be used to compute new annotations automatically from existing annotations, e.g.</p>
+<ul>
+<li>Words can be tagged with their frequency in the LaBB-CAT database, or its corpora.</li>
+<li>Words can be tagged with their ‘stem’ using the Porter Stemmer.</li>
+<li>Words can be tagged with annotations on the basis of regular expressions.</li>
+<li>Groups of words can be tagged with aggregated information like word count or rate over time.</li>
+</ul>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>© 2023 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

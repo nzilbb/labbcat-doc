@@ -1,5 +1,9 @@
+---
+format:
+  html:
+    toc: false
+---
 # 8. Forced Alignment
---------------------
 
 Forced alignment is the process of automatically determining the start
 and end times of words, and the phones within each word.

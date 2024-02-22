@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>LaBB-CAT Documentation – forced-alignment-mfa</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/index.html">LaBB-CAT Course</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/forced-alignment.html">8. Forced Alignment</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/forced-alignment-mfa.html">8b. MFA</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">LaBB-CAT Documentation</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 - Syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/other-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 - Other Processing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/forced-alignment-mfa.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">How-to</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#b.-mfa" id="toc-b.-mfa" class="nav-link active" data-scroll-target="#b.-mfa">8b. MFA</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a>
+  <ul class="collapse">
+  <li><a href="#mfa" id="toc-mfa" class="nav-link" data-scroll-target="#mfa">MFA</a></li>
+  <li><a href="#mfa-manager" id="toc-mfa-manager" class="nav-link" data-scroll-target="#mfa-manager">MFA Manager</a></li>
+  </ul></li>
+  <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">Alignment</a></li>
+  <li><a href="#inspectioncorrection" id="toc-inspectioncorrection" class="nav-link" data-scroll-target="#inspectioncorrection">Inspection/Correction</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="forced-alignment-mfa.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="b.-mfa" class="level1">
+<h1>8b. MFA</h1>
+<!-- TODO Add stuff about server needing internet access for dictionaries etc. -->
+<!-- Crusty's tip for Windows: -->
+<!--  I had to download and use PSexec to get it to work. Just in case you have someone else in the same boat. -->
+<!-- Download PStool.zip from microsoft -->
+<!-- http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx -->
+<!-- and then unzipped it and put PSexec.exe into C:\Windows\System32 -->
+<!-- Open cmd "Run as Administrator" -->
+<!-- Psexec.exe -i -s cmd.exe  (opens new cmd for local system account) -->
+<!-- In the new cmd window check you have the correct account type in whomai -->
+<!-- to update proxy server type inetcpl.cpl -->
+<!-- goto Connections tab -->
+<!-- click on LAN Settings button -->
+<!-- Fill in Proxy section -->
+<!-- FYI - for your document please include that -->
+<!-- tomcat needs to run as (Logon) Local System and not Local Service. -->
+<!-- Local System has more permissions. -->
+<!-- Also the PsExec.exe. instructions are for Local System. -->
+<p>The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by Michael McAuliffe and others that can use words with phonemic transcriptions, and the corresponding audio, to force-align words and phones; i.e.&nbsp;determine the start and end time of each speech sound within each word, and thus the start/end times of the words.</p>
+<p>The annotator can work in two modes:</p>
+<ul>
+<li><em>Train and Align</em> - acoustic models are trained on the data you want to align, which can be in any language as long as you have a pronunciation dictionary for it.</li>
+<li><em>Pre-trained Models/Dictionaries</em> - pre-trained models and pronunciation dictionaries are supplied by the Montreal Forced Aligner and used for forced alignment. Languages for which dictionaries are available include:
+<ul>
+<li>English</li>
+<li>French</li>
+<li>German</li>
+<li>Brazilian Portuguese</li>
+<li>Spanish</li>
+<li>Catalan</li>
+</ul></li>
+</ul>
+<p>As the data we have is in English, we will use the <em>Pre-trained Models/Dictionaries</em> approach in this exercise.</p>
+<p>In this exercise you will</p>
+<ul>
+<li>install the MFA Layer Manager,</li>
+<li>force-align the speech of all of the participants in your database, and</li>
+<li>check and manually correct the alignments.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this exercise, you will set up Praat Integration in your web browser. There is currently no Praat integration support for Microsoft’s Edge’ browser, so if you normally use ‘Edge’ on Windows, you may need to swap to another browser for this exercise - e.g. <em>Google Chrome</em>, or <em>Mozilla Firefox</em>.</p>
+</div>
+</div>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<section id="mfa" class="level3">
+<h3 class="anchored" data-anchor-id="mfa">MFA</h3>
+<p>MFA is a 3rd-party tool (<a href="https://montrealcorpustools.github.io/Montreal-Forced-Aligner">https://montrealcorpustools.github.io/Montreal-Forced-Aligner/</a>) that LaBB-CAT integrates with via a Layer Manager module. MFA is not included as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.</p>
+<p>If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server:</p>
+<section id="linux" class="level4">
+<h4 class="anchored" data-anchor-id="linux">Linux</h4>
+<p>To install the Montreal Forced Aligner on Linux systems for all users, so that your web server can access it if required:</p>
+<ol type="1">
+<li>Download Miniconda:<br>
+<code>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
+<li>Start the installer:<br>
+<code>sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
+<li>When asked the location to install Miniconda, use:<br>
+<code>/opt/conda</code></li>
+<li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond <code>no</code></li>
+<li>Change ownership of the conda files):<br>
+<code>sudo chown -R $USERNAME:$USERNAME /opt/conda</code></li>
+<li>Make conda accessible to all users (so you web server can access MFA):<br>
+<code>chmod -R go-w /opt/conda</code><br>
+<code>chmod -R go+rX /opt/conda</code></li>
+<li>Install the Montreal Forced Aligner<br>
+<code>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</code></li>
+</ol>
+</section>
+<section id="windows" class="level4">
+<h4 class="anchored" data-anchor-id="windows">Windows</h4>
+<p>To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:</p>
+<ol type="1">
+<li>Download the Miniconda installer:&nbsp;&nbsp;&nbsp;<br>
+<a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" class="uri">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
+<li>Start the installer by double-clicking it.</li>
+<li>When asked, select the “Install for all users” option. This will install conda somewhere like<br>
+<em>C:\ProgramData\Miniconda3</em></li>
+<li>When asked, tick the <em>add to PATH</em> option.</li>
+<li>Install the Montreal Forced Aligner by specifying a path to the environment<br>
+<code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</code></li>
+</ol>
+</section>
+<section id="docker-container" class="level4">
+<h4 class="anchored" data-anchor-id="docker-container">Docker Container</h4>
+<p>If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager (below)</p>
+</section>
+</section>
+<section id="mfa-manager" class="level3">
+<h3 class="anchored" data-anchor-id="mfa-manager">MFA Manager</h3>
+<p>Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.</p>
+<ol class="example" type="1">
+<li>Select the <em>layer managers</em> menu option.</li>
+<li>Follow the <em>List of layer managers that are not yet installed</em> link at the bottom.</li>
+<li>Find MFA Manager in the list, and press its <em>Install</em> button and then press <em>Install</em> again.<br>
+<br>
+As long as MFA has been installed for all users, you should see a box that’s already filled in with the location that MFA was installed to in the <em>Path to MFA</em> box.<br>
+<br>
+If the <em>Path to MFA</em> box is empty and there’s an <em>Attempt to Install MFA</em> button, click the button, and LaBB-CAT will try to install MFA on the server for you. This process can take a few minutes, and the <em>Configure</em> button will be disabled until it’s finished.</li>
+<li>Press <em>Configure</em> to continue the layer manager installation.<br>
+You will see a window open with some information about integrating with MFA, including the information you’ve already read above.</li>
+<li>Now you need to add a <em>phrase layer</em> for the MFA configuration:
+<ul>
+<li><strong>Layer ID:</strong> <code>mfa</code></li>
+<li><strong>Type:</strong> <em>Text</em></li>
+<li><strong>Alignment:</strong> <em>Intervals</em></li>
+<li><strong>Manager:</strong> <em>MFA Manager</em></li>
+<li><strong>Generate:</strong> <em>always</em></li>
+<li><strong>Description:</strong> <code>MFA alignment time</code></li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After saving the layer, the MFA configuraion form will appear.</p>
+<p>Initially, there will be a ‘spinner’ and the form will be disabled while LaBB-CAT is making internet requests in order to retrieve lists of available dictionaries and acoustic models.</p>
+<p>This process may take a few seconds, depending on LaBB-CAT’s connection to the internet.</p>
+</div>
+</div>
+<ol start="6" class="example" type="1">
+<li>When you configure the layer, set the following options:
+<ul>
+<li><strong>Dictionary Name:</strong> <em>english_mfa</em></li>
+<li><strong>Pretrained Acoustic Models:</strong> <em>english_mfa</em></li>
+<li>The rest of the options can be left as their default values.</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</p>
+</div>
+</div>
+<ol start="7" class="example" type="1">
+<li>Press <em>Set Parameters</em> We will not click <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
+</ol>
+<p>When forced-alignment is done, the resulting aligned phones will be saved on the <em>segment</em> layer. By default, this has it’s type set to <em>Phonological</em>, which assumes that the phoneme symbols will be those defined by the CELEX DISC encoding. However, MFA uses its own phoneme symbols, which are different from the CELEX DISC ones.</p>
+<p>To make later processing easier, we’re going to change the type of the <em>segment</em> layer to <em>Text</em>, and let LaBB-CAT know what the possible phoneme labels are.</p>
+<ol start="8" class="example" type="1">
+<li>Select the <em>segment layers</em> menu option.<br>
+You will see a single layer listed, called <em>segment</em>.</li>
+<li>Change the <em>Type</em> of the <em>segment</em> layer to <em>Text</em>.</li>
+<li>Press <em>Save</em>.<br>
+A new icon appears with a tag <img src="tag.svg" class="img-fluid"> icon - if you hover the mouse over this button, you’ll see it’s for setting <em>Valid labels</em>.</li>
+<li>Click the <em>Valid labels</em> icon<br>
+You will see a page that allows you to add a list of possible labels.<br>
+But we don’t know what the valid labels are yet. The labels used by MFA depend on the dictionary/models selected when defining the layer. The details for all dictionaries are in <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary">MFA Models documentation</a>.</li>
+<li>Open the <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0">MFA Models documentation for <em>english_mfa</em></a>.<br>
+You will see a page that includes information about the dictionary including the <em>Phones</em> used by it.</li>
+<li>Select and copy the list of phones used by the <em>english_mfa</em> dictionary - i.e.&nbsp;all of these:<br>
+<code>a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj ə əw ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ</code></li>
+</ol>
+<ol start="14" type="1">
+<li>Back in the <em>Valid Labels</em> page in LaBB-CAT, paste all of the phone symbols into the box labelled <em>Label</em><br>
+<img src="pasted-mfa-labels.png" class="img-fluid" alt="The Valid Labels form with the text box filled with all the MFA phoneme symbols"></li>
+</ol>
+<ol start="14" class="example" type="1">
+<li>Press <em>New</em>.<br>
+You will see that all of the labels are separately added to the list of valid labels.<br>
+<img src="valid-mfa-labels-list.png" class="img-fluid" alt="The Valid Labels list is now populated, with each phoneme symbol on a separate line"></li>
+</ol>
+<p>Defining this list for the <em>segment</em> layer means that, when you search the <em>segment</em> layer for specific phones, LaBB-CAT can display a clickable list of possibilities.</p>
+<ol start="15" class="example" type="1">
+<li>At the bottom of the list, there’s a <em>Save</em> button. Click it to save your changes.</li>
+</ol>
+</section>
+</section>
+<section id="alignment" class="level2">
+<h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
+<ol start="16" class="example" type="1">
+<li>Select the <em>participants</em> option on the menu.</li>
+<li>Find the participant <em>UC207YW</em> and tick their checkbox.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Although we’re only going to force-align the utterances of a single speaker in this exercise, you can align the utterances of multiple speakers at once, by ticking all their checkboxes on the <em>participants</em> page before continuing with the next step…</p>
+</div>
+</div>
+<ol start="18" class="example" type="1">
+<li>Press the <em>All Utterances</em> button above the list of participants</li>
+<li>Press <em>List</em>.<br>
+You will see a progress bar while all their utterances are identified. Then a results page will be displayed, listing the first 20 utterances.</li>
+<li>Click the <em>Mfa</em> button at the bottom.<br>
+You will see a progress bar appear, while LaBB-CAT gathers the files that MFA needs, runs MFA, and parses the resulting alignments. This will take a few minutes.</li>
+</ol>
+</section>
+<section id="inspectioncorrection" class="level2">
+<h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
+<p>Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
+<ol start="21" class="example" type="1">
+<li>Go to the <em>transcripts</em> page and open the <em>UC207YW.eaf</em> transcript.</li>
+<li>Tick both the <em>mfa</em> layer and the <em>segment</em> layer.&nbsp;<br>
+You will see which lines have been force-aligned, as they have an MFA timestamp, and have the <em>segment</em> layer filled in.<br>
+</li>
+</ol>
+<p>The interactive transcript page doesn’t show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+<ol type="i">
+<li>On the top-right of the page, above the playback controls, there’s a Praat icon &nbsp;- click it.</li>
+<li>Follow the instructions that appear (these vary depending on what web browser you use).<br>
+You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.<br>
+You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.<br>
+You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</li>
+</ol>
+<p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
+<ol start="23" class="example" type="1">
+<li>Click on a line that has been aligned, and select the <em>Open Text Grid in Praat</em> option on the menu.<br>
+You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <em>Allow</em>.<br>
+Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
+<li>If you click on a word, and hit the <kbd>tab</kbd> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.<br>
+Try this out with different lines in the transcript.<br>
+You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.<br>
+</li>
+</ol>
+<p>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <em>Import Changes</em>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
+<ol start="27" type="1">
+<li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they’re more accurate, and then click the <em>Import Changes</em> button in the transcript.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it’s important that the changes you make are actually improvements, because HTK will never change them again.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are some rules about what you can change: 1. You’re not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead). 2. All the phones must be within the bounds of their own word. 3. The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word. 4. You should not change the alignment of the utterance itself (which would only be possible if you select the <em>Open Text Grid incl.&nbsp;± 1 utterance in Praat</em> option).</p>
+</div>
+</div>
+<p>In this exercise, you have seen how MFA can be used to compute word and phone alignments automatically from your data, and when using a pronunciation dictionary and pre-trained acoustic models, the process is very straightforward.</p>
+<p>Such dictionaries/models are only available for a limited number of languages, but if you have a pronunciation dictionary for the language your corpus uses, MFA can also be used to train its own acoustic models from your corpus, and then use them for forced alignment. This process involves a fair amount of careful transcription, tagging, and dictionary filling.</p>
+<p>Perfect automatic alignments are not guaranteed, but LaBB-CAT has a mechanism for manually correcting poor alignments.</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>© 2023 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

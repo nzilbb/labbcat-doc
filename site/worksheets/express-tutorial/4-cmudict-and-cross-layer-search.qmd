@@ -4,6 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
+    fontfamily: libertinus
 ---
 # 4 - The CMU Dictionary and Cross Layer Searching
 
@@ -124,39 +125,37 @@ ARPABET version of the phoneme is shown; this means that the CMU
 Pronouncing Dictionary contains no entries that include that
 phoneme.
 
-<!-- TODO IPA characters don't render in PDF -->
-
   ----- ------ --------- -------------- --- ----- ------ ----------------------- --------------
   IPA   DISC   ARPABET                      IPA   DISC   ARPABET                  
-  p     p      P         **p**at            ɪ     I      IH                      K**I**T
-  b     b      B         **b**ad            ε     E      EH                      DR**E**SS
-  t     t      T         **t**ack           æ     {      AE                      TR**A**P
-  d     d      D         **d**ad            ʌ     V      AH                      STR**U**T
-  k     k      K         **c**ad            ɒ     Q      AH                      L**O**T
-  g     g      G         **g**ame           ʊ     U      UH                      F**OO**T
-  ŋ     N      NG        ba**ng**           ə     @      \[vowel ending in 0\]   **a**nother
-  m     m      M         **m**at            i:    i      IY                      FL**EE**CE
-  n     n      N         **n**at            α:    \#     AA                      f**a**ther
-  l     l      L         **l**ad            ɔ:    \$     AO                      TH**OU**GHT
-  r     r      R         **r**at            u:    u      UW                      G**OO**SE
-  f     f      F         **f**at            ɜ:    3      ER                      N**UR**SE
-  v     v      V         **v**at            eɪ    1      EY                      F**A**CE
-  θ     T      TH        **th**in           αɪ    2      AY                      PR**I**CE
-  ð     D      DH        **th**en           ɔɪ    4      OY                      CH**OI**CE
-  s     s      S         **s**ap            əʊ    5      OW                      G**OA**T
-  z     z      Z         **z**ap            αʊ    6      AW                      M**OU**TH
-   ∫    S      SH        **sh**eep          ɪə    7                              N**EAR**
-  ʒ     Z      ZH        mea**s**ure        εə    8                              SQU**ARE**
-  j     j      Y         **y**ank           ʊə    9                              C**URE**
-  x     x                lo**ch**           æ     c                              t**i**mbre
-  h     h      HH        **h**ad            ɑ̃ː    q                              dét**en**te
-  w     w      W         **w**et            æ̃ː    0                              l**in**gerie
-  ʧ     J      CH        **ch**eap          ɒ̃ː    \~                             bouill**on**
-  ʤ     \_     JH        **j**eep                                                 
-  ŋ̩     C                bac**on**                                                
-  m̩     F                idealis**m**                                             
-  n̩     H                burd**en**                                               
-  l̩     P                 dang**le**                                              
+  p     `p`    P         **p**at            ɪ     `I`    IH                      K**I**T
+  b     `b`    B         **b**ad            ε     `E`    EH                      DR**E**SS
+  t     `t`    T         **t**ack           æ     `{`    AE                      TR**A**P
+  d     `d`    D         **d**ad            ʌ     `V`    AH                      STR**U**T
+  k     `k`    K         **c**ad            ɒ     `Q`    AH                      L**O**T
+  g     `g`    G         **g**ame           ʊ     `U`    UH                      F**OO**T
+  ŋ     `N`    NG        ba**ng**           ə     `@`    \[vowel ending in 0\]   **a**nother
+  m     `m`    M         **m**at            i:    `i`    IY                      FL**EE**CE
+  n     `n`    N         **n**at            α:    `#`    AA                      f**a**ther
+  l     `l`    L         **l**ad            ɔ:    `$`    AO                      TH**OU**GHT
+  r     `r`    R         **r**at            u:    `u`    UW                      G**OO**SE
+  f     `f`    F         **f**at            ɜ:    `3`    ER                      N**UR**SE
+  v     `v`    V         **v**at            eɪ    `1`    EY                      F**A**CE
+  θ     `T`    TH        **th**in           αɪ    `2`    AY                      PR**I**CE
+  ð     `D`    DH        **th**en           ɔɪ    `4`    OY                      CH**OI**CE
+  s     `s`    S         **s**ap            əʊ    `5`    OW                      G**OA**T
+  z     `z`    Z         **z**ap            αʊ    `6`    AW                      M**OU**TH
+  ∫     `S`    SH        **sh**eep          ɪə    `7`                            N**EAR**
+  ʒ     `Z`    ZH        mea**s**ure        εə    `8`                            SQU**ARE**
+  j     `j`    Y         **y**ank           ʊə    `9`                            C**URE**
+  x     `x`              lo**ch**           æ     `c`                            t**i**mbre
+  h     `h`    HH        **h**ad            ɑ̃ː    `q`                            dét**en**te
+  w     `w`    W         **w**et            æ̃ː    `0`                            l**in**gerie
+  ʧ     `J`    CH        **ch**eap          ɒ̃ː    `~`                            bouill**on**
+  ʤ     `_`    JH        **j**eep                                                  
+  ŋ̩     `C`              bac**on**                                                
+  m̩     `F`              idealis**m**                                             
+  n̩     `H`              burd**en**                                               
+  l̩     `P`               dang**le**                                              
   ----- ------ --------- -------------- --- ----- ------ ----------------------- --------------
 
 17. Select the *search* option on the menu, which allows you to search
