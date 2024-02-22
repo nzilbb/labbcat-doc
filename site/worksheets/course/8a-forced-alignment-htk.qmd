@@ -4,6 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
+    documentclass: scrreprt
 ---
 # 8a. HTK
 
@@ -249,6 +250,8 @@ every token. Instead, we add these to the lexicon.
     You will see a progress bar while LaBB-CAT identifies missing words.
     Then a page will appear that lists unknown words.
 (@) Basically you need to fill in the boxes with the pronunciations and click *Save Pronunciations*.
+
+{{< pagebreak >}}
 
 ::: {.callout-note}
 
