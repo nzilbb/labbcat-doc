@@ -18,4 +18,4 @@ Depending on your speech data, there are several ways to obtain phonemic transcr
   - [Bas Web Service: G2P](g2p.qmd) - for various languages.
   - [Define your own simple mapping rules](character-mapper.qmd) from orthography to phonology, using the Character Mapper layer manager.
 
-If the speech corpus includes data in more than one language, it is possible to ensure that the utterances are phonemically tagged in a way that's sensitive to the language of the specific utterance, using the language layers and attributes, and auxiliary layer managers.
+If the speech corpus includes data in more than one language, it is possible to ensure that the utterances are phonemically tagged in a way that's sensitive to the language of the specific utterance, [using the *language* layers and attributes, and auxiliary layer managers](multilingual-corpora.qmd).

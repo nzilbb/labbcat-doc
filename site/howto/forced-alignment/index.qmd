@@ -1,0 +1,57 @@
+---
+format:
+  html:
+    toc: true
+---
+# Forced Alignment
+
+Forced alignment is the automatic processing of recordings of utterance and their orthographic transcripts in order order to determing the start and end times of the individual words, and the phones within the words.
+
+![Forced Alignment](ForcedAlignmentAfter.png)
+
+There are several ways that forced alignment can be achieved in LaBB-CAT:
+
+1. [WebMAUS with BAS Web Services](bas-services-manager.qmd)
+1. [HTK using the Penn Aligner (P2FA)](htk-p2fa.qmd) pre-trained acoustic models
+1. [HTK by training your own acoustic models for alignment](htk-train-align.qmd) ('train-and-align')
+1. [MFA using pre-trained acoustic models](mfa-pretrained-models.qmd)
+1. [MFA by trining your own acoustic models for alignment](mfa-train-align.qmd) ('train-and-align')
+
+## Comparing Forced Alignment Methods
+
+There are several tools and methods listed above for force-aligning your recordings, and each works well or badly depending on different factors. It can be difficult to know which method to use.
+
+You can compare different forced alignment methods with your own data, in order to decide which method to use.
+
+## Alignment Accuracy
+
+Being an unsupervised automatic process, the alignments are not always optimal.  Various factors can degrade the quality of alignments:
+
+- Not enough data (if you're using the 'train-and-align' approach)
+- Poor quality recording, background noises, etc.
+- Simultaneous speech (ignored by default)
+- Inaccurate transcripts
+- Inaccurate utterance alignment
+- Lack of pause marking in the transcripts
+- Mismatched phonology between dictionary and speech. 
+    e.g. using a rhotic dictionary to align non-rhotic speech
+
+Because of this, you should manually inspect and possibly correct at least some of your data.
+
+Sometimes the above factors can cause alignment failure for some utterances; i.e. the utterance has no phone annotations created, the words are not aligned.
+
+You can use LaBB-CAT's search/export functionality to identify utterances that were not aligned.
+
+## Checking/Correcting Alignments
+
+There are two ways you can check/correct alignments:
+
+- LaBB-CAT integrates with Praat
+- LaBB-CAT integrates with the EMU-webApp
+
+## After Alignment
+
+Once your data has been force-aligned, you will have start/end times for phones within words, which opens many possibilities for analysis and further annotation, for example.
+
+- Batch processing of targeted tokens with Praat
+- Reconstruction of syllables

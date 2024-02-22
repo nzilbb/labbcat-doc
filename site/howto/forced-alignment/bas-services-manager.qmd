@@ -1,0 +1,87 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# BAS Web Service Manager and WebMAUS
+
+The [Bavarian Archive for Speech Signals (BAS)](https://www.bas.uni-muenchen.de/Bas/BasHomeeng.html), 
+has kindly published a set of 
+[speech processing web services](http://hdl.handle.net/11858/00-1779-0000-0028-421B-4) 
+including one for  for forced alignment called 
+[WebMAUS](https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic). 
+You can use this service yourself directly, using your web browser, but LaBB-CAT also has a module for using it automatically, called the *BAS Services Manager*.
+
+The general process is illustrated below:
+
+![Transcripts/recordings from LaBB-CAT are sent to WebMAUS, and the resulting alignments are saved in LaBB-CAT](BAS-WebMAUS.svg)
+
+**NB**: Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the 
+[BAS Web Services Terms of Service](https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext) 
+makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.
+
+
+- Albanian
+- Australian Aboriginal Languages
+- Afrikaans
+- Albanian
+- Basque
+- Catalan
+- Dutch
+- English
+- Estonian
+- Finnish
+- French
+- Georgian
+- German
+- Hungarian
+- Italian
+- Japanese
+- Kunwinjku
+- Luxembourgish
+- Maltese
+- Norwegian
+- Polish
+- Romanian
+- Russian
+- Spanish
+- Swedish
+- Yolŋu Matha
+
+LaBB-CAT must be able to identify which language each transcript is in, so you must ensure the language is set either
+
+- in the transcript's *Language* transcript attribute, or
+- on the corpora page (where you can define the language for all transcripts each corpus).
+
+The available language options can be set in LaBB-CAT by going to the transcript attributes page and clicking the Options button of the "language" attribute.  The value must be a 
+[two-letter ISO639-1 code](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
+optionally appended with a two-letter country code - e.g. "en" or "en-NZ".
+
+## Install the layer manager
+
+1. In LaBB-CAT, select the *layer managers* option on the menu, which gives you a list of the layer managers already installed.
+1. At the bottom of the page, follow the *List of layer managers that are not yet installed* link.
+1. Look for *BAS Web Services Manager* in the list, and press it's *Install* button.
+1. Follow the "terms of usage" link and read the terms.
+1. Close the terms page, returning to LaBB-CAT.
+1. Select true for the "Accept Terms of Usage" option
+1. Press *Install*.  
+    You will see a page of information about the Layer Manager, including instructions on how to set up forced alignment.
+
+## Set up a layer for triggering forced alignment:
+
+1. Select the *phrase layers* option on the menu
+1. At the top of the page, there's a blank form for creating a new layer; fill in the following details:
+    - *Layer ID*: `MAUS`
+    - *Type*: *Text*
+    - *Manager*: *BAS Web Services Manager*
+    - *Alignment*: *Time Intervals*
+    - *Generate*: *Always*
+1. Press *New*.  
+   You will see a form that allows you to configure the layer; check the online help for that page to guide you. The main choice is the "Phoneme encoding": the default option, DISC, is probably the best because using this phoneme encoding ensures the layer will work well with other modules, and will be easily searchable. However, it is possible to choose sampa instead, in which case the layer type of the segments layer should be set to Text.
+1. Press *Save*
+1. If you want to immediately force-align all the recordings in your corpus, press *Regenerate*.
+

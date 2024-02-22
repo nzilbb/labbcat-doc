@@ -1,0 +1,96 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# MFA and Pretrained Acoustic Models
+
+The *Montreal Forced Aligner* (MFA) is a third-party tool developed by Michael McAuliffe and others for time aligning orthographic and phonological forms from a pronunciation dictionary to orthographically transcribed audio files. It is 
+[open source software](https://github.com/MontrealCorpusTools/Montreal-Forced-Aligner/blob/main/LICENSE) 
+based on the 
+[Kaldi ASR toolkit](http://kaldi-asr.org/).
+
+LaBB-CAT includes a layer manager module called "MFA Manager" which integrates with MFA in order to facilitate forced alignment of LaBB-CAT corpus data.
+
+The layer manager can work in two modes:
+
+- *Train and Align* - acoustic models are trained on the data you want to align, which can be in any language as long as you have a pronunciation dictionary for it.
+- *Pre-trained Models/Dictionaries* - pre-trained models and pronunciation dictionaries are supplied by the Montreal Forced Aligner and used for forced alignment. Languages for which dictionaries are available listed on the MFA website and include:
+    - English
+    - French
+    - German
+    - Brazilian Portuguese
+    - Spanish
+    - Catalan
+
+These instructions assume that your corpus is in one of these languages, and uses the *Pre-trained Models/Dictionaries* approach...
+
+## MFA Installation
+
+MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module. MFA is *not included* as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.
+
+If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server. This is a one-time process.
+
+### Linux
+
+To install the Montreal Forced Aligner on Linux systems for *all users*, so that your web server can access it if required:
+
+1. Download Miniconda:  
+    `wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh`
+1. Start the installer:  
+    `sudo bash Miniconda3-py38_4.10.3-Linux-x86_64.sh`
+1. When asked the location to install Miniconda, use:  
+    `/opt/conda`
+1. When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond `no`
+1. Change ownership of the conda files:  
+    `sudo chown -R $USERNAME:$USERNAME /opt/conda`
+1. Make conda accessible to all users (so you web server can access MFA):  
+    `chmod -R go-w /opt/conda`  
+    `chmod -R go+rX /opt/conda`  
+1. Install the Montreal Forced Aligner. 
+    `sudo /opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner`
+
+### Windows
+
+To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:
+
+1. Download the Miniconda installer:  
+    <https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe>
+1. Start the installer by double-clicking it.
+1. When asked, select the "Install for all users" option. This will install conda somewhere like. 
+    `C:\ProgramData\Miniconda3`
+1. When asked, tick the "add to PATH" option.
+1. Install the Montreal Forced Aligner by specifying a path to the environment. 
+    `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner`
+
+## Forced Alignment
+
+Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.
+
+1. Select the *layer managers* menu option.
+1. Follow the *List of layer managers that are not yet installed* link.
+1. Find *MFA Manager* in the list, and press its *Install* button and then press *Install* again.
+1. As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to.
+1. Click *Configure* to continue the layer manager installation.
+1. You will see a window open with some information about integrating with MFA, including the information you've already read above.
+1. Now you need to add a phrase layer for the HTK configuration:
+    - *Layer ID*: `mfa`
+    - *Type*: *Text*
+    - *Alignment*: *Intervals*
+    - *Manager*: *MFA Manager*
+    - *Generate*: *always*
+    - *Description*: *MFA alignment time*
+1. When you configure the layer, set the following options:
+    - *Dictionary Name*: the dictionary language, e.g. *english_uk_mfa*
+    - *Pretrained Acoustic Models*: the models language, e.g. *english_mfa*
+    - The rest of the options can be left as their default values.
+    - If you're curious about what the configuration options do, hover your mouse over each option to see a `tool tip' that describes what the option is for.
+1. Press *Set Parameters*
+1. Press *Regenerate*  
+   You will see a progress bar while LaBB-CAT force-aligns all the transcripts in the corpus, which may take a few minutes.
+1. When the layer manager has finished, you'll see a message saying:  
+   *Complete - words and phones from selected utterances are now aligned.*
+
