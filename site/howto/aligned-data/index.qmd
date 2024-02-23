@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # Aligned Data
 
 Common tasks that can be done once phones are aligned:

@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # How-to
 
 These pages describe how to achieve various common tasks in LaBB-CAT

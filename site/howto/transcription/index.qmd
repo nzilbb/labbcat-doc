@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontenc: "T1"
 ---
 # Transcription Guidelines
 
@@ -18,17 +18,17 @@ Many automatic annotation tasks involve looking up standard dictionaries, and wo
 
 - Use conventional spelling, and if you are unsure of how to spell something, look it up in a dictionary, or on a map.
 - Write all numbers out in full, with spaces instead of hyphens - e.g.
-  - ❌ "1984"
-  - ❌ "nineteen-eighty-four"
-  - ✅ "nineteen eighty four"
+  - $\times$ "1984"
+  - $\times$ "nineteen-eighty-four"
+  - $\checkmark$ "nineteen eighty four"
 - When abbreviations are used, use capital letters with spaces in between each letter if each letter is said separately, otherwise use capitals with no spaces - e.g.
-  - ❌ "NSA"
-  - ❌ "N A S A"
-  - ✅ "N S A"
-  - ✅ "NASA"
+  - $\times$ "NSA"
+  - $\times$ "N A S A"
+  - $\checkmark$ "N S A"
+  - $\checkmark$ "NASA"
 - All words should be spelt out in full, like “and” and “suppose”. Final gs and ds should not be dropped from words even if that's what the speaker says - e.g.
-  - ❌ "skippin' an' jumpin' an ol' rope"
-  - ✅ "skipping and jumping an old rope"
+  - $\times$ "skippin' an' jumpin' an ol' rope"
+  - $\checkmark$ "skipping and jumping an old rope"
 - A single word should always be spelt as an entire word, even if there is a pause between syllables.
 - Don’t tidy up the speech. Leave in the repetitions, fillers and errors.
 
@@ -62,13 +62,13 @@ The spelling of the last of these, with three m's, is recommended because if it'
 
 Unfilled pauses can be transcribed with a hyphen surrounded  by whitespace; some modules use such pause information to help with automatic annotation (e.g. force-alginment with HTK benefits with pause annotations like this) - e.g.
 
-- ❌ "stop-before you begin"
-- ✅ "stop - before you begin"
+- $\times$ "stop-before you begin"
+- $\checkmark$ "stop - before you begin"
 
 Incomplete words should marked with a tilde ~ (not a hyphen which may be interpreted as a pause) at the end of the word e.g.:
 
-- ❌ "hesi-"
-- ✅ "hesi~"
+- $\times$ "hesi-"
+- $\checkmark$ "hesi~"
 
 For very short hesitations - "b~ bu~ but" - some pronunciation module can infer a pronunciation for such words, without the need for a manual pronunciation tag.
 

@@ -4,3 +4,5 @@ format:
     toc: false
 ---
 # Corpus Management
+
+↙ Please select a Corpus Management option from the menu on the left.

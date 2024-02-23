@@ -45,10 +45,25 @@ website:
           - section: "Transcription"
             contents: howto/transcription/*
           - href: howto/word-frequency/index.qmd
-          - section: "Phonemic Tagging"
-            contents: howto/phonemic-tagging/*
-          - section: "POS Tagging"
-            contents: howto/pos-tagging/*
+          - href: howto/pos-tagging/stanford-pos-tagger.qmd
+          - section: howto/phonemic-tagging/index.qmd
+            contents:
+              - href: howto/phonemic-tagging/celex.qmd
+                text: CELEX
+              - href: howto/phonemic-tagging/cmudict.qmd
+                text: CMU Pronouncing Dictionary
+              - href: howto/phonemic-tagging/unisyn.qmd
+                text: Unisyn
+              - href: howto/phonemic-tagging/flat-file.qmd
+                text: Custom Lexicon
+              - href: howto/phonemic-tagging/spanish.qmd
+                text: Spanish
+              - href: howto/phonemic-tagging/g2p.qmd
+                text: BAS Web Services
+              - href: howto/phonemic-tagging/character-mapper.qmd
+                text: Simple Mapping
+              - href: howto/phonemic-tagging/multilingual-corpora.qmd
+                text: Multilingual Corpora
           - section: howto/forced-alignment/index.qmd
             contents:
               - href: howto/forced-alignment/bas-services-manager.qmd
@@ -58,6 +73,8 @@ website:
               - href: howto/forced-alignment/mfa-train-align.qmd
               - href: howto/forced-alignment/compare.qmd
               - href: howto/forced-alignment/identifying-unaligned-utterances.qmd
+              - href: howto/forced-alignment/correction-praat.qmd
+              - href: howto/forced-alignment/correction-emu.qmd
           - section: howto/aligned-data/index.qmd
             contents: howto/aligned-data/*
           - section: howto/corpus-management/index.qmd

@@ -11,6 +11,8 @@ format:
 [Doccano](https://doccano.github.io/doccano/)
 is an open-source data labeling tool intended for machine learning practitioners. It allows you to tag words and phrases in texts with a very easy-to-use drag and select user interface.
 
+{{< video doccano-ux.webm >}}
+
 You can use Doccano to tag phrases and import your tags into phrase layers in LaBB-CAT. The broad steps of the process are:
 
 1. Export a selected set of transcripts from LaBB-CAT to the Doccano JSONL format
