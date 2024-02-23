@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>LaBB-CAT Documentation – a-forced-alignment-htk</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/index.html">LaBB-CAT Course</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/8-forced-alignment.html">8. Forced Alignment</a></li><li class="breadcrumb-item"><a href="../../worksheets/course/8a-forced-alignment-htk.html">8a. HTK</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">LaBB-CAT Documentation</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Search</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/3-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/4-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/5-syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5 - Syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/6-other-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6 - Other Processing</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How-to</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/transcription/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcription</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with ELAN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/word-frequency/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/pos-tagging/stanford-pos-tagger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stanford POS Tagger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/phonemic-tagging/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phonemic Tagging</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/unisyn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unisyn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/flat-file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom Lexicon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/spanish.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spanish</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/g2p.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/character-mapper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/multilingual-corpora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multilingual Corpora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/forced-alignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/bas-services-manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Service Manager and WebMAUS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-p2fa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK and P2FA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-pretrained-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA and Pretrained Acoustic Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/compare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Forced Alignment Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/identifying-unaligned-utterances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifying Unaligned Utterances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-emu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: EMU-webApp</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/aligned-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aligned Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/articulation-rate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speech Rate and Articulation Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/syllables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllables and Stress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/corpus-management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corpus Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/change-corpus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changing Corpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/participant-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Participant Deduplication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/manual-annotation/doccano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phrase Tagging with Doccano</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#a.-htk" id="toc-a.-htk" class="nav-link active" data-scroll-target="#a.-htk">8a. HTK</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#missing-pronunciations" id="toc-missing-pronunciations" class="nav-link" data-scroll-target="#missing-pronunciations">Missing Pronunciations</a></li>
+  <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">Alignment</a></li>
+  <li><a href="#inspectioncorrection" id="toc-inspectioncorrection" class="nav-link" data-scroll-target="#inspectioncorrection">Inspection/Correction</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="8a-forced-alignment-htk.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="a.-htk" class="level1">
+<h1>8a. HTK</h1>
+<p>The Hidden Markov Model Toolkit (HTK) is a speech recognition toolkit developed at Cambridge University. It is a set of programs that can be used to build speech recognition systems. Part of the process of building such systems involves force-aligning training data - i.e. automatically lining up phonemic-transcriptions of known words with the audio signal in the training recordings. LaBB-CAT takes advantage of this capability to facilitate forced-alignment for your transcripts.</p>
+<p>In order to do this, HTK needs the following ingredients:</p>
+<ol type="1">
+<li>a set of recordings broken up into short utterances,</li>
+<li>orthographic transcriptions of each utterance, and</li>
+<li>phonemic transcriptions of each of the words in each utterance</li>
+</ol>
+<p>You already have 1. and 2. - i.e.&nbsp;a set of recordings with transcripts that include the start and end times of each line.</p>
+<p>You also mostly have 3. as well, if you have done a previous exercise which included generating a pronunciation layer generated using a lexicon like CELEX or the CMU Pronunciation Dictionary. However, there are words in your transcripts that aren’t in CELEX, and so we will explore some mechanisms for filling in their pronunciations.</p>
+<p>In this exercise you will</p>
+<ul>
+<li>install the HTK Layer Manager,</li>
+<li>provide some pronunciations that are missing,</li>
+<li>force-align the speech of one of the participants in your database, and</li>
+<li>check and manually correct the alignments.</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In this exercise, you will set up Praat Integration in your web browser. There is currently no Praat integration support for Microsoft’s Edge’ browser, so if you normally use ‘Edge’ on Windows, you may need to swap to another browser for this exercise - e.g. <em>Google Chrome</em>, or <em>Mozilla Firefox</em>.</p>
+</div>
+</div>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>HTK is not free software in the “GNU” sense - i.e.&nbsp;we can not distribute it with LaBB-CAT, instead you have to download it yourself from the Cambridge University website – however it is free in the “no cost” sense, you just need to register on the HTK website, and you can then download and use HTK free of charge.</p>
+<ol class="example" type="1">
+<li>Register at <a href="http://htk.eng.cam.ac.uk/register.shtml" class="uri">http://htk.eng.cam.ac.uk/register.shtml</a></li>
+<li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is installed on:
+<ul>
+<li>For Windows systems, there are pre-compiled .exe files that you can download.</li>
+<li>For Unix-like systems including OS X, you need to download the source code, which you will then install following the provided instructions.</li>
+</ul></li>
+<li>Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.</li>
+</ol>
+<p>If your LaBB-CAT server is installed in a <em>Docker Container</em>, LaBB-CAT can itself download and compile HTK (i.e.&nbsp;steps 2 and 3), as long has you have a username and password for the HTK website. In this case, these steps are automatically attempted when you install the HTK layer manager (below).</p>
+<p>Now, you have to install the HTK Layer Manager, which is the LaBB-CAT module that provides HTK with all the data it needs, and then saves to alignments HTK produces back to your database.</p>
+<ol start="4" class="example" type="1">
+<li>Select the <em>layer managers</em> menu option.</li>
+<li>Follow the <em>List of layer managers that are not yet installed</em> link at the bottom.</li>
+<li>Find HTK Manager in the list, and press its <em>Install</em> button, then press <em>Install</em> again.<br>
+You will see a form with boxes that may already be filled in.</li>
+<li>The layer manager needs to know where the HTK programs have been saved, which is what you need to enter in the blank <em>Path to HTK tools</em> box.<br>
+If this box is not blank, it means that LaBB-CAT has already found HTK for you, so you should leave the default value already set.<br>
+(The other two boxes you may see are for the username and password you registered on the HTK website. On some systems, if you have not already installed the HTK tools on your LaBB-CAT computer, providing the username and password allows LaBB-CAT to attempt to download and install HTK itself. This may not work in all cases, as LaBB-CAT may not have the resources or privileges it requires to compile or install software.)</li>
+<li>Press <em>Configure</em>.<br>
+You will see a window open with some information about the HTK Layer Manager. This page has some useful instructions on it, so keep the page open for now.</li>
+<li>Now you need to add a <em>phrase layer</em> for the HTK configuration:
+<ul>
+<li><strong>Layer ID:</strong> <code>htk</code></li>
+<li><strong>Type:</strong> <em>Text</em></li>
+<li><strong>Alignment:</strong> <em>Intervals</em></li>
+<li><strong>Manager:</strong> <em>HTK Manager</em></li>
+<li><strong>Generate:</strong> <em>Never</em> (note that this may see counter-intuitive, but we will be running HTK manually rather than allowing it to run automatically when transcripts are uploaded.)</li>
+<li><strong>Description:</strong> <code>HTK alignment time</code></li>
+</ul></li>
+<li>When you configure the layer:
+<ul>
+<li>Your <em>Pronunciation Layer</em> will be the <em>phonemes</em> layer you created in an earlier exercise.</li>
+<li>To the list of <em>Pause Markers</em> you should add a full-stop (period).<br>
+This is because the exercise transcripts use <code>.</code> as a ‘short-pause’ marker, not an ‘end of sentence’ marker. i.e. your Pause Markers should be:<br>
+<code>- .</code><br>
+(a hyphen, then a space, then a full-stop/period)</li>
+<li>The rest of the settings should be left with the default values.<br>
+</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re curious about what the configuration options do, hover your mouse over each option to see a ‘tool tip’ that describes what the option is for.</p>
+</div>
+</div>
+<p>We configure the layer to ‘never’ generate, because we’re going to trigger forced-alignments manually, one speaker at a time, once we’re happy that the phonemic transcriptions are in place.</p>
+</section>
+<section id="missing-pronunciations" class="level2">
+<h2 class="anchored" data-anchor-id="missing-pronunciations">Missing Pronunciations</h2>
+<p>Now we’re going to check the situation of our pronunciations on the phonemes layer more carefully…</p>
+<ol start="11" class="example" type="1">
+<li>Go to the <em>transcripts</em> page and open the transcript <em>UC207YW</em></li>
+<li>Tick the <em>phonemes</em> layer.</li>
+<li>Have a look through the transcript to see where the missing phonemic transcriptions are.</li>
+</ol>
+<p>You’ll see they divide into various broad types:</p>
+<ul>
+<li>Typos like “Febuary”</li>
+<li>Specialist or invented words like “tarseal”</li>
+<li>Contractions like “me’s” and “thing’s”</li>
+<li>Proper names like “Bealey”</li>
+<li>Possibly filled pauses like “um”</li>
+<li>Hesitations and interrupted words like “exac~”, etc.<br>
+</li>
+</ul>
+<p>HTK needs a phonemic transcription for every word on a line in order to force-align that line. So every line where there’s a gap on the phonemes layer would be ignored by the HTK layer manager.</p>
+<ol start="14" class="example" type="1">
+<li>There’s another problem in this transcript, which isn’t necessarily immediately obvious.<br>
+Look for the hesitiation “w-” and the filled-pause “mm” to see if you can see what it is.</li>
+</ol>
+<p>‘False positives’ from the lexicon will also play havoc with forced alignment, as HTK believes what it’s told about the pronunciations given to it, and will do it’s best to find an alignment that includes every phoneme.<br>
+</p>
+<p>Each of these problems needs to be addressed before we do forced alignment, although the solution for each will vary. Some involve improving the transcript, others will involve adding new words to our dictionary.</p>
+<ul>
+<li>For false-positives like “w-” and “mm”, the easiest solution is to transcribe these differently. Hesitations like “w-” are discussed below. We will use “mmm” instead of “mm”.</li>
+<li>For very short false-starts like “w-”, the CELEX layer manager has been built to give a helping hand. In addition to looking up phonemic transcriptions in CELEX, it will also compute them for very short tagged false-starts. The tag it recognizes is a trailing tilde ~, so we need to change “w-” to “w~” etc. Then the CELEX layer manager will append a schwa to the initial consonant, and save that as the pronunciation (i.e.&nbsp;/ə/).</li>
+<li>For invented or misspoken words, or longer interrupted words, which we’re not likely to see again in any other transcript like, “me’s” and “exac~”, we will add a ‘pronounce’ tag in the transcript, which includes the correct pronunciation. Again, the CELEX layer manager knows to check for pronounce annotations, and uses the given phonemic transcription instead of looking up the CELEX data.</li>
+<li>For proper names and contractions like “thing’s” that we’re likely to see over and over again in different transcripts, instead of tagging each one individually, we will add them to the dictionary of pronunciations that the lexicon layer manager looks up.</li>
+</ul>
+<p>As you can see, the first three methods involve editing the transcript. This can be done by editing the original file in ELAN, and then re-uploading it into the database for processing.</p>
+<p>Alternatively, LaBB-CAT has a mechanism for editing the transcript ‘in-situ’; this doesn’t update the original file, but it’s sometimes much more convenient, and this is the method we’ll use for this exercise.</p>
+<ol start="15" class="example" type="1">
+<li>Click on the word “Febuary”, and select the <em>Edit Transcript</em> option from the menu.<br>
+A window will open that allows you to edit that line in the transcript.</li>
+<li>Correct the spelling of the word to be “February”</li>
+<li>Press <em>Update</em></li>
+<li>Press <em>Close</em></li>
+<li>Similarly change “w-” to be “w~” and “mm” to be “mmm”</li>
+<li>Click on the word “me’s”, and select the <em>Edit Transcript</em> option from the menu.<br>
+It seems unlikely that anyone else will say “me’s”, so instead of adding it to the lexicon, we’re simply going to tag this token with a <em>pronounce</em> tag. This is achieved by adding the pronunciation we want to tag it with in square brackets, using the DISC phoneme symbols. We have to add the <em>pronounce</em> tag immediately after the word, with no intervening space. (This transcription convention also works if you edit the original transcript in ELAN)</li>
+<li>Change the line text from “...bit of me’s a bit …” to be “…bit of me’s[miz] a bit …” instead.</li>
+<li>Click <em>Update</em> and then <em>Close</em><br>
+The <em>pronounce</em> annotation you’ve just added isn’t displayed in the transcript. It’s added to the <em>pronounce</em> layer, which is for this type of manual pronunciation tagging.</li>
+<li>Scroll to the top of the transcript and tick the <em>pronounce</em> layer so that it will be displayed.<br>
+When the transcript is reloaded, you will be able to see “miz” as an annotation on “me’s”, and that this has been copied into the <em>phonemes</em> layer by its layer manager.</li>
+<li>Similarly you should tag the word “exac~” with the pronunciation <code>Igz{k</code></li>
+</ol>
+<p>This method takes care of instances where the transcript is incorrect, and ‘one off’ missing pronunciations. However, for missing words that are likely to appear over and again in the corpus, including names like “Bealey”, “Wainoni”, and “Lyttleton”, and filled pauses like “mmm”, “um”, etc. it’s not efficient to tag every token. Instead, we add these to the lexicon.</p>
+<ol start="25" class="example" type="1">
+<li>Select the <em>participants</em> menu option.</li>
+<li>Find <em>UC207YW</em> in the list, and click on their name.</li>
+<li>Click the <em>All Utterances</em> link below their attributes.</li>
+<li>Leave the default selections and press <em>List</em>.<br>
+This displays a page with a list of all the speaker’s utterances, from which you can do various things with all the utterances of a particular participant in the database.</li>
+<li>Press the <em>Htk</em> button.<br>
+You will see a progress bar while LaBB-CAT identifies missing words. Then a page will appear that lists unknown words.</li>
+<li>Basically you need to fill in the boxes with the pronunciations and click <em>Save Pronunciations</em>.</li>
+</ol>
+<div style="page-break-after: always;"></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>You don’t have to fill them all in at once, you can do a few, and click <em>Save</em>, which will save your work and list what’s left.</li>
+<li>You don’t have to fill them all in, you can leave some empty and continue with the HTK forced-alignment by clicking <em>Start</em> (HTK will ignore any lines where the remaining unknown words appear, but the ones you filled in will be included).</li>
+<li>Some of the boxes will be initially filled in with a suggestion from the lexicon layer manager - these may or may not be correct, and aren’t saved until you save them.</li>
+<li>The pronunciations have to be in the ‘DISC’ format - i.e.&nbsp;one character per phoneme, with no spaces. There’s a ‘helper’ link on the right of each pronunciation box - if you click it, it expands into a list of clickable phonemes - just the ones that aren’t ordinary letters, and diphthongs etc.</li>
+<li>The <em>search</em> button lets you look up the lexicon for similar words - this probably won’t help for place names, but for words like “tarseal”, you can click the <em>lookup</em> button, enter “tar seal” in the box as two separate words, and you’ll get back the DISC pronunciation of each word, with clickable buttons to copy the given pronunciation into the box. This is useful for digits and numbers too, which may not be in the lexicon - so for “1”, search for “one” and copy the pronunciation.</li>
+<li>If you click on the word itself, the transcript for the first instance of that word is opened, in case you want to listen to it, or in case it’s actually just a typo and you want to correct the transcript.</li>
+<li>If you’re using CELEX, when you specify the pronunciations, it’s recommended to put syllable separators (-) and primary stress markers (’) too - e.g.&nbsp;for “tarseal” you can put <em>t#sil</em> but it would actually be better to put <em>t#-’sil</em>. These markers are entered into the dictionary even though they’re stripped out for HTK, and they may come in handy later (e.g.&nbsp;the syllable separators are used by the CELEX layer manager to count syllables).</li>
+</ul>
+</div>
+</div>
+<p>When you add pronunciations this way, they’re added to the dictionary and all the instances of those words in LaBB-CAT are updated with the pronunciations - not just the participant you’re looking at, but all participants in the database. So you only have to come up with a pronunciation for each word once.</p>
+</section>
+<section id="alignment" class="level2">
+<h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
+<ol start="31" class="example" type="1">
+<li>Once you’ve filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you’ve entered all pronunciations, click the <em>Start</em> button at the bottom of the page.<br>
+<br>
+You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.</li>
+</ol>
+<p>Once HTK has produced the word and segment alignments, it:</p>
+<ul>
+<li>sets the start/end times of the words on the transcript layer accordingly,</li>
+<li>adds new phone annotations to the <em>segments</em> layer with the alignments of the phones, and</li>
+<li>saves a timestamp in the <em>htk</em> layer.</li>
+</ul>
+<p>When the layer manager has finished, you’ll see a message saying “Complete - words and phones from selected utterances are now aligned.”</p>
+</section>
+<section id="inspectioncorrection" class="level2">
+<h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
+<p>You can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
+<ol start="32" class="example" type="1">
+<li>Go back to the <em>UC207YW.eaf</em> transcript.</li>
+<li>Tick both the <em>htk</em> layer and the <em>segments</em> layer.<br>
+You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <em>segments</em> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).</li>
+</ol>
+<p>The interactive transcript page doesn’t show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+<ol type="i">
+<li>On the top-right of the page, above the playback controls, there’s a Praat icon &nbsp;- click it.</li>
+<li>Follow the instructions that appear (these vary depending on what web browser you use).<br>
+You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.<br>
+You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.<br>
+You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</li>
+</ol>
+<p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
+<ol start="34" class="example" type="1">
+<li>Click on a line that has been aligned, and select the <em>Open Text Grid in Praat</em> option on the menu.<br>
+You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <em>Allow</em>.</li>
+</ol>
+<p>Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</p>
+<ol start="35" class="example" type="1">
+<li>If you click on a word, and hit the <kbd>tab</kbd> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.<br>
+Try this out with different lines in the transcript.<br>
+You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.</li>
+</ol>
+<p>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <em>Import Changes</em>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
+<ol start="36" class="example" type="1">
+<li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they’re more accurate, and then click the <em>Import Changes</em> button in the transcript.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it’s important that the changes you make are actually improvements, because HTK will never change them again.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are some rules about what you can change:</p>
+<ul>
+<li>You’re not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead).</li>
+<li>All the phones must be within the bounds of their own word.</li>
+<li>The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.</li>
+<li>You should not change the alignment of the utterance itself (which would only be possible if you select the <em>Open Text Grid incl.&nbsp;± 1 utterance in Praat</em> option).</li>
+</ul>
+</div>
+</div>
+<p>In this exercise, you have seen how HTK can be used to compute word and phone alignments automatically from your data, but that there is a fair amount of careful transcription, tagging, and dictionary filling required. Even after all that work, perfect automatic alignments are not guaranteed, but LaBB-CAT has a mechanism for manually correcting poor alignments.</p>
+<p>All this manual annotation and correction means a lot of work, but obviously somewhat less work than would be involved in aligning by hand the transcripts from scratch!</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div id="quarto-copyright" class="quarto-appendix-contents"><div>© 2023-2024 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
