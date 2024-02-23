@@ -20,7 +20,7 @@ jobs:
       - name: Install TinyTeX
         run: quarto install tinytex
         
-      - name Install rsvg-convert
+      - name: Install rsvg-convert
         run: sudo apt install librsvg2-bin
 
       - name: Render and Publish
