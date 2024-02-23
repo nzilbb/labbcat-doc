@@ -44,6 +44,7 @@ website:
         contents:
           - section: "Transcription"
             contents: howto/transcription/*
+          - href: howto/word-frequency/index.qmd
           - section: "Phonemic Tagging"
             contents: howto/phonemic-tagging/*
           - section: howto/forced-alignment/index.qmd
@@ -55,8 +56,8 @@ website:
               - href: howto/forced-alignment/mfa-train-align.qmd
               - href: howto/forced-alignment/compare.qmd
               - href: howto/forced-alignment/identifying-unaligned-utterances.qmd
-      - section: howto/aligned-data/index.qmd
-        contents: howto/aligned-data/*
+          - section: howto/aligned-data/index.qmd
+            contents: howto/aligned-data/*
 format:
   html:
     theme: cosmo
