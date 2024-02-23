@@ -1,3 +1,8 @@
+---
+format:
+  html:
+    toc: false
+---
 # LaBB-CAT Documentation
 
 This is the documentation for the [LaBB-CAT](https://labbcat.canterbury.ac.nz/) corpus management system.
