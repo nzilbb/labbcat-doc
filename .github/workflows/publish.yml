@@ -17,7 +17,11 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         
-      - run: quarto install tinytex
+      - name: Install TinyTeX
+        run: quarto install tinytex
+        
+      - name Install rsvg-convert
+        run: sudo apt install librsvg2-bin
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
