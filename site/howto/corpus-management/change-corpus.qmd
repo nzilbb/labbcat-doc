@@ -1,0 +1,27 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Changing Corpus
+
+The 'corpus' and the 'episode' of a transcript belongs to is specified when it is uploaded; every transcript belongs to an 'episode' (which groups together transcripts from the same recording session), and each episode belongs to a 'corpus'
+
+What if you choose the wrong corpus, or change your mind about episode name later? You can use the *episode organiser* option on the menu to make such changes after uploading transcripts.
+
+The organiser appears as a list of collapsable 'folders' that represent existing corpora, containing episodes:
+
+![](episode-organiser.png){fig-alt="A tree view, where the top-level folders are corpora, and the items inside them are episodes."}
+
+## Changing Corpus
+
+To move an episode from one corpus to another, simply drag the episode with your mouse and drop it on to the desired corpus (if you want a new corpus, you must add it first using the *corpora* option on the menu).
+
+## Renaming an Episode
+
+To rename an episode, right-click on the episode and select the *Rename* option.
+
+ 

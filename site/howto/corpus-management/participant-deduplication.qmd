@@ -1,0 +1,32 @@
+---
+format:
+  html:
+    toc: false
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Participant Deduplication
+
+During transcript upload, LaBB-CAT looks up the participants named in the transcript, and if it doesn't find a matching participant record, it creates a new one.
+
+But sometimes, names of participants are not totally identical across all of their transcripts, leading to multiple records for the same person.
+
+You can merge participant records together to fix this problem:
+
+1. In LaBB-CAT, select the *participants* option on the menu
+1. In the box under *Participant*, type part of the participant name that will match all the records you want to merge, and hit {{< kbd Enter >}}:  
+   ![](merge-identify-records.png){fig-alt="Example where 'interviewer QB' identifies 'interviewer QB464YW_SiobhanStorey', 'interviewer QB475YW_AmrinderSingh_A_ENG', and 'interviewer QB702_AnnaSoboleva_A_ENG', with the Merge Participants button below"}
+1. Tick the records you want to merge together.
+1. Press *Merge Participants*. 
+   ![](merge-participants.png){fig-alt="Merge Participant page shows a list of the selected participant records which checkboxes, and a Name box and Merge button below"}
+1. Merging cannot be undone, so double-check that the records are the correct ones, and untick any you don't want to be merged together.
+1. Change the name to the final name/ID for the participant.
+1. If there are participant attributes with conflicting values, the conflicts are also listed; choose the correct final value for each conflict.
+1. Press *Merge*  
+   You will see a message:  
+   "This will merge all selected participants into a single new record. Existing attribute values will be assigned to the new participant. Transcripts for these participants will be assigned to the new participant. Automatic layer annotations will be lost and must be regenerated.  
+   This can not be undone. Are you sure?"
+1. Press *OK*
+1. The new record is created, and the number of corpora, transcripts, turns, and lines affected is shown
+1. If you would like to double-check, or tweak, the new participant record, press the *Edit ...* link.

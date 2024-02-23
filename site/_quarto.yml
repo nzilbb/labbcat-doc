@@ -58,6 +58,8 @@ website:
               - href: howto/forced-alignment/identifying-unaligned-utterances.qmd
           - section: howto/aligned-data/index.qmd
             contents: howto/aligned-data/*
+          - section: howto/corpus-management/index.qmd
+            contents: howto/corpus-management/*
 format:
   html:
     theme: cosmo
