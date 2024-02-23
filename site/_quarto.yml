@@ -20,19 +20,9 @@ website:
       - section: worksheets/index.qmd
         contents: 
           - section: worksheets/demo/index.qmd
-            contents: 
-              - href: worksheets/demo/1-exploration.qmd
-              - href: worksheets/demo/2-search.qmd
-              - href: worksheets/demo/3-celex.qmd
-              - href: worksheets/demo/4-alignment.qmd
-              - href: worksheets/demo/5-syntax.qmd
-              - href: worksheets/demo/6-other-processing.qmd
+            contents: worksheets/demo/*
           - section: worksheets/express-tutorial/index.qmd
-            contents: 
-              - href: worksheets/express-tutorial/1-install-and-configure-labb-cat.qmd
-              - href: worksheets/express-tutorial/2-upload-data.qmd
-              - href: worksheets/express-tutorial/3-basic-searching.qmd
-              - href: worksheets/express-tutorial/4-cmudict-and-cross-layer-search.qmd
+            contents: worksheets/express-tutorial/*
           - section: worksheets/course/index.qmd
             contents:
               - href: worksheets/course/1-installation.qmd
@@ -52,22 +42,19 @@ website:
               - href: worksheets/course/9-aligned-data.qmd
       - section: howto/index.qmd
         contents:
-          - section: howto/transcription/index.qmd
-            text: Transcription
+          - section: "Transcription"
+            contents: howto/transcription/*
+          - section: "Phonemic Tagging"
+            contents: howto/phonemic-tagging/*
+          - section: howto/forced-alignment/index.qmd
             contents:
-              - section: howto/transcription/elan.qmd
-                contents:
-                  - href: howto/transcription/elan-language.qmd
-          - section: howto/phonemic-tagging/index.qmd
-            text: Phonemic Tagging
-            contents:
-              - href: howto/phonemic-tagging/celex.md
-              - href: howto/phonemic-tagging/cmudict.md
-              - href: howto/phonemic-tagging/unisyn.md
-              - href: howto/phonemic-tagging/flat-file.md
-              - href: howto/phonemic-tagging/spanish.md
-              - href: howto/phonemic-tagging/g2p.md
-              - href: howto/phonemic-tagging/character-mapper.md
+              - href: howto/forced-alignment/bas-services-manager.qmd
+              - href: howto/forced-alignment/htk-p2fa.qmd
+              - href: howto/forced-alignment/htk-train-align.qmd
+              - href: howto/forced-alignment/mfa-pretrained-models.qmd
+              - href: howto/forced-alignment/mfa-train-align.qmd
+              - href: howto/forced-alignment/compare.qmd
+              - href: howto/forced-alignment/identifying-unaligned-utterances.qmd
 format:
   html:
     theme: cosmo
