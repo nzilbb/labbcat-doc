@@ -548,11 +548,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#mfa-and-pretrained-acoustic-models" id="toc-mfa-and-pretrained-acoustic-models" class="nav-link active" data-scroll-target="#mfa-and-pretrained-acoustic-models">MFA and Pretrained Acoustic Models</a>
   <ul class="collapse">
-  <li><a href="#mfa-installation" id="toc-mfa-installation" class="nav-link" data-scroll-target="#mfa-installation">MFA Installation</a>
-  <ul class="collapse">
-  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux">Linux</a></li>
-  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
-  </ul></li>
+  <li><a href="#mfa-installation" id="toc-mfa-installation" class="nav-link" data-scroll-target="#mfa-installation">MFA Installation</a></li>
   <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link" data-scroll-target="#forced-alignment">Forced Alignment</a></li>
   </ul></li>
   </ul>
@@ -585,39 +581,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="mfa-installation" class="level2">
 <h2 class="anchored" data-anchor-id="mfa-installation">MFA Installation</h2>
 <p>MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module. MFA is <em>not included</em> as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.</p>
-<p>If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server. This is a one-time process.</p>
-<section id="linux" class="level3">
-<h3 class="anchored" data-anchor-id="linux">Linux</h3>
-<p>To install the Montreal Forced Aligner on Linux systems for <em>all users</em>, so that your web server can access it if required:</p>
-<ol type="1">
-<li>Download Miniconda:<br>
-<code>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
-<li>Start the installer:<br>
-<code>sudo bash Miniconda3-py38_4.10.3-Linux-x86_64.sh</code></li>
-<li>When asked the location to install Miniconda, use:<br>
-<code>/opt/conda</code></li>
-<li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond <code>no</code></li>
-<li>Change ownership of the conda files:<br>
-<code>sudo chown -R $USERNAME:$USERNAME /opt/conda</code></li>
-<li>Make conda accessible to all users (so you web server can access MFA):<br>
-<code>chmod -R go-w /opt/conda</code><br>
-<code>chmod -R go+rX /opt/conda</code><br>
-</li>
-<li>Install the Montreal Forced Aligner. <code>sudo /opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</code></li>
-</ol>
-</section>
-<section id="windows" class="level3">
-<h3 class="anchored" data-anchor-id="windows">Windows</h3>
-<p>To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:</p>
-<ol type="1">
-<li>Download the Miniconda installer:<br>
-<a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" class="uri">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
-<li>Start the installer by double-clicking it.</li>
-<li>When asked, select the “Install for all users” option. This will install conda somewhere like. <code>C:\ProgramData\Miniconda3</code></li>
-<li>When asked, tick the “add to PATH” option.</li>
-<li>Install the Montreal Forced Aligner by specifying a path to the environment. <code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</code></li>
-</ol>
-</section>
+<p>If MFA has not been installed already, please follow the steps detailed under <a href="../../howto/forced-alignment/mfa-install.html">MFA Installation</a>. This is a one-time process.</p>
 </section>
 <section id="forced-alignment" class="level2">
 <h2 class="anchored" data-anchor-id="forced-alignment">Forced Alignment</h2>

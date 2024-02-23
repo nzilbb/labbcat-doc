@@ -569,24 +569,6 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="b.-mfa" class="level1">
 <h1>8b. MFA</h1>
-<!-- TODO Add stuff about server needing internet access for dictionaries etc. -->
-<!-- TODO Add this to the HowTo on MFA (when it exists) instead of here -->
-<!-- Crusty's tip for Windows: -->
-<!--  I had to download and use PSexec to get it to work. Just in case you have someone else in the same boat. -->
-<!-- Download PStool.zip from microsoft -->
-<!-- http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx -->
-<!-- and then unzipped it and put PSexec.exe into C:\Windows\System32 -->
-<!-- Open cmd "Run as Administrator" -->
-<!-- Psexec.exe -i -s cmd.exe  (opens new cmd for local system account) -->
-<!-- In the new cmd window check you have the correct account type in whomai -->
-<!-- to update proxy server type inetcpl.cpl -->
-<!-- goto Connections tab -->
-<!-- click on LAN Settings button -->
-<!-- Fill in Proxy section -->
-<!-- FYI - for your document please include that -->
-<!-- tomcat needs to run as (Logon) Local System and not Local Service. -->
-<!-- Local System has more permissions. -->
-<!-- Also the PsExec.exe. instructions are for Local System. -->
 <p>The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by Michael McAuliffe and others that can use words with phonemic transcriptions, and the corresponding audio, to force-align words and phones; i.e.&nbsp;determine the start and end time of each speech sound within each word, and thus the start/end times of the words.</p>
 <p>The annotator can work in two modes:</p>
 <ul>
@@ -654,7 +636,7 @@ Linux
 <code>chmod -R go-w /opt/conda</code><br>
 <code>chmod -R go+rX /opt/conda</code></li>
 <li>Install the Montreal Forced Aligner<br>
-<code>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner</code></li>
+<code>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=2.2.17</code></li>
 </ol>
 </div>
 </div>
@@ -680,15 +662,29 @@ Windows
 <em>C:\ProgramData\Miniconda3</em></li>
 <li>When asked, tick the <em>add to PATH</em> option.</li>
 <li>Install the Montreal Forced Aligner by specifying a path to the environment<br>
-<code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner</code></li>
+<code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner=2.2.17</code></li>
 </ol>
+<p>If you have problems getting MFA working on Windows, check <em>Troubleshooting on Windows</em> section of the <a href="../../howto/forced-alignment/mfa-install.html#callout-3">MFA Installation instructions</a>.</p>
 </div>
 </div>
 </div>
-<section id="docker-container" class="level4">
-<h4 class="anchored" data-anchor-id="docker-container">Docker Container</h4>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Docker Container
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager (below)</p>
-</section>
+<p>There is no need for a separate installation of the MFA software.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="mfa-manager" class="level3">
 <h3 class="anchored" data-anchor-id="mfa-manager">MFA Manager</h3>
