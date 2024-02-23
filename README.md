@@ -2,30 +2,35 @@
 
 Documentation, course materials, etc. for LaBB-CAT
 
-These are HTML documents that can be browsed directly here:  
-https://nzilbb.github.io/labbcat-doc/
+These are HTML and PDF documents that can be browsed directly here:
+
+<https://nzilbb.github.io/labbcat-doc/>
 
 ## Updating the documentation
 
-The documentation is plain HTML, and can be updated directly with your favourite text
-editator. 
+The documentation is primarily a Quarto website.
 
-However, it was authored using a WYSIWYG HTML editor, which you can also use for updating
-the documents. The editor is called
-[wysiwiki](https://github.com/robertfromont/wysiwiki)
-and is included in this repository for you convenience. To us it, you need to have Java
-installed on your system.
-
-To edit a particular set of documentation, you need to run a shell in the subdirectory of
-the documents you want to edit, and run `java -jar wysiwiki.jar`.
-
-This will open a browser window showing the files, and you can click the *Edit Page* button in
-the top right corner to edit the document directly in your browser. Once you've finished,
-click the *Save Page* button in the top right corner to save your changes.
-
-e.g. to edit the *course* documentation:
+Quarto project files are in the `site` directory, from where the site can be rendered:
 
 ```
-cd course
-java -jar wysiwiki.jar
+cd site
+quarto render
+```
+
+The site files, includeing HTML and PDF, are rendered into the `doc` directory.
+
+## Website
+
+Rendering of the live website is achieved using a GitHub Action, which is defined by:  
+`.github/workflows/publish.yml`
+
+In order to ensure changes are generated to the live site, simply commit changed .qmd files to GitHub, and the Action will automatically regenerate the website from them. This takes between 5 and 10 minutes to complete.
+
+The rendered files are generated into a branch called `gh-pages`, and the repository is configured to host files from that branch.
+
+The equivalent generation can be achieved manually using:
+
+```
+cd site
+quarto publish gh-pages
 ```
