@@ -5,7 +5,7 @@ format:
 ---
 # LaBB-CAT Documentation
 
-This is the documentation for the [LaBB-CAT](https://labbcat.canterbury.ac.nz/) corpus management system.
+This site is the documentation for the [LaBB-CAT](https://labbcat.canterbury.ac.nz/) corpus management system.
 
 LaBB-CAT is a browser-based linguistics research tool that stores audio or video recordings, text transcripts, and other annotations.
 
