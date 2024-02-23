@@ -1,0 +1,125 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# MFA Installation
+
+The *Montreal Forced Aligner* (MFA) is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module:  
+<https://montrealcorpustools.github.io/Montreal-Forced-Aligner/>
+
+MFA is not included as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.
+
+If MFA has not been installed already, please follow the following
+steps, depending on the operatings system of your LaBB-CAT server:
+
+:::{.callout-note collapse=true}
+## Linux
+
+To install the Montreal Forced Aligner on Linux systems for all users,
+so that your web server can access it if required:
+
+1.  Download Miniconda:\
+    `wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh`
+2.  Start the installer:\
+    `sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh`
+3.  When asked the location to install Miniconda, use:\
+    `/opt/conda`
+4.  When asked whether the installer should initialize Miniconda, this
+    is unnecessary so you can respond `no`
+5.  Change ownership of the conda files):\
+    `sudo chown -R $USERNAME:$USERNAME /opt/conda`
+6.  Make conda accessible to all users (so you web server can access
+    MFA):\
+    `chmod -R go-w /opt/conda`\
+    `chmod -R go+rX /opt/conda`
+7.  Install the Montreal Forced Aligner\
+    `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=2.2.17`
+:::
+
+:::{.callout-note collapse=true}
+## Windows
+
+To install the Montreal Forced Aligner on Windows systems for all users,
+so that your web server can access it if required:
+
+1.  Download the Miniconda installer:   \
+    <https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe>
+2.  Start the installer by double-clicking it.
+3.  When asked, select the "Install for all users" option. This will
+    install conda somewhere like\
+    *C:\\ProgramData\\Miniconda3*
+4.  When asked, tick the *add to PATH* option.
+5.  Install the Montreal Forced Aligner by specifying a path to the
+    environment\
+    `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner=2.2.17`
+
+:::
+
+:::{.callout-warning collapse=true}
+## Troubleshooting on Windows
+
+The 3rd party MFA software requires:
+
+- the possibility of running command-line programs during installation and forced alignement
+- the possibility that these programs can download data from the internet
+
+On Windows, this can sometimes be complicated by the fact that Apache Tomcat and LaBB-CAT are installed as a 'Windows Service'. Windows Services usually run using the permissions of a special anonymous login account called 'Local System', which in some environments has restricted permissions to access different resources.
+
+If you install the MFA Manager LaBB-CAT integration module, but you find it returns errors when trying to interact with MFA, the problem may be that the Windows Service:
+
+- does not have permission to access the folder where MFA is installed, or
+- is not allowed to execute other programs, or
+- cannot access the internet.
+
+Sometimes problems can be resolved by:
+
+- running the Apache Tomcat Windows Service as a different user other than 'Local System'. 
+  (or if it was running as some other used, try setting it back to 'Local System'), or
+- adjusting the permissions of the Windows Service users, or
+- adjusting the permissions of the folders where MFA is installed
+- configuring the service to use the local Internet Proxy settings to enable connecting to the internet.
+
+*PSexec* is a tool that can be used to diagnose and solve problems on Windows.
+
+### PSexec
+
+1. Download PStool.zip from Microsoft:  
+   <http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx>
+1. Unzip it
+1. Put *PSexec.exe* into `C:\Windows\System32`
+1. Open `cmd` using "Run as Administrator"
+1. Run the command:  
+   `Psexec.exe -i -s cmd.exe`  
+   This opens a new command prompt for local system account
+1. In the new command prompt window, check you have the correct account type with the command:  
+   `whomai`
+
+Then you can use the command prompt to run MFA commands to diagnose errors - e.g.:
+
+- `conda activate montreal-forced-aligner` - activates the MFA environment
+- `mfa version` - ensures MFA is installed and accessible, and confirms the version
+- `mfa model download dictionary` - ensures MFA can connect to the internet to get models etc.; this command should return a long list of language dictionaries, and not report errors.
+
+### Proxy Settings
+
+To update proxy server settings:
+
+1. type `inetcpl.cpl`
+1. goto *Connections* tab
+1. click on the *LAN Settings* button
+1. Fill in the *Proxy* section with the correct details
+
+:::
+
+:::{.callout-note collapse=true}
+## Docker Container
+
+If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager LaBB-CAT module. 
+
+There is no need for a separate installation of the MFA software.
+
+:::

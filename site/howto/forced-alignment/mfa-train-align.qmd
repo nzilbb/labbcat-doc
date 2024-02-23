@@ -59,39 +59,8 @@ The broad steps for getting forced-alignments from MFA are:
 
 MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module. MFA is *not included* as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.
 
-If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server. This is a one-time process.
-
-### Linux
-
-To install the Montreal Forced Aligner on Linux systems for *all users*, so that your web server can access it if required:
-
-1. Download Miniconda:  
-    `wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh`
-1. Start the installer:  
-    `sudo bash Miniconda3-py38_4.10.3-Linux-x86_64.sh`
-1. When asked the location to install Miniconda, use:  
-    `/opt/conda`
-1. When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond `no`
-1. Change ownership of the conda files:  
-    `sudo chown -R $USERNAME:$USERNAME /opt/conda`
-1. Make conda accessible to all users (so you web server can access MFA):  
-    `chmod -R go-w /opt/conda`  
-    `chmod -R go+rX /opt/conda`  
-1. Install the Montreal Forced Aligner. 
-    `sudo /opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner`
-
-### Windows
-
-To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:
-
-1. Download the Miniconda installer:  
-    <https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe>
-1. Start the installer by double-clicking it.
-1. When asked, select the "Install for all users" option. This will install conda somewhere like. 
-    `C:\ProgramData\Miniconda3`
-1. When asked, tick the "add to PATH" option.
-1. Install the Montreal Forced Aligner by specifying a path to the environment. 
-    `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner`
+If MFA has not been installed already, please follow the steps detailed under
+[MFA Installation](mfa-install.qmd). This is a one-time process.
 
 ## Install the MFA Layer Manager
 
