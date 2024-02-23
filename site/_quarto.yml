@@ -55,6 +55,8 @@ website:
               - href: howto/forced-alignment/mfa-train-align.qmd
               - href: howto/forced-alignment/compare.qmd
               - href: howto/forced-alignment/identifying-unaligned-utterances.qmd
+      - section: howto/aligned-data/index.qmd
+        contents: howto/aligned-data/*
 format:
   html:
     theme: cosmo

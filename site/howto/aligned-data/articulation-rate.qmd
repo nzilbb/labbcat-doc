@@ -1,0 +1,72 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Speech Rate and Articulation Rate
+
+Speech rate is usually measured in syllables per minute or syllables per second. LaBB-CAT can calculate this if it has the following information:
+
+1. start and end times of utterances, from which the each utterance duration can be calculated (usually, transcripts you upload to LaBB-CAT include this information), and
+1. the number of syllables in each word token, which can be obtained either
+    - by using the CELEX layer manager to tag each with with its syllable count, or
+    - if the data has been [force-aligned](../forced-alignment/index.qmd), using a lexicon with syllabification information, the [syllables themselves can be reconstructed](syllables.qmd).
+
+If the speech has not been force-aligned, LaBB-CAT only knows, for each utterance, how many syllables were uttered between the start and end times of the utterance; any inter-word pauses during the utterance are counted as speech.  Usually, this level of granularity is referred to as the *Speech Rate*.
+
+If the speech has been force-aligned, LaBB-CAT can use the start and end times of the individual word tokens, and so can exclude inter-word pauses from its rate calculation. This higher level of granularity is usually referred to as the *Articulation Rate*.
+
+The rate annotations can cover a number of different scopes with different granularities, e.g.
+
+- the local rate for each utterance,
+- the local rate for each speaker turn (which may include many utterances),
+- the global rate for the entire recording, or
+- the global rate for the speaker, across all the recordings they appear in.
+
+Once the rate annotations are generated, they can be searched or extracted, in the same way other annotations can.
+
+## Computing Speech/Articulation Rate
+
+
+1. Create a *word layer* that tags each token with the number of syllables in the word. For example, if you've got English data, and have the [CELEX Layer Manager](../phonemic-tagging/celex.qmd) installed, you can achieve this by creating a new word layer with the following characteristics:
+    - *Layer ID*: `syllableCount`
+    - *Type*: *Number*
+    - *Alignment*: *None*
+    - *Manager*: *CELEX English*  
+    ...configured with the *Syllable count* option ticked  
+    **IMPORTANT**: Ensure tick the *First match only* option for this layer, as some words have more than one possible syllable count, and we don't want any words counted more than once.  
+    ![CELEX configuration form with the Syllable Count option selected"](CELEX-syllable-count-layer-configuration.png){fig-alt="CELEX configuration form with the Syllable Count option selected"}. 
+    If you do not use the CELEX Layer Manager, you may find the layer manager you use for phonemic transcriptions also has a similar *syllable count* option.
+1. Once the layer has finished generating, have a look at a transcript or two to check the results. Each word should be tagged with a number corresponding to the number of syllables:  
+   ![Transcript with each word token tagged with it's number of syllables](syllable-count-layer.png){fig-alt="Transcript with each word token tagged with it's number of syllables"}
+1. Click the *phrase layers* menu option.
+1. Add a new phrase layer for speech rate. Key points are:
+    - The layer manager to use is the *Statistics Layer Manager*
+    - The layer to summarize should be the *syllableCount* layer
+    - The statistic to compute is *Label-Sum Rate (per minute)*, because we want LaBB-CAT to take the sum of all the labels, and then compute the rate from the start/end time.  
+    ![Speech Rate configuration page: Layer to Summarize is 'syllable count' and Statistic is 'Label Sum Rate (per minute)'](speech-rate-configuration.png){fig-alt="Speech Rate configuration page: Layer to Summarize is 'syllable count' and Statistic is 'Label Sum Rate (per minute)'"}  
+    You can select difference scopes for the computation. The illustration above computes a local rate for each speaker *turn*, and a global rate for each *participant.*
+1. Have a look in a transcript or two, and a participant or two, to see what the annotations you just generated look like.
+
+## Aligned Words
+
+
+If [forced alignment](../forced-alignment/index.qmd) has already be done, the steps to compute speech rate are:
+
+1. [Create a *word layer* that reconstructs the syllables, using these steps](syllables.qmd).
+1. Once the layer has finished generating, have a look at a transcript or two to check the results. Each word should be tagged with a phonemic transcription, separated into syllables:  
+   ![Utterance with each token tagged with its syllables](reconstructed-syllables.png){fig-alt="Utterance with each token tagged with its syllables"}
+1. Select the *phrase layers* menu option.
+1. Add a new phrase layer for speech rate. Key points are:
+    - The layer manager to use is the *Statistics Layer Manager*
+    - The layer to summarize should be the *syllable* layer
+    - The statistic to compute is *Token Rate (per minute)*, because we want LaBB-CAT to take the count the number of syllables, and then compute the rate from the start/end time of each word.  
+    ![Articulation Rate configuration page, with Layer to Summarize set to 'syllable' and Statistic set to 'Token Rate (per minute)'](articulation-rate-configuration.png){fig-alt="Articulation Rate configuration page, with Layer to Summarize set to 'syllable' and Statistic set to 'Token Rate (per minute)'"}. 
+    You can select difference scopes for the computation. The illustration above computes a local rate for each *utterance*, and a global rate for each *participant.*
+1. Have a look in a transcript or two, and a participant or two, to see what the annotations you just generated look like.  
+   ![One utterance, with an annotation spanning the whole utterance, labelled with the syllables/minute rate for that utterance.](articulation-rate-one-utterance.png){fig-alt="One utterance, with an annotation spanning the whole utterance, labelled with the syllables/minute rate for that utterance."}
+
+

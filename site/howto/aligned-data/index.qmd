@@ -1,0 +1,6 @@
+# Aligned Data
+
+Common tasks that can be done once phones are aligned:
+
+- [Reconstruct syllables and stress](syllables.qmd)
+- [Speech rate and articulation rate](articulation-rate.qmd)
