@@ -1,0 +1,31 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Checking/Correcting Alignments: EMU-webApp
+
+Depending on how LaBB-CAT is configured, when the forced aligner finishes it may automatically open a new browser tab with a list of utterances on the left, and a representation of the first utterance in the centre.
+
+This is the *EMU-webApp* annotation tool, which you can use to manually inspect, and correct, the phone alignments that HTK just produced.
+
+![EMU-webApp](EMU-webApp.png)
+
+The left panel contains a list of all the utterances that were just processed by HTK. If you click on an utterance in the list, the selected utterance will be loaded into the central panel.
+
+The central panel is split into two parts. The upper part represents the utterance's recording with a wave-form and a spectrogram. The lower part contains the annotation tool that represents each phone, including its label and start/end time.
+
+Below this are a series of buttons you can use to control which portion of the utterance is displayed, and control audio playback.
+
+To correct the phone alignments:
+
+1. Select a phone in the annotation panel by clicking on it.
+1. Tap the {{< kbd C >}} key on your keyboard to play the audio for the selected phone.
+1. If you want to change the start time, hover the mouse over the start time and hold down the {{< kbd Shift >}} key on your keyboard. Moving the mouse will move the phone boundary until you let go of the {{< kbd Shift >}} key. You can similarly correct end times. When you make changes, the utterance will turn red in the list on the left.  
+   ![Edited utterance in red](emu-edited-utterance.png)
+1. To save your corrections back to LaBB-CAT, press the round *Save* button in the utterance list panel.
+
+ 

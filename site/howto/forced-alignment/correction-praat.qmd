@@ -1,0 +1,48 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Checking/Correcting Alignments: Praat
+
+After force-aligning transcripts, the alignments can be checked and corrected directly from LaBB-CAT, using the Praat integration with the transcript page.
+
+![Round-trip of alignnments, coming from LaBB-CAT to Praat, with manual corrections imported back into LaBB-CAT](PraatRoundTrip.png)
+
+To check the alignments:
+
+(@) In LaBB-CAT, open a transcript page.
+(@) Tick both the forced-aligner's layer (e.g. *HTK*) and the segments layer.  
+
+You will see which lines have been force-aligned, as they have an HTK timestamp, and have the *segment* layer filled in. If it has missed some lines, this is most likely because there is an  unknown word, another speaker speaking at the same time, or possible HTK simply failed to  align the line (there are various reasons this happens, including not enough data for training,  noisy recordings, inaccurate transcription, etc.).
+
+The interactive transcript page doesn't show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:
+
+(@) On the top-right of the page, above the playback controls, there's a Praat icon - click it.
+(@) Follow the instructions that appear (these vary depending on what web browser you use).
+(@) You may need to grant a browser extension permission to install, and it's possible you will need a connection to the internet in order to download this extension.
+(@) You also may be asked where Praat is installed; Navigate to the location where Praat is installed on your computer, and double-click the *Praat.exe* file (on some systems the file may simply be called *Praat*).
+(@) The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.
+
+Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on...
+
+(@) Click on a line that has been aligned, and select the Open Text Grid in Praat option on the menu.  
+    Praat should open, and show you a spectrogram of the line's audio, with a TextGrid below that includes the words and the segments.
+(@) If you click on a word, and hit the key, the word's interval is played. Try out various words, and see what you think about how accurate the forced aligner has been with its alignment.  
+    Try this out with different lines in the transcript.
+
+You will see that in some cases the alignment is pretty good, and in other cases, it's not so good.
+
+(@) Adjust the alignments of the words and phones so that they're more accurate, and then click the *Import Changes* button in the transcript page (in LaBB-CAT).
+
+These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it's important that the changes you make are actually improvements, because the forced aligner will never change them again.
+
+There are some rules about what you can change:
+
+- You're not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead).
+- All the phones must be within the bounds of their own word.
+- The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.
+- You should not change the alignment of the utterance itself (which would only be possible if you select the *Open Text Grid incl. ± 1 utterance in Praat* option).
