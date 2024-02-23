@@ -1,0 +1,177 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: libertinus
+---
+# Phrase Tagging with Doccano
+
+[Doccano](https://doccano.github.io/doccano/)
+is an open-source data labeling tool intended for machine learning practitioners. It allows you to tag words and phrases in texts with a very easy-to-use drag and select user interface.
+
+You can use Doccano to tag phrases and import your tags into phrase layers in LaBB-CAT. The broad steps of the process are:
+
+1. Export a selected set of transcripts from LaBB-CAT to the Doccano JSONL format
+1. Import the resulting file into Doccano
+1. Tag the texts as desired
+1. Export the tagged texts from Doccano to a JSONL file
+1. Import the tagged JSONL file into LaBB-CAT
+
+## 1. Export from LaBB-CAT
+
+1. In LaBB-CAT, open the *transcripts* page.
+1. Use the filters at the top to narrow the list down to the transcripts you want to export, and/or tick the target transcripts.
+1. Click *Export Format*.  
+   A list of layers will appear, with a list of formats below.
+1. If you wish to include any existing phrase/span layers in Doccano, tick the corresponding layers in the list.  
+   ![Tcik existing layers you want to be visibl in Doccano](SelectLayersToExport.png){fif-alt="A list of layers, with the 'narrative-structure' layer ticked for export"}  
+   **NB**: Annotations on the layers you select here will be displayed in Doccano but cannot be edited; any changes to these annotations will be ignored when re-importing the dataset into LaBB-CAT.
+1. Below the list of layers, there's a dropdown list of export formats.  
+   Select Doccano JSONL Dataset.  
+   ![Select Doccano JSONL Dataset](SelectDoccanoJSONLDataset.png){fig-alt="Dropdown box with 'Doccano JSONL Dataset' selected, and an 'Export Format' button below"}
+1. Click *Export Format*
+1. Save the resulting *...jsonl* file.
+
+## 2. Import into Doccano
+
+1. In Doccano, you will need to create a project to import your texts into. Click *Projects* on the top right.
+1. Press *Create* on the top left.
+1. Select the *Sequence Labelling* option.  
+   ![Select Sequence Labelling](SequenceLabelling.png) Sequence Labelling option in Doccano is ticked
+1. Enter a name and description for your project.
+1. Tick the *Allow overlapping entity* option.  
+   ![Tick 'Allow overlapping entity'](OverlappingEntity.png){fig-alt="The 'Allow overlapping entity' option is ticked"}
+1. Press *Create* at the bottom.  
+   This will create the project and take you to its Home page.
+1. Press *Dataset* on the left.  
+   ![Click 'Dataset'](DataSet.png){fig-alt="The Dataset option in the menu"}
+1. Move the mouse over the *Actions* button at the top, and select the *Import Dataset* option.  
+   ![Select the 'Import Dataset' action](ImportDataset.png){fig-alt="'Import Dataset' option in 'Actions' menu"}
+1. Select *JSONL* as the *File format*.  
+   You can leave the other options that appear with their default values.
+1. Find the *...jsonl* file you exported from LaBB-CAT earlier, and drap/drop it on to the grey area labelled *Drop files here...*  
+   (Alternatively you can click on the *Drop files here...* area, and find/select the *...jsonl* file.)  
+   ![Import Dataset form](Import.png){fig-alt="Import Dataset form, with JSONL format, one file uploaded, and an 'Import' button at the bottom."}
+1. Press *Import.*
+
+Once the import is complete, you will see a list of texts on the *Dataset* page. The *Metadata* column will be full of text and numbers - this is normal; LaBB-CAT includes information in the *Metadata* that it needs to import the text back into LaBB-CAT correctly.
+
+![The imported dataset includes metadata to aid re-import into LaBB-CAT](ImportedTextsWithMetadata.png){fig-alt="List of texts in the dataset, showing one text with a lot of numeric MetaData."}
+
+## 3. Tag the texts
+
+Before adding annotations to the texts, you need to create *Labels* in Doccano. These are the annotations you'll be able to add to words/phrases in the texts.
+
+
+
+1. In Doccano, click *Labels* on the left-hand menu.  
+   If you exported any additional phrase/span layers from LaBB-CAT, you will see labels for the resulting annotations already listed here.  
+   ![Labels imported from LaBB-CAT, each prefixed by the layer ID](ImportedLabels.png){fig-alt="Labels imported from LaBB-CAT layers, each label is prefixed with the layer ID, e.g. 'narrative-structure:orientation', 'narrative-structure:complicating action', etc."}  
+   Each imported label is prefixed with the ID of the LaBB-CAT layer it came from, followed by a colon. This is the pattern you must follow with the labels you create.
+1. Move the mouse over the *Actions* button at the top and click the *Create Label* option.  
+   ![Select 'Create Label' under 'Actions'](CreateLabel.png){fig-alt="'Create Label' option in 'Actions' menu"}
+1. Enter the label. This should be using the format:  
+   `{LaBB-CAT-Layer-ID}:{LaBB-CAT-Label}`  
+   e.g if you intend for your new annotations to be added to a LaBB-CAT layer called "narrative-action" and one of the possible labels in LaBB-CAT will be "complicating action", then the Label you create in Doccano should be: 
+   `narrative-action:complicating action`  
+   ![Format for Doccano labels is {layerID}:{label}](CreateLabel.png){fig-alt="Creating a label with label name: narrative-action:complicating action"}
+1. Pick a colour for the label if you wish.
+1. Assuming you want to add more than one label, click *Save and add another*.
+1. Repeat the above steps for each label you would like to annotate with.
+1. Once you've finished, click the *Labels* option on the left-hand menu.  
+   You should see the label's you've added, listed after the imported ones.  
+   ![Labels list with new labels](NewLabels.png){fig-alt="List of labels, with imported read-only labels at the top, and newly-adding labels for tagging at the bottom"}
+
+### Annotating Texts
+
+Now that you've configured the labels you're going to use, you can annotate the texts you imported:
+
+In Doccano click *Start Annotation* at the top left.
+
+(Alternatively, you can click *Dataset* and then press the *Annotate* button on a text of your choice)
+
+You will see one of the texts you imported.
+
+![Transcript including annotations exported from LaBB-CAT](TextBeforeTagging.png){fig-alt="Imported transcript text with some lines labelled with the participant ID, and some phrases pre-tagged with annotations exported from LaBB-CAT"}
+
+The participant ID of the speaker appears at the beginning of each speaker turn, and if you exported phrase/span annotations from LaBB-CAT, they will appear tagging the corresponding regions of the text.
+
+To tag a phrase in the text, simply click and drag over the phrase to select it. A menu of tags will appear.
+
+![Click/drag for label menu](ClickDragMenu.png){fig-alt="After clicking and dragging the phrase 'then I'd got inside the toilet', a menu appears next to it listing all tags"}
+
+When you click the desired tag, it will be added to the text.
+
+![New tags appear in the text](NewTag.png){fig-alt="The phrase 'then I'd got inside the toilet' is now tagged as 'narrative-action:complicating action'"}
+
+### Preselect Label for Tagging
+
+Doccano includes a mode for tagging in which you can pre-select the *Label* you want to use, and then the selected *Label* is automatically used whenever you click/drag a phrase. This mode may be quicker as it involves fewer clicks overall.
+
+To use this method of tagging, scroll to the top of the text, and click the desired *Label* in the list on the top right.
+
+![Pre-select a label in the label Types list at the top right of the text](PreselectLabel.png){fig-alt="'Label Types' menu on the top right of the text includes all Labels, and has the 'narrative-action:complicating action' Label ticked"}
+
+Now, whenever you click/drag a phrase in the tex, it will immediately be tagged with the selected *Label*.
+
+Changes are automatically saved. Once you've added all the tags you want in this text, you can move to the next by using the navigation buttons at the top right of the text.
+
+![Buttons for navigating to the first, previous, next, and last text](NavigateBetweenTexts.png){fig-alt="Navigation buttons at the top right of the text allow you to go to the first, previous, next, and last text (respectively)"}
+
+## 4. Export from Doccano
+
+One you've finished annotating all texts, you need to export them with the new tags so they can be imported into LaBB-CAT.
+
+1. In Doccano, click the *Dataset* option on the left-hand menu.
+1. Move the mouse over *Actions* at the top and select *Export Dataset*.  
+   ![Select the 'Export Dataset' action](ExportDataset.png){fig-alt="'Export Dataset' option in the 'Actions' menu"}
+1. Select *JSONL* as the File format
+1. Press *Export*.
+1. Save the resulting *...zip* file.
+1. Extract the *...jsonl* file that is contained in the *...zip* file you just saved.
+
+## 5. Import into LaBB-CAT
+
+### Ensure phrase/span layers exist in LaBB-CAT
+
+When you import the *...jsonl* file into LaBB-CAT, it will extract the new Labels you've added, and assume that each Label is in the format:  
+`{LaBB-CAT-Layer-ID}:{LaBB-CAT-Label}`
+
+Each label will be split on the colon, and the left part will be assumed to be a layer ID, and the right part will be assumed to be the label for annotations on that layer.
+
+If you have added layer ID prefixes for layers that don't exist yet in LaBB-CAT, you have to create the LaBB-CAT layers before importing the *...jsonl* file, so that the new annotations have somewhere to go.
+
+If the new annotations always tag phrases within the same speaker turn (i.e. never cross turn boundaries), then you can add a phrase layer. Otherwise, you must add a span layer.
+
+1. In LaBB-CAT, select *phrase layers* or *span layers* from the menu as appropriate.
+1. At the top of the list of layers, fill in the details of the blank row for the layer to add:
+    - *Layer ID*: the Doccanno Label's prefix (i.e. the part before the colon)
+    - *Type*: *Text*
+    - *Alignment*: *Intervals*
+    - *Manager*: no manager should be selected
+    - *Generate*: Never
+    - *Project*: select a project if desired, or none if not
+    - *Description*: An informative description of the layer, perhaps including a lilst of all labels included.
+1. Click *New* to add the layer
+
+If you have included *Labels* corresponding to multiple LaBB-CAT layers, ensure all the layers have been created in LaBB-CAT before continuing with the import.
+
+### Import Dataset
+
+
+1. In LaBB-CAT, select the *upload* menu option at the top and then the *upload transcripts* option.
+1. Press the first *Choose File* button on the left.
+1. Select the *...json* file you extracted from the *...zip* file above.
+1. Tick the *Update Existing* checkbox.  
+   ![Tick 'Update existing'](UpdateExisting.png){fig-alt="Transcript upload form with 'hayden.blain.jsonl' file selected, the 'Update Existing' option ticked, and an 'Upload' button below"}
+1. Press *Upload*.  
+   You will see a list of all the new *Label* prefixes, with a dropdown box for each for selecting the LaBB-CAT layer that the annotations should be imported into.  
+   ![Ensure all label prefixes are mapped to the correct LaBB-CAT layer](MapLabelPrefixedToLayers.png){fig-alt="The 'hayden.blain.jsonl' file name is shown, with a 'narrative-action' Label prefix, and a dropdown box with the 'narrative-action' LaBB-CAT layer already selected. There's a 'Next' button below."}
+1. Ensure all *Label* prefixes are matched to the correct LaBB-CAT layer
+1. Pres *Next*
+
+Your new annotations will be merged into the existing transcript in LaBB-CAT.
+
+You can double check this by opening on of the transcripts you tagged in LaBB-CAT and ticking the layer(s) of the new annotations. You annotations will appear, lined up with the phrases as you specified in Doccano.

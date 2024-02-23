@@ -47,6 +47,8 @@ website:
           - href: howto/word-frequency/index.qmd
           - section: "Phonemic Tagging"
             contents: howto/phonemic-tagging/*
+          - section: "POS Tagging"
+            contents: howto/pos-tagging/*
           - section: howto/forced-alignment/index.qmd
             contents:
               - href: howto/forced-alignment/bas-services-manager.qmd
@@ -60,6 +62,8 @@ website:
             contents: howto/aligned-data/*
           - section: howto/corpus-management/index.qmd
             contents: howto/corpus-management/*
+          - href: howto/manual-annotation/doccano.qmd
+
 format:
   html:
     theme: cosmo
