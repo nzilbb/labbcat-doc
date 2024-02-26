@@ -1,0 +1,9 @@
+---
+format:
+  html:
+    toc: false
+---
+
+# Workflows
+
+These are workflows for commonly repeated tasks.
