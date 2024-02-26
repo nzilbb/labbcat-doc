@@ -91,7 +91,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../howto/index.html">How-to</a></li><li class="breadcrumb-item"><a href="../../howto/phonemic-tagging/index.html">Phonemic Tagging</a></li><li class="breadcrumb-item"><a href="../../howto/phonemic-tagging/celex.html">CELEX</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      LaBB-CAT Documentation
+      </li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -362,14 +364,14 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../../howto/phonemic-tagging/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Phonemic Tagging</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">CELEX</span></a>
   </div>
 </li>
@@ -546,16 +548,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#phonemic-tagging-with-celex" id="toc-phonemic-tagging-with-celex" class="nav-link active" data-scroll-target="#phonemic-tagging-with-celex">Phonemic Tagging with CELEX</a>
+  <li><a href="#upload-and-force-align-transcripts" id="toc-upload-and-force-align-transcripts" class="nav-link active" data-scroll-target="#upload-and-force-align-transcripts">Upload and Force-align Transcripts</a>
   <ul class="collapse">
-  <li><a href="#getting-celex" id="toc-getting-celex" class="nav-link" data-scroll-target="#getting-celex">1. Getting CELEX</a></li>
-  <li><a href="#saving-the-data-files" id="toc-saving-the-data-files" class="nav-link" data-scroll-target="#saving-the-data-files">2. Saving the data files</a></li>
-  <li><a href="#installing-the-layer-manager" id="toc-installing-the-layer-manager" class="nav-link" data-scroll-target="#installing-the-layer-manager">3. Installing the layer manager</a></li>
-  <li><a href="#generating-annotations" id="toc-generating-annotations" class="nav-link" data-scroll-target="#generating-annotations">4. Generating annotations</a></li>
-  <li><a href="#incomplete-words-and-hesitations" id="toc-incomplete-words-and-hesitations" class="nav-link" data-scroll-target="#incomplete-words-and-hesitations">Incomplete words and hesitations</a></li>
+  <li><a href="#upload-transcripts" id="toc-upload-transcripts" class="nav-link" data-scroll-target="#upload-transcripts">1. Upload Transcripts</a></li>
+  <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link" data-scroll-target="#forced-alignment">2. Forced Alignment</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="celex.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="upload-align-htk.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -563,112 +562,142 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="phonemic-tagging-with-celex" class="level1">
-<h1>Phonemic Tagging with CELEX</h1>
-<p>If you have access to the <a href="https://catalog.ldc.upenn.edu/LDC96L14">CELEX</a> lexical database, you can integrate LaBB-CAT with it, allowing you to annotate words in your transcripts with data from CELEX - that can include:</p>
+<section id="upload-and-force-align-transcripts" class="level1">
+<h1>Upload and Force-align Transcripts</h1>
+<p>This workflow details the steps required to upload new transcripts and then run forced alignment on them.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assumptions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>These instructions assume that</p>
 <ul>
-<li>standard phonemic transcriptions - e.g.&nbsp;“difference” → “dɪfrəns” or “dɪfərəns”</li>
-<li>morphological information - e.g.&nbsp;“difference” → “different+ence”</li>
-<li>possible syntactic category - e.g.&nbsp;“difference” → “N”</li>
-<li>frequency data</li>
-<li>lemma</li>
-<li>syllable count</li>
+<li>you’ve got a LaBB-CAT server set up</li>
+<li>it’s already configured for forced alignment with HTK</li>
+<li>the HTK configuration is designed for the per-speaker train/align procedure</li>
 </ul>
-<p>If you want to do force-aligment (to determine the start and end times of each phone within each word), you will need to start with standard phonemic transcriptions, which CELEX can provide.</p>
-<p>CELEX is essentially a lexical database, available in English, German, and Dutch. You can purchase the database from the <a href="https://catalog.ldc.upenn.edu/LDC96L14">LDC</a>, who provide a number of text files for each language. Once you’ve got these data files, you need to install LaBB-CAT’s CELEX layer manager, which loads the data from the text files into the LaBB-CAT database, and provides mechanisms for generating annotation layers from it.</p>
-<p>The basic steps are:</p>
+</div>
+</div>
+</div>
+<p>There are two sub-tasks:</p>
 <ol type="1">
-<li>Buy CELEX from the <a href="https://catalog.ldc.upenn.edu/LDC96L14">LDC</a>.</li>
-<li>Save the data files on the same computer than LaBB-CAT is installed on. If you have zip files, these must be unzipped.</li>
-<li>Install the CELEX English layer manager (or the German one if your data is in German), providing the location of the files you saved in the previous step</li>
-<li>Create a new word layer, managed by the CELEX English (or German) layer manager, to generate the annotations you want.</li>
+<li>upload the transcripts for a given speaker, and then</li>
+<li>run forced alignment for all of that speaker’s utterances.</li>
 </ol>
-<section id="getting-celex" class="level2">
-<h2 class="anchored" data-anchor-id="getting-celex">1. Getting CELEX</h2>
-<p>The CELEX lexical databases are available from the <a href="http://www.ldc.upenn.edu/">Linguistic Data Consortium</a> (LDC), and are available for English, German, and Dutch. Currently integration with only the English and German databases is supported by LaBB-CAT.</p>
-<p>You can buy the databases online from the <a href="https://catalog.ldc.upenn.edu/LDC96L14">LDC catalogue</a>.</p>
-</section>
-<section id="saving-the-data-files" class="level2">
-<h2 class="anchored" data-anchor-id="saving-the-data-files">2. Saving the data files</h2>
-<p>For each language, the database you receive from the LDC consists of a collection of plain text files, arranged in a set of folders. For the language you are going to install, these files, in their original folders, must be saved on to the same computer that the LaBB-CAT server is running on.</p>
-<p>For example, if you’re going to install the English CELEX data, then you need to end up with a folder on your LaBB-CAT server called ENGLISH, which contains the folders called:</p>
-<ul>
-<li>ECT</li>
-<li>EFL</li>
-<li>EFS</li>
-<li>EFW</li>
-<li>EML</li>
-<li>EMW</li>
-<li>EOL</li>
-<li>EOW</li>
-<li>EPL</li>
-<li>EPW</li>
-<li>ESL</li>
-</ul>
-<p>Each of these subfolders will contain a file named after the subdirectory (e.g.&nbsp;in the <em>ECT</em> folder there’s a file called <em>ECT.CD</em>) and a file called <em>README</em>.</p>
-<p>It doesn’t matter where the top level <em>ENGLISH</em> folder is saved, except that:</p>
-<ul>
-<li>it must be accessible to the LaBB-CAT application (so don’t save it in a private or read-protected location)</li>
-<li>you have to know the path to the folder - e.g.&nbsp;if you’re using a Windows computer, and you save the <em>ENGLISH</em> folder on the <em>C:</em> drive inside a folder called <em>Temp</em>, then the path would be <em>C:\Temp\ENGLISH</em></li>
-</ul>
-</section>
-<section id="installing-the-layer-manager" class="level2">
-<h2 class="anchored" data-anchor-id="installing-the-layer-manager">3. Installing the layer manager</h2>
-<p>The CELEX English (or CELEX German or CELEX Dutch) layer manager is a LaBB-CAT module that handles the integration with the CELEX database. It does two tasks:</p>
-<ul>
-<li>When you install the layer manager, it reads all of the data from the CELEX files, and loads it into a relational database that is part of LaBB-CAT (So once you’ve installed the layer manager successfully, you can delete the original CELEX files if you want to, as LaBB-CAT doesn’t need them any more).</li>
-<li>After installation, the layer manager handles looking up relevant data from its database, and using it to generate annotations for words.</li>
-</ul>
-<p>To install the layer manager:</p>
-<ol type="1">
-<li>In LaBB-CAT, select on the <em>layer managers</em> link on the menu.</li>
-<li>At the bottom of the page, follow the <em>List of layer managers that are not yet installed</em> link.</li>
-<li>Look for <em>CELEX English</em> (or <em>CELEX Dutch</em> or <em>CELEX German</em>, depending on your needs) and press its <em>Install</em> button.</li>
-<li>You will see a form that asks for some information. Mostly the values are already filled in, and you can leave the default values as they are. The one important field you must specify is the <em>ENGLISH data folder</em> (or <em>GERMAN data folder</em>). You must fill in the path to the folder here. For example if you’re using a Windows computer, and you saved the <em>ENGLISH</em> folder on the <em>C:</em> drive inside a folder called <em>Temp</em>, then the path you enter here should be <code>C:\Temp\ENGLISH</code></li>
-<li>Click <em>Install Layer Manager</em>.</li>
-<li>During the installation, you will see a progress bar, and information about the files currently being loaded from the CELEX folders. This may take a few minutes. Once it’s finished, the CELEX Layer Manager help page will appear, telling you what to do next (or you can navigate back to this page, and follow the instructions below).</li>
+<p>These two broad steps will be repeated for each speaker.</p>
+<section id="upload-transcripts" class="level2">
+<h2 class="anchored" data-anchor-id="upload-transcripts">1. Upload Transcripts</h2>
+<p>As forced alignment is done on a per-speaker database, it’s best to upload all the transcripts that a speaker appears in before running forced alignment.</p>
+<ol class="example" type="1">
+<li>Choose a speaker/participant to upload.</li>
+<li>Identify all the transcripts/recordings that they appear in. This may be only one transcript, which is fine. But if they’re in more than one recording, they should all be uploaded before forced alignment, to maximise the amount of speech available for training acoustic models for alignment.</li>
+<li>In LaBB-CAT, select the <em>upload</em> option in the menu.</li>
+<li>Select the first option, <em>upload transcripts</em>.</li>
+<li>Press the left-hand <em>Choose File</em> button and select the first transcript file (it may be a <em>.eaf</em> ELAN file, or a Praat <em>.TextGrid</em> file, etc.).</li>
 </ol>
-</section>
-<section id="generating-annotations" class="level2">
-<h2 class="anchored" data-anchor-id="generating-annotations">4. Generating annotations</h2>
-<p>The CELEX layer manager can be configured to annotate word tokens in your transcripts with data found in the CELEX database. As these annotations are about individual words, the layer manager can be used for ‘word layers’ (only).</p>
-<p>To create a new layer with CELEX annotations:</p>
-<ol type="1">
-<li>Select on the <em>word layers</em> menu option.</li>
-<li>The row of headers at the top of the list is also a form you can fill in to add a new layer.<br>
-Fill in the following details:
-<ul>
-<li><em>Layer ID</em>: Enter a descriptive label - e.g.&nbsp;<code>phonemes</code></li>
-<li><em>Type</em>: <em>Phonological</em></li>
-<li><em>Manager</em>: <em>CELEX English</em> (or <em>CELEX German</em> or <em>CELEX Dutch</em>)</li>
-<li><em>Alignment</em>: <em>None</em> (as these are simply tags on the orthographic words)</li>
-<li><em>Generate</em>: <em>Always</em></li>
-<li><em>Description</em>:<br>
-All possible phonemic transcriptions of each word, according to the CELEX lexicon, encoded using DISC symbols*</li>
-</ul></li>
-<li>Press the <em>New</em> button to create the layer.<br>
-You will see a form that allows you to specify what the layer should generate.<br>
-</li>
-<li>Select the <em>Phonology</em> option on the left to generate phonemic transcriptions.</li>
-<li>Tick the <em>Pronounce Event Override</em> option; this means that if a particular token is annotated on the pronounce layer, that annotation will take precedence over any pronunciation that might be found in CELEX.<br>
-<img src="CELEXPhonologyConfiguration.png" class="img-fluid" alt="Configuration options for generating phonemic transcriptions"></li>
-<li>Press <em>Save</em></li>
-<li>Press <em>Renegerate</em></li>
+<p>When you select a file, a new row of <em>Choose File</em> buttons will appear below the first. This is for adding more transcripts in the ‘episode’. An ‘episode’ is a set of transcripts that belong together because they were recorded during the same session. Unless your recordings for a speaker wer all recorded on the same day, each recording session has only one recording.</p>
+<ol start="6" class="example" type="1">
+<li>Next to <em>Media</em> on the first row, press <em>Choose File</em></li>
+<li>Select the <em>.wav</em> file that corresponds to the transcript.</li>
+<li>Ensure the <em>Corpus</em> option is correct for the transcript you’re uploading.</li>
+<li>Ensure the <em>Type</em> option is correct (e.g.&nbsp;<em>interview</em> for an interview, <em>word-list</em> for a word list reading, etc.)</li>
+<li>Leave the other options as-is, and press <em>Upload</em></li>
 </ol>
-<p>LaBB-CAT will then generate annotations for all the transcripts you already have in your database. If you have a lot of data, this may take a while.</p>
-<p>From now on, when you upload a new transcript, the CELEX annotations will automatically be generated for it.</p>
-</section>
-<section id="incomplete-words-and-hesitations" class="level2">
-<h2 class="anchored" data-anchor-id="incomplete-words-and-hesitations">Incomplete words and hesitations</h2>
-<p>Sometimes speakers start saying a word but don’t finish it. The CELEX layer manager includes some special handling for these case, so that it’s possible to tag them with a pronunciation even though the complete word is not uttered.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="upload-transcript.png" class="img-fluid figure-img" alt="The upload form has a .eaf file selected on the left and a .wav file selected on the right, whith two Choose File buttons below, and upload uptions including Corpus and Type"></p>
+<figcaption>Select the transcript on the left and the media on the right</figcaption>
+</figure>
+</div>
+<p>ELAN/Praat transcripts have a number of Tiers defined in them, e.g.:</p>
 <ul>
-<li>For a hesitation for which multiple syllables are uttered, these can be transcribed up to the point the speaker stops, and then a tilde <code>~</code> is used to indicate the word was cut off. Then the pronunciation of the word can be manually entered on the pronounce layer, and it will be copied to the CELEX layer as long as the Pronounce Event Override option is ticked.<br>
-e.g.&nbsp;if you are using ELAN or Praat for transcripts, you can provide pronounce tags in square brackets, directly after the word with no intervening whitespace, directly in the transcript:<br>
-<code>hesi~[hEz@]</code>.<br>
-If you are using Transcriber for transcripts, Transcriber has a mechanism for adding pronunciations to word tokens; just use that.</li>
-<li>For very short hesitations, where only one or teo sounds are uttered, simply transcribing a couple of letters followed by a <code>~</code> is often sufficient; for such very short hesitations, the CELEX Layer Manager will provide a likely pronunciation. e.g.<br>
-<code>he~</code></li>
+<li>one for the participant's utterances,</li>
+<li>another for an ‘interviewer’ if there is one,</li>
+<li>one for noise annotations,</li>
+<li>one for transcriber comments, and</li>
+<li>one for topic annotations.</li>
 </ul>
+<p>Each tier must be mapped to a LaBB-CAT annotation layer.</p>
+<p>Now that you’ve uploaded the file, LaBB-CAT has analysed the structure of the transcript file and pre-selected some default options for layer mappings. These defaults are correct under most circumstances, but it’s a good idea to double-check that</p>
+<ul>
+<li>tiers that contain transcripts of speech are mapped to <em>utterance</em> and</li>
+<li>tiers that contain other information aren’t mapped to <em>utterance</em>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="map-tiers-to-layers.png" class="img-fluid figure-img" alt="A column of ELAN tiers is listed on the left, each with a dropdown selector of LaBB-CAT layers on the right. Noise, comment, and topic tiers are mapped to layers with the same name, while tiers named after speakers are mapped to the 'utterance' layer."></p>
+<figcaption>Check mappings of tiers to layers</figcaption>
+</figure>
+</div>
+<ol start="11" class="example" type="1">
+<li>Click <em>Next</em> to continue.<br>
+This will display a page listing all the speakers in the transcript, so you can select which one is the ‘main participant’, which is the speaker selected by default for searches and other processing.</li>
+<li>Ensure that the target speaker is ticked, and others like the interviewer are not ticked, and click <em>Set Main Participants</em>.<br>
+This will display a page with the name of transcript you uploaded, with an <em>edit meta-data</em> link, and a progress bar (which may have already finished). The progress bar indicates progress with processing of automatically generated annotations.</li>
+<li>Ensure the progress bar finishes, and there are no errors.</li>
+</ol>
+<p>If there are more transcripts to upload for this speaker, you can repeat from step 5. above, using the form below the heading ‘select transcripts to upload’.</p>
+<ol start="14" class="example" type="1">
+<li>Click the name of the (last) transcript you uploaded.<br>
+This opens LaBB-CAT’s interactive transcript page.</li>
+<li>Double check that the transcript text appears correct and that the media playback control appears on the top right.</li>
+<li>Click on an utterance and select the <em>Play</em> option from the resulting menu.<br>
+Ensure that the audio corresponding to the given utterance is played.</li>
+</ol>
+<p>At this point, the transcripts have been uploaded and are ready for forced alignment.</p>
+</section>
+<section id="forced-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="forced-alignment">2. Forced Alignment</h2>
+<p>To start a forced-alignment process per-speaker, you need to first select a speaker who will be aligned. Then you will fill in any pronunciations that are missing from the dictionart. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.</p>
+<ol start="17" class="example" type="1">
+<li>In LaBB-CAT, select the <em>participants</em> option on the menu</li>
+<li>Find and tick the speaker.</li>
+<li>Press the <em>All Utterances</em> button</li>
+<li>Click <em>List</em></li>
+<li>Once the paginated list of utterances appears, press the <em>Htk</em> button below.</li>
+</ol>
+<p>Basically you need to fill in the boxes with the pronunciations and click <em>Save Pronunciations</em>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>You don’t have to fill them all in at once, you can do a few, and click <em>Save</em>, which will save your work and list what’s left.</li>
+<li>You don’t have to fill them all in, you can leave some empty and continue with the HTK forced-alignment by clicking <em>Start</em> (HTK will ignore any lines where the remaining unknown words appear, but the ones you filled in will be included).</li>
+<li>Some of the boxes will be initially filled in with a suggestion from the lexicon layer manager - these may or may not be correct, and aren’t saved until you save them.</li>
+<li>The pronunciations have to be in the ‘DISC’ format - i.e.&nbsp;one character per phoneme, with no spaces. There’s a ‘helper’ link on the right of each pronunciation box - if you click it, it expands into a list of clickable phonemes - just the ones that aren’t ordinary letters, and diphthongs etc.</li>
+<li>The <em>search</em> button lets you look up the lexicon for similar words - this probably won’t help for place names, but for words like “tarseal”, you can click the <em>lookup</em> button, enter “tar seal” in the box as two separate words, and you’ll get back the DISC pronunciation of each word, with clickable buttons to copy the given pronunciation into the box. This is useful for digits and numbers too, which may not be in the lexicon - so for “1”, search for “one” and copy the pronunciation.</li>
+<li>If you click on the word itself, the transcript for the first instance of that word is opened, in case you want to listen to it, or in case it’s actually just a typo and you want to correct the transcript.</li>
+<li>If you’re using CELEX, when you specify the pronunciations, it’s recommended to put syllable separators (-) and primary stress markers (’) too - e.g.&nbsp;for “tarseal” you can put <em>t#sil</em> but it would actually be better to put <em>t#-’sil</em>. These markers are entered into the dictionary even though they’re stripped out for HTK, and they may come in handy later (e.g.&nbsp;the syllable separators are used by the CELEX layer manager to count syllables).</li>
+</ul>
+</div>
+</div>
+<p>When you add pronunciations this way, they’re added to the dictionary and all the instances of those words in LaBB-CAT are updated with the pronunciations - not just the participant you’re looking at, but all participants in the database. So you only have to come up with a pronunciation for each word once.</p>
+<ol start="22" class="example" type="1">
+<li>Once you’ve filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you’ve entered all pronunciations, click the <em>Start</em> button at the bottom of the page.<br>
+<br>
+You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.</li>
+</ol>
+<p>Once HTK has produced the word and segment alignments, it:</p>
+<ul>
+<li>sets the start/end times of the words on the transcript layer accordingly,</li>
+<li>adds new phone annotations to the <em>segments</em> layer with the alignments of the phones, and</li>
+<li>saves a timestamp in the <em>htk</em> layer.</li>
+</ul>
+<p>When the layer manager has finished, you’ll see a message saying “Complete - words and phones from selected utterances are now aligned.”</p>
 
 
 </section>

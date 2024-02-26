@@ -542,7 +542,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cmudict.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#phonemic-tagging-with-cmu-pronouncing-dictionary" id="toc-phonemic-tagging-with-cmu-pronouncing-dictionary" class="nav-link active" data-scroll-target="#phonemic-tagging-with-cmu-pronouncing-dictionary">Phonemic Tagging with CMU Pronouncing Dictionary</a>
+  <ul class="collapse">
+  <li><a href="#install-the-layer-manager" id="toc-install-the-layer-manager" class="nav-link" data-scroll-target="#install-the-layer-manager">Install the Layer Manager</a></li>
+  </ul></li>
+  <li><a href="#create-an-annotation-layer" id="toc-create-an-annotation-layer" class="nav-link" data-scroll-target="#create-an-annotation-layer">Create an Annotation Layer</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="cmudict.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -553,7 +564,9 @@ ul.task-list li input[type="checkbox"] {
 <h1>Phonemic Tagging with CMU Pronouncing Dictionary</h1>
 <p>LaBB-CAT can be integrated with the <a href="http://www.speech.cs.cmu.edu/cgi-bin/cmudict">CMU Pronouncing Dictionary</a>, which is a free pronouncing dictionary of English maintained by the Speech Group in the School of Computer Science at Carnegie Mellon University. The pronunciations are based on American English, so are suitable for American English recordings.</p>
 <p>Integrating this lexicon with LaBB-CAT is achieved with the “CMU Dictionary Layer Manager”. As CMU has kindly granted permission to freely distribute the dictionary file, you don’t need to download the file from the CMU site; it’s included in the layer manager that you will install.</p>
-<p>To install this layer manager:</p>
+<section id="install-the-layer-manager" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-layer-manager">Install the Layer Manager</h2>
+<p>First, the CMUDict layer manager module must be installed:</p>
 <ol type="1">
 <li>Select the <em>layer managers</em> menu option.</li>
 <li>Follow the <em>List of layer managers that are not yet installed</em> link near the bottom.</li>
@@ -561,6 +574,10 @@ ul.task-list li input[type="checkbox"] {
 You will see a progress bar while the layer manager loads the data from the dictionary file into the LaBB-CAT database. This will take a minute or so.</li>
 <li>Once it’s finished, you will see a new window open with information about the CMU Pronouncing Dictionary layer manager. Reading this information page, you will see some instructions on how to create a pronunciation annotation layer.</li>
 </ol>
+</section>
+</section>
+<section id="create-an-annotation-layer" class="level1">
+<h1>Create an Annotation Layer</h1>
 <p>To create a new layer with CMUdict annotations:</p>
 <ol type="1">
 <li>Select on the <em>word layers</em> menu option - this will display a list of all the word layers you already have in the database.</li>

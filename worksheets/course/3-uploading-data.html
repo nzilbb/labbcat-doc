@@ -697,12 +697,12 @@ Most likely, the correct options are already selected, as we’ve already set up
 <ul>
 <li>The CSV column <strong>name:</strong> → <em>ignore</em> because it's the <em>Participant Identity Column</em> identified above</li>
 <li>The CSV column <strong>gender:</strong> → the <em>Gender</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>age_category:</strong> → the <em>Age</em> LaBB-CAT attribute</li>
+<li>The CSV column <strong>ageCategory:</strong> → the <em>Age</em> LaBB-CAT attribute</li>
 <li>The CSV column <strong>ethnicity:</strong> → the <em>Ethnicity</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>grew_up:</strong> → the <em>grew_up</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>grew_up_region:</strong> → the <em>grew_up_region</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>grew_up_town:</strong> → the <em>grew_up_town</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>languages_spoken:</strong> → the <em>languages_spoken</em> LaBB-CAT attribute</li>
+<li>The CSV column <strong>grewUup:</strong> → the <em>grewUp</em> LaBB-CAT attribute</li>
+<li>The CSV column <strong>grewUpRegion:</strong> → the <em>grewUpRegion</em> LaBB-CAT attribute</li>
+<li>The CSV column <strong>grewUpTown:</strong> → the <em>grewUpTown</em> LaBB-CAT attribute</li>
+<li>The CSV column <strong>languagesSpoken:</strong> → the <em>languagesSpoken</em> LaBB-CAT attribute</li>
 </ul></li>
 <li>Click <em>import</em>.<br>
 You should see a page with information about the import, including the columns that were ignored, and the number of participants that were added.</li>
@@ -801,7 +801,7 @@ Tip
 <li><strong>Title:</strong> Languages</li>
 <li><strong>Prompt:</strong> What languages do you speak?</li>
 <li><strong>Elicit:</strong> <em>Attribute Value</em></li>
-<li><strong>Attribute:</strong> <em>participant_languages_spoken</em></li>
+<li><strong>Attribute:</strong> <em>participant_languagesSpoken</em></li>
 <li><strong>Image/Video:</strong> <em>no image/video</em></li>
 </ul></li>
 <li>Click the <img src="add.png" class="img-fluid"> button to add a new step</li>
@@ -871,33 +871,36 @@ You will see that all the options (<code>M</code>, <code>F</code>, and ‘(not s
 <li>Select the <em>elicitation tasks</em> option on the menu.</li>
 <li>Press the <em>Elicitation Task</em> button on the bottom right.<br>
 You should see a page that displays the task’s ‘preamble’ that you defined earlier.</li>
-</ol>
-<ol start="33" type="1">
 <li>Click <em>Next</em>.<br>
 You should see a page that displays the task’s <em>consent</em> form that you defined earlier, with a box to enter your name in order to ‘sign’ the consent.</li>
 <li>Enter your name and click <em>Next</em>.<br>
 You will be given the chance to save your copy of the consent form.</li>
 <li>Save the consent form and open it to check the contents.</li>
 <li>Close the consent form to return to the task.<br>
-You should see a page with some text about enabling your microphone.<br>
-If you don’t, and instead see a message about your browser not being supported, this means that your web browser doesn’t support recording sound. In this case, copy the address of the page at the top, and paste it into another browser (e.g.&nbsp;Google Chrome or Mozilla Firefox).</li>
-<li>Click <em>Next</em> and follow the instructions.</li>
+You will be asked for the demographic details you defined earlier.<br>
+</li>
+<li>Fill in your languages and press <em>Next</em>.</li>
+<li>Fill in your gender and press <em>Next</em>.</li>
 </ol>
-<p>Once you've enabled your browser for access to your microphone, you will be asked for the demographic details you defined earlier.</p>
-<p>After you enter these, the task steps will begin, and you should follow the instructions, reading the prompts aloud and clicking <em>Next</em> after each group of words.</p>
+<p>You should see a page with some text about enabling your microphone.</p>
+<p>If you don’t, and instead see a message about your browser not being supported, this means that your web browser doesn’t support recording sound. In this case, copy the address of the page at the top, and paste it into another browser (e.g.&nbsp;Google Chrome or Mozilla Firefox).</p>
+<p>Once you've enabled your browser for access to your microphone, the task steps will begin, and you should follow the instructions, reading the prompts aloud and clicking <em>Next</em> after each group of words.</p>
 <p>Each time somebody performs the task, they're assigned a unique Participant ID, which is linked to their demographic data and the recordings.</p>
-<ol start="82" class="example" type="1">
+<ol start="88" class="example" type="1">
 <li>Press the <em>Back</em> button on your browser to return to the <em>define elicitation tasks</em> page in LaBB-CAT.</li>
 <li>Press the <em>participants</em> option on the menu.</li>
 <li>Under the <em>Corpus</em> heading, select the <em>CC</em> option.<br>
 You will see one participant; the one you just created by doing the task.</li>
 <li>Press the participant ID to open their attributes page, and check that the demographic information you entered has been saved.</li>
 <li>Press the participant ID to open their attributes page, and check You will see that the participant has five transcripts, one for each of the task steps where audio was recorded.</li>
-<li>Press the <em>Transcripts</em> link at the bottom to lilst the transcripts.</li>
+<li>Press the <em>Transcripts</em> link at the bottom to list the transcripts.</li>
 <li>Open the first transcript.<br>
 You will see that the transcript starts with a comment, which is the prompt text you were shown during the step, and that the transcript contains one utterance.</li>
 <li>Play the audio to ensure it was recorded correctly.<br>
 (If the last transcript you looked at had video, you may need to tick the checkbox next to the “wav” option in the top right corner, in order to select audio for playback.)</li>
+<li>On the right hand edge of the page, about halfway down, there is a green arrow icon <img src="go-next.png" class="img-fluid">.<br>
+Press it.<br>
+You will see that this opens the next transcript in the ‘episode’ that you just recorded- i.e.&nbsp;the next set of words you read out. The green arrows on the left <img src="go-previous.png" class="img-fluid"> and the right <img src="go-next.png" class="img-fluid"> of the screen allow you to navigate between the different transcripts in the same recording episode.</li>
 </ol>
 <p>Although these ‘task step’ transcripts are very short, they behave the same as any other transcript; they can be exported, annotated, searched, etc.</p>
 <hr>

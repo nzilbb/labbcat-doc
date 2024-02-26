@@ -570,8 +570,9 @@ ul.task-list li input[type="checkbox"] {
 <p>To do this:</p>
 <ol type="1">
 <li>Select the <em>word layers</em> menu option.<br>
-You will see a list of word layers</li>
-<li>Add a new layer, with the following settings:
+You will see a list of word layers.</li>
+<li>The row of headers at the top of the list is also a form you can fill in to add a new layer.<br>
+Fill in the following details:
 <ul>
 <li><em>Layer ID</em>: <code>frequency</code></li>
 <li><em>Type</em>: <em>Number</em></li>
@@ -580,15 +581,17 @@ You will see a list of word layers</li>
 <li><em>Generate</em>: <em>Always</em></li>
 <li><em>Description</em>: <code>Count of tokens of the same type across all corpora.</code></li>
 </ul></li>
-<li>Press the <em>New</em> button</li>
+<li>Press the <em>New</em> button to add the layer.</li>
 <li>You will see the layer configuration form. Fill it in with the following details:
 <ul>
 <li><em>Summary</em>: <em>Raw Count</em></li>
 <li><em>Layer to summarize</em>: <em>orthography</em></li>
 <li><em>Scope of Summary</em>: <em>Database</em></li>
 <li><em>Main participants only</em>: ticked</li>
+<li><em>Participants</em>: unticked</li>
 <li><em>Filter Layer</em>: unticked</li>
 <li><em>Word pairs</em>: unticked</li>
+<li><em>WordPause Markers</em>: (Leave this box empty)</li>
 <li><em>Transcript types</em>: If you have a word-list or reading trascript type, un-tick it to ensure that your readings don’t make certain words over-represented in the frequency counts.</li>
 <li><em>Annotate tokens</em>: ticked<br>
 If you want more information about what these options mean, check the online help page by clicking the question-mark icon at the top right of the page. This will provide information about how to break down counts by corpus, by speaker, etc.</li>
@@ -676,13 +679,15 @@ For this option to work, you must have frequencies from a reference corpus loade
 <li><em>Alignment</em>: <em>Intervals</em></li>
 <li><em>Manager</em>: <em>Frequency Layer Manager</em></li>
 <li><em>Generate</em>: <em>Always</em></li>
+<li><em>Description</em>: <code>Bigram frequencies</code></li>
 </ul></li>
 <li>On the configuration page, use the following settings:
 <ul>
 <li><em>Summary</em>: <em>Raw Count</em></li>
-<li><em>Layer to Summarize</em>: <em>orthrogphy</em> (unless you’re interested in combinations of stems/lemmas, in which case select your stem/lemma layer)</li>
+<li><em>Layer to Summarize</em>: <em>orthography</em> (unless you’re interested in combinations of stems/lemmas, in which case select your stem/lemma layer)</li>
 <li><em>Scope of Summary</em>: <em>Database</em></li>
 <li><em>Main participants only</em>: ticked (unless you want to include interviewer speech or other incidental speakers)</li>
+<li><em>Participants</em>: unticked</li>
 <li><em>Filter Layer</em>: unticked</li>
 <li><em>N-gram</em>: ticked, and leave the <em>bigram</em> option selected</li>
 <li>Under Transcript Types you may want to un-tick ‘word list’ or ‘reading’ transcript types, if you have them, in order to only include spontaneous speech</li>
@@ -699,8 +704,20 @@ For this option to work, you must have frequencies from a reference corpus loade
 </figure>
 </div>
 <p>For example, you can see that the bigram “first one” appears 7 times in this corpus.</p>
-<p>For example, you can see that the bigram “first one” appears 7 times in this corpus.</p>
 <p>You can see that each word token is covered by two annotations; for when it’s the first word in the bigram, and for when it’s the second word in the bigram. For example, the token “one” above is at the beginning of the “one being” bigram (labelled “1”), and at the end of the “first one” bigram (labelled “7”).</p>
+<p>When you extract bigram frequency annotations in search results, you can extract both of these frequencies; when you do a search, expand the CSV Export options to select layers, and tick the bigram layer, you will see a box with a number appear. Enter <code>2</code> in the box to extract two <em>bigram</em> annotations per match.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CSVExportTwoBigram.png" class="img-fluid figure-img" alt="The bigram layer is ticked, and '2' is entered in the text box"></p>
+<figcaption>Extract 2 bigram annotations per match</figcaption>
+</figure>
+</div>
+<p>The resulting CSV file will have two columns for the <em>bigram</em> layer:</p>
+<ul>
+<li><code>Target bigram 1</code> - the chronologically first bigram the target is part of (i.e.&nbsp;where it is the second word).</li>
+<li><code>Target bigram 2</code> - the chronologically second bigram the target is part of (i.e.&nbsp;where it is the first word).</li>
+</ul>
+<p>(You will also have <em>Target bigram 1 start</em>, <em>Target bigram 1 end</em>, <em>Target bigram 2 start</em>, and <em>Target bigram 2 end</em> columns; these will contain the start and end times of the bigram annotations, but only if the words have been aligned.)</p>
 <!-- TODO this is no longer true - un-comment when it's true again...
 
 When you extract bigram frequency annotations in search results, you can extract either or both of these frequencies; when you do a search, expand the CSV Export options to select layers, and tick the bigram layer, you will see a box with a number appear, with an 'anchor' icon either side:
