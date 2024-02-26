@@ -199,15 +199,15 @@ file) that we can upload in one go.
     -   The CSV column **name:** → *ignore* because it\'s the
         *Participant Identity Column* identified above
     -   The CSV column **gender:** → the *Gender* LaBB-CAT attribute
-    -   The CSV column **age\_category:** → the *Age* LaBB-CAT attribute
+    -   The CSV column **ageCategory:** → the *Age* LaBB-CAT attribute
     -   The CSV column **ethnicity:** → the *Ethnicity* LaBB-CAT
         attribute
-    -   The CSV column **grew\_up:** → the *grew\_up* LaBB-CAT attribute
-    -   The CSV column **grew\_up\_region:** → the *grew\_up\_region*
+    -   The CSV column **grewUup:** → the *grewUp* LaBB-CAT attribute
+    -   The CSV column **grewUpRegion:** → the *grewUpRegion*
         LaBB-CAT attribute
-    -   The CSV column **grew\_up\_town:** → the *grew\_up\_town*
+    -   The CSV column **grewUpTown:** → the *grewUpTown*
         LaBB-CAT attribute
-    -   The CSV column **languages\_spoken:** → the *languages\_spoken*
+    -   The CSV column **languagesSpoken:** → the *languagesSpoken*
         LaBB-CAT attribute
 (@) Click *import*.\
     You should see a page with information about the import, including
@@ -315,7 +315,7 @@ ask for their gender and what languages they speak.
     -   **Title:** Languages
     -   **Prompt:** What languages do you speak?
     -   **Elicit:** *Attribute Value*
-    -   **Attribute:** *participant_languages_spoken*
+    -   **Attribute:** *participant_languagesSpoken*
     -   **Image/Video:** *no image/video*
 (@) Click the ![](add.png) button to add a new step
 (@) Fill in the following details:
@@ -386,26 +386,27 @@ Now you're going to run through the elicitation task yourself ...
 (@) Select the *elicitation tasks* option on the menu.
 (@) Press the *Elicitation Task* button on the bottom right.\
     You should see a page that displays the task's 'preamble' that you defined earlier.
-33. Click *Next*.\
+(@) Click *Next*.\
     You should see a page that displays the task's *consent* form that
     you defined earlier, with a box to enter your name in order to
     'sign' the consent.
-34. Enter your name and click *Next*.\
+(@) Enter your name and click *Next*.\
     You will be given the chance to save your copy of the consent form.
-35. Save the consent form and open it to check the contents.
-36. Close the consent form to return to the task.\
-    You should see a page with some text about enabling your
-    microphone.\
-    If you don't, and instead see a message about your browser not
-    being supported, this means that your web browser doesn't support
-    recording sound. In this case, copy the address of the page at the
-    top, and paste it into another browser (e.g. Google Chrome or Mozilla Firefox).
-37. Click *Next* and follow the instructions.
+(@) Save the consent form and open it to check the contents.
+(@) Close the consent form to return to the task.\
+    You will be asked for the demographic details you defined earlier.\
+(@) Fill in your languages and press *Next*.
+(@) Fill in your gender and press *Next*.
 
-Once you\'ve enabled your browser for access to your microphone, you
-will be asked for the demographic details you defined earlier.
+You should see a page with some text about enabling your microphone.
 
-After you enter these, the task steps will begin, and you should
+If you don't, and instead see a message about your browser not
+being supported, this means that your web browser doesn't support
+recording sound. In this case, copy the address of the page at the
+top, and paste it into another browser (e.g. Google Chrome or Mozilla Firefox).
+
+Once you\'ve enabled your browser for access to your microphone, 
+the task steps will begin, and you should
 follow the instructions, reading the prompts aloud and clicking
 *Next* after each group of words.
 
@@ -422,7 +423,7 @@ recordings.
 (@) Press the participant ID to open their attributes page, and check
     You will see that the participant has five transcripts, one for each
     of the task steps where audio was recorded.
-(@) Press the *Transcripts* link at the bottom to lilst the transcripts.
+(@) Press the *Transcripts* link at the bottom to list the transcripts.
 (@) Open the first transcript.\
     You will see that the transcript starts with a comment, which is the
     prompt text you were shown during the step, and that the transcript
@@ -431,6 +432,9 @@ recordings.
     (If the last transcript you looked at had video, you may need to
     tick the checkbox next to the "wav" option in the top right corner,
     in order to select audio for playback.)
+(@) On the right hand edge of the page, about halfway down, there is a green arrow icon ![](go-next.png).\
+    Press it.\
+    You will see that this opens the next transcript in the 'episode' that you just recorded- i.e. the next set of words you read out. The green arrows on the left ![](go-previous.png) and the right ![](go-next.png) of the screen allow you to navigate between the different transcripts in the same recording episode.
 
 Although these 'task step' transcripts are very short, they behave the
 same as any other transcript; they can be exported, annotated, searched,

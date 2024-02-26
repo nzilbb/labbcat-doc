@@ -21,7 +21,7 @@ lexical database, you can integrate LaBB-CAT with it, allowing you to annotate w
 
 If you want to do force-aligment (to determine the start and end times of each phone within each word), you will need to start with standard phonemic transcriptions, which CELEX can provide.
 
-CELEX is essentially a lexical database, available in English, German, and Dutch (although the Dutch database is not yet supported by LaBB-CAT).  You can purchase the database from the 
+CELEX is essentially a lexical database, available in English, German, and Dutch.  You can purchase the database from the 
 [LDC](https://catalog.ldc.upenn.edu/LDC96L14),
 who provide a number of text files for each language.  Once you've got these data files, you need to install LaBB-CAT's CELEX layer manager, which loads the data from the text files into the LaBB-CAT database, and provides mechanisms for generating annotation layers from it.
 
@@ -79,8 +79,8 @@ To install the layer manager:
 1. In LaBB-CAT, select on the *layer managers* link on the menu.
 1. At the bottom of the page, follow the *List of layer managers that are not yet installed* link.
 1. Look for *CELEX English* (or *CELEX Dutch* or *CELEX German*, depending on your needs) and press its *Install* button.
-1. You will see a form that asks for some information.  Mostly the values are already filled in, and you can leave the default values as they are.  The one important field you must specify is the *ENGLISH data folder* (or *GERMAN data folder*).  You must fill in the path to the folder here.  For example if you're using a Windows computer, and you saved the *ENGLISH* folder on the *C:* drive inside a folder called *Temp*, then the path you enter here should be *C:\\Temp\\ENGLISH*
-1. Click Install Layer Manager.
+1. You will see a form that asks for some information.  Mostly the values are already filled in, and you can leave the default values as they are.  The one important field you must specify is the *ENGLISH data folder* (or *GERMAN data folder*).  You must fill in the path to the folder here.  For example if you're using a Windows computer, and you saved the *ENGLISH* folder on the *C:* drive inside a folder called *Temp*, then the path you enter here should be `C:\Temp\ENGLISH`
+1. Click *Install Layer Manager*.
 1. During the installation, you will see a progress bar, and information about the files currently being loaded from the CELEX folders.  This may take a few minutes. Once it's finished, the CELEX Layer Manager help page will appear, telling you what to do next (or you can navigate back to this page, and follow the instructions below).
 
 ## 4. Generating annotations
@@ -90,13 +90,16 @@ The CELEX layer manager can be configured to annotate word tokens in your transc
 To create a new layer with CELEX annotations:
 
 
-1. Select on the *word layers* menu option - this will display a list of all the word layers you already have in the database.
-1. At the top of the list, there's a blank form for creating a new layer  - fill this form in:
-  - ID - enter a one- or two-word description - e.g. phonemes
-  - layer type - select the option that suits what you want the layer to contain. e.g. if it's a layer of phonemic transcriptions, select *Phonological*, if it will be frequency data, select *Number*, and otherwise, select *Text*
-  - layer manager - select *CELEX English* (or *CELEX German* or *CELEX Dutch*)
-  - alignment - select *None* (as these are simply tags on the orthographic words)
-  - generate - select *Always*
+1. Select on the *word layers* menu option.
+1. The row of headers at the top of the list is also a form you can fill in to add a new layer.\
+   Fill in the following details:
+   - *Layer ID*: Enter a descriptive label - e.g. `phonemes`
+   - *Type*: *Phonological*
+   - *Manager*: *CELEX English* (or *CELEX German* or *CELEX Dutch*)
+   - *Alignment*: *None* (as these are simply tags on the orthographic words)
+   - *Generate*: *Always*
+   - *Description*:\
+    All possible phonemic transcriptions of each word, according to the CELEX lexicon, encoded using DISC symbols*
 1. Press the *New* button to create the layer.  
     You will see a form that allows you to specify what the layer should generate.  
 1. Select the *Phonology* option on the left to generate phonemic transcriptions.

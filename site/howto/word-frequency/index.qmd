@@ -16,22 +16,25 @@ LaBB-CAT can generate frequency data about your corpus; i.e. count the number of
 To do this:
 
 1. Select the *word layers* menu option.  
-   You will see a list of word layers
-1. Add a new layer, with the following settings:
+   You will see a list of word layers.
+1. The row of headers at the top of the list is also a form you can fill in to add a new layer.\
+   Fill in the following details:
     - *Layer ID*: `frequency`
     - *Type*: *Number*
     - *Alignment*: *None*
     - *Manager*: *Frequency Layer Manager*
     - *Generate*: *Always*
     - *Description*: `Count of tokens of the same type across all corpora.`
-1. Press the *New* button
+1. Press the *New* button to add the layer.
 1. You will see the layer configuration form. Fill it in with the following details:
     - *Summary*: *Raw Count*
     - *Layer to summarize*: *orthography*
     - *Scope of Summary*: *Database*
     - *Main participants only*: ticked
+    - *Participants*: unticked
     - *Filter Layer*: unticked
     - *Word pairs*: unticked
+    - *WordPause Markers*: (Leave this box empty)
     - *Transcript types*: If you have a word-list or reading trascript type, un-tick it to ensure that your readings don't make certain words over-represented in the frequency counts.
     - *Annotate tokens*: ticked  
     If you want more information about what these options mean, check the online help page by clicking the question-mark icon at the top right of the page. This will provide information about how to break down counts by corpus, by speaker, etc.
@@ -112,11 +115,13 @@ For example, to tag bigrams with their frequencies:
     - *Alignment*: *Intervals*
     - *Manager*: *Frequency Layer Manager*
     - *Generate*: *Always*
+    - *Description*: `Bigram frequencies`
 1. On the configuration page, use the following settings:
     - *Summary*: *Raw Count*
-    - *Layer to Summarize*: *orthrogphy* (unless you're interested in combinations of stems/lemmas, in which case select your stem/lemma layer)
+    - *Layer to Summarize*: *orthography* (unless you're interested in combinations of stems/lemmas, in which case select your stem/lemma layer)
     - *Scope of Summary*: *Database*
     - *Main participants only*: ticked (unless you want to include interviewer speech or other incidental speakers)
+    - *Participants*: unticked
     - *Filter Layer*: unticked
     - *N-gram*: ticked, and leave the *bigram* option selected
     - Under Transcript Types you may want to un-tick 'word list' or 'reading' transcript types, if you have them, in order to only include spontaneous speech
@@ -130,9 +135,18 @@ Once the annotation layer has been generated, if you open a transcript and tick 
 
 For example, you can see that the bigram "first one" appears 7 times in this corpus.
 
-For example, you can see that the bigram "first one" appears 7 times in this corpus.
-
 You can see that each word token is covered by two annotations; for when it's the first word in the bigram, and for when it's the second word in the bigram. For example, the token "one" above is at the beginning of the "one being" bigram (labelled "1"), and at the end of the "first one" bigram (labelled "7").
+
+When you extract bigram frequency annotations in search results, you can extract both of these frequencies; when you do a search, expand the CSV Export options to select layers, and tick the bigram layer, you will see a box with a number appear. Enter `2` in the box to extract two *bigram* annotations per match.
+
+![Extract 2 bigram annotations per match](CSVExportTwoBigram.png){fig-alt="The bigram layer is ticked, and '2' is entered in the text box"}
+
+The resulting CSV file will have two columns for the *bigram* layer:
+
+- `Target bigram 1` - the chronologically first bigram the target is part of (i.e. where it is the second word).
+- `Target bigram 2` - the chronologically second bigram the target is part of (i.e. where it is the first word).
+
+(You will also have *Target bigram 1 start*, *Target bigram 1 end*, *Target bigram 2 start*, and *Target bigram 2 end* columns; these will contain the start and end times of the bigram annotations, but only if the words have been aligned.)
 
 <!-- TODO this is no longer true - un-comment when it's true again...
 

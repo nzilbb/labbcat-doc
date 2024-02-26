@@ -22,7 +22,7 @@ Searching broadly involves the following steps:
 We'll start with a very simple search - all the instances of the word
 "the" uttered by monolingual English-speaking males.
 
-(@) In LaBB-CAT, click on the *participants* link on the menu.\
+(@) In LaBB-CAT, select the *participants* option on the menu.\
     This takes you to a page listing all participants, where you can
     filter participants by their attributes. You can see various
     participant attributes listed across the top of page.

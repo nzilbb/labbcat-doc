@@ -267,7 +267,7 @@ the existing data, and for any new transcripts that might be
 uploaded in the future: the "Pattern Matcher" layer manager.
 
 (@) First of all, create a new project called *pauses*.
-(@) Now create a new word layer, with the following attributes:
+(@) Now create a new *word layer*, with the following attributes:
     -   **Layer ID:** `pause`
     -   **Type:** *Text*
     -   **Alignment:** *None*

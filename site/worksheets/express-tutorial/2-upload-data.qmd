@@ -158,17 +158,17 @@ file) that we can upload in one go.
     -   The CSV column **name:** → *ignore* because it's the
         *Participant Identity Column* identified above
     -   The CSV column **gender:** → the *Gender* LaBB-CAT attribute
-    -   The CSV column **age_category:** → the *create a new attribute
+    -   The CSV column **ageCategory:** → the *create a new attribute
         called* option, and set the **Label** to "Age"
     -   The CSV column **ethnicity:** → the *create a new attribute
         called* option, and set the **Label** to "Ethnicity"
-    -   The CSV column **grew_up:** → the *create a new attribute
+    -   The CSV column **grewUp:** → the *create a new attribute
         called* option, and set the **Label** to "Country"
-    -   The CSV column **grew_up_region:** → the *create a new
+    -   The CSV column **grewUpRegion:** → the *create a new
         attribute called* option, and set the **Label** to "Region"
-    -   The CSV column **grew_up_town:** → the *create a new attribute
+    -   The CSV column **grewUpTown:** → the *create a new attribute
         called* option, and set the **Label** to "Town"
-    -   The CSV column **languages_spoken:** → the *create a new
+    -   The CSV column **languagesSpoken:** → the *create a new
         attribute called* option, and set the **Label** to "Languages"
 7.  Press *import*.\
     You should see a page with information about the import, including

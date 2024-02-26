@@ -70,7 +70,7 @@ Now that we have both corpora and transcript types, we're going to set up meta-d
 For our corpus data, we don't have the exact year of birth. Instead we have the age of the participant, defined by various age group categories.
 
 (@) As with previous pages, the headings at the top are also a form you can fill in to add a new row, which we will now fill in with the following information:
-    -   **Attribute ID** : `age_category`
+    -   **Attribute ID** : `ageCategory`
     -   **Type** : *Select* (this is because we want to be able to select from a list of possible values) 
     -   **Layer Label** : `Age`
     -   **Access** : *Public*
@@ -114,12 +114,12 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
 We are going to add a few more attributes, but they will be 'free text' fields without predefined options.
 
 (@) Add another attribute, called `ethnicity`. For 'Type' select *String*, and make it *Public* and *Searchable*.
-(@) Similarly, add the following *Public* *Searchable* *string* attribute:
-    -   `languages_spoken` - a list of languages they speak\
+(@) Similarly, add the following *Public* *Searchable* *String* attributes:
+    -   `languagesSpoken` - a list of languages they speak\
         ... and the following *Not Searchable* attributes:
-    -   `grew_up` - what country they grew up in
-    -   `grew_up_region` - what region of New Zealand they grew up in
-    -   `grew_up_town` - what town or city they grew up in
+    -   `grewUp` - what country they grew up in
+    -   `grewUpRegion` - what region of New Zealand they grew up in
+    -   `grewUpTown` - what town or city they grew up in
 (@) Lastly, as we will not be using it, delete the *Birth Year* attribute.
 
 Now you have an empty database for which you've:
