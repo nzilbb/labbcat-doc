@@ -19,10 +19,11 @@ The general process is illustrated below:
 
 ![Transcripts/recordings from LaBB-CAT are sent to WebMAUS, and the resulting alignments are saved in LaBB-CAT](BAS-WebMAUS.svg)
 
-**NB**: Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the 
+::: {.callout-caution}
+Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the 
 [BAS Web Services Terms of Service](https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext) 
 makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.
-
+:::
 
 - Albanian
 - Australian Aboriginal Languages
