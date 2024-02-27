@@ -137,16 +137,15 @@ Each of these is explained below:
      1. click the word to open the transcript where it appears,
      1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,
      1. fix the spelling error:\
-        ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy . yeah' and the corrected version in a text box below: 'so it's a fair bit of history . yeah'"}\
+        ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy...' and the corrected version in a text box below: 'so it's a fair bit of history...'"}\
      1. press *Update* and then *Close*.
-  - In some cases, it's an interruped word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
+  - In some cases, it's an interrupted word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
     These cases need to have a *pronounce* tag added to the word token directly in the transcript:
      1. click the word to open the transcript where it appears,
-     1. click the word in the transcript and select the *Edit* (the last option, under 'Word') from the resulting menu,\
-        (this opens a window that shows all the annotation layers for that word token),\
-        ![](add-pronounce-tag.png){fig-alt="A box for the word token 'pres~', showing each annotation layer. The 'pronounce' layer's box has already been filled in with the pronunciation 'pr@z'"}
-     1. in the *pronounce* box, enter the pronunciation of the word using CELEX's DISC symbols,
-     1. Press the tick button, or press the {{< kdb Enter >}} key to save
+     1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,\
+     1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation -- this is a *pronounce* tag:\
+        ![](add-pronounce-tag.png){fig-alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"}
+     1. press *Update* and then *Close*.
 - A search button
 : This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.\
   Clicking the button allows you to lookup one or more words in the dictionary:\
