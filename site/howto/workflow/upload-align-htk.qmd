@@ -187,7 +187,6 @@ appear, so not all utterances will be aligned in the end.
 
 :::
 
-
 (@) Once you've filled in all the missing pronunciations, forced
     alignment will start automatically. If you want to start forced
     alignment before you've entered all pronunciations, click the
@@ -200,13 +199,27 @@ Once HTK has produced the word and segment alignments, it:
 
 -   sets the start/end times of the words on the transcript layer
     accordingly,
--   adds new phone annotations to the *segments* layer with the
+-   adds new phone annotations to the *segment* layer with the
     alignments of the phones, and
 -   saves a timestamp in the *htk* layer.
 
 When the layer manager has finished, you'll see a message saying
 "Complete - words and phones from selected utterances are now
-aligned."
+aligned." 
+
+To double-check aligned *segment* annotations were created:
+
+(@) Select the *transcripts* option from the menu.
+(@) Find one of the transcripts the speaker appears in, and click its name to open it.
+(@) Tick the *htk* layer and the *segment* layer
+(@) Check that each of the speaker's utterances has a time-stamp annotation above, and phone annotations below for each word.
+
+![Aligned utterances are tagged with a timestamp above, and include segment annotations below](aligned-utterances.png){fig-alt="Two orthoraphic utterances, each with an annotation spanning above with a timestamp - '2024-02-27T13:42:44' - and each word has IPA pronuncation symbols below"}
+
+Exceptions might include:
+
+- utterances with words that still have missing pronunciations, and
+- simultaneous speech (i.e. there's another participant speaking at the same time) -- these are deliberately ignored as automatic aligments are usually of poor quality.
 
 {{< pagebreak >}}
 
