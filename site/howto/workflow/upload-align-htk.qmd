@@ -123,44 +123,64 @@ LaBB-CAT will first determine which words have missing pronunciations; you will 
 The list has the following columns:
 
 - The word that is missing
-- A search button
+- A dictionary lookup button
 - A box for entering the pronunciation that you want to add to the dictionary
 - A phoneme selector button
 
 Each of these is explained below:
 
-- The word that is missing
-: If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.\
-  This is for cases where it's not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.\
-  For example:
-  - If the word is a spelling mistake, you need to correct it in the transcript:
-     1. click the word to open the transcript where it appears,
-     1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,
-     1. fix the spelling error:\
-        ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy...' and the corrected version in a text box below: 'so it's a fair bit of history...'"}\
-     1. press *Update* and then *Close*.
-  - In some cases, it's an interrupted word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
-    These cases need to have a *pronounce* tag added to the word token directly in the transcript:
-     1. click the word to open the transcript where it appears,
-     1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,\
-     1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation -- this is a *pronounce* tag:\
-        ![](add-pronounce-tag.png){fig-alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"}
-     1. press *Update* and then *Close*.
-- A search button
-: This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.\
-  Clicking the button allows you to lookup one or more words in the dictionary:\
-  ![Look up the dictionary for one or more words](lookup-brook-lands.png){fig-alt="A popup box where 'brook lands' has been entered for looking up the dictionary"}\
-  The pronunciations for the words you enter are displayed on buttons:\
-  ![Existing pronunciations of other words](brook-lands-pronunciations.png){fig-alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"}\
-  Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.\
-  The dictionary lookup can be useful for compound words like `tarseal`, numbers like `3` (you can look up "three"), and words that are pronounced similarly.
-- A box for entering the pronunciation that you want to add to the dictionary
-: Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you're force-aligning now.\
-  The pronunciations must ben entered using CELEX's 'DISC' symbols (i.e. one character per phoneme, with no spaces), see [below](#DISC).
-- A phoneme selector button
-: This button helps with using the correct symbols.\
-  ![Phoneme symbol selector](phoneme-symbol-selector.png){fig-alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"}\
-   Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
+{{< pagebreak >}}
+
+#### The missing word
+
+If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.
+
+This is for cases where it's not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.
+
+For example:
+
+- If the word is a spelling mistake, you need to correct it in the transcript:
+   1. click the word to open the transcript where it appears,
+   1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,
+   1. fix the spelling error:\
+      ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy...' and the corrected version in a text box below: 'so it's a fair bit of history...'"}\
+   1. press *Update* and then *Close*.
+- In some cases, it's an interrupted word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
+  These cases need to have a *pronounce* tag added to the word token directly in the transcript:
+   1. click the word to open the transcript where it appears,
+   1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,\
+   1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation -- this is a *pronounce* tag:\
+      ![](add-pronounce-tag.png){fig-alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"}
+   1. press *Update* and then *Close*.
+
+#### Dictionary Lookup
+
+This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.
+Clicking the button allows you to lookup one or more words in the dictionary:
+
+![Look up the dictionary for one or more words](lookup-brook-lands.png){fig-alt="A popup box where 'brook lands' has been entered for looking up the dictionary"}
+
+The pronunciations for the words you enter are displayed on buttons:
+
+![Existing pronunciations of other words](brook-lands-pronunciations.png){fig-alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"}
+
+Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.
+
+The dictionary lookup can be useful for compound words like `tarseal`, numbers like `3` (you can look up "three"), and words that are pronounced similarly.
+
+#### Pronunciation Box
+
+Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you're force-aligning now.
+
+The pronunciations must ben entered using CELEX's 'DISC' symbols (i.e. one character per phoneme, with no spaces), see [below](#DISC).
+
+#### Phoneme Selector
+
+This button helps with using the correct symbols.
+
+![Phoneme symbol selector](phoneme-symbol-selector.png){fig-alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"}\
+
+Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
 
 Some of the pronunciations may already be filled in. In these cases, LaBB-CAT is suggesting a pronunciation, based on how the word relates to other words it already has a pronunciation for. The suggestion may be wrong, and you should check/correct these before saving them.
 
