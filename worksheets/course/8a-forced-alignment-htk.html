@@ -607,7 +607,19 @@ Important
 </ul></li>
 <li>Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.</li>
 </ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>If your LaBB-CAT server is installed in a <em>Docker Container</em>, LaBB-CAT can itself download and compile HTK (i.e.&nbsp;steps 2 and 3), as long has you have a username and password for the HTK website. In this case, these steps are automatically attempted when you install the HTK layer manager (below).</p>
+</div>
+</div>
 <p>Now, you have to install the HTK Layer Manager, which is the LaBB-CAT module that provides HTK with all the data it needs, and then saves to alignments HTK produces back to your database.</p>
 <ol start="4" class="example" type="1">
 <li>Select the <em>layer managers</em> menu option.</li>
@@ -615,10 +627,24 @@ Important
 <li>Find HTK Manager in the list, and press its <em>Install</em> button, then press <em>Install</em> again.<br>
 You will see a form with boxes that may already be filled in.</li>
 <li>The layer manager needs to know where the HTK programs have been saved, which is what you need to enter in the blank <em>Path to HTK tools</em> box.<br>
-If this box is not blank, it means that LaBB-CAT has already found HTK for you, so you should leave the default value already set.<br>
-(The other two boxes you may see are for the username and password you registered on the HTK website. On some systems, if you have not already installed the HTK tools on your LaBB-CAT computer, providing the username and password allows LaBB-CAT to attempt to download and install HTK itself. This may not work in all cases, as LaBB-CAT may not have the resources or privileges it requires to compile or install software.)</li>
+If this box is not blank, it means that LaBB-CAT has already found HTK for you, so you should leave the default value already set.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The other two boxes you may see are for the username and password you registered on the HTK website. On some systems, if you have not already installed the HTK tools on your LaBB-CAT computer, providing the username and password allows LaBB-CAT to attempt to download and install HTK itself. This may not work in all cases, as LaBB-CAT may not have the resources or privileges it requires to compile or install software.</p>
+</div>
+</div>
+<ol start="8" class="example" type="1">
 <li>Press <em>Configure</em>.<br>
-You will see a window open with some information about the HTK Layer Manager. This page has some useful instructions on it, so keep the page open for now.</li>
+You will see a window open with some information about the HTK Layer Manager.</li>
 <li>Now you need to add a <em>phrase layer</em> for the HTK configuration:
 <ul>
 <li><strong>Layer ID:</strong> <code>htk</code></li>

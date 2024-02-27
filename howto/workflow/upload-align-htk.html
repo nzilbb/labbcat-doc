@@ -552,6 +552,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#upload-transcripts" id="toc-upload-transcripts" class="nav-link" data-scroll-target="#upload-transcripts">1. Upload Transcripts</a></li>
   <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link" data-scroll-target="#forced-alignment">2. Forced Alignment</a></li>
+  <li><a href="#DISC" id="toc-DISC" class="nav-link" data-scroll-target="#DISC">CELEX ‘DISC’ Pronunciation Symbols</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="upload-align-htk.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -580,6 +581,7 @@ Assumptions
 <p>These instructions assume that</p>
 <ul>
 <li>you’ve got a LaBB-CAT server set up</li>
+<li>it’s already configured for CELEX-based pronunciations to be tagged on the <em>phonemes</em> layer</li>
 <li>it’s already configured for forced alignment with HTK</li>
 <li>the HTK configuration is designed for the per-speaker train/align procedure</li>
 </ul>
@@ -628,7 +630,7 @@ Assumptions
 <p>Now that you’ve uploaded the file, LaBB-CAT has analysed the structure of the transcript file and pre-selected some default options for layer mappings. These defaults are correct under most circumstances, but it’s a good idea to double-check that</p>
 <ul>
 <li>tiers that contain transcripts of speech are mapped to <em>utterance</em> and</li>
-<li>tiers that contain other information aren’t mapped to <em>utterance</em>.</li>
+<li>tiers that contain other information <strong>aren’t</strong> mapped to <em>utterance</em>.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -650,20 +652,124 @@ This opens LaBB-CAT’s interactive transcript page.</li>
 <li>Double check that the transcript text appears correct and that the media playback control appears on the top right.</li>
 <li>Click on an utterance and select the <em>Play</em> option from the resulting menu.<br>
 Ensure that the audio corresponding to the given utterance is played.</li>
+<li>At the top of the page, tick the <em>phonemes</em> layer, to show the pronunciation annotations on the words.<br>
+You should see that most, if not all, words in the transcript have a pronunciation above them.</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="phonemes-layer.png" class="img-fluid figure-img" alt="Part of a transcript, showing pronunciation annotations above the ortographic words in each utterance. Although most words have a tag, some tags are missing - e.g. 'um' and 'Brooklands' have no 'phonemes' layer annotation."></p>
+<figcaption>A transcript showing the <em>phonemes</em> layer</figcaption>
+</figure>
+</div>
+<p>For HTK to force-align an utterance, it must know the pronunciation of every word in the utterance. It uses the <em>phonemes</em> layer to determine what the pronunciations are, and these are usually tagged by looking up a lexicon like CELEX.</p>
+<p>If you see gaps in the <em>phonemes</em> layer on the transcript, these are words for which there is no known pronunciation. These missing entries should be filled in in order to ensure HTK force-aligns all utterances; there are instructions for this below.</p>
 <p>At this point, the transcripts have been uploaded and are ready for forced alignment.</p>
+<div style="page-break-after: always;"></div>
 </section>
 <section id="forced-alignment" class="level2">
 <h2 class="anchored" data-anchor-id="forced-alignment">2. Forced Alignment</h2>
-<p>To start a forced-alignment process per-speaker, you need to first select a speaker who will be aligned. Then you will fill in any pronunciations that are missing from the dictionart. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.</p>
-<ol start="17" class="example" type="1">
+<p>To start a forced-alignment process per-speaker, you need to first select the speaker to be aligned. Then you will fill in any pronunciations that are missing from the dictionary. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.</p>
+<ol start="18" class="example" type="1">
 <li>In LaBB-CAT, select the <em>participants</em> option on the menu</li>
 <li>Find and tick the speaker.</li>
 <li>Press the <em>All Utterances</em> button</li>
-<li>Click <em>List</em></li>
+<li>Press <em>List</em></li>
 <li>Once the paginated list of utterances appears, press the <em>Htk</em> button below.</li>
 </ol>
-<p>Basically you need to fill in the boxes with the pronunciations and click <em>Save Pronunciations</em>.</p>
+<p>LaBB-CAT will first determine which words have missing pronunciations; you will see a progress bar, and then a list will appear of words that need their pronunciations adding to the dictionary. The list of missing words may grow as more utterances are analysed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="missing-pronunciations.png" class="img-fluid figure-img" alt="A list of words with missing pronunciations. Each word has a 'search' button, a box for filling in the pronununciation, and a phoneme-helper button. Some pronunciaions are already filled in. At the bottom, there are two buttons: Save and Start"></p>
+<figcaption>Missing pronuciations that need filling in</figcaption>
+</figure>
+</div>
+<p>The list has the following columns:</p>
+<ul>
+<li>The word that is missing</li>
+<li>A search button</li>
+<li>A box for entering the pronunciation that you want to add to the dictionary</li>
+<li>A phoneme selector button</li>
+</ul>
+<p>Each of these is explained below:</p>
+<ul>
+<li><dl>
+<dt>The word that is missing</dt>
+<dd>
+If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.<br>
+This is for cases where it’s not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.<br>
+For example:
+<ul>
+<li>If the word is a spelling mistake, you need to correct it in the transcript:
+<ol type="1">
+<li>click the word to open the transcript where it appears,</li>
+<li>click the word in the transcript and select <em>Edit Transcript</em> (under ‘Utterance’) from the resulting menu,</li>
+<li>fix the spelling error:<br>
+<img src="transcript-correction.png" class="img-fluid" alt="A window showing the original utterance above, 'so it's a fair bit of histoy . yeah' and the corrected version in a text box below: 'so it's a fair bit of history . yeah'"><br>
+</li>
+<li>press <em>Update</em> and then <em>Close</em>.</li>
+</ol></li>
+<li>In some cases, it’s an interruped word, or some other one-off case that shouldn’t be added to the global dictionary, because it won’t come up over and again in other transcripts.<br>
+These cases need to have a <em>pronounce</em> tag added to the word token directly in the transcript:
+<ol type="1">
+<li>click the word to open the transcript where it appears,</li>
+<li>click the word in the transcript and select the <em>Edit</em> (the last option, under ‘Word’) from the resulting menu,<br>
+(this opens a window that shows all the annotation layers for that word token),<br>
+<img src="add-pronounce-tag.png" class="img-fluid" alt="A box for the word token 'pres~', showing each annotation layer. The 'pronounce' layer's box has already been filled in with the pronunciation 'pr@z'"></li>
+<li>in the <em>pronounce</em> box, enter the pronunciation of the word using CELEX’s DISC symbols,</li>
+<li>Press the tick button, or press the {{&lt; kdb Enter &gt;}} key to save</li>
+</ol></li>
+</ul>
+</dd>
+</dl></li>
+<li><dl>
+<dt>A search button</dt>
+<dd>
+This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.<br>
+Clicking the button allows you to lookup one or more words in the dictionary:<br>
+<img src="lookup-brook-lands.png" class="img-fluid" alt="A popup box where 'brook lands' has been entered for looking up the dictionary"><br>
+The pronunciations for the words you enter are displayed on buttons:<br>
+<img src="brook-lands-pronunciations.png" class="img-fluid" alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"><br>
+Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.<br>
+The dictionary lookup can be useful for compound words like <code>tarseal</code>, numbers like <code>3</code> (you can look up “three”), and words that are pronounced similarly.
+</dd>
+</dl></li>
+<li><dl>
+<dt>A box for entering the pronunciation that you want to add to the dictionary</dt>
+<dd>
+Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you’re force-aligning now.<br>
+The pronunciations must ben entered using CELEX’s ‘DISC’ symbols (i.e.&nbsp;one character per phoneme, with no spaces), see <a href="#DISC">below</a>.
+</dd>
+</dl></li>
+<li><dl>
+<dt>A phoneme selector button</dt>
+<dd>
+This button helps with using the correct symbols.<br>
+<img src="phoneme-symbol-selector.png" class="img-fluid" alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"><br>
+Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
+</dd>
+</dl></li>
+</ul>
+<p>Some of the pronunciations may already be filled in. In these cases, LaBB-CAT is suggesting a pronunciation, based on how the word relates to other words it already has a pronunciation for. The suggestion may be wrong, and you should check/correct these before saving them.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The pronunciations you add to the dictionary should include:</p>
+<ul>
+<li><code>-</code> : the syllable separator (hyphen)</li>
+<li><code>'</code> : the primary lexical stress marker (apostrophe), and</li>
+<li><code>"</code> : the secondary stress marker (double-quote) if any.</li>
+</ul>
+<p>If you use the dictionary lookup button, these are included in the pronunciations that are returned.</p>
+</div>
+</div>
+<p>Basically you need to fill in the boxes with the pronunciations and click <em>Save</em>. You don’t have to fill them all in before clicking <em>Save</em>, you can save several pronunciations, which will disappear from the list, leaving the ones you haven’t filled in yet.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -674,19 +780,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>You don’t have to fill them all in at once, you can do a few, and click <em>Save</em>, which will save your work and list what’s left.</li>
-<li>You don’t have to fill them all in, you can leave some empty and continue with the HTK forced-alignment by clicking <em>Start</em> (HTK will ignore any lines where the remaining unknown words appear, but the ones you filled in will be included).</li>
-<li>Some of the boxes will be initially filled in with a suggestion from the lexicon layer manager - these may or may not be correct, and aren’t saved until you save them.</li>
-<li>The pronunciations have to be in the ‘DISC’ format - i.e.&nbsp;one character per phoneme, with no spaces. There’s a ‘helper’ link on the right of each pronunciation box - if you click it, it expands into a list of clickable phonemes - just the ones that aren’t ordinary letters, and diphthongs etc.</li>
-<li>The <em>search</em> button lets you look up the lexicon for similar words - this probably won’t help for place names, but for words like “tarseal”, you can click the <em>lookup</em> button, enter “tar seal” in the box as two separate words, and you’ll get back the DISC pronunciation of each word, with clickable buttons to copy the given pronunciation into the box. This is useful for digits and numbers too, which may not be in the lexicon - so for “1”, search for “one” and copy the pronunciation.</li>
-<li>If you click on the word itself, the transcript for the first instance of that word is opened, in case you want to listen to it, or in case it’s actually just a typo and you want to correct the transcript.</li>
-<li>If you’re using CELEX, when you specify the pronunciations, it’s recommended to put syllable separators (-) and primary stress markers (’) too - e.g.&nbsp;for “tarseal” you can put <em>t#sil</em> but it would actually be better to put <em>t#-’sil</em>. These markers are entered into the dictionary even though they’re stripped out for HTK, and they may come in handy later (e.g.&nbsp;the syllable separators are used by the CELEX layer manager to count syllables).</li>
-</ul>
+<p>You don’t have to fill in all pronunciations, you can leave some empty and continue with the HTK forced-alignment by clicking <em>Start</em></p>
+<p>However, HTK will ignore any lines where the remaining unknown words appear, so not all utterances will be aligned in the end.</p>
 </div>
 </div>
-<p>When you add pronunciations this way, they’re added to the dictionary and all the instances of those words in LaBB-CAT are updated with the pronunciations - not just the participant you’re looking at, but all participants in the database. So you only have to come up with a pronunciation for each word once.</p>
-<ol start="22" class="example" type="1">
+<ol start="23" class="example" type="1">
 <li>Once you’ve filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you’ve entered all pronunciations, click the <em>Start</em> button at the bottom of the page.<br>
 <br>
 You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.</li>
@@ -698,6 +796,285 @@ You should see a progress bar while the forced alignment is running. It will tak
 <li>saves a timestamp in the <em>htk</em> layer.</li>
 </ul>
 <p>When the layer manager has finished, you’ll see a message saying “Complete - words and phones from selected utterances are now aligned.”</p>
+<div style="page-break-after: always;"></div>
+</section>
+<section id="DISC" class="level2">
+<h2 class="anchored" data-anchor-id="DISC">CELEX ‘DISC’ Pronunciation Symbols</h2>
+<p>These are the symbols that should be used for all pronunciations:</p>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p</td>
+<td style="text-align: left;"><code>p</code></td>
+<td style="text-align: left;"><strong>p</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪ</td>
+<td style="text-align: left;"><code>I</code></td>
+<td style="text-align: left;">K<strong>I</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><strong>b</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ε</td>
+<td style="text-align: left;"><code>E</code></td>
+<td style="text-align: left;">DR<strong>E</strong>SS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t</td>
+<td style="text-align: left;"><code>t</code></td>
+<td style="text-align: left;"><strong>t</strong>ack</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;"><code>{</code></td>
+<td style="text-align: left;">TR<strong>A</strong>P</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: left;"><code>d</code></td>
+<td style="text-align: left;"><strong>d</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʌ</td>
+<td style="text-align: left;"><code>V</code></td>
+<td style="text-align: left;">STR<strong>U</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">k</td>
+<td style="text-align: left;"><code>k</code></td>
+<td style="text-align: left;"><strong>c</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ</td>
+<td style="text-align: left;"><code>Q</code></td>
+<td style="text-align: left;">L<strong>O</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">g</td>
+<td style="text-align: left;"><code>g</code></td>
+<td style="text-align: left;"><strong>g</strong>ame</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊ</td>
+<td style="text-align: left;"><code>U</code></td>
+<td style="text-align: left;">F<strong>OO</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ŋ</td>
+<td style="text-align: left;"><code>N</code></td>
+<td style="text-align: left;">ba<strong>ng</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ə</td>
+<td style="text-align: left;"><code>@</code></td>
+<td style="text-align: left;"><strong>a</strong>nother</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">m</td>
+<td style="text-align: left;"><code>m</code></td>
+<td style="text-align: left;"><strong>m</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">i:</td>
+<td style="text-align: left;"><code>i</code></td>
+<td style="text-align: left;">FL<strong>EE</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"><code>n</code></td>
+<td style="text-align: left;"><strong>n</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">α:&nbsp;</td>
+<td style="text-align: left;"><code>#</code></td>
+<td style="text-align: left;">f<strong>a</strong>ther</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">l</td>
+<td style="text-align: left;"><code>l</code></td>
+<td style="text-align: left;"><strong>l</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔ:</td>
+<td style="text-align: left;"><code>$</code></td>
+<td style="text-align: left;">TH<strong>OU</strong>GHT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r</td>
+<td style="text-align: left;"><code>r</code></td>
+<td style="text-align: left;"><strong>r</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">u:</td>
+<td style="text-align: left;"><code>u</code></td>
+<td style="text-align: left;">G<strong>OO</strong>SE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">f</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: left;"><strong>f</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɜ:</td>
+<td style="text-align: left;"><code>3</code></td>
+<td style="text-align: left;">N<strong>UR</strong>SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">v</td>
+<td style="text-align: left;"><code>v</code></td>
+<td style="text-align: left;"><strong>v</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">eɪ</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">F<strong>A</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">θ</td>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: left;"><strong>th</strong>in</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αɪ</td>
+<td style="text-align: left;"><code>2</code></td>
+<td style="text-align: left;">PR<strong>I</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ð</td>
+<td style="text-align: left;"><code>D</code></td>
+<td style="text-align: left;"><strong>th</strong>en</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔɪ</td>
+<td style="text-align: left;"><code>4</code></td>
+<td style="text-align: left;">CH<strong>OI</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s</td>
+<td style="text-align: left;"><code>s</code></td>
+<td style="text-align: left;"><strong>s</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">əʊ</td>
+<td style="text-align: left;"><code>5</code></td>
+<td style="text-align: left;">G<strong>OA</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: left;"><code>z</code></td>
+<td style="text-align: left;"><strong>z</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αʊ</td>
+<td style="text-align: left;"><code>6</code></td>
+<td style="text-align: left;">M<strong>OU</strong>TH</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">∫</td>
+<td style="text-align: left;"><code>S</code></td>
+<td style="text-align: left;"><strong>sh</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪə</td>
+<td style="text-align: left;"><code>7</code></td>
+<td style="text-align: left;">N<strong>EAR</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʒ</td>
+<td style="text-align: left;"><code>Z</code></td>
+<td style="text-align: left;">mea<strong>s</strong>ure</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">εə</td>
+<td style="text-align: left;"><code>8</code></td>
+<td style="text-align: left;">SQU<strong>ARE</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">j</td>
+<td style="text-align: left;"><code>j</code></td>
+<td style="text-align: left;"><strong>y</strong>ank</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊə</td>
+<td style="text-align: left;"><code>9</code></td>
+<td style="text-align: left;">C<strong>URE</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;">lo<strong>ch</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;"><code>c</code></td>
+<td style="text-align: left;">t<strong>i</strong>mbre</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">h</td>
+<td style="text-align: left;"><code>h</code></td>
+<td style="text-align: left;"><strong>h</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɑ̃ː</td>
+<td style="text-align: left;"><code>q</code></td>
+<td style="text-align: left;">dét<strong>en</strong>te</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"><code>w</code></td>
+<td style="text-align: left;"><strong>w</strong>et</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ̃ː</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">l<strong>in</strong>gerie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ʧ</td>
+<td style="text-align: left;"><code>J</code></td>
+<td style="text-align: left;"><strong>ch</strong>eap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ̃ː</td>
+<td style="text-align: left;"><code>~</code></td>
+<td style="text-align: left;">bouill<strong>on</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʤ</td>
+<td style="text-align: left;"><code>_</code></td>
+<td style="text-align: left;"><strong>j</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ŋ̩</td>
+<td style="text-align: left;"><code>C</code></td>
+<td style="text-align: left;">bac<strong>on</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m̩</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: left;">idealis<strong>m</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;<code>-</code></td>
+<td style="text-align: left;">syllable separator</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">n̩</td>
+<td style="text-align: left;"><code>H</code></td>
+<td style="text-align: left;">burd<strong>en</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;<code>'</code></td>
+<td style="text-align: left;">primary stress</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">l̩</td>
+<td style="text-align: left;"><code>P</code></td>
+<td style="text-align: left;">dang<strong>le</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;<code>"</code></td>
+<td style="text-align: left;">secondary stress</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
