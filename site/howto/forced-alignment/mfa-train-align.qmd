@@ -98,23 +98,21 @@ Once you've installed MFA and the MFA Layer Manager, you need to create a new la
 
 1. Select the *phrase layers* option on the menu
 1. Fill in the form at the top of the page (which doubles as column headings) with the following details: 
-    - *Layer ID*: `mfa`
-    - *Type*: *Text*
-    - *Alignment*: *Intervals*
-    - *Manager*: *MFA Manager*
-    - *Generate*: *never* (this is because we will manually select utterance for forced alignment, to ensure there is enough data to train acoustic models)
-    - *Description*: *MFA alignment time*
+    - **Layer ID**: `mfa`
+    - **Type**: *Text*
+    - **Alignment**: *Intervals*
+    - **Manager**: *MFA Manager*
+    - **Generate**: *never* (this is because we will manually select utterance for forced alignment, to ensure there is enough data to train acoustic models)
+    - **Description**: *MFA alignment time*
 1. When you configure the layer, set the following options:
-    - *Pronunciation Layer*: select the *phonemes* layer (or whichever word layer that tags each word with its pronunciation)
-    - *Dictionary Name*: *[none]*
-    - *Pretrained Acoustic Models*: *[none]* (this ensures that the train/align procedure is used)
+    - **Pronunciation Layer**: select the *phonemes* layer (or whichever word layer that tags each word with its pronunciation)
+    - **Dictionary Name**: *[none]*
+    - **Pretrained Acoustic Models**: *[none]* (this ensures that the train/align procedure is used)
     - The rest of the options can be left as their default values.
     - If you're curious about what the configuration options do, hover your mouse over each option to see a `tool tip' that describes what the option is for.
 1. Press *Set Parameters*
 
 ## Batch Alignment
-
-
 
 MFA is data-hungry when training acoustic models for forced alignment, and needs 
 [3-5 hours' speech](https://memcauliffe.com/how-much-data-do-you-need-for-a-good-mfa-alignment.html)

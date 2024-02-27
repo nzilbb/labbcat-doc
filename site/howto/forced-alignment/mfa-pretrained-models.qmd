@@ -35,26 +35,31 @@ MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module
 If MFA has not been installed already, please follow the steps detailed under
 [MFA Installation](mfa-install.qmd). This is a one-time process.
 
-## Forced Alignment
+## Layer Manager Installation
 
 Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.
 
 1. Select the *layer managers* menu option.
 1. Follow the *List of layer managers that are not yet installed* link.
-1. Find *MFA Manager* in the list, and press its *Install* button and then press *Install* again.
-1. As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to.
-1. Click *Configure* to continue the layer manager installation.
-1. You will see a window open with some information about integrating with MFA, including the information you've already read above.
+1. Find *MFA Manager* in the list, and press its *Install* button and then press *Install* again.\
+   As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to.
+1. Click *Configure* to continue the layer manager installation.\
+   You will see a window open with some information about integrating with MFA, including the information you've already read above.
+
+## Forced Alignment
+
+Once you've
+
 1. Now you need to add a phrase layer for the HTK configuration:
-    - *Layer ID*: `mfa`
-    - *Type*: *Text*
-    - *Alignment*: *Intervals*
-    - *Manager*: *MFA Manager*
-    - *Generate*: *always*
-    - *Description*: *MFA alignment time*
+    - **Layer ID**: `mfa`
+    - **Type**: *Text*
+    - **Alignment**: *Intervals*
+    - **Manager**: *MFA Manager*
+    - **Generate**: *always*
+    - **Description**: *MFA alignment time*
 1. When you configure the layer, set the following options:
-    - *Dictionary Name*: the dictionary language, e.g. *english_uk_mfa*
-    - *Pretrained Acoustic Models*: the models language, e.g. *english_mfa*
+    - **Dictionary Name**: the dictionary language, e.g. *english_uk_mfa*
+    - **Pretrained Acoustic Models**: the models language, e.g. *english_mfa*
     - The rest of the options can be left as their default values.
     - If you're curious about what the configuration options do, hover your mouse over each option to see a `tool tip' that describes what the option is for.
 1. Press *Set Parameters*
@@ -63,3 +68,21 @@ Once MFA has been installed, you have to install the MFA Manager, which is the L
 1. When the layer manager has finished, you'll see a message saying:  
    *Complete - words and phones from selected utterances are now aligned.*
 
+::: {.callout-tip}
+
+Not all MFA pre-trained acoustic models can be used with all dictionaries.
+
+Apart from matching the language (e.g. English-trained acoustic models should be used only with English dictionaries), the phoneme symbol sets must also match. 
+
+MFA uses several symbol sets, including:
+
+- IPA - model and dictionary names ending in `..._mfa`
+- ARPAbet - model and dictionary names ending in `..._arpa`
+
+So if you use an acoustic model ending in `...arpa`, then the dictionary you choose must also end in `...arpa`.
+
+See the MFA documentation on models and dictionaries for more detailed information:\
+<https://mfa-models.readthedocs.io>
+
+
+:::
