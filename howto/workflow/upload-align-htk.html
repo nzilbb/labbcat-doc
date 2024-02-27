@@ -686,69 +686,69 @@ You should see that most, if not all, words in the transcript have a pronunciati
 <p>The list has the following columns:</p>
 <ul>
 <li>The word that is missing</li>
-<li>A search button</li>
+<li>A dictionary lookup button</li>
 <li>A box for entering the pronunciation that you want to add to the dictionary</li>
 <li>A phoneme selector button</li>
 </ul>
 <p>Each of these is explained below:</p>
-<ul>
-<li><dl>
-<dt>The word that is missing</dt>
-<dd>
-If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.<br>
-This is for cases where it’s not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.<br>
-For example:
+<div style="page-break-after: always;"></div>
+<section id="the-missing-word" class="level4">
+<h4 class="anchored" data-anchor-id="the-missing-word">The missing word</h4>
+<p>If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.</p>
+<p>This is for cases where it’s not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.</p>
+<p>For example:</p>
 <ul>
 <li>If the word is a spelling mistake, you need to correct it in the transcript:
 <ol type="1">
 <li>click the word to open the transcript where it appears,</li>
 <li>click the word in the transcript and select <em>Edit Transcript</em> (under ‘Utterance’) from the resulting menu,</li>
 <li>fix the spelling error:<br>
-<img src="transcript-correction.png" class="img-fluid" alt="A window showing the original utterance above, 'so it's a fair bit of histoy . yeah' and the corrected version in a text box below: 'so it's a fair bit of history . yeah'"><br>
+<img src="transcript-correction.png" class="img-fluid" alt="A window showing the original utterance above, 'so it's a fair bit of histoy...' and the corrected version in a text box below: 'so it's a fair bit of history...'"><br>
 </li>
 <li>press <em>Update</em> and then <em>Close</em>.</li>
 </ol></li>
-<li>In some cases, it’s an interruped word, or some other one-off case that shouldn’t be added to the global dictionary, because it won’t come up over and again in other transcripts.<br>
+<li>In some cases, it’s an interrupted word, or some other one-off case that shouldn’t be added to the global dictionary, because it won’t come up over and again in other transcripts.<br>
 These cases need to have a <em>pronounce</em> tag added to the word token directly in the transcript:
 <ol type="1">
 <li>click the word to open the transcript where it appears,</li>
-<li>click the word in the transcript and select the <em>Edit</em> (the last option, under ‘Word’) from the resulting menu,<br>
-(this opens a window that shows all the annotation layers for that word token),<br>
-<img src="add-pronounce-tag.png" class="img-fluid" alt="A box for the word token 'pres~', showing each annotation layer. The 'pronounce' layer's box has already been filled in with the pronunciation 'pr@z'"></li>
-<li>in the <em>pronounce</em> box, enter the pronunciation of the word using CELEX’s DISC symbols,</li>
-<li>Press the tick button, or press the {{&lt; kdb Enter &gt;}} key to save</li>
+<li>click the word in the transcript and select <em>Edit Transcript</em> (under ‘Utterance’) from the resulting menu,<br>
+</li>
+<li>immediately after the hesitated word, with no intervening space, add a DISC pronunciation – this is a <em>pronounce</em> tag:<br>
+<img src="add-pronounce-tag.png" class="img-fluid" alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"></li>
+<li>press <em>Update</em> and then <em>Close</em>.</li>
 </ol></li>
 </ul>
-</dd>
-</dl></li>
-<li><dl>
-<dt>A search button</dt>
-<dd>
-This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.<br>
-Clicking the button allows you to lookup one or more words in the dictionary:<br>
-<img src="lookup-brook-lands.png" class="img-fluid" alt="A popup box where 'brook lands' has been entered for looking up the dictionary"><br>
-The pronunciations for the words you enter are displayed on buttons:<br>
-<img src="brook-lands-pronunciations.png" class="img-fluid" alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"><br>
-Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.<br>
-The dictionary lookup can be useful for compound words like <code>tarseal</code>, numbers like <code>3</code> (you can look up “three”), and words that are pronounced similarly.
-</dd>
-</dl></li>
-<li><dl>
-<dt>A box for entering the pronunciation that you want to add to the dictionary</dt>
-<dd>
-Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you’re force-aligning now.<br>
-The pronunciations must ben entered using CELEX’s ‘DISC’ symbols (i.e.&nbsp;one character per phoneme, with no spaces), see <a href="#DISC">below</a>.
-</dd>
-</dl></li>
-<li><dl>
-<dt>A phoneme selector button</dt>
-<dd>
-This button helps with using the correct symbols.<br>
-<img src="phoneme-symbol-selector.png" class="img-fluid" alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"><br>
-Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
-</dd>
-</dl></li>
-</ul>
+</section>
+<section id="dictionary-lookup" class="level4">
+<h4 class="anchored" data-anchor-id="dictionary-lookup">Dictionary Lookup</h4>
+<p>This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt. Clicking the button allows you to lookup one or more words in the dictionary:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lookup-brook-lands.png" class="img-fluid figure-img" alt="A popup box where 'brook lands' has been entered for looking up the dictionary"></p>
+<figcaption>Look up the dictionary for one or more words</figcaption>
+</figure>
+</div>
+<p>The pronunciations for the words you enter are displayed on buttons:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="brook-lands-pronunciations.png" class="img-fluid figure-img" alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"></p>
+<figcaption>Existing pronunciations of other words</figcaption>
+</figure>
+</div>
+<p>Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.</p>
+<p>The dictionary lookup can be useful for compound words like <code>tarseal</code>, numbers like <code>3</code> (you can look up “three”), and words that are pronounced similarly.</p>
+</section>
+<section id="pronunciation-box" class="level4">
+<h4 class="anchored" data-anchor-id="pronunciation-box">Pronunciation Box</h4>
+<p>Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you’re force-aligning now.</p>
+<p>The pronunciations must ben entered using CELEX’s ‘DISC’ symbols (i.e.&nbsp;one character per phoneme, with no spaces), see <a href="#DISC">below</a>.</p>
+</section>
+<section id="phoneme-selector" class="level4">
+<h4 class="anchored" data-anchor-id="phoneme-selector">Phoneme Selector</h4>
+<p>This button helps with using the correct symbols.</p>
+<p><img src="phoneme-symbol-selector.png" class="img-fluid" alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"><br>
+</p>
+<p>Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.</p>
 <p>Some of the pronunciations may already be filled in. In these cases, LaBB-CAT is suggesting a pronunciation, based on how the word relates to other words it already has a pronunciation for. The suggestion may be wrong, and you should check/correct these before saving them.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -815,6 +815,7 @@ You should see a progress bar while the forced alignment is running. It will tak
 <li>simultaneous speech (i.e.&nbsp;there’s another participant speaking at the same time) – these are deliberately ignored as automatic aligments are usually of poor quality.</li>
 </ul>
 <div style="page-break-after: always;"></div>
+</section>
 </section>
 <section id="DISC" class="level2">
 <h2 class="anchored" data-anchor-id="DISC">CELEX ‘DISC’ Pronunciation Symbols</h2>
