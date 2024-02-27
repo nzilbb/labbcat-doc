@@ -564,11 +564,62 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>the CELEX English layer manager as the primary layer manager, targeting only English utterances, plus</li>
 <li>the CELEX German layer manager as an auxiliary, targeting only German utterances, and</li>
-<li>the Character Mapperg layer manager as an auxiliary, configured to target only utterances in Te Reo Māori with orthography-to-phonology mappings.</li>
+<li>the Character Mapper layer manager as an auxiliary, configured to target only utterances in Te Reo Māori with orthography-to-phonology mappings.</li>
 </ul>
+<p>In order to set this up:</p>
+<ol type="1">
+<li>In LaBB-CAT, select the <em>word layers</em> option on the menu.</li>
+<li>Add a <em>phonemes</em> layer that’s managed by the CELEX English layer manager.</li>
+<li>Set the layer configuration <a href="../../howto/phonemic-tagging/celex.html">as required</a>, ensuring that in its configuration, the <em>Language</em> setting targets only English words:<br>
+<img src="CELEXEnglishOnly.png" class="img-fluid" alt="Language set to en.*"></li>
+<li>Select the <em>word layers</em> option on the menu again.</li>
+<li>On the <em>phonemes</em> layer, press the ‘Other configurations’ icon: <img src="AuxiliariesIcon.png" class="img-fluid"></li>
+<li>Fill in the <em>description</em> box as <code>German pronunciation</code></li>
+<li>For the <em>layer manager</em> select the <em>CELEX German</em> option.</li>
+<li>Press the <em>New</em> button.</li>
+<li>Press <em>Configure</em></li>
+<li>Configure the layer as required.</li>
+<li>Ensure the <em>Language</em> setting is that to <code>de.*</code> to annotate only words that are in German:<br>
+<img src="CELEXGermanOnly.png" class="img-fluid" alt="Language set to de.*"></li>
+<li>Select the <em>word layers</em> option on the menu again.</li>
+<li>On the <em>phonemes</em> layer, press the ‘Other configurations’ icon: <img src="AuxiliariesIcon.png" class="img-fluid"></li>
+<li>Fill in the blank <em>description</em> box as <code>Te Reo Māori pronunciation</code></li>
+<li>For its <em>layer manager</em> select the <em>Character Mapper</em> option.</li>
+<li>Press the <em>New</em> button.</li>
+<li>Press <em>Configure</em></li>
+<li>Configure the layer <a href="../../howto/phonemic-tagging/character-mapper.html">as required</a>.</li>
+<li>Ensure the <em>Language</em> setting is that to <code>mi</code> to annotate only words that are in Māori:<br>
+<img src="CharacterMapperMāoriOnly.png" class="img-fluid" alt="Language set to mi"></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PhonemesLayerAuxiliaryConfigurations.png" class="img-fluid figure-img" alt="The 'auxiliary layer managers' page, with two rows, 'German pronunciation' managed by CELEX German, and 'Te Reo Māori pronunciation' managed by Character Mapper"></p>
+<figcaption>The ‘phonemes’ layer’s two auxiliary configurations</figcaption>
+</figure>
+</div>
+<p>When the layer is generated, first the main configuration will generate annotations (i.e.&nbsp;CELEX English phonology), and then the auxiliary configurations will be run, in alphabetical order. As long as each has a different language targeted, they will each annotate different word tokens.</p>
 <p>LaBB-CAT has three mechanisms for determining the language of each word token in the corpus:</p>
 <ol type="1">
-<li>If the word is enclosed in an annotation on the <em>language</em> phrase layer, then the annotation’s label determines the language of that token. The language meta layer is a time-span layer that allows spans of words to be marked as being in a specific language.</li>
+<li>If the word is enclosed in an annotation on the <em>language</em> phrase layer, then the annotation’s label determines the language of that token. The language phrase layer is a time-span layer that allows spans of words to be marked as being in a specific language.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>How these manual annotations are added depends on the transcription tool; e.g.&nbsp;</p>
+<ul>
+<li><em>Transcriber</em> has a mechanism specifically for this, and for ELAN transcripts, and</li>
+<li>LaBB-CAT supports a <a href="../../howto/transcription/elan-language.html#speech-in-a-different-language">language-tagging transcription convention</a> which can achieve the same thing.</li>
+</ul>
+</div>
+</div>
+<ol start="2" type="1">
 <li>Otherwise, the transcript’s <em>language</em> transcript attribute is used to determine the language.</li>
 <li>If the <em>language</em> transcript attribute is unset, then the <em>language</em> of the corpus the transcript is in is used to determine the language.</li>
 </ol>

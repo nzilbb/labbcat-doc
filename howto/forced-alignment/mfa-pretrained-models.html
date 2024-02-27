@@ -549,6 +549,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mfa-and-pretrained-acoustic-models" id="toc-mfa-and-pretrained-acoustic-models" class="nav-link active" data-scroll-target="#mfa-and-pretrained-acoustic-models">MFA and Pretrained Acoustic Models</a>
   <ul class="collapse">
   <li><a href="#mfa-installation" id="toc-mfa-installation" class="nav-link" data-scroll-target="#mfa-installation">MFA Installation</a></li>
+  <li><a href="#layer-manager-installation" id="toc-layer-manager-installation" class="nav-link" data-scroll-target="#layer-manager-installation">Layer Manager Installation</a></li>
   <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link" data-scroll-target="#forced-alignment">Forced Alignment</a></li>
   </ul></li>
   </ul>
@@ -583,29 +584,35 @@ ul.task-list li input[type="checkbox"] {
 <p>MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module. MFA is <em>not included</em> as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.</p>
 <p>If MFA has not been installed already, please follow the steps detailed under <a href="../../howto/forced-alignment/mfa-install.html">MFA Installation</a>. This is a one-time process.</p>
 </section>
-<section id="forced-alignment" class="level2">
-<h2 class="anchored" data-anchor-id="forced-alignment">Forced Alignment</h2>
+<section id="layer-manager-installation" class="level2">
+<h2 class="anchored" data-anchor-id="layer-manager-installation">Layer Manager Installation</h2>
 <p>Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.</p>
 <ol type="1">
 <li>Select the <em>layer managers</em> menu option.</li>
 <li>Follow the <em>List of layer managers that are not yet installed</em> link.</li>
-<li>Find <em>MFA Manager</em> in the list, and press its <em>Install</em> button and then press <em>Install</em> again.</li>
-<li>As long as MFA has been installed for all users, you should see a box that’s already filled in with the location that MFA was installed to.</li>
-<li>Click <em>Configure</em> to continue the layer manager installation.</li>
-<li>You will see a window open with some information about integrating with MFA, including the information you’ve already read above.</li>
+<li>Find <em>MFA Manager</em> in the list, and press its <em>Install</em> button and then press <em>Install</em> again.<br>
+As long as MFA has been installed for all users, you should see a box that’s already filled in with the location that MFA was installed to.</li>
+<li>Click <em>Configure</em> to continue the layer manager installation.<br>
+You will see a window open with some information about integrating with MFA, including the information you’ve already read above.</li>
+</ol>
+</section>
+<section id="forced-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="forced-alignment">Forced Alignment</h2>
+<p>Once you’ve</p>
+<ol type="1">
 <li>Now you need to add a phrase layer for the HTK configuration:
 <ul>
-<li><em>Layer ID</em>: <code>mfa</code></li>
-<li><em>Type</em>: <em>Text</em></li>
-<li><em>Alignment</em>: <em>Intervals</em></li>
-<li><em>Manager</em>: <em>MFA Manager</em></li>
-<li><em>Generate</em>: <em>always</em></li>
-<li><em>Description</em>: <em>MFA alignment time</em></li>
+<li><strong>Layer ID</strong>: <code>mfa</code></li>
+<li><strong>Type</strong>: <em>Text</em></li>
+<li><strong>Alignment</strong>: <em>Intervals</em></li>
+<li><strong>Manager</strong>: <em>MFA Manager</em></li>
+<li><strong>Generate</strong>: <em>always</em></li>
+<li><strong>Description</strong>: <em>MFA alignment time</em></li>
 </ul></li>
 <li>When you configure the layer, set the following options:
 <ul>
-<li><em>Dictionary Name</em>: the dictionary language, e.g.&nbsp;<em>english_uk_mfa</em></li>
-<li><em>Pretrained Acoustic Models</em>: the models language, e.g.&nbsp;<em>english_mfa</em></li>
+<li><strong>Dictionary Name</strong>: the dictionary language, e.g.&nbsp;<em>english_uk_mfa</em></li>
+<li><strong>Pretrained Acoustic Models</strong>: the models language, e.g.&nbsp;<em>english_mfa</em></li>
 <li>The rest of the options can be left as their default values.</li>
 <li>If you’re curious about what the configuration options do, hover your mouse over each option to see a `tool tip’ that describes what the option is for.</li>
 </ul></li>
@@ -615,6 +622,28 @@ You will see a progress bar while LaBB-CAT force-aligns all the transcripts in t
 <li>When the layer manager has finished, you’ll see a message saying:<br>
 <em>Complete - words and phones from selected utterances are now aligned.</em></li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not all MFA pre-trained acoustic models can be used with all dictionaries.</p>
+<p>Apart from matching the language (e.g.&nbsp;English-trained acoustic models should be used only with English dictionaries), the phoneme symbol sets must also match.</p>
+<p>MFA uses several symbol sets, including:</p>
+<ul>
+<li>IPA - model and dictionary names ending in <code>..._mfa</code></li>
+<li>ARPAbet - model and dictionary names ending in <code>..._arpa</code></li>
+</ul>
+<p>So if you use an acoustic model ending in <code>...arpa</code>, then the dictionary you choose must also end in <code>...arpa</code>.</p>
+<p>See the MFA documentation on models and dictionaries for more detailed information:<br>
+<a href="https://mfa-models.readthedocs.io" class="uri">https://mfa-models.readthedocs.io</a></p>
+</div>
+</div>
 
 
 </section>

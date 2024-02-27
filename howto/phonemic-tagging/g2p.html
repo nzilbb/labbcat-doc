@@ -548,6 +548,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#phonemic-tagging-with-the-g2p-bas-web-service" id="toc-phonemic-tagging-with-the-g2p-bas-web-service" class="nav-link active" data-scroll-target="#phonemic-tagging-with-the-g2p-bas-web-service">Phonemic Tagging with the G2P BAS Web Service</a>
   <ul class="collapse">
+  <li><a href="#install-the-layer-manager" id="toc-install-the-layer-manager" class="nav-link" data-scroll-target="#install-the-layer-manager">Install the layer manager</a></li>
   <li><a href="#using-g2p-for-phonemic-transcription" id="toc-using-g2p-for-phonemic-transcription" class="nav-link" data-scroll-target="#using-g2p-for-phonemic-transcription">Using G2P for phonemic transcription</a></li>
   </ul></li>
   </ul>
@@ -562,9 +563,33 @@ ul.task-list li input[type="checkbox"] {
 <section id="phonemic-tagging-with-the-g2p-bas-web-service" class="level1">
 <h1>Phonemic Tagging with the G2P BAS Web Service</h1>
 <p>The <a href="https://www.bas.uni-muenchen.de/Bas/BasHomeeng.html">Bavarian Archive for Speech Signals (BAS)</a>, has kindly published a set of <a href="http://hdl.handle.net/11858/00-1779-0000-0028-421B-4">speech processing web services</a> including one for phonemic transcription called <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/Grapheme2Phoneme">G2P</a>. You can use this service yourself directly, using your web browser, but LaBB-CAT also has a module for using it automatically, called the <em>BAS Services Manager</em>.</p>
-<p><strong>NB</strong>: In order to function, your LaBB-CAT server must be able to connect to the internet.</p>
-<p><strong>NB</strong>: Using G2P for phonological tagging requires LaBB-CAT to send your orthographic transcripts over the internet to a third party. Although point 3 of the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext">BAS Web Services Terms of Service</a> makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.</p>
-<p>You can use G2P for forced alignment if your speech is in any of the following languages:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In order to function, your LaBB-CAT server must be able to connect to the internet.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using G2P for phonological tagging requires LaBB-CAT to send your orthographic transcripts over the internet to a third party. Although point 3 of the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext">BAS Web Services Terms of Service</a> makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.</p>
+</div>
+</div>
+<p>You can use G2P for phonological tagging if your speech is in any of the following languages:</p>
 <ul>
 <li>Albanian</li>
 <li>Australian Aboriginal Languages</li>
@@ -599,28 +624,43 @@ ul.task-list li input[type="checkbox"] {
 <li>on the corpora page (where you can define the language for all transcripts each corpus).</li>
 </ul>
 <p>The available language options can be set in LaBB-CAT by going to the transcript attributes page and clicking the Options button of the “language” attribute. The value must be a <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">two-letter ISO639-1 code</a> optionally appended with a two-letter country code - e.g.&nbsp;“en” or “en-NZ”.</p>
+<section id="install-the-layer-manager" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-layer-manager">Install the layer manager</h2>
+<ol type="1">
+<li>In LaBB-CAT, select the <em>layer managers</em> option on the menu, which gives you a list of the layer managers already installed.</li>
+<li>At the bottom of the page, follow the <em>List of layer managers that are not yet installed</em> link.</li>
+<li>Look for <em>BAS Web Services Manager</em> in the list, and press it’s <em>Install</em> button, and then <em>Install</em> again.</li>
+<li>Follow the “terms of usage” link and read the terms.</li>
+<li>Close the terms page, returning to LaBB-CAT.</li>
+<li>Select true for the “Accept Terms of Usage” option</li>
+<li>Press <em>Configure</em>.<br>
+You will see a page of information about the Layer Manager, including instructions on how to set up forced alignment.</li>
+</ol>
+</section>
 <section id="using-g2p-for-phonemic-transcription" class="level2">
 <h2 class="anchored" data-anchor-id="using-g2p-for-phonemic-transcription">Using G2P for phonemic transcription</h2>
 <ol type="1">
 <li>Select the <em>word layers</em> option on the menu - this will display a list of all the word layers you already have in the database.</li>
-<li>At the bottom of the list, there’s a blank form for creating a new layer - fill this form in:
+<li>At the top of the list, there’s a blank form for creating a new layer - fill this form in:
 <ul>
-<li><em>Layer ID</em> - enter something like <code>phonemes</code></li>
-<li><em>Type</em> - select <em>Phonological</em> (Or <em>Text</em> if you don’t want to use “DISC” encoding; see below)</li>
-<li><em>Manager</em> - select <em>BAS Web Services Manager</em></li>
-<li><em>Alignment</em> - select <em>None</em> (as these are simply tags on the orthographic words)</li>
-<li><em>Generate</em> - select <em>Always</em></li>
+<li><strong>Layer ID</strong>: enter something like <code>phonemes</code></li>
+<li><strong>Type</strong>: select <em>Phonological</em> (Or <em>Text</em> if you don’t want to use “DISC” encoding; see below)</li>
+<li><strong>Alignment</strong>: select <em>None</em> (as these are simply tags on the orthographic words)</li>
+<li><strong>Manager</strong>: select <em>BAS Web Services Manager</em></li>
+<li><strong>Generate</strong>: select <em>Always</em></li>
+<li><strong>Description</strong>: <em>Phonemic transcription according to BAS Web Service’s G2P</em></li>
 </ul></li>
-<li>Press the <em>New</em> button to create the layer</li>
-<li>You will see a form that allows you to configure the layer; check the online help for that page to guide you.</li>
-<li>Options are:
+<li>Press the <em>New</em> button to create the layer.<br>
+You will see a form that allows you to configure the layer; check the online help for that page to guide you.<br>
+Options include:
 <ul>
-<li><em>Phoneme Encoding</em> - the encoding of the phonemes, which includes all of the options supported by G2P, plus “DISC” which, if selected, invokes G2P with “sampa” as the encoding option, and then converts the result to CELEX’s DISC encoding, which uses exactly one character per phoneme. The “DISC” option is recommended if the layer has its type set to “phonological”.</li>
-<li><em>Word Stress</em> - prefix stressed vowels with a stress marker</li>
-<li><em>Syllabification</em> - include syllable boundary markers in the transcriptions.<br>
+<li><strong>G2P</strong> - ensure you select this option for phonemic transcription.</li>
+<li><strong>Phoneme Encoding</strong> - the encoding of the phonemes, which includes all of the options supported by G2P, plus “DISC” which, if selected, invokes G2P with “sampa” as the encoding option, and then converts the result to CELEX’s DISC encoding, which uses exactly one character per phoneme. The “DISC” option is recommended if the layer has its type set to “phonological”.</li>
+<li><strong>Word Stress</strong> - prefix stressed vowels with a stress marker</li>
+<li><strong>Syllabification</strong> - include syllable boundary markers in the transcriptions.<br>
 <img src="G2PConfiguration.png" class="img-fluid" alt="G2P configuration options"></li>
 </ul></li>
-<li>Press <em>Save</em></li>
+<li>Press <em>Set Parameters</em></li>
 <li>Press <em>Regenerate</em></li>
 </ol>
 <p>LaBB-CAT will then generate annotations for all the transcripts you already have in your database. If you have a lot of data, this may take a while.</p>

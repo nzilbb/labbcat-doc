@@ -570,7 +570,19 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Transcripts/recordings from LaBB-CAT are sent to WebMAUS, and the resulting alignments are saved in LaBB-CAT</figcaption>
 </figure>
 </div>
-<p><strong>NB</strong>: Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext">BAS Web Services Terms of Service</a> makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext">BAS Web Services Terms of Service</a> makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.</p>
+</div>
+</div>
 <ul>
 <li>Albanian</li>
 <li>Australian Aboriginal Languages</li>
@@ -624,11 +636,12 @@ You will see a page of information about the Layer Manager, including instructio
 <li>Select the <em>phrase layers</em> option on the menu</li>
 <li>At the top of the page, there’s a blank form for creating a new layer; fill in the following details:
 <ul>
-<li><em>Layer ID</em>: <code>MAUS</code></li>
-<li><em>Type</em>: <em>Text</em></li>
-<li><em>Manager</em>: <em>BAS Web Services Manager</em></li>
-<li><em>Alignment</em>: <em>Time Intervals</em></li>
-<li><em>Generate</em>: <em>Always</em></li>
+<li><strong>Layer ID</strong>: <code>MAUS</code></li>
+<li><strong>Type</strong>: <em>Text</em></li>
+<li><strong>Manager</strong>: <em>BAS Web Services Manager</em></li>
+<li><strong>Alignment</strong>: <em>Time Intervals</em></li>
+<li><strong>Generate</strong>: <em>Always</em></li>
+<li><strong>Description</strong>: <em>WebMAUS Forced alignment</em></li>
 </ul></li>
 <li>Press <em>New</em>.<br>
 You will see a form that allows you to configure the layer; check the online help for that page to guide you. The main choice is the “Phoneme encoding”: the default option, DISC, is probably the best because using this phoneme encoding ensures the layer will work well with other modules, and will be easily searchable. However, it is possible to choose sampa instead, in which case the layer type of the segments layer should be set to Text.</li>

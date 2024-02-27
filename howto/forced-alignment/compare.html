@@ -587,28 +587,26 @@ ul.task-list li input[type="checkbox"] {
 You will see a list of phrase layers, which may include <em>language</em> and <em>entity.</em></li>
 <li>The column headings at the top are also a form to fill in in order to add a new phrase layer. Fill it in with the following details:
 <ul>
-<li>Layer ID: a descriptive name of the configuration, e.g.&nbsp;<em>WebMAUS</em> or <em>HTK-P2FA</em></li>
-<li>Type: <em>Text</em> (this layer will end up containing the word tokens)</li>
-<li>Alignment: <em>Intervals</em> (i.e.&nbsp;annotations with a start time and an end time)</li>
-<li>Manager: select the layer manager for this forced alignment configuration, e.g.&nbsp;<em>HTK Manager</em></li>
-<li>Generate: <em>Never</em> (we will be running forced alignment manually on a selection of recordings, and we don’t want these forced alignments being automatically triggered when new transcripts are uploaded)</li>
-<li>Project: this can be left as-is, unless you have already created a ‘project’ to categorise these layers under.</li>
-<li>Description: A descriptive note something like “Word alignments produced by HTK using the Penn Forced Aligner pretrained acoustic models (P2FA)”</li>
-<li>The new layer form filled in with Layer ID = HTK-P2FA, Type = Text, Alignment = Intervals, Manager = HTK Manager and Generate = Never. There is a ‘New’ button on the far right.<br>
-<img src="ForcedAlignmentComparisonConfig1.png" class="img-fluid" alt="Add the new layer details for the configuration"></li>
+<li><strong>Layer ID</strong>: a descriptive name of the configuration, e.g.&nbsp;<em>WebMAUS</em> or <em>HTK-P2FA</em></li>
+<li><strong>Type</strong>: <em>Text</em> (this layer will end up containing the word tokens)</li>
+<li><strong>Alignment</strong>: <em>Intervals</em> (i.e.&nbsp;annotations with a start time and an end time)</li>
+<li><strong>Manager</strong>: select the layer manager for this forced alignment configuration, e.g.&nbsp;<em>HTK Manager</em></li>
+<li><strong>Generate</strong>: <em>Never</em> (we will be running forced alignment manually on a selection of recordings, and we don’t want these forced alignments being automatically triggered when new transcripts are uploaded)</li>
+<li><strong>Project</strong>: this can be left as-is, unless you have already created a ‘project’ to categorise these layers under.</li>
+<li><strong>Description</strong>: A descriptive note something like “Word alignments produced by HTK using the Penn Forced Aligner pretrained acoustic models (P2FA)” <img src="ForcedAlignmentComparisonConfig1.png" class="img-fluid" alt="The new layer form filled in with Layer ID = HTK-P2FA, Type = Text, Alignment = Intervals, Manager = HTK Manager and Generate = Never. There is a 'New' button on the far right."></li>
 </ul></li>
 <li>Press the <em>New</em> button.<br>
 The layer’s configuration form will appear.</li>
 <li>Fill in the configuration form as required for this configuration, e.g.&nbsp;if it’s HTK with P2FA models, tick the <em>Use P2FA models</em> checkbox, etc.<br>
 <img src="ForcedAlignmentComparisonLayerConfig1.png" class="img-fluid" alt="HTK configuration form with Pronunciation Layer = cmuDictPhonemes, and User P2FA models = ticked"><br>
-The configuration form will also allow you to configure which layer the word alignments and phone alignments are saved to, with a setting like <em>Word Alignment Layer</em> set to <em>word</em> by default, and <em>Phone Alignment Layer</em> set to <em>segment</em> by default.</li>
-<li>Change the <em>Word Alignment Layer</em> to be the layer itself (i.e.&nbsp;if the layer you just added is called “HTK-P2FA”, select the <em>HTK-P2FA</em> option in the dropdown list next to <em>Word Alignment Layer</em>).</li>
-<li>Change the <em>Phone Alignment Layer</em> by selecting the <em>[add new layer]</em> option.<br>
+The configuration form will also allow you to configure which layer the word alignments and phone alignments are saved to, with a setting like <strong>Word Alignment Layer</strong> set to <em>word</em> by default, and <strong>Phone Alignment Layer</strong> set to <em>segment</em> by default.</li>
+<li>Change the <strong>Word Alignment Layer</strong> to be the layer itself (i.e.&nbsp;if the layer you just added is called “HTK-P2FA”, select the <em>HTK-P2FA</em> option in the dropdown list next to <em>Word Alignment Layer</em>).</li>
+<li>Change the <strong>Phone Alignment Layer</strong> by selecting the <em>[add new layer]</em> option.<br>
 You will be asked what you want the new layer to be called.<br>
 <img src="ForcedAlignmentComparisonNewPhoneLayer.png" class="img-fluid" alt="An input dialog titled 'Please enter the new layer ID' with the default 'HTK-P2FAPhone' already entered, and the OK button highlighed"></li>
 <li>You can leave this as the default value, which will be something like “HTK-P2FAPhone”, and press <em>OK</em></li>
-<li>There may also be an <em>Utterance Tag Layer</em> setting, which by default has the layer itself selected. We’re already using the layer itself for the word alignments, and don’t want it to also contain a time-stamp for when the alignment was done, so we are going to un-set this setting.<br>
-Set Utterance Tag Layer to <em>[none]</em>.<br>
+<li>There may also be an <strong>Utterance Tag Layer</strong> setting, which by default has the layer itself selected. We’re already using the layer itself for the word alignments, and don’t want it to also contain a time-stamp for when the alignment was done, so we are going to un-set this setting.<br>
+<strong>Set Utterance Tag Layer</strong> to <em>[none]</em>.<br>
 <img src="ForcedAlignmentComparisonOutputLayers.png" class="img-fluid" alt="Layer settings where Word Alignment Layer = HTK-P2FA, Phone Alignment Layer = HTK-P2FAPhone, and Utterance Tag Layer = [none]"></li>
 <li>Press the <em>Set Parameters</em> button to save the configuration.</li>
 <li>Repeat steps 3-11 for each configuration you want to compare.<br>
