@@ -792,10 +792,28 @@ You should see a progress bar while the forced alignment is running. It will tak
 <p>Once HTK has produced the word and segment alignments, it:</p>
 <ul>
 <li>sets the start/end times of the words on the transcript layer accordingly,</li>
-<li>adds new phone annotations to the <em>segments</em> layer with the alignments of the phones, and</li>
+<li>adds new phone annotations to the <em>segment</em> layer with the alignments of the phones, and</li>
 <li>saves a timestamp in the <em>htk</em> layer.</li>
 </ul>
 <p>When the layer manager has finished, you’ll see a message saying “Complete - words and phones from selected utterances are now aligned.”</p>
+<p>To double-check aligned <em>segment</em> annotations were created:</p>
+<ol start="24" class="example" type="1">
+<li>Select the <em>transcripts</em> option from the menu.</li>
+<li>Find one of the transcripts the speaker appears in, and click its name to open it.</li>
+<li>Tick the <em>htk</em> layer and the <em>segment</em> layer</li>
+<li>Check that each of the speaker’s utterances has a time-stamp annotation above, and phone annotations below for each word.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="aligned-utterances.png" class="img-fluid figure-img" alt="Two orthoraphic utterances, each with an annotation spanning above with a timestamp - '2024-02-27T13:42:44' - and each word has IPA pronuncation symbols below"></p>
+<figcaption>Aligned utterances are tagged with a timestamp above, and include segment annotations below</figcaption>
+</figure>
+</div>
+<p>Exceptions might include:</p>
+<ul>
+<li>utterances with words that still have missing pronunciations, and</li>
+<li>simultaneous speech (i.e.&nbsp;there’s another participant speaking at the same time) – these are deliberately ignored as automatic aligments are usually of poor quality.</li>
+</ul>
 <div style="page-break-after: always;"></div>
 </section>
 <section id="DISC" class="level2">
