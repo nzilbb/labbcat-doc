@@ -16,13 +16,50 @@ Each annotation layer is usually managed by a single layer manager, but it's pos
 
 - the CELEX English layer manager as the primary layer manager, targeting only English utterances, plus
 - the CELEX German layer manager as an auxiliary, targeting only German utterances, and
-- the Character Mapperg layer manager as an auxiliary, configured to target only utterances in Te Reo Māori with orthography-to-phonology mappings.
+- the Character Mapper layer manager as an auxiliary, configured to target only utterances in Te Reo Māori with orthography-to-phonology mappings.
+
+In order to set this up:
+
+1. In LaBB-CAT, select the *word layers* option on the menu.
+1. Add a *phonemes* layer that's managed by the CELEX English layer manager.
+1. Set the layer configuration [as required](celex.qmd), ensuring that in its configuration, the *Language* setting targets only English words:\
+   ![CELEX English targets words whos language starts with 'en'](CELEXEnglishOnly.png){fig-alt="Language set to en.*"}
+1. Select the *word layers* option on the menu again.
+1. On the *phonemes* layer, press the 'Other configurations' icon: ![](AuxiliariesIcon.png)
+1. Fill in the *description* box as `German pronunciation` 
+1. For the *layer manager* select the *CELEX German* option.
+1. Press the *New* button.
+1. Press *Configure*
+1. Configure the layer as required.
+1. Ensure the *Language* setting is that to `de.*` to annotate only words that are in German:\
+   ![CELEX German targets words whos language starts with 'de'](CELEXGermanOnly.png){fig-alt="Language set to de.*"}
+1. Select the *word layers* option on the menu again.
+1. On the *phonemes* layer, press the 'Other configurations' icon: ![](AuxiliariesIcon.png)
+1. Fill in the blank *description* box as `Te Reo Māori pronunciation` 
+1. For its *layer manager* select the *Character Mapper* option.
+1. Press the *New* button.
+1. Press *Configure*
+1. Configure the layer [as required](character-mapper.qmd).
+1. Ensure the *Language* setting is that to `mi` to annotate only words that are in Māori:\
+   ![Character Mapper targets words whose language is 'mi'](CharacterMapperMāoriOnly.png){fig-alt="Language set to mi"}
+
+![The 'phonemes' layer's two auxiliary configurations](PhonemesLayerAuxiliaryConfigurations.png){fig-alt="The 'auxiliary layer managers' page, with two rows, 'German pronunciation' managed by CELEX German, and 'Te Reo Māori pronunciation' managed by Character Mapper"}
+
+When the layer is generated, first the main configuration will generate annotations (i.e. CELEX English phonology), and then the auxiliary configurations will be run, in alphabetical order. As long as each has a different language targeted, they will each annotate different word tokens.
 
 LaBB-CAT has three mechanisms for determining the language of each word token in the corpus:
 
-1. If the word is enclosed in an annotation on the *language* phrase layer, then the annotation's label determines the language of that token. The language meta layer is a time-span layer that allows spans of words to be marked as being in a specific language.
-1. Otherwise, the transcript's *language* transcript attribute is used to determine the language.
-1. If the *language* transcript attribute is unset, then the *language* of the corpus the transcript is in is used to determine the language.
+1. If the word is enclosed in an annotation on the *language* phrase layer, then the annotation's label determines the language of that token. The language phrase layer is a time-span layer that allows spans of words to be marked as being in a specific language. 
+
+::: {.callout-tip}
+How these manual annotations are added depends on the transcription tool; e.g. 
+
+- *Transcriber* has a mechanism specifically for this, and for ELAN transcripts, and
+- LaBB-CAT supports a [language-tagging transcription convention](../transcription/elan-language.qmd#speech-in-a-different-language) which can achieve the same thing.
+:::
+
+2. Otherwise, the transcript's *language* transcript attribute is used to determine the language.
+3. If the *language* transcript attribute is unset, then the *language* of the corpus the transcript is in is used to determine the language.
 
 
 Using these mechanisms, it's possible to ensure that each token is labelled with the correct phonemic transcription, even if the corpus contains multiple languages, and even if there are multiple languages within the same transcript.
