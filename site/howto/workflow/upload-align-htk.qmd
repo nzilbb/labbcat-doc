@@ -16,6 +16,7 @@ This workflow details the steps required to upload new transcripts and then run 
 These instructions assume that 
 
 - you've got a LaBB-CAT server set up
+- it's already configured for CELEX-based pronunciations to be tagged on the *phonemes* layer
 - it's already configured for forced alignment with HTK
 - the HTK configuration is designed for the per-speaker train/align procedure
 
@@ -70,7 +71,7 @@ pre-selected some default options for layer mappings.
 These defaults are correct under most circumstances, but it's a good idea to double-check that 
 
 - tiers that contain transcripts of speech are mapped to *utterance* and
-- tiers that contain other information aren't mapped to *utterance*.
+- tiers that contain other information **aren't** mapped to *utterance*.
 
 ![Check mappings of tiers to layers](map-tiers-to-layers.png){fig-alt="A column of ELAN tiers is listed on the left, each with a dropdown selector of LaBB-CAT layers on the right. Noise, comment, and topic tiers are mapped to layers with the same name, while tiers named after speakers are mapped to the 'utterance' layer."}
 
@@ -92,65 +93,99 @@ If there are more transcripts to upload for this speaker, you can repeat from st
 (@) Double check that the transcript text appears correct and that the media playback control appears on the top right.
 (@) Click on an utterance and select the *Play* option from the resulting menu.\
     Ensure that the audio corresponding to the given utterance is played.
+(@) At the top of the page, tick the *phonemes* layer, to show the pronunciation annotations on the words.\
+    You should see that most, if not all, words in the transcript have a pronunciation above them.
+
+![A transcript showing the *phonemes* layer](phonemes-layer.png){fig-alt="Part of a transcript, showing pronunciation annotations above the ortographic words in each utterance. Although most words have a tag, some tags are missing - e.g. 'um' and 'Brooklands' have no 'phonemes' layer annotation."}
+
+For HTK to force-align an utterance, it must know the pronunciation of every word in the utterance. It uses the *phonemes* layer to determine what the pronunciations are, and these are usually tagged by looking up a lexicon like CELEX.
+
+If you see gaps in the *phonemes* layer on the transcript, these are words for which there is no known pronunciation. These missing entries should be filled in in order to ensure HTK force-aligns all utterances; there are instructions for this below.
 
 At this point, the transcripts have been uploaded and are ready for forced alignment. 
 
+{{< pagebreak >}}
+
 ## 2. Forced Alignment
 
-To start a forced-alignment process per-speaker, you need to first select a speaker who will be aligned. Then you will fill in any pronunciations that are missing from the dictionart. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.
+To start a forced-alignment process per-speaker, you need to first select the speaker to be aligned. Then you will fill in any pronunciations that are missing from the dictionary. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.
 
 (@) In LaBB-CAT, select the *participants* option on the menu
 (@) Find and tick the speaker.
 (@) Press the *All Utterances* button
-(@) Click *List*
-(@) Once the paginated list of utterances appears, press the *Htk* button below.  
+(@) Press *List*
+(@) Once the paginated list of utterances appears, press the *Htk* button below.
 
-Basically you need to fill in the boxes with the pronunciations and click *Save Pronunciations*.
+LaBB-CAT will first determine which words have missing pronunciations; you will see a progress bar, and then a list will appear of words that need their pronunciations adding to the dictionary. The list of missing words may grow as more utterances are analysed.
+
+![Missing pronuciations that need filling in](missing-pronunciations.png){fig-alt="A list of words with missing pronunciations. Each word has a 'search' button, a box for filling in the pronununciation, and a phoneme-helper button. Some pronunciaions are already filled in. At the bottom, there are two buttons: Save and Start"}
+
+The list has the following columns:
+
+- The word that is missing
+- A search button
+- A box for entering the pronunciation that you want to add to the dictionary
+- A phoneme selector button
+
+Each of these is explained below:
+
+- The word that is missing
+: If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.\
+  This is for cases where it's not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.\
+  For example:
+  - If the word is a spelling mistake, you need to correct it in the transcript:
+     1. click the word to open the transcript where it appears,
+     1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,
+     1. fix the spelling error:\
+        ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy . yeah' and the corrected version in a text box below: 'so it's a fair bit of history . yeah'"}\
+     1. press *Update* and then *Close*.
+  - In some cases, it's an interruped word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
+    These cases need to have a *pronounce* tag added to the word token directly in the transcript:
+     1. click the word to open the transcript where it appears,
+     1. click the word in the transcript and select the *Edit* (the last option, under 'Word') from the resulting menu,\
+        (this opens a window that shows all the annotation layers for that word token),\
+        ![](add-pronounce-tag.png){fig-alt="A box for the word token 'pres~', showing each annotation layer. The 'pronounce' layer's box has already been filled in with the pronunciation 'pr@z'"}
+     1. in the *pronounce* box, enter the pronunciation of the word using CELEX's DISC symbols,
+     1. Press the tick button, or press the {{< kdb Enter >}} key to save
+- A search button
+: This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.\
+  Clicking the button allows you to lookup one or more words in the dictionary:\
+  ![Look up the dictionary for one or more words](lookup-brook-lands.png){fig-alt="A popup box where 'brook lands' has been entered for looking up the dictionary"}\
+  The pronunciations for the words you enter are displayed on buttons:\
+  ![Existing pronunciations of other words](brook-lands-pronunciations.png){fig-alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"}\
+  Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.\
+  The dictionary lookup can be useful for compound words like `tarseal`, numbers like `3` (you can look up "three"), and words that are pronounced similarly.
+- A box for entering the pronunciation that you want to add to the dictionary
+: Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you're force-aligning now.\
+  The pronunciations must ben entered using CELEX's 'DISC' symbols (i.e. one character per phoneme, with no spaces), see [below](#DISC).
+- A phoneme selector button
+: This button helps with using the correct symbols.\
+  ![Phoneme symbol selector](phoneme-symbol-selector.png){fig-alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"}\
+   Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
+
+Some of the pronunciations may already be filled in. In these cases, LaBB-CAT is suggesting a pronunciation, based on how the word relates to other words it already has a pronunciation for. The suggestion may be wrong, and you should check/correct these before saving them.
+
+:::{.callout-important}
+The pronunciations you add to the dictionary should include:
+
+- `-` : the syllable separator (hyphen)
+- `'` : the primary lexical stress marker (apostrophe), and
+- `"` : the secondary stress marker (double-quote) if any.
+
+If you use the dictionary lookup button, these are included in the pronunciations that are returned.
+:::
+
+Basically you need to fill in the boxes with the pronunciations and click *Save*. You don't have to fill them all in before clicking *Save*, you can save several pronunciations, which will disappear from the list, leaving the ones you haven't filled in yet.
 
 ::: {.callout-note}
 
--   You don't have to fill them all in at once, you can do a few,
-and click *Save*, which will save your work and list what's
-left.
--   You don't have to fill them all in, you can leave some empty 
+You don't have to fill in all pronunciations, you can leave some empty 
 and continue with the HTK forced-alignment by clicking *Start*
-(HTK will ignore any lines where the remaining unknown words
-appear, but the ones you filled in will be included).
--   Some of the boxes will be initially filled in with a suggestion
-from the lexicon layer manager - these may or may not be
-correct, and aren't saved until you save them.
--   The pronunciations have to be in the 'DISC' format - i.e. one
-character per phoneme, with no spaces. There's a 'helper' link
-on the right of each pronunciation box - if you click it, it
-expands into a list of clickable phonemes - just the ones that
-aren't ordinary letters, and diphthongs etc.
--   The *search* button lets you look up the lexicon for similar
-words - this probably won't help for place names, but for words
-like "tarseal", you can click the *lookup* button, enter "tar
-seal" in the box as two separate words, and you'll get back the
-DISC pronunciation of each word, with clickable buttons to copy
-the given pronunciation into the box. This is useful for digits
-and numbers too, which may not be in the lexicon - so for "1",
-search for "one" and copy the pronunciation.
--   If you click on the word itself, the transcript for the first
-instance of that word is opened, in case you want to listen to
-it, or in case it's actually just a typo and you want to
-correct the transcript.
--   If you're using CELEX, when you specify the pronunciations,
-it's recommended to put syllable separators (-) and primary
-stress markers (') too - e.g. for "tarseal" you can put
-*t\#sil* but it would actually be better to put *t\#-'sil*.
-These markers are entered into the dictionary even though
-they're stripped out for HTK, and they may come in handy later
-(e.g. the syllable separators are used by the CELEX layer
-manager to count syllables).
-:::
 
-When you add pronunciations this way, they're added to the
-dictionary and all the instances of those words in LaBB-CAT are
-updated with the pronunciations - not just the participant
-you're looking at, but all participants in the database. So you
-only have to come up with a pronunciation for each word once.
+However, HTK will ignore any lines where the remaining unknown words
+appear, so not all utterances will be aligned in the end.
+
+:::
 
 
 (@) Once you've filled in all the missing pronunciations, forced
@@ -172,3 +207,44 @@ Once HTK has produced the word and segment alignments, it:
 When the layer manager has finished, you'll see a message saying
 "Complete - words and phones from selected utterances are now
 aligned."
+
+{{< pagebreak >}}
+
+## CELEX 'DISC' Pronunciation Symbols{id="DISC"}
+
+These are the symbols that should be used for all pronunciations:
+
+  ----- ------ -------------- --- ----- ------ --------------
+  IPA   DISC                      IPA   DISC    
+  p     `p`    **p**at            ɪ     `I`    K**I**T
+  b     `b`    **b**ad            ε     `E`    DR**E**SS
+  t     `t`    **t**ack           æ     `{`    TR**A**P
+  d     `d`    **d**ad            ʌ     `V`    STR**U**T
+  k     `k`    **c**ad            ɒ     `Q`    L**O**T
+  g     `g`    **g**ame           ʊ     `U`    F**OO**T
+  ŋ     `N`    ba**ng**           ə     `@`    **a**nother
+  m     `m`    **m**at            i:    `i`    FL**EE**CE
+  n     `n`    **n**at            α:    `#`    f**a**ther
+  l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
+  r     `r`    **r**at            u:    `u`    G**OO**SE
+  f     `f`    **f**at            ɜ:    `3`    N**UR**SE
+  v     `v`    **v**at            eɪ    `1`    F**A**CE
+  θ     `T`    **th**in           αɪ    `2`    PR**I**CE
+  ð     `D`    **th**en           ɔɪ    `4`    CH**OI**CE
+  s     `s`    **s**ap            əʊ    `5`    G**OA**T
+  z     `z`    **z**ap            αʊ    `6`    M**OU**TH
+  ∫     `S`    **sh**eep          ɪə    `7`    N**EAR**
+  ʒ     `Z`    mea**s**ure        εə    `8`    SQU**ARE**
+  j     `j`    **y**ank           ʊə    `9`    C**URE**
+  x     `x`    lo**ch**           æ     `c`    t**i**mbre
+  h     `h`    **h**ad            ɑ̃ː    `q`    dét**en**te
+  w     `w`    **w**et            æ̃ː    `0`    l**in**gerie
+  ʧ     `J`    **ch**eap          ɒ̃ː    `~`    bouill**on**
+  ʤ     `_`    **j**eep                         
+  ŋ̩     `C`    bac**on**                        
+  m̩     `F`    idealis**m**              `-`   syllable separator
+  n̩     `H`    burd**en**                `'`   primary stress
+  l̩     `P`    dang**le**                `"`   secondary stress
+  ----- ------ -------------- --- ----- ------ --------------
+
+

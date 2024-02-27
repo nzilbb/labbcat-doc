@@ -67,11 +67,15 @@ download and use HTK free of charge.
 (@) Unzip (for Windows) or compile and install (for Unix-like systems)
     the downloaded files on the computer that LaBB-CAT is installed on.
 
+:::{.callout-note}
+
 If your LaBB-CAT server is installed in a *Docker Container*, LaBB-CAT
 can itself download and compile HTK (i.e. steps 2 and 3), as long has
 you have a username and password for the HTK website. In this case,
 these steps are automatically attempted when you install the HTK layer
 manager (below).
+
+:::
 
 Now, you have to install the HTK Layer Manager, which is the LaBB-CAT
 module that provides HTK with all the data it needs, and then saves to
@@ -85,18 +89,21 @@ alignments HTK produces back to your database.
 (@) The layer manager needs to know where the HTK programs have been
     saved, which is what you need to enter in the blank *Path to HTK tools* box.\
     If this box is not blank, it means that LaBB-CAT has already found
-    HTK for you, so you should leave the default value already set.\
-    (The other two boxes you may see are for the username and password you
-    registered on the HTK website. On some systems, if you have not
-    already installed the HTK tools on your LaBB-CAT computer, providing
-    the username and password allows LaBB-CAT to attempt to download and
-    install HTK itself. This may not work in all cases, as LaBB-CAT may
-    not have the resources or privileges it requires to compile or
-    install software.)
+    HTK for you, so you should leave the default value already set.
+
+::: {.callout-note}
+The other two boxes you may see are for the username and password you
+registered on the HTK website. On some systems, if you have not
+already installed the HTK tools on your LaBB-CAT computer, providing
+the username and password allows LaBB-CAT to attempt to download and
+install HTK itself. This may not work in all cases, as LaBB-CAT may
+not have the resources or privileges it requires to compile or
+install software.
+:::
+
 (@) Press *Configure*.\
     You will see a window open with some information about the HTK Layer
-    Manager. This page has some useful instructions on it, so keep the
-    page open for now.
+    Manager. 
 (@) Now you need to add a *phrase layer* for the HTK configuration:
     -   **Layer ID:** `htk`
     -   **Type:** *Text*
