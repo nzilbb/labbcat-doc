@@ -149,7 +149,7 @@ For example:
   These cases need to have a *pronounce* tag added to the word token directly in the transcript:
    1. click the word to open the transcript where it appears,
    1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,\
-   1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation -- this is a *pronounce* tag:\
+   1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation enclosed in square brackets -- this is a *pronounce* tag:\
       ![](add-pronounce-tag.png){fig-alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"}
    1. press *Update* and then *Close*.
 

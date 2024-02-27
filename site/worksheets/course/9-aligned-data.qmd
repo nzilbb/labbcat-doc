@@ -102,12 +102,12 @@ Now we're going to search for some instances of vowels of interest
 measurements.
 
 (@) First of all, create a new project called *formants*
-(@) Now select the *segment layers* menu option.
 
 We're going to add a layer that annotates segments - i.e.
 individual phones within words.
 
-(@) Fill in the new-layer form at the bottom with the following details:
+(@) Now select the *segment layers* menu option.
+(@) Fill in the new-layer form at the top with the following details:
     -   **Layer ID:** `F1`
     -   **Type:** *Number*
     -   **Alignment:** *Instants*
