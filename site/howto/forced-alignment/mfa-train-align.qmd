@@ -14,9 +14,9 @@ You can use 'MFA' to train new speaker-specific acoustic models on your speech d
 - MFA has no dictionaries and pre-trained acoustic models for the language of your data and so you can't use [MFA and Pretrained Acoustic Models](mfa-pretrained-models.qmd).
 - You have 3-5 hours' speech.
 
-The general process is illustrated below:
+The general process is illustrated in @fig-process.
 
-![Pronunciations are generated from transcripts, and then combined with the recordings to train acoustic models, which are then used to compute phone-level alignements, which are saved to LaBB-CAT's database](MFA-TrainAndAlign.svg)
+![Pronunciations are generated from transcripts, and then combined with the recordings to train acoustic models, which are then used to compute phone-level alignements, which are saved to LaBB-CAT's database](MFA-TrainAndAlign.svg){#fig-process}
 
 ## Prerequisites
 
@@ -57,21 +57,13 @@ The broad steps for getting forced-alignments from MFA are:
 
 ## MFA Installation
 
-MFA is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module. MFA is *not included* as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.
+{{< include fragment-mfa-installation.qmd >}}
 
-If MFA has not been installed already, please follow the steps detailed under
-[MFA Installation](mfa-install.qmd). This is a one-time process.
+{{< pagebreak >}}
 
-## Install the MFA Layer Manager
+## Layer Manager Installation
 
-Once MFA has been installed, you have to install the MFA Manager, which is the LaBB-CAT module that provides MFA with all the data it needs, and then saves to alignments MFA produces back to your database.
-
-1. Select the *layer managers* menu option.
-1. Follow the *List of layer managers that are not yet installed* link.
-1. Find *MFA Manager* in the list, and press its *Install* button and then press *Install* again.
-1. As long as MFA has been installed for all users, you should see a box that's already filled in with the location that MFA was installed to.
-1. Click *Configure* to continue the layer manager installation.
-1. You will see a window open with some information about integrating with MFA, including the information you've already read above.
+{{< include fragment-mfa-annotator-installation.qmd >}}
 
 ## Dictionary and segment layer labels
 
@@ -116,10 +108,8 @@ Once you've installed MFA and the MFA Layer Manager, you need to create a new la
 
 MFA is data-hungry when training acoustic models for forced alignment, and needs 
 [3-5 hours' speech](https://memcauliffe.com/how-much-data-do-you-need-for-a-good-mfa-alignment.html)
-to produce accurate alignments. This means that, each time you run forced alignment, you should forced align several hours of speech at once. Depending on your data, this might represent a single speaker's utterances, several speakers, or all speakers in your corpus!
 
 To start a forced-alignment process for a batch of selected participants, you need to first select the participants who will be aligned. Then you need to list all their utterances, and MFA will first training acoustic models from scratch from them, and then using those acoustic models, align those same utterances.
-
 
 1. In LaBB-CAT, select the *participants* link on the menu
 1. Filter the list to display the desired participants, and tick the checkbox next to each participant you want to include
@@ -128,7 +118,5 @@ To start a forced-alignment process for a batch of selected participants, you ne
     A progress bar will appear while LaBB-CAT identifies all the selected participant's utterances. Once this is done, the first twenty utterances will be listed (like search results, the first twenty are listed for convenience, but you can process all matching utterances)
 1. Click the *Mfa* button below the list.  
     A progress bar will appear while MFA gathers up all the utterance data, trains acoustic models, force-aligns the utterances, and then saves the resulting alignments back to LaBB-CAT. This process may take some time.
-
-     
 
 Once the progress bar reaches 100% and the process is complete, the selected utterances will have word start/end times set, and aligned phones will have been added to the *segment* layer, using the same labels as appear in the *phonemes* layer

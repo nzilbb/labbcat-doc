@@ -1,23 +1,10 @@
----
-format:
-  html:
-    toc: true
-  pdf: 
-    toc: false
-    fontfamily: libertinus
----
-# MFA Installation
-
-The *Montreal Forced Aligner* (MFA) is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module:  
-<https://montrealcorpustools.github.io/Montreal-Forced-Aligner/>
-
 MFA is not included as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.
 
 If MFA has not been installed already, please follow the following
 steps, depending on the operatings system of your LaBB-CAT server:
 
 :::{.callout-note collapse=true}
-## Linux
+### Linux
 
 To install the Montreal Forced Aligner on Linux systems for all users,
 so that your web server can access it if required:
@@ -40,8 +27,10 @@ so that your web server can access it if required:
     `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=2.2.17`
 :::
 
+{{< pagebreak >}}
+
 :::{.callout-note collapse=true}
-## Windows
+### Windows
 
 To install the Montreal Forced Aligner on Windows systems for all users,
 so that your web server can access it if required:
@@ -60,7 +49,7 @@ so that your web server can access it if required:
 :::
 
 :::{.callout-warning collapse=true}
-## Troubleshooting on Windows
+### Windows Troubleshooting
 
 The 3rd party MFA software requires:
 
@@ -85,7 +74,7 @@ Sometimes problems can be resolved by:
 
 *PSexec* is a tool that can be used to diagnose and solve problems on Windows.
 
-### PSexec
+#### PSexec
 
 1. Download PStool.zip from Microsoft:  
    <http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx>
@@ -104,7 +93,7 @@ Then you can use the command prompt to run MFA commands to diagnose errors - e.g
 - `mfa version` - ensures MFA is installed and accessible, and confirms the version
 - `mfa model download dictionary` - ensures MFA can connect to the internet to get models etc.; this command should return a long list of language dictionaries, and not report errors.
 
-### Proxy Settings
+#### Proxy Settings
 
 To update proxy server settings:
 
@@ -116,7 +105,7 @@ To update proxy server settings:
 :::
 
 :::{.callout-note collapse=true}
-## Docker Container
+### Docker Container
 
 If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager LaBB-CAT module. 
 

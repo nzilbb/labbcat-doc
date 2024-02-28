@@ -10,9 +10,9 @@ format:
 
 You can use 'HTK' and the 'P2FA' pre-trained acoustic models to force align you speech data if it is US English, or sufficiently similar to US English for the phoneme set to produce good alignments.
 
-The general process is illustrated below:
+The general process is illustrated in @fig-process.
 
-![Pronunciations are looked up for transcripts, and then combined with recordings and the P2FA models to compute alignments, which are saved in LaBB-CAT](HTK-P2FA.svg)
+![Pronunciations are looked up for transcripts, and then combined with recordings and the P2FA models to compute alignments, which are saved in LaBB-CAT](HTK-P2FA.svg){#fig-process}
 
 The [Hidden Markhov Model Toolkit (HTK)](http://htk.eng.cam.ac.uk/) 
 is a speech recognition toolkit developed at Cambridge University.  LaBB-CAT can use it for force-aligning words and segments.  HTK is not free software in the
@@ -54,32 +54,15 @@ The broad steps for getting forced-alignments from HTK are:
 
 ### Install HTK
 
-As mentioned above, HTK is a 3rd-party tool that you must download and install from the Cambridge University website.
-
-1. Register at <http://htk.eng.cam.ac.uk/register.shtml>
-1. Download the version of HTK that is appropriate for the computer that LaBB-CAT is install on:  
-        For Windows systems, there are pre-compiled .exe files that you can download.
-        For Unix-like systems, you need to download the source code, which you will then install following the provided instructions (you may also need to install the xorg-dev package before it will successfully compile).
-1. Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.
+{{< include fragment-htk-installation.qmd >}}
 
 ### Install the HTK Layer Manager
 
-The HTK Layer Manager is a LaBB-CAT module that integrates LaBB-CAT with HTK.
-
-1. In LaBB-CAT, select the *layer managers* option on the menu, which gives you a list of the layer managers already installed.
-1. At the bottom of the page, follow the *List of layer managers that are not yet installed* link.
-1. Look for *HTK* in the list, and press it's *Install* button.
-1. You will see a form with boxes for filling in information.
-    - *HTK Path* must be set to the location where the HTK files are installed on your system. If this is already filled in, it's probably correct.  If it's blank, you have to enter the full path for the HTK programs:
-        - On Windows systems, this is where you unzipped the HTK .exe files - e.g. something like `C:\Downloads\HTK`
-        - On Unix-like systems, this is probably `/usr/local/bin`, but you can verify this by entering which HCopy at a command shell prompt.
-    - *HTK Working Folder* will already have a default value, which is probably best left as-is
-1. Press *Install Layer Manager*
+{{< include fragment-htk-annotator-installation.qmd >}}
 
 ### Create the HTK layer
 
 Once you've installed HTK and the HTK Layer Manager, you need to create a new layer for triggering and controlling forced alignment. This layer will itself contain a timestamp for each line/utterance it has force-aligned (and so it's a 'phrase' layer), but during that process, the word and phone alignments will also be set on other layers.
-
 
 1. In LaBB-CAT, select the *phrase layers* option
 1. At the top of the page, there's a blank form for creating a new layer; fill in the following details:
