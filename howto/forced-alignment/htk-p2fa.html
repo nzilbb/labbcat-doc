@@ -344,6 +344,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -572,11 +584,15 @@ ul.task-list li input[type="checkbox"] {
 <section id="htk-and-p2fa" class="level1">
 <h1>HTK and P2FA</h1>
 <p>You can use ‘HTK’ and the ‘P2FA’ pre-trained acoustic models to force align you speech data if it is US English, or sufficiently similar to US English for the phoneme set to produce good alignments.</p>
-<p>The general process is illustrated below:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="HTK-P2FA.svg" class="img-fluid figure-img"></p>
-<figcaption>Pronunciations are looked up for transcripts, and then combined with recordings and the P2FA models to compute alignments, which are saved in LaBB-CAT</figcaption>
+<p>The general process is illustrated in <a href="#fig-process" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<div id="fig-process" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="HTK-P2FA.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pronunciations are looked up for transcripts, and then combined with recordings and the P2FA models to compute alignments, which are saved in LaBB-CAT
+</figcaption>
 </figure>
 </div>
 <p>The <a href="http://htk.eng.cam.ac.uk/">Hidden Markhov Model Toolkit (HTK)</a> is a speech recognition toolkit developed at Cambridge University. LaBB-CAT can use it for force-aligning words and segments. HTK is not free software in the “<a href="https://www.gnu.org/philosophy/free-sw.html">GNU</a>” sense - i.e.&nbsp;we can not distribute it with LaBB-CAT, instead you have to download it yourself from the Cambridge University website - however it is free in the “no cost” sense, you just need to register on the HTK website, and you can then download and use HTK free of charge.</p>
@@ -610,7 +626,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <section id="install-htk" class="level3">
 <h3 class="anchored" data-anchor-id="install-htk">Install HTK</h3>
-<p>As mentioned above, HTK is a 3rd-party tool that you must download and install from the Cambridge University website.</p>
+<p>HTK is a 3rd-party tool that you must download and install from the Cambridge University website.</p>
 <ol type="1">
 <li>Register at <a href="http://htk.eng.cam.ac.uk/register.shtml" class="uri">http://htk.eng.cam.ac.uk/register.shtml</a></li>
 <li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is install on:<br>

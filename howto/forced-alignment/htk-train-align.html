@@ -344,6 +344,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -574,11 +586,15 @@ ul.task-list li input[type="checkbox"] {
 <li>Your data isn’t US English (or similar) and so you can’t use <a href="../../howto/forced-alignment/htk-p2fa.html">HTK with the P2FA</a> pre-trained models.</li>
 <li>You have at least 5 minutes’ speech for each speaker.</li>
 </ul>
-<p>The general process is illustrated below:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="HTK-TrainAndAlign.svg" class="img-fluid figure-img"></p>
-<figcaption>Pronunciations are generated from transcripts, and then combined with the recordings to train acoustic models, which are then used to compute phone-level alignements, which are saved to LaBB-CAT’s database</figcaption>
+<p>The general process is illustrated in <a href="#fig-process" class="quarto-xref">Figure&nbsp;1</a></p>
+<div id="fig-process" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="HTK-TrainAndAlign.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-process-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Pronunciations are generated from transcripts, and then combined with the recordings to train acoustic models, which are then used to compute phone-level alignements, which are saved to LaBB-CAT’s database
+</figcaption>
 </figure>
 </div>
 <section id="prerequisites" class="level2">
@@ -622,7 +638,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <section id="install-htk" class="level3">
 <h3 class="anchored" data-anchor-id="install-htk">Install HTK</h3>
-<p>As mentioned above, HTK is a 3rd-party tool that you must download and install from the Cambridge University website.</p>
+<p>HTK is a 3rd-party tool that you must download and install from the Cambridge University website.</p>
 <ol type="1">
 <li>Register at <a href="http://htk.eng.cam.ac.uk/register.shtml" class="uri">http://htk.eng.cam.ac.uk/register.shtml</a></li>
 <li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is install on:<br>

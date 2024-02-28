@@ -346,6 +346,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item">
@@ -544,13 +556,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#mfa-installation" id="toc-mfa-installation" class="nav-link active" data-scroll-target="#mfa-installation">MFA Installation</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mfa-install.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -558,156 +564,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="mfa-installation" class="level1">
-<h1>MFA Installation</h1>
-<p>The <em>Montreal Forced Aligner</em> (MFA) is a 3rd-party tool that LaBB-CAT integrates with via a Layer Manager module:<br>
-<a href="https://montrealcorpustools.github.io/Montreal-Forced-Aligner/" class="uri">https://montrealcorpustools.github.io/Montreal-Forced-Aligner/</a></p>
-<p>MFA is not included as part of LaBB-CAT, and so it must be installed on the server you have installed LaBB-CAT on before you can integrate LaBB-CAT with it.</p>
-<p>If MFA has not been installed already, please follow the following steps, depending on the operatings system of your LaBB-CAT server:</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Linux
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To install the Montreal Forced Aligner on Linux systems for all users, so that your web server can access it if required:</p>
+<p>HTK is a 3rd-party tool that you must download and install from the Cambridge University website.</p>
 <ol type="1">
-<li>Download Miniconda:<br>
-<code>wget https://repo.anaconda.com/miniconda/Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
-<li>Start the installer:<br>
-<code>sudo bash Miniconda3-py38\_4.10.3-Linux-x86\_64.sh</code></li>
-<li>When asked the location to install Miniconda, use:<br>
-<code>/opt/conda</code></li>
-<li>When asked whether the installer should initialize Miniconda, this is unnecessary so you can respond <code>no</code></li>
-<li>Change ownership of the conda files):<br>
-<code>sudo chown -R $USERNAME:$USERNAME /opt/conda</code></li>
-<li>Make conda accessible to all users (so you web server can access MFA):<br>
-<code>chmod -R go-w /opt/conda</code><br>
-<code>chmod -R go+rX /opt/conda</code></li>
-<li>Install the Montreal Forced Aligner<br>
-<code>/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=2.2.17</code></li>
+<li>Register at <a href="http://htk.eng.cam.ac.uk/register.shtml" class="uri">http://htk.eng.cam.ac.uk/register.shtml</a></li>
+<li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is install on:<br>
+For Windows systems, there are pre-compiled .exe files that you can download. For Unix-like systems, you need to download the source code, which you will then install following the provided instructions (you may also need to install the xorg-dev package before it will successfully compile).</li>
+<li>Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.</li>
 </ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Windows
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To install the Montreal Forced Aligner on Windows systems for all users, so that your web server can access it if required:</p>
-<ol type="1">
-<li>Download the Miniconda installer:&nbsp;&nbsp;&nbsp;<br>
-<a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" class="uri">https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe</a></li>
-<li>Start the installer by double-clicking it.</li>
-<li>When asked, select the “Install for all users” option. This will install conda somewhere like<br>
-<em>C:\ProgramData\Miniconda3</em></li>
-<li>When asked, tick the <em>add to PATH</em> option.</li>
-<li>Install the Montreal Forced Aligner by specifying a path to the environment<br>
-<code>conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner=2.2.17</code></li>
-</ol>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Troubleshooting on Windows
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The 3rd party MFA software requires:</p>
-<ul>
-<li>the possibility of running command-line programs during installation and forced alignement</li>
-<li>the possibility that these programs can download data from the internet</li>
-</ul>
-<p>On Windows, this can sometimes be complicated by the fact that Apache Tomcat and LaBB-CAT are installed as a ‘Windows Service’. Windows Services usually run using the permissions of a special anonymous login account called ‘Local System’, which in some environments has restricted permissions to access different resources.</p>
-<p>If you install the MFA Manager LaBB-CAT integration module, but you find it returns errors when trying to interact with MFA, the problem may be that the Windows Service:</p>
-<ul>
-<li>does not have permission to access the folder where MFA is installed, or</li>
-<li>is not allowed to execute other programs, or</li>
-<li>cannot access the internet.</li>
-</ul>
-<p>Sometimes problems can be resolved by:</p>
-<ul>
-<li>running the Apache Tomcat Windows Service as a different user other than ‘Local System’. (or if it was running as some other used, try setting it back to ‘Local System’), or</li>
-<li>adjusting the permissions of the Windows Service users, or</li>
-<li>adjusting the permissions of the folders where MFA is installed</li>
-<li>configuring the service to use the local Internet Proxy settings to enable connecting to the internet.</li>
-</ul>
-<p><em>PSexec</em> is a tool that can be used to diagnose and solve problems on Windows.</p>
-<section id="psexec" class="level3">
-<h3 class="anchored" data-anchor-id="psexec">PSexec</h3>
-<ol type="1">
-<li>Download PStool.zip from Microsoft:<br>
-<a href="http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx" class="uri">http://technet.microsoft.com/en-us/sysinternals/bb897553.aspx</a></li>
-<li>Unzip it</li>
-<li>Put <em>PSexec.exe</em> into <code>C:\Windows\System32</code></li>
-<li>Open <code>cmd</code> using “Run as Administrator”</li>
-<li>Run the command:<br>
-<code>Psexec.exe -i -s cmd.exe</code><br>
-This opens a new command prompt for local system account</li>
-<li>In the new command prompt window, check you have the correct account type with the command:<br>
-<code>whomai</code></li>
-</ol>
-<p>Then you can use the command prompt to run MFA commands to diagnose errors - e.g.:</p>
-<ul>
-<li><code>conda activate montreal-forced-aligner</code> - activates the MFA environment</li>
-<li><code>mfa version</code> - ensures MFA is installed and accessible, and confirms the version</li>
-<li><code>mfa model download dictionary</code> - ensures MFA can connect to the internet to get models etc.; this command should return a long list of language dictionaries, and not report errors.</li>
-</ul>
-</section>
-<section id="proxy-settings" class="level3">
-<h3 class="anchored" data-anchor-id="proxy-settings">Proxy Settings</h3>
-<p>To update proxy server settings:</p>
-<ol type="1">
-<li>type <code>inetcpl.cpl</code></li>
-<li>goto <em>Connections</em> tab</li>
-<li>click on the <em>LAN Settings</em> button</li>
-<li>Fill in the <em>Proxy</em> section with the correct details</li>
-</ol>
-</section>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Docker Container
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If your LaBB-CAT server is installed in a Docker Container, it can download and install Miniconda and MFA itself, as part of the process of installing the MFA Manager LaBB-CAT module.</p>
-<p>There is no need for a separate installation of the MFA software.</p>
-</div>
-</div>
-</div>
 
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2023-2024 NZILBB</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
