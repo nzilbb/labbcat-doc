@@ -1112,7 +1112,7 @@
     "section": "",
     "text": "LaBB-CAT Documentation\nThis is the documentation for the LaBB-CAT corpus management system.\nLaBB-CAT is a browser-based linguistics research tool that stores audio or video recordings, text transcripts, and other annotations.\nAnnotations of various types can be automatically generated or manually added.\nThe transcripts and annotations can be searched for particular text or regular expressions. The search results, or entire transcripts, can be viewed or saved in a variety of formats, and the related parts of the recordings can be played or opened in acoustic analysis software, all directly through the web-browser.\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB",
     "crumbs": [
-      "Home"
+      "LaBB-CAT Documentation"
     ]
   },
   {
@@ -1120,7 +1120,10 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB"
+    "text": "About\nThis is the documentation for the LaBB-CAT corpus management system.\nAuthor: Robert Fromont\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB",
+    "crumbs": [
+      "About"
+    ]
   },
   {
     "objectID": "worksheets/demo/5-syntax.html",
@@ -1858,7 +1861,7 @@
     "href": "howto/index.html",
     "title": "How-to",
     "section": "",
-    "text": "How-to\nThese pages describe how to achieve various common tasks in LaBB-CAT\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB",
+    "text": "How-to\nThese pages describe how to achieve various common tasks in LaBB-CAT, including:\n\nTranscription\nPhonemic Tagging\nForced Alignment\n\n…and other options you can see in the menu on the left.\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB",
     "crumbs": [
       "How-to"
     ]
