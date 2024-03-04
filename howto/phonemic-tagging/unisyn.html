@@ -569,8 +569,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#getting-unisyn" id="toc-getting-unisyn" class="nav-link" data-scroll-target="#getting-unisyn">Getting Unisyn</a></li>
   <li><a href="#install-the-layer-manager" id="toc-install-the-layer-manager" class="nav-link" data-scroll-target="#install-the-layer-manager">Install the Layer Manager</a></li>
   <li><a href="#using-unisyn-with-this-layer-manager" id="toc-using-unisyn-with-this-layer-manager" class="nav-link" data-scroll-target="#using-unisyn-with-this-layer-manager">Using Unisyn with this layer manager</a></li>
-  <li><a href="#mapping-unisyn-pronunciations-to-the-disc-phoneme-set" id="toc-mapping-unisyn-pronunciations-to-the-disc-phoneme-set" class="nav-link" data-scroll-target="#mapping-unisyn-pronunciations-to-the-disc-phoneme-set">Mapping Unisyn pronunciations to the DISC phoneme set</a></li>
-  <li><a href="#creating-a-phonemes-layer" id="toc-creating-a-phonemes-layer" class="nav-link" data-scroll-target="#creating-a-phonemes-layer">Creating a Phonemes Layer</a></li>
+  <li><a href="#mapping-unisyn-pronunciations-to-the-disc-phoneme-set" id="toc-mapping-unisyn-pronunciations-to-the-disc-phoneme-set" class="nav-link" data-scroll-target="#mapping-unisyn-pronunciations-to-the-disc-phoneme-set">Mapping Unisyn pronunciations to the DISC phoneme set</a>
+  <ul class="collapse">
+  <li><a href="#changing-the-disc-symbol-mapping" id="toc-changing-the-disc-symbol-mapping" class="nav-link" data-scroll-target="#changing-the-disc-symbol-mapping">Changing the DISC symbol mapping</a></li>
+  </ul></li>
+  <li><a href="#other-possible-phoneme-encodings" id="toc-other-possible-phoneme-encodings" class="nav-link" data-scroll-target="#other-possible-phoneme-encodings">Other possible phoneme encodings</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/howto/phonemic-tagging/unisyn.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="unisyn.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -606,9 +609,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Select the <em>layer managers</em> menu option.</li>
 <li>Follow the <em>List of layer managers that are not yet installed</em> link near the bottom.</li>
 <li>Find “Unisyn” in the list, and press its <em>Install</em> button, then <em>Install</em> again.</li>
-<li>Press <em>Configure</em> to install the default version of the dictionary.</li>
 </ol>
-<p>You will see a progress bar while the layer manager loads the data from the dictionary file into the LaBB-CAT database. This will take a minute or so.</p>
+<p>Once the layer manager is installed, you’ll see a page of information explaining more details about the layer manager. Once you’ve read this information, you can close the browser tab to return to LaBB-CAT.</p>
 </section>
 <section id="using-unisyn-with-this-layer-manager" class="level2">
 <h2 class="anchored" data-anchor-id="using-unisyn-with-this-layer-manager">Using Unisyn with this layer manager</h2>
@@ -623,24 +625,41 @@ ul.task-list li input[type="checkbox"] {
 </ol></li>
 <li>Upload the accent-specific lexicon into LaBB-CAT:
 <ol type="1">
-<li>select <em>layer managers</em> on the menu</li>
-<li>find the <em>Unisyn layer manager</em> in the list, and click the extensions button (the second-to-last button on the right)</li>
-<li>press <em>Choose File</em> and select the <em>gam.unisyn</em> file you generated above.</li>
-<li>press <em>Upload.</em></li>
+<li>Select <em>layer managers</em> on the menu.</li>
+<li>Find the <em>Unisyn layer manager</em> in the list, and click the <em>Extensions</em> button (the second-to-last button on the right).</li>
+<li>Press <em>Choose File</em> and select the <em>gam.unisyn</em> file you generated above.</li>
+<li>Press <em>Upload Lexicon</em>.<br>
+You will see a progress bar while the file is uploaded and the data is processed.</li>
 </ol></li>
-<li>Create the layer for your pronunciation annotations:
+<li>Create the layer for your pronunciation annotations: To create a new layer with CMUdict annotations:
 <ol type="1">
-<li>select <em>word layers</em> on the menu</li>
-<li>add a new layer called something like “GAM Pronunciations”, selecting <em>Unisyn</em> as the layer manager, and <em>Phonological</em> as the layer type.</li>
-<li>check the settings, but most likely the default options are correct, so press <em>Save</em></li>
+<li>Select the <em>word layers</em> option on the menu - this will display a list of all the word layers you already have in the database.</li>
+<li>At the top of the list, there’s a blank form for creating a new layer - fill this form in:
+<ul>
+<li><strong>Layer ID</strong>: enter a name - e.g.&nbsp;<code>phonemes</code></li>
+<li><strong>Type</strong>: select <em>Phonological</em></li>
+<li><strong>Manager</strong>: select <em>Unisyn</em></li>
+<li><strong>Alignment</strong>: select <em>None</em> (as these are simply tags on the orthographic words)</li>
+<li><strong>Generate</strong>: select <em>Always</em></li>
+<li><strong>Description</strong>: something like<br>
+<em>All possible pronnunciations according to Unisyn’s General American accent-specific lexicon</em></li>
+</ul></li>
+<li>Press the <em>New</em> button to create the layer. You will see the layer configuration page. Check the online help for explanations of all options, but at least:</li>
+<li>Ensure the Source Layer is <em>orthography</em></li>
+<li>Select the desired Lexicon from the list (these relate to the file or files you generated and uploaded above)</li>
+<li>Tick the <em>Strip syllabification/stress</em> if you will use this layer for forced alignment with HTK. <img src="UnisynDISCConfiguration.png" class="img-fluid"></li>
+<li>Press <em>Save</em></li>
+<li>Press <em>Regenerate</em>. You will see a progress bar while the layer manager annotates all the transcripts that have already been uploaded.</li>
 </ol></li>
 </ol>
+<p>LaBB-CAT will then generate annotations for all the transcripts you already have in your database. If you have a lot of data, this may take a while.</p>
+<p>From now on, when you upload a new transcript, the Unisyn annotations will automatically be generated for it.</p>
 </section>
 <section id="mapping-unisyn-pronunciations-to-the-disc-phoneme-set" class="level2">
 <h2 class="anchored" data-anchor-id="mapping-unisyn-pronunciations-to-the-disc-phoneme-set">Mapping Unisyn pronunciations to the DISC phoneme set</h2>
 <p>LaBB-CAT’s processing of phonological layers assumes that the annotations use the DISC phoneme set designed for the CELEX phonemic transcriptions. This set is used because each phoneme is expressed by precisely one ASCII character, including phonemes usually expressed using a digraph - e.g.&nbsp;affricates like <code>/tʃ/</code> (which is <code>/J/</code> in DISC) and diphthongs like <code>/aɪ/</code> (which is <code>/2/</code> in DISC)</p>
 <p>Unisyn transcriptions use a set of phones that is greater that the set of phones available in DISC, and the transcriptions are designed to be broadly phonetic, not phonemic.</p>
-<p>This means that using the DISC representation of the transcripts is imperfect, as there is a certain amount of loss of information when mapping Unisyn phones to DISC phonemes. The mapping that is used is shown below.</p>
+<p>This means that using the DISC representation of the transcripts is imperfect, as there is a certain amount of loss of information when mapping Unisyn phones to DISC phonemes. The default mapping that is used is shown below.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -653,7 +672,7 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ah</td>
+<td>ah</td>
 <td style="text-align: center;">→</td>
 <td style="text-align: center;">#</td>
 <td style="text-align: center;">Ɑ:</td>
@@ -1242,6 +1261,34 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<section id="changing-the-disc-symbol-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="changing-the-disc-symbol-mapping">Changing the DISC symbol mapping</h3>
+<p>If you would like to adjust this mapping, so that Unisyn symbols correspond to different DISC symbols, you can do so by visitin the Unisyn Layer Manager’s <em>Extensions</em> page, and following the dictionary’s ‘Phoneme Map’ link, as shown in <a href="#fig-extensions" class="quarto-xref">Figure&nbsp;1</a></p>
+<div id="fig-extensions" class="quarto-figure quarto-figure-center quarto-float anchored" alt="The Unisyn Tagger's extnsions page lists all lexicons that have been uploaded. Each lexicon has a 'Phoneme Map' link next to its name, and also a delete button. Below the list is an option labelled 'Upload New Lexicon File'.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-extensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="UnisynExtensions.png" class="img-fluid figure-img" alt="The Unisyn Tagger's extnsions page lists all lexicons that have been uploaded. Each lexicon has a 'Phoneme Map' link next to its name, and also a delete button. Below the list is an option labelled 'Upload New Lexicon File'.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-extensions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Lexicon listing, where mappings can be speccified, and lexicons uploaded, or deleted
+</figcaption>
+</figure>
+</div>
+<p>This page allows you to change how Unisyn symbols correspond to DISC symbols, as seen in <a href="#fig-disc-mapping" class="quarto-xref">Figure&nbsp;2</a>.</p>
+<div id="fig-disc-mapping" class="quarto-figure quarto-figure-center quarto-float anchored" alt="Unisyn-encoded phonemes ars listed - e.g. @, @@r, @r a, aa, aai, ae, ... - each with a text box for specifying the DISC symbol for that phoneme - e.g. @, 3, @, {, Q, 2, 2. There is also a 'note' field describing the sound, and a button for deleting each row. At the top is a '+' button for adding a new row.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-disc-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="UnisynPhonemeMapping.png" class="img-fluid figure-img" alt="Unisyn-encoded phonemes ars listed - e.g. @, @@r, @r a, aa, aai, ae, ... - each with a text box for specifying the DISC symbol for that phoneme - e.g. @, 3, @, {, Q, 2, 2. There is also a 'note' field describing the sound, and a button for deleting each row. At the top is a '+' button for adding a new row.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-disc-mapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Phoneme Map page allowing correspondences to be edited
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="other-possible-phoneme-encodings" class="level2">
+<h2 class="anchored" data-anchor-id="other-possible-phoneme-encodings">Other possible phoneme encodings</h2>
 <p>If having the original transcriptions precisely as defined in the Unisyn lexicon is very important, you can instead create a layer that uses the original transcription as contained in the file you uploaded. This has the advantage that the transcriptions are not filtered through the above mapping, and the disadvantage that LaBB-CAT won’t be able to display the transcriptions using IPA symbols, nor help you when creating search patterns for the layer.</p>
 <p>If you decide to do this, Unisyn offers you two possible representations:</p>
 <ul>
@@ -1255,29 +1302,6 @@ ul.task-list li input[type="checkbox"] {
 <li>When creating the layer, set the layer type to <em>Text</em> rather than <em>Phonological.</em></li>
 <li>When configuring the layer, set the field to <em>Phonemes (original file)</em> rather than <em>Phonemes (DISC)</em>.</li>
 </ul>
-</section>
-<section id="creating-a-phonemes-layer" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-phonemes-layer">Creating a Phonemes Layer</h2>
-<p>To create a new layer with CMUdict annotations:</p>
-<ol type="1">
-<li>Select the <em>word layers</em> option on the menu - this will display a list of all the word layers you already have in the database.</li>
-<li>At the top of the list, there’s a blank form for creating a new layer - fill this form in:
-<ul>
-<li>ID - enter a one- or two-word description - e.g.&nbsp;<code>phonemes</code></li>
-<li>layer type - select <em>Phonological</em></li>
-<li>layer manager - select <em>Unisyn</em></li>
-<li>alignment - select <em>None</em> (as these are simply tags on the orthographic words)</li>
-<li>generate - select <em>Always</em></li>
-</ul></li>
-<li>Press the <em>New</em> button to create the layer. You will see the layer configuration page. Check the online help for explanations of all options, but at least:</li>
-<li>Ensure the Source Layer is <em>orthography</em></li>
-<li>Select the desired Lexicon from the list (these relate to the file or files you generated and uploaded above)</li>
-<li>Tick the <em>Strip syllabification/stress</em> if you will use this layer for forced alignment with HTK. <img src="UnisynDISCConfiguration.png" class="img-fluid"></li>
-<li>Press <em>Save</em></li>
-<li>Press <em>Regenerate</em>. You will see a progress bar while the layer manager annotates all the transcripts that have already been uploaded.</li>
-</ol>
-<p>LaBB-CAT will then generate annotations for all the transcripts you already have in your database. If you have a lot of data, this may take a while.</p>
-<p>From now on, when you upload a new transcript, the Unisyn annotations will automatically be generated for it.</p>
 
 
 </section>
