@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -585,7 +585,8 @@ ul.task-list li input[type="checkbox"] {
 <p>You can compare different forced alignment methods with your own data by configuring LaBB-CAT to allow multiple simultaneous alignments which can then be compared, in order to decide which method to use.</p>
 <p>To do this, the broad process is:</p>
 <ol type="1">
-<li>set up multiple forced alignment configurations, configured to output their word and phone alignments to separate layers (i.e.&nbsp;not the normal <em>word</em> and <em>segment</em> layers), and then 1.run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.</li>
+<li>set up multiple forced alignment configurations, configured to output their word and phone alignments to separate layers (i.e.&nbsp;not the normal <em>word</em> and <em>segment</em> layers), and then</li>
+<li>Run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.</li>
 <li>Finally, you can compare the configurations, either by:
 <ul>
 <li>selecting individual utterances, extracting all the alignments to a TextGrid with the audio, and doing an auditory/visual evaluation of each set of alignments, or</li>
@@ -692,7 +693,7 @@ The transcript page is not intended to accurately represent time alignment at th
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ForcedAlignmentComparisonAlignmentsInPraat.png" class="img-fluid figure-img" alt="Praat's representation of the alignments, with two word alignment tiers called HTK-P2FA and MFA-USEnglish, then two phone alignment tiers called HTK-P2FAPhone and MFA-USEnglishPhone, and finally a word tier below with evenly-spaced intervals"></p>
+<p><img src="ForcedAlignmentComparisonAlignmentsInPraat.png" class="img-fluid figure-img"></p>
 <figcaption>Multiple sets of alignments shown in Praat</figcaption>
 </figure>
 </div>
@@ -783,6 +784,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -817,7 +836,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

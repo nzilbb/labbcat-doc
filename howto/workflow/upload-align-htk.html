@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -630,7 +630,7 @@ Assumptions
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="upload-transcript.png" class="img-fluid figure-img" alt="The upload form has a .eaf file selected on the left and a .wav file selected on the right, whith two Choose File buttons below, and upload uptions including Corpus and Type"></p>
+<p><img src="upload-transcript.png" class="img-fluid figure-img"></p>
 <figcaption>Select the transcript on the left and the media on the right</figcaption>
 </figure>
 </div>
@@ -650,7 +650,7 @@ Assumptions
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="map-tiers-to-layers.png" class="img-fluid figure-img" alt="A column of ELAN tiers is listed on the left, each with a dropdown selector of LaBB-CAT layers on the right. Noise, comment, and topic tiers are mapped to layers with the same name, while tiers named after speakers are mapped to the 'utterance' layer."></p>
+<p><img src="map-tiers-to-layers.png" class="img-fluid figure-img"></p>
 <figcaption>Check mappings of tiers to layers</figcaption>
 </figure>
 </div>
@@ -673,7 +673,7 @@ You should see that most, if not all, words in the transcript have a pronunciati
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="phonemes-layer.png" class="img-fluid figure-img" alt="Part of a transcript, showing pronunciation annotations above the ortographic words in each utterance. Although most words have a tag, some tags are missing - e.g. 'um' and 'Brooklands' have no 'phonemes' layer annotation."></p>
+<p><img src="phonemes-layer.png" class="img-fluid figure-img"></p>
 <figcaption>A transcript showing the <em>phonemes</em> layer</figcaption>
 </figure>
 </div>
@@ -695,7 +695,7 @@ You should see that most, if not all, words in the transcript have a pronunciati
 <p>LaBB-CAT will first determine which words have missing pronunciations; you will see a progress bar, and then a list will appear of words that need their pronunciations adding to the dictionary. The list of missing words may grow as more utterances are analysed.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="missing-pronunciations.png" class="img-fluid figure-img" alt="A list of words with missing pronunciations. Each word has a 'search' button, a box for filling in the pronununciation, and a phoneme-helper button. Some pronunciaions are already filled in. At the bottom, there are two buttons: Save and Start"></p>
+<p><img src="missing-pronunciations.png" class="img-fluid figure-img"></p>
 <figcaption>Missing pronuciations that need filling in</figcaption>
 </figure>
 </div>
@@ -740,14 +740,14 @@ These cases need to have a <em>pronounce</em> tag added to the word token direct
 <p>This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt. Clicking the button allows you to lookup one or more words in the dictionary:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lookup-brook-lands.png" class="img-fluid figure-img" alt="A popup box where 'brook lands' has been entered for looking up the dictionary"></p>
+<p><img src="lookup-brook-lands.png" class="img-fluid figure-img"></p>
 <figcaption>Look up the dictionary for one or more words</figcaption>
 </figure>
 </div>
 <p>The pronunciations for the words you enter are displayed on buttons:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="brook-lands-pronunciations.png" class="img-fluid figure-img" alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"></p>
+<p><img src="brook-lands-pronunciations.png" class="img-fluid figure-img"></p>
 <figcaption>Existing pronunciations of other words</figcaption>
 </figure>
 </div>
@@ -821,7 +821,7 @@ You should see a progress bar while the forced alignment is running. It will tak
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="aligned-utterances.png" class="img-fluid figure-img" alt="Two orthoraphic utterances, each with an annotation spanning above with a timestamp - '2024-02-27T13:42:44' - and each word has IPA pronuncation symbols below"></p>
+<p><img src="aligned-utterances.png" class="img-fluid figure-img"></p>
 <figcaption>Aligned utterances are tagged with a timestamp above, and include segment annotations below</figcaption>
 </figure>
 </div>
@@ -1195,6 +1195,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1229,7 +1247,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

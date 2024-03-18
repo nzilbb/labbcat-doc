@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -646,7 +646,7 @@ You can leave the other options that appear with their default values.</li>
 <p>Once the import is complete, you will see a list of texts on the <em>Dataset</em> page. The <em>Metadata</em> column will be full of text and numbers - this is normal; LaBB-CAT includes information in the <em>Metadata</em> that it needs to import the text back into LaBB-CAT correctly.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ImportedTextsWithMetadata.png" class="img-fluid figure-img" alt="List of texts in the dataset, showing one text with a lot of numeric MetaData."></p>
+<p><img src="ImportedTextsWithMetadata.png" class="img-fluid figure-img"></p>
 <figcaption>The imported dataset includes metadata to aid re-import into LaBB-CAT</figcaption>
 </figure>
 </div>
@@ -680,7 +680,7 @@ You should see the label’s you’ve added, listed after the imported ones.<br>
 <p>You will see one of the texts you imported.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="TextBeforeTagging.png" class="img-fluid figure-img" alt="Imported transcript text with some lines labelled with the participant ID, and some phrases pre-tagged with annotations exported from LaBB-CAT"></p>
+<p><img src="TextBeforeTagging.png" class="img-fluid figure-img"></p>
 <figcaption>Transcript including annotations exported from LaBB-CAT</figcaption>
 </figure>
 </div>
@@ -688,14 +688,14 @@ You should see the label’s you’ve added, listed after the imported ones.<br>
 <p>To tag a phrase in the text, simply click and drag over the phrase to select it. A menu of tags will appear.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ClickDragMenu.png" class="img-fluid figure-img" alt="After clicking and dragging the phrase 'then I'd got inside the toilet', a menu appears next to it listing all tags"></p>
+<p><img src="ClickDragMenu.png" class="img-fluid figure-img"></p>
 <figcaption>Click/drag for label menu</figcaption>
 </figure>
 </div>
 <p>When you click the desired tag, it will be added to the text.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="NewTag.png" class="img-fluid figure-img" alt="The phrase 'then I'd got inside the toilet' is now tagged as 'narrative-action:complicating action'"></p>
+<p><img src="NewTag.png" class="img-fluid figure-img"></p>
 <figcaption>New tags appear in the text</figcaption>
 </figure>
 </div>
@@ -706,7 +706,7 @@ You should see the label’s you’ve added, listed after the imported ones.<br>
 <p>To use this method of tagging, scroll to the top of the text, and click the desired <em>Label</em> in the list on the top right.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="PreselectLabel.png" class="img-fluid figure-img" alt="'Label Types' menu on the top right of the text includes all Labels, and has the 'narrative-action:complicating action' Label ticked"></p>
+<p><img src="PreselectLabel.png" class="img-fluid figure-img"></p>
 <figcaption>Pre-select a label in the label Types list at the top right of the text</figcaption>
 </figure>
 </div>
@@ -714,7 +714,7 @@ You should see the label’s you’ve added, listed after the imported ones.<br>
 <p>Changes are automatically saved. Once you’ve added all the tags you want in this text, you can move to the next by using the navigation buttons at the top right of the text.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="NavigateBetweenTexts.png" class="img-fluid figure-img" alt="Navigation buttons at the top right of the text allow you to go to the first, previous, next, and last text (respectively)"></p>
+<p><img src="NavigateBetweenTexts.png" class="img-fluid figure-img"></p>
 <figcaption>Buttons for navigating to the first, previous, next, and last text</figcaption>
 </figure>
 </div>
@@ -860,6 +860,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -894,7 +912,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
