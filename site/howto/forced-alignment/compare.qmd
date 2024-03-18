@@ -15,7 +15,7 @@ You can compare different forced alignment methods with your own data by configu
 To do this, the broad process is:
 
 1. set up multiple forced alignment configurations, configured to output their word and phone alignments to separate layers (i.e. not the normal *word* and *segment* layers), and then
-1.run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.
+1. Run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.
 1. Finally, you can compare the configurations, either by:
     - selecting individual utterances, extracting all the alignments to a TextGrid with the audio, and doing an auditory/visual evaluation of each set of alignments, or
     - manually aligning a selection of utterances, and automatically comparing each set of automatic alignments with the corresponding manual alignments.
