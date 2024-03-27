@@ -188,7 +188,7 @@ If you would like to adjust this mapping, so that Unisyn symbols correspond to d
 
 ![Lexicon listing, where mappings can be speccified, and lexicons uploaded, or deleted](UnisynExtensions.png){#fig-extensions fig-alt="The Unisyn Tagger's extnsions page lists all lexicons that have been uploaded. Each lexicon has a 'Phoneme Map' link next to its name, and also a delete button. Below the list is an option labelled 'Upload New Lexicon File'."}
 
-This page allows you to change how Unisyn symbols correspond to DISC symbols, as seen in @fig-disc-mapping.
+This page allows you to change how Unisyn symbols correspond to DISC symbols, as seen in @fig-disc-mapping. You can change symbols/text in the text boxes, and then save your changes with the save button that appears at the bottom of the list.
 
 ![Phoneme Map page allowing correspondences to be edited](UnisynPhonemeMapping.png){#fig-disc-mapping fig-alt="Unisyn-encoded phonemes ars listed - e.g. @, @@r, @r a, aa, aai, ae, ... - each with a text box for specifying the DISC symbol for that phoneme - e.g. @, 3, @, {, Q, 2, 2. There is also a 'note' field describing the sound, and a button for deleting each row. At the top is a '+' button for adding a new row."}
 

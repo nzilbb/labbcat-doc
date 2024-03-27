@@ -57,12 +57,12 @@ To create a new layer with annotations from your dictionary:
 
 1. Select the *word layers* option on the menu - this will display a list of all the word layers you already have in the database.
 1. At the top of the list, there's a blank form for creating a new layer  - fill this form in:
-    - *Layer ID* - enter a one- or two-word description - e.g. phonemes
-    - *Type* - If your dictionary uses CELEX DISC symbols that are not space delimited, select Phonological, otherwise (e.g. space-delimited IPA or ARPABET pronunciations) select Text
-    - *Alignment* - select None (as these are simply tags on the orthographic words)
-    - *Manager* - select Flat Lexicon Tagger
-    - *Generate* - select Always
-    - *Description* - enter a description of the layer - e.g. Pronunciation (text-file)
+    - **Layer ID**: enter a one- or two-word description - e.g. phonemes
+    - **Type**: If your dictionary uses CELEX DISC symbols that are not space delimited, select Phonological, otherwise (e.g. space-delimited IPA or ARPABET pronunciations) select Text
+    - **Alignment**: select None (as these are simply tags on the orthographic words)
+    - **Manager**: select Flat Lexicon Tagger
+    - **Generate**: select Always
+    - **Description**: enter a description of the layer - e.g. Pronunciation (text-file)
 1. Press the *New* button to create the layer.  
     You will see the layer configuration page. Check the online help for explanations of all options, but at least:
 1. Ensure the *Source Layer* is *orthography*
