@@ -5,7 +5,7 @@ format:
   pdf: 
     toc: false
     documentclass: scrreprt
-#    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 8a. HTK
 
