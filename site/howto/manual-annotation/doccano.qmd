@@ -21,6 +21,26 @@ You can use Doccano to tag phrases and import your tags into phrase layers in La
 1. Export the tagged texts from Doccano to a JSONL file
 1. Import the tagged JSONL file into LaBB-CAT
 
+:::{#install-formatter .callout-note collapse=true}
+## Installation of the Doccano Formatter
+
+LaBB-CAT uses 'formatter' modules to import and export files in the formats of different annotation tools.
+
+If you find that 'Doccano JSONL Dataset' is not an option for exporting or importing Doccano files, it's because the Doccano module is not installed on your LaBB-CAT instance.
+
+To install the Doccano formatter:
+
+1. Download the format conversion module here:  
+   <https://github.com/nzilbb/ag/blob/main/bin/nzilbb.formatter.doccano.jar>
+1. In LaBB-CAT, select the *converters* menu option
+1. Press *Choose File* at the bottom, and select the nzilbb.formatter.doccano.jar file you downloaded in 1.
+1. Press *Upload*
+1. Press *Install*
+
+Doccano JSONL Dataset should now be an option for selection on the transcripts page.
+
+:::
+
 ## 1. Export from LaBB-CAT
 
 1. In LaBB-CAT, open the *transcripts* page.
@@ -31,7 +51,7 @@ You can use Doccano to tag phrases and import your tags into phrase layers in La
    ![Tcik existing layers you want to be visibl in Doccano](SelectLayersToExport.png){fif-alt="A list of layers, with the 'narrative-structure' layer ticked for export"}  
    **NB**: Annotations on the layers you select here will be displayed in Doccano but cannot be edited; any changes to these annotations will be ignored when re-importing the dataset into LaBB-CAT.
 1. Below the list of layers, there's a dropdown list of export formats.  
-   Select Doccano JSONL Dataset.  
+   Select Doccano JSONL Dataset.^[If Doccano JSONL Dataset is not an option, then you need to install the Doccano JSONL Dataset formatter - see instructions on [Installation of the Doccano Formatter](#install-formatter)]  
    ![Select Doccano JSONL Dataset](SelectDoccanoJSONLDataset.png){fig-alt="Dropdown box with 'Doccano JSONL Dataset' selected, and an 'Export Format' button below"}
 1. Click *Export Format*
 1. Save the resulting *...jsonl* file.
