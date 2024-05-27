@@ -17,14 +17,8 @@ jobs:
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         
-      - name: Install TeXLive
-        run: sudo apt install texlive
-        
       - name: Install TinyTeX
         run: quarto install tinytex
-        
-      - name: Ensure libertinus fonts are available
-        run: tlmgr install libertinus-fonts
         
       - name: Install rsvg-convert
         run: sudo apt install librsvg2-bin
