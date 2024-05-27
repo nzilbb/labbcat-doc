@@ -4,7 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
-    fontfamily: libertinus
+#    fontfamily: libertinus
 ---
 # 7b. CMU Pronouncing Dictionary
 
