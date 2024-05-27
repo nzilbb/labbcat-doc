@@ -20,6 +20,9 @@ jobs:
       - name: Install TinyTeX
         run: quarto install tinytex
         
+      - name: Ensure libertinus fonts are available
+        run: tlmgr install libertinus-fonts
+        
       - name: Install rsvg-convert
         run: sudo apt install librsvg2-bin
 
