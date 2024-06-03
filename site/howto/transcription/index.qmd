@@ -34,7 +34,8 @@ Many automatic annotation tasks involve looking up standard dictionaries, and wo
 
 There may be a limited set of shortened words and contractions defined, which is fine as long as they're consistently used - e.g. if you use "cos" as a shortened version of "because", always spell it "cos", and never "cause", nor "'cause", nor "coz". For example:
 
-
+:::: {.columns}
+::: {.column width="50%"}
 - gonna
 - sorta
 - cos
@@ -42,12 +43,43 @@ There may be a limited set of shortened words and contractions defined, which is
 - gotta
 - dunno
 - wanna
+:::
+::: {.column width="50%"}
 - yip
 - yeah
 - okay
 - uh huh
 - gee
 - jeez
+:::
+::::
+
+:::::{.callout-note collapse="true"}
+# Fillers in SALT Transcripts
+
+[SALT](https://www.saltsoftware.com/) transcription guidelines include their own set of standardised spellings for interjections and fillers. If you're working with SALT transcripts, you should use these instead:
+
+:::: {.columns}
+::: {.column width="50%"}
+- hey
+- hmm
+- huh
+- mhm
+- nope
+- oops
+- oopsy
+:::
+::: {.column width="50%"}
+- ok
+- psst
+- ssh
+- uhhuh (indicating "yes")
+- uhuh (indicating "no")
+- yeah
+- yep
+:::
+::::
+:::::
 
 ## Disfluencies
 
