@@ -66,8 +66,8 @@ The following annotations, which can span multiple words, or do not apply direct
   -- these can encompass multiple words, e.g utterance errors `[EU]`
 - Code - tags in square brackets, where the tag doesn't start with `E`\
   e.g. `it's your turn to tell the story X[REDACTED]` 
-- Sound effect - prefixed by `%`
-  \e.g. `%yip_yip went Schnitzel_von_Crumm`
+- Sound effect - prefixed by `%`\
+  e.g. `%yip_yip went Schnitzel_von_Crumm`
 - Pause - prefixed by `:`\
   e.g. `um :02 because`
 - Maze - false starts, repetitions, etc. enclosed in `(` and `)`\
