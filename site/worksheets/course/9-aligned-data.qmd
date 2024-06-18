@@ -194,9 +194,9 @@ You can fix that using the *segments layers* option in the menu.
     {{< kbd Ctrl >}} + {{< kbd V >}} on your keyboard)\
     Now you've annotated the vowel with its F1 value, and we want to
     save that annotation back to the LaBB-CAT database.
-(@) Click back on the LaBB-CAT transcript window.
-(@) Click the *Import Changes* button that has appeared to the left
-    ofthe line with the first match.\
+(@) Go back to the LaBB-CAT transcript window.
+(@) Press the *Import Changes* button that has appeared to the left
+    of the line with the first match.\
     You should see a message indicating that the annotations has been
     saved.
 (@) Repeat the above steps for the next few matches in the transcript.
