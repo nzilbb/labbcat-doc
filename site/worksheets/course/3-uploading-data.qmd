@@ -25,9 +25,9 @@ so you\'ve got the demonstration data for uploading to your corpus.
 
 ### Manual Upload
 
-(@) In LaBB-CAT, click the *upload* option in the menu.
-(@) Click the first option, *upload transcripts*.
-(@) Click the left-hand *Choose File* button and select the file in the
+(@) In LaBB-CAT, click the *transcripts* option in the menu.
+(@) Press the *Upload Transcript* icon at the bottom.
+(@) Press the left-hand *Choose File* button and select the file in the
     "QuakeStories" folder called:\
     "BR178LK_MargaretSpencer.eaf"\
     When you select a file, a new row of *Choose File* buttons will
@@ -110,7 +110,7 @@ ELAN.
 (@) Save the resulting file on your desktop, and then open it with Praat.\
     You will see that the TextGrid has various tiers, two for full utterances
     (one for each speaker), and two for individual words (one for each speaker).\
-    (You will see that each individual word has a 'default'
+    (You will see that each individual word has     a 'default'
     alignment - i.e. the words are evenly spread out during the duration
     of the line they're in. In a later exercise we will look at ways to
     make these word alignments actually line up with the words in the
@@ -123,7 +123,8 @@ we have for these exercises), and they are systematically organized
 (which they are), you may be able to save some manual uploading work by
 uploading them using the 'batch upload' utility.
 
-(@) In LaBB-CAT, click the *upload* option on the menu.
+(@) In LaBB-CAT, click the *transcripts* option in the menu.
+(@) Press the *Upload Transcript Batch* icon at the bottom.
 (@) Click the *upload transcript batch* link.\
     This shows a window with a large blank area in the middle with
     various buttons above it.
@@ -179,11 +180,11 @@ ELAN files). We could manually add this for each speaker, but
 fortunately we have it stored in a spreadsheet (actually, a CSV text
 file) that we can upload in one go.
 
-(@) In LaBB-CAT, select the *upload* option on the menu.
-(@) Select the *upload participant data* option.
-(@) Click *Choose File*, and select the file in the LaBB-CAT Exercises
+(@) In LaBB-CAT, select the *participants* option on the menu.
+(@) Press the *Upload Participant Data* icon at the bottom.
+(@) Press *Choose File*, and select the file in the LaBB-CAT Exercises
     data folder called *participants.csv*
-(@) Click *Upload*
+(@) Press *Upload*
 (@) You will now see a list of the columns from the spreadsheet.\
     Firstly, ensure that the *Participant identity column* is set to
     *name*. This ensures that the "name" column in the spreadsheet

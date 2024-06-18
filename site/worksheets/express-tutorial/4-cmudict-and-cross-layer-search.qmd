@@ -166,8 +166,9 @@ phoneme.
     ![The search matrix shows a frame labelled 'orthography' above and
     a frame labelled 'phonemes' below, both with a 'matches'
     dropdown box and an empty 'regular expression' box. The
-    'phonemes' frame also includes a small button labelled:
-    «](two-layers-high.png)
+    'phonemes' frame also includes a button labelled:
+    ![](phoneme-symbol-selector.png)\
+    ![](two-layers-high.png)
 3.  Search your new *phonemes* layer for words that start with `h` by
     entering the appropriate regular expression in the *phonemes* box.\
     You will see that the results contain words that you might not
@@ -200,7 +201,7 @@ starting with a vowel...
 8.  Type `the` in the first *orthography* box.
 9.  Click the second box on the *phonemes* layer, but don't enter
     anything in the box yet.\
-    The box has a little symbol `«` to the right of it.
+    The box has a ![](phoneme-symbol-selector.png) button to the right of it.
 10. Hover the mouse over it to see what it says, and then click it.\
     You will see that a section opens with a bunch of phoneme symbols on
     it; clicking on a phoneme adds its DISC representation to the search

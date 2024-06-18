@@ -177,7 +177,7 @@ word that starts with schwa.
 3.  Type `the` in the first *orthography* box.
 4.  Click the second box on the *phonemes* layer, but don't enter
     anything in the box yet.
-5.  The box has a little `«` button to the right of it.\
+5.  The box has a ![](phoneme-symbol-selector.png) button to the right of it.\
     Hover the mouse over it to see what it says, and then click it.\
     You will see that a section opens with a bunch of phoneme symbols on
     it.

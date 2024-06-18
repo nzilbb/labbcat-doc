@@ -19,8 +19,8 @@ to get the workshop data), and they are systematically organised (which
 they are), you may be able to save some manual uploading work by
 uploading them using the 'batch upload' utility.
 
-1.  In LaBB-CAT, select the *upload* option on the menu.
-2.  Select the *upload transcript batch* link.\
+1.  In LaBB-CAT, click the *transcripts* option in the menu.
+2.  Press the *Upload Transcript Batch* icon at the bottom.\
     This shows a window with a large blank area in the middle with
     various buttons above it.
 3.  Open Windows Explorer or Finder, and navigate to the LaBB-CAT
@@ -140,8 +140,8 @@ ELAN files). We could manually add this for each speaker, but
 fortunately we have it stored in a spreadsheet (actually, a CSV text
 file) that we can upload in one go.
 
-1.  In LaBB-CAT, select the *upload* option on the menu.
-2.  Select the *upload participant data* option.
+1.  In LaBB-CAT, click the *participant* option in the menu.
+2.  Press the *Upload Participant Data* icon at the bottom.
 3.  Click *Choose File*, and select the file in the LaBB-CAT Exercises
     data folder called "participants.csv".
 4.  Click *Upload*
@@ -194,8 +194,8 @@ will make a few of them searchable now.\
 11. Ensure that *Searchability* is set to *Searchable* for the following
     attributes:
     -   *gender*
-    -   *age_category*
-    -   *languages_spoken*
+    -   *ageCategory*
+    -   *languagesSpoken*
 12. Press the *Save* button at the bottom of the list.
 13. Select *participants* on the top menu.\
     You will see that the searchable attributes are now listed with the
