@@ -77,17 +77,17 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
     -   **Searchability** : *Searchable* (so that it appears on the search page)
     -   **Category** : *General*
     -   **Description** : `Age Category`
-(@) Press the *New* button to add the attribute.\
-    You will see a message saying *Layer added: participant_age_category* and the new attribute will now appear at the bottom of the list. Now we need to define the options for it...
 
 :::{.callout-tip}
 ![](help.png) If you want more information about what each of these are for, check the online help for this page.
 :::
 
+(@) Press the *New* button to add the attribute.\
+    You will see a message saying *Layer added: participant_ageCategory* and the new attribute will now appear at the bottom of the list. Now we need to define the options for it...
 (@) To the right of the *Age* attribute's *Category* there's an icon like a tag 🏷.\
     Hover your mouse over this icon to see what it does. 
 (@) Press the *Valid labels* icon.\
-    This shows a (currently empty) list of options for the *participant_age_category* attribute.
+    This shows a (currently empty) list of options for the *participant_ageCategory* attribute.
 (@) In the blank *Label* box, enter: `18-25`
 (@) Press the *New* button to add the option.\
     You will see that "18-25" appears twice on the row that's added:
@@ -108,7 +108,7 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
     -   **Description** : `85 years or more`
 (@) Lastly, press the *New* button without filling in a *Label* to add a 'default' option for participants with missing data.
 (@) Press the *Save* to save all your changes to LaBB-CAT.\
-    You will see a message saying *Layer saved: participant_age_category*
+    You will see a message saying *Layer saved: participant_ageCategory*
 (@) Now select the *participant attributes* option on the menu to return the list of all attributes.\
 
 We are going to add a few more attributes, but they will be 'free text' fields without predefined options.

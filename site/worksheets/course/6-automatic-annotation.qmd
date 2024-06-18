@@ -25,7 +25,7 @@ In this exercise, we will use the following layer managers:
     like word count or duration, over groups of words.
 
 LaBB-CAT comes with number of layer managers pre-installed; you can see
-a list of installed layer managers by clicking the *layer managers* menu
+a list of installed layer managers by selecting the *layer managers* menu
 option. Other layer managers have to be manually installed.
 
 ---
@@ -129,9 +129,9 @@ You can also extract the annotations into CSV results from other searches...
 
 (@) On the search page, do a search for "the" followed by a word that
     starts with a vowel.
-(@) When the results page appears, click the ▼ button next to the *CSV Export* button.
+(@) When the results page appears, press the ▼ button next to the *CSV Export* button.
 (@) Under the list of *Word* layers, tick the *frequency* layer.
-(@) Click the *CSV Export* button.
+(@) Press the *CSV Export* button.
 (@) Save and open the resulting CSV file.\
     You will notice that in the spreadsheet there are two columns:
     -   *Match frequency:* this lists the frequency of each word that
@@ -148,10 +148,10 @@ You can also extract the annotations into CSV results from other searches...
 
 The Frequency Layer Manager also keeps a word-list with token counts for each corpus...
 
-(@) Click the *layer managers* menu option.
-(@) On the "Frequency Layer Manager" row, click the *Extensions* button.
+(@) Select the *layer managers* menu option.
+(@) On the "Frequency Layer Manager" row, press the *Extensions* button.
 (@) You will see a drop-down box with each corpus in it.\
-    Select *QB* and click *Export*.
+    Select *QB* and press *Export*.
 (@) Save and open the resulting CSV file.\
     You will see an alphabetical list of all the distinct word types in
     the QB corpus, and next to each, a count of the number of tokens of
@@ -194,7 +194,7 @@ English data, so it's not installed by default).
     -   **Project:** *frequency*
     -   **Description:** `The stem of the word according to the Porter algorithm`\
         \
-        Click the *New* button.
+        Press the *New* button.
 (@) The Porter Stemmer's default configuration is fine for our
     purposes, so press *Set Parameters*.
 (@) Press *Regenerate*.\
@@ -202,7 +202,8 @@ English data, so it's not installed by default).
     message saying "Layer complete..."
 (@) Select the *transcripts* menu option.
 (@) Click the name of the first transcript.
-(@) Tick the *stem* layer we just added.\
+(@) Tick the *stem* layer we just added (you may need to tick the *frequency* project 
+    to reveal the *stem* layer).\
     When the transcript refreshes, you will see, above each word, its
     'stem' according to the Porter algorithm.
 
@@ -227,7 +228,7 @@ the *orthography* layer, we can generate frequency data from the
         \
         Press the *New* button.
 (@) Configure the layer exactly as before, except this time, set the
-    **Layer to summarize:** setting to the *stem* layer we created
+    **Layer to Summarize** setting to the *stem* layer we created
     above. *Save* your settings and press *Regenerate*.\
     The layer will be generated.
 (@) Do a search of all speakers, for words with a value of 1 on your new
@@ -285,13 +286,15 @@ Below this, there is a currently empty list of "Mappings". We are
 going to add regular expressions to this list, which will identify
 filled pauses.
 
-(@) On the new empty row that's already in the list by default, click
-    on the box labelled "Source pattern", and enter: `u+m+`
-(@) To the right of this, click in the "Destination Label" box and
-    enter: *um*\
-    This will make the layer manager find any instances of words that
-    match the pattern "*u+m+"* on the *orthography* layer, and in each
-    case, save the annotation "um" on our new *pause* layer.
+(@) On the new empty row that's already in the list by default, select
+    the box labelled "Source pattern", and enter: `u+m+`
+(@) To the right of this, select the "Destination Label" box and
+    enter: *um*
+
+This will make the layer manager find any instances of words that
+match the pattern "*u+m+"* on the *orthography* layer, and in each
+case, save the annotation "um" on our new *pause* layer.
+
 (@) Press the + button to add a new blank row, and add another regular
     expression:
     -   **Source Pattern:** `a+h+`
@@ -338,7 +341,7 @@ a layer that can contain annotations over groups of words (as
 opposed to against individual words). The layer manager we will use
 can also annotate participants...
 
-(@) Click the *phrase layers* option on the menu.\
+(@) Select the *phrase layers* option on the menu.\
     You will see a list of phrase layers that are already set up,
     including *language* and (named) *entity*.
 (@) Add a new layer with the following characteristics:
@@ -350,7 +353,7 @@ can also annotate participants...
     -   **Project:** *pauses*
     -   **Description:** `Count of filled pauses, for the utterance and the speaker`\
         \
-        Click *New*
+        Press *New*
 (@) You will see a form for the layer's configuration. Fill in the
     details as follows:
     -   **Layer to summarize:** *pause*
@@ -390,7 +393,7 @@ this page.
 (@) Both the local utterance count, and the participant's overall
     count, can also be exported to CSV search results files.\
     Select *search* and perform a search involving the *pause* layer.
-(@) At the bottom of the results page, click the ▼ button next to the
+(@) At the bottom of the results page, press the ▼ button next to the
     *CSV Export* button, to reveal the layer options.
 (@) Under *Participant* layers tick the *pauseCount* attribute.
 (@) Under *Phrase* layers tick the *pauseCount* layer.

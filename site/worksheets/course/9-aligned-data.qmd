@@ -144,7 +144,8 @@ because no single segment will ever match that pattern.
 :::
 
 (@) We want to search for all instances of the *FLEECE* vowel, so use
-    the label selector - the button labelled `«` - to find the right
+    the symbol selector -- the ![](phoneme-symbol-selector.png) button -- 
+    to find the right
     symbol for the *FLEECE* vowel and click it.\
     If you used HTK for forced alignment, this will be `i`\
     If you used MFA for forced alignment, this will be `iː`
