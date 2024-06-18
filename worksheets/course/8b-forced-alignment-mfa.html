@@ -593,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="b.-mfa" class="level1">
 <h1>8b. MFA</h1>
-<p>The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by Michael McAuliffe and others that can use words with phonemic transcriptions, and the corresponding audio, to force-align words and phones; i.e.&nbsp;determine the start and end time of each speech sound within each word, and thus the start/end times of the words.</p>
+<p>The <a href="https://montreal-forced-aligner.readthedocs.io/">Montreal Forced Aligner (MFA)</a> is a 3rd-party tool developed by Michael McAuliffe and others that can use words with phonemic transcriptions, and the corresponding audio, to force-align words and phones; i.e.&nbsp;determine the start and end time of each speech sound within each word, and thus the start/end times of the words.</p>
 <p>The annotator can work in two modes:</p>
 <ul>
 <li><em>Train and Align</em> - acoustic models are trained on the data you want to align, which can be in any language as long as you have a pronunciation dictionary for it.</li>
@@ -720,7 +720,7 @@ Docker Container
 <br>
 As long as MFA has been installed for all users, you should see a box that’s already filled in with the location that MFA was installed to in the <em>Path to MFA</em> box.<br>
 <br>
-If the <em>Path to MFA</em> box is empty and there’s an <em>Attempt to Install MFA</em> button, click the button, and LaBB-CAT will try to install MFA on the server for you. This process can take a few minutes, and the <em>Configure</em> button will be disabled until it’s finished.</li>
+If the <em>Path to MFA</em> box is empty and there’s an <em>Attempt to Install MFA</em> button, press the button, and LaBB-CAT will try to install MFA on the server for you. This process can take a few minutes, and the <em>Configure</em> button will be disabled until it’s finished.</li>
 <li>Press <em>Configure</em> to continue the layer manager installation.<br>
 You will see a window open with some information about integrating with MFA, including the information you’ve already read above.</li>
 <li>Now you need to add a <em>phrase layer</em> for the MFA configuration:
@@ -770,7 +770,7 @@ Tip
 </div>
 </div>
 <ol start="7" class="example" type="1">
-<li>Press <em>Set Parameters</em> We will not click <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
+<li>Press <em>Set Parameters</em> We will not press <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
 </ol>
 <p>When forced-alignment is done, the resulting aligned phones will be saved on the <em>segment</em> layer. By default, this has it’s type set to <em>Phonological</em>, which assumes that the phoneme symbols will be those defined by the CELEX DISC encoding. However, MFA uses its own phoneme symbols, which are different from the CELEX DISC ones.</p>
 <p>To make later processing easier, we’re going to change the type of the <em>segment</em> layer to <em>Text</em>, and let LaBB-CAT know what the possible phoneme labels are.</p>
@@ -780,32 +780,33 @@ You will see a single layer listed, called <em>segment</em>.</li>
 <li>Change the <em>Type</em> of the <em>segment</em> layer to <em>Text</em>.</li>
 <li>Press <em>Save</em>.<br>
 A new icon appears with a tag <img src="tag.svg" class="img-fluid"> icon - if you hover the mouse over this button, you’ll see it’s for setting <em>Valid labels</em>.</li>
-<li>Click the <em>Valid labels</em> icon<br>
+<li>Press the <em>Valid labels</em> icon<br>
 You will see a page that allows you to add a list of possible labels.<br>
 But we don’t know what the valid labels are yet. The labels used by MFA depend on the dictionary/models selected when defining the layer. The details for all dictionaries are in <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary">MFA Models documentation</a>.</li>
 <li>Open the <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0">MFA Models documentation for <em>english_mfa</em></a>.<br>
 You will see a page that includes information about the dictionary including the <em>Phones</em> used by it.</li>
-<li>Select and copy the list of phones used by the <em>english_mfa</em> dictionary - i.e.&nbsp;all of these:<br>
-<code>a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj ə əw ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ</code></li>
+<li>Select and copy the list of phones used by the <em>english_mfa</em> dictionary - i.e.&nbsp;all of these:</li>
 </ol>
-<ol start="14" type="1">
+<pre><code>a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j 
+k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ
+u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj  ə əw 
+ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ</code></pre>
+<ol start="14" class="example" type="1">
 <li>Back in the <em>Valid Labels</em> page in LaBB-CAT, paste all of the phone symbols into the box labelled <em>Label</em><br>
 <img src="pasted-mfa-labels.png" class="img-fluid" alt="The Valid Labels form with the text box filled with all the MFA phoneme symbols"></li>
-</ol>
-<ol start="14" class="example" type="1">
 <li>Press <em>New</em>.<br>
 You will see that all of the labels are separately added to the list of valid labels.<br>
 <img src="valid-mfa-labels-list.png" class="img-fluid" alt="The Valid Labels list is now populated, with each phoneme symbol on a separate line"></li>
 </ol>
 <p>Defining this list for the <em>segment</em> layer means that, when you search the <em>segment</em> layer for specific phones, LaBB-CAT can display a clickable list of possibilities.</p>
-<ol start="15" class="example" type="1">
-<li>At the bottom of the list, there’s a <em>Save</em> button. Click it to save your changes.</li>
+<ol start="16" class="example" type="1">
+<li>At the bottom of the list, there’s a <em>Save</em> button. Press it to save your changes.</li>
 </ol>
 </section>
 </section>
 <section id="alignment" class="level2">
 <h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
-<ol start="16" class="example" type="1">
+<ol start="17" class="example" type="1">
 <li>Select the <em>participants</em> option on the menu.</li>
 <li>Find the participant <em>UC207YW</em> and tick their checkbox.</li>
 </ol>
@@ -822,18 +823,18 @@ Note
 <p>Although we’re only going to force-align the utterances of a single speaker in this exercise, you can align the utterances of multiple speakers at once, by ticking all their checkboxes on the <em>participants</em> page before continuing with the next step…</p>
 </div>
 </div>
-<ol start="18" class="example" type="1">
+<ol start="19" class="example" type="1">
 <li>Press the <em>All Utterances</em> button above the list of participants</li>
 <li>Press <em>List</em>.<br>
 You will see a progress bar while all their utterances are identified. Then a results page will be displayed, listing the first 20 utterances.</li>
-<li>Click the <em>Mfa</em> button at the bottom.<br>
+<li>Press the <em>Mfa</em> button at the bottom.<br>
 You will see a progress bar appear, while LaBB-CAT gathers the files that MFA needs, runs MFA, and parses the resulting alignments. This will take a few minutes.</li>
 </ol>
 </section>
 <section id="inspectioncorrection" class="level2">
 <h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
 <p>Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
-<ol start="21" class="example" type="1">
+<ol start="22" class="example" type="1">
 <li>Go to the <em>transcripts</em> page and open the <em>UC207YW.eaf</em> transcript.</li>
 <li>Tick both the <em>mfa</em> layer and the <em>segment</em> layer.&nbsp;<br>
 You will see which lines have been force-aligned, as they have an MFA timestamp, and have the <em>segment</em> layer filled in.<br>
@@ -848,7 +849,7 @@ You may need to grant a browser extension permission to install, and it’s poss
 You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</li>
 </ol>
 <p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
-<ol start="23" class="example" type="1">
+<ol start="24" class="example" type="1">
 <li>Click on a line that has been aligned, and select the <em>Open Text Grid in Praat</em> option on the menu.<br>
 You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <em>Allow</em>.<br>
 Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
@@ -884,7 +885,13 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There are some rules about what you can change: 1. You’re not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead). 2. All the phones must be within the bounds of their own word. 3. The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word. 4. You should not change the alignment of the utterance itself (which would only be possible if you select the <em>Open Text Grid incl.&nbsp;± 1 utterance in Praat</em> option).</p>
+<p>There are some rules about what you can change:</p>
+<ol type="1">
+<li>You’re not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead).</li>
+<li>All the phones must be within the bounds of their own word.</li>
+<li>The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.</li>
+<li>You should not change the alignment of the utterance itself (which would only be possible if you select the <em>Open Text Grid incl.&nbsp;± 1 utterance in Praat</em> option).</li>
+</ol>
 </div>
 </div>
 <p>In this exercise, you have seen how MFA can be used to compute word and phone alignments automatically from your data, and when using a pronunciation dictionary and pre-trained acoustic models, the process is very straightforward.</p>

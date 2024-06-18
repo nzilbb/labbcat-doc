@@ -596,7 +596,7 @@ ul.task-list li input[type="checkbox"] {
 <li><em>Pattern Matcher</em>, which creates annotations based on matching regular expressions against words.</li>
 <li><em>Statistics Layer Manager</em>, which computes aggregated information, like word count or duration, over groups of words.</li>
 </ul>
-<p>LaBB-CAT comes with number of layer managers pre-installed; you can see a list of installed layer managers by clicking the <em>layer managers</em> menu option. Other layer managers have to be manually installed.</p>
+<p>LaBB-CAT comes with number of layer managers pre-installed; you can see a list of installed layer managers by selecting the <em>layer managers</em> menu option. Other layer managers have to be manually installed.</p>
 <hr>
 <p>For this exercise, we’ll pretend we’ve got a couple more mini-research&nbsp;projects:</p>
 <ul>
@@ -683,9 +683,9 @@ In the search matrix, you will notice that, unlike the <em>orthography</em> laye
 <p>You can also extract the annotations into CSV results from other searches…</p>
 <ol start="15" class="example" type="1">
 <li>On the search page, do a search for “the” followed by a word that starts with a vowel.</li>
-<li>When the results page appears, click the ▼ button next to the <em>CSV Export</em> button.</li>
+<li>When the results page appears, press the ▼ button next to the <em>CSV Export</em> button.</li>
 <li>Under the list of <em>Word</em> layers, tick the <em>frequency</em> layer.</li>
-<li>Click the <em>CSV Export</em> button.</li>
+<li>Press the <em>CSV Export</em> button.</li>
 <li>Save and open the resulting CSV file.<br>
 You will notice that in the spreadsheet there are two columns:
 <ul>
@@ -698,10 +698,10 @@ Export your search results to CSV again, this time including the <em>topic</em> 
 </ol>
 <p>The Frequency Layer Manager also keeps a word-list with token counts for each corpus…</p>
 <ol start="21" class="example" type="1">
-<li>Click the <em>layer managers</em> menu option.</li>
-<li>On the “Frequency Layer Manager” row, click the <em>Extensions</em> button.</li>
+<li>Select the <em>layer managers</em> menu option.</li>
+<li>On the “Frequency Layer Manager” row, press the <em>Extensions</em> button.</li>
 <li>You will see a drop-down box with each corpus in it.<br>
-Select <em>QB</em> and click <em>Export</em>.</li>
+Select <em>QB</em> and press <em>Export</em>.</li>
 <li>Save and open the resulting CSV file.<br>
 You will see an alphabetical list of all the distinct word types in the QB corpus, and next to each, a count of the number of tokens of that type in the QB corpus.</li>
 </ol>
@@ -727,14 +727,14 @@ You will see an alphabetical list of all the distinct word types in the QB corpu
 <li><strong>Project:</strong> <em>frequency</em></li>
 <li><strong>Description:</strong> <code>The stem of the word according to the Porter algorithm</code><br>
 <br>
-Click the <em>New</em> button.</li>
+Press the <em>New</em> button.</li>
 </ul></li>
 <li>The Porter Stemmer’s default configuration is fine for our purposes, so press <em>Set Parameters</em>.</li>
 <li>Press <em>Regenerate</em>.<br>
 You will see a progress bar, and once it’s finished, you will see a message saying “Layer complete…”</li>
 <li>Select the <em>transcripts</em> menu option.</li>
 <li>Click the name of the first transcript.</li>
-<li>Tick the <em>stem</em> layer we just added.<br>
+<li>Tick the <em>stem</em> layer we just added (you may need to tick the <em>frequency</em> project to reveal the <em>stem</em> layer).<br>
 When the transcript refreshes, you will see, above each word, its ‘stem’ according to the Porter algorithm.</li>
 </ol>
 <p>You will notice that, although the stems are not what you might regard as being the ‘lemma’ of each word (i.e.&nbsp;not necessarily valid words of English in themselves), they nevertheless generally strip off plural and 3rd-person-present suffixes, such that different wordforms of the same lemma will have the same ‘stem’.</p>
@@ -752,7 +752,7 @@ When the transcript refreshes, you will see, above each word, its ‘stem’ acc
 <br>
 Press the <em>New</em> button.</li>
 </ul></li>
-<li>Configure the layer exactly as before, except this time, set the <strong>Layer to summarize:</strong> setting to the <em>stem</em> layer we created above. <em>Save</em> your settings and press <em>Regenerate</em>.<br>
+<li>Configure the layer exactly as before, except this time, set the <strong>Layer to Summarize</strong> setting to the <em>stem</em> layer we created above. <em>Save</em> your settings and press <em>Regenerate</em>.<br>
 The layer will be generated.</li>
 <li>Do a search of all speakers, for words with a value of 1 on your new <em>stemFrequency</em> layer.<br>
 You should notice that the variety of words returned seem a little ‘rarer’ that those returned previously when you were searching the wordform <em>frequency</em> layer.</li>
@@ -789,9 +789,11 @@ The <strong>Destination Layer</strong> and language-related settings can be left
 </ol>
 <p>Below this, there is a currently empty list of “Mappings”. We are going to add regular expressions to this list, which will identify filled pauses.</p>
 <ol start="46" class="example" type="1">
-<li>On the new empty row that’s already in the list by default, click on the box labelled “Source pattern”, and enter: <code>u+m+</code></li>
-<li>To the right of this, click in the “Destination Label” box and enter: <em>um</em><br>
-This will make the layer manager find any instances of words that match the pattern “<em>u+m+”</em> on the <em>orthography</em> layer, and in each case, save the annotation”um” on our new <em>pause</em> layer.</li>
+<li>On the new empty row that’s already in the list by default, select the box labelled “Source pattern”, and enter: <code>u+m+</code></li>
+<li>To the right of this, select the “Destination Label” box and enter: <em>um</em></li>
+</ol>
+<p>This will make the layer manager find any instances of words that match the pattern “<em>u+m+”</em> on the <em>orthography</em> layer, and in each case, save the annotation”um” on our new <em>pause</em> layer.</p>
+<ol start="48" class="example" type="1">
 <li>Press the + button to add a new blank row, and add another regular expression:
 <ul>
 <li><strong>Source Pattern:</strong> <code>a+h+</code></li>
@@ -834,7 +836,7 @@ You should see that each instance of the word “um” (or its variants) has bee
 <h2 class="anchored" data-anchor-id="statistics-layer-manager">Statistics Layer Manager</h2>
 <p>In fact, we can use another layer manager to automatically count them for each speaker, and for each utterance in the transcript. In order to do this, we are going to create a ‘phrase layer’, which is a layer that can contain annotations over groups of words (as opposed to against individual words). The layer manager we will use can also annotate participants…</p>
 <ol start="54" class="example" type="1">
-<li>Click the <em>phrase layers</em> option on the menu.<br>
+<li>Select the <em>phrase layers</em> option on the menu.<br>
 You will see a list of phrase layers that are already set up, including <em>language</em> and (named) <em>entity</em>.</li>
 <li>Add a new layer with the following characteristics:
 <ul>
@@ -846,7 +848,7 @@ You will see a list of phrase layers that are already set up, including <em>lang
 <li><strong>Project:</strong> <em>pauses</em></li>
 <li><strong>Description:</strong> <code>Count of filled pauses, for the utterance and the speaker</code><br>
 <br>
-Click <em>New</em></li>
+Press <em>New</em></li>
 </ul></li>
 <li>You will see a form for the layer’s configuration. Fill in the details as follows:
 <ul>
@@ -884,7 +886,7 @@ Scrolling down the transcript, you will see that, wherever there is a filled pau
 You will see the participant’s attributes page, which now includes the participant’s <em>pauseCount</em> attribute.</li>
 <li>Both the local utterance count, and the participant’s overall count, can also be exported to CSV search results files.<br>
 Select <em>search</em> and perform a search involving the <em>pause</em> layer.</li>
-<li>At the bottom of the results page, click the ▼ button next to the <em>CSV Export</em> button, to reveal the layer options.</li>
+<li>At the bottom of the results page, press the ▼ button next to the <em>CSV Export</em> button, to reveal the layer options.</li>
 <li>Under <em>Participant</em> layers tick the <em>pauseCount</em> attribute.</li>
 <li>Under <em>Phrase</em> layers tick the <em>pauseCount</em> layer.</li>
 <li>Press <em>CSV Export</em>, and save and open the resulting file.<br>

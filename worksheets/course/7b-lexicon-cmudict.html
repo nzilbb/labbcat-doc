@@ -976,9 +976,9 @@ You will see that each word is tagged with a phonemic transcription.</li>
 <p>We are going to add an auxiliary layer manager to the <em>phonemes</em> layer, which will copy any <em>pronounce</em> annotations it finds to the <em>phonemes</em> layer. This will fill in the gaps in the CMU Pronouncing dictionary, at least for the tokens that have manual <em>pronounce</em> tags.</p>
 <ol start="11" class="example" type="1">
 <li>Select the <em>word layers</em> option on the menu.</li>
-<li>On the <em>phonemes</em> layer row, there are a number of buttons on the right, including one with a <img src="pronounce-auxiliary-icon.png" class="img-fluid"> icon. Hover your mouse over this button to see what it does, and then click it.<br>
+<li>On the <em>phonemes</em> layer row, there are a number of buttons on the right, including one with a <img src="pronounce-auxiliary-icon.png" class="img-fluid"> icon. Hover your mouse over this button to see what it does, and then press it.<br>
 You will see a page explaining that will copy any manually tagged pronunciations from the from the <em>pronounce</em> layer into the <em>phonemes</em>.</li>
-<li>Click <em>yes</em> to continue.<br>
+<li>Pres <em>yes</em> to continue.<br>
 You will see a progress bar while the auxiliary layer manager copies the <em>pronounce</em> annotations to the <em>phonemes</em> layer.</li>
 <li>When it’s finished, select the <em>transcripts</em> menu option, and open <em>NB926_IsobelleDoig.eaf</em> again.</li>
 <li>Tick the <em>phonemes</em> layer.</li>
@@ -1004,7 +1004,7 @@ Now look for the <em>phonemes</em> layer. You will see that, in addition to the 
 <li>Create a search matrix that’s two words wide, and includes the <em>orthography</em> and <em>phonemes</em> layers.</li>
 <li>Type <em>the</em> in the first <em>orthography</em> box.</li>
 <li>Click the second box on the <em>phonemes</em> layer, but don’t enter anything in the box yet.</li>
-<li>The box has a little <code>«</code> button to the right of it.<br>
+<li>The box has a <img src="phoneme-symbol-selector.png" class="img-fluid"> button to the right of it.<br>
 Hover the mouse over it to see what it says, and then click it.<br>
 You will see that a section opens with a bunch of phoneme symbols on it.</li>
 <li>Find the schwa symbol <em>ə</em> and click it.<br>
@@ -1016,12 +1016,24 @@ You will see that an <code>@</code> symbol appears in the box.<br>
 <p>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against <em>all their possible phonemic transcriptions</em>, so if the CMU dictionary has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.</p>
 <p>You can check this by clicking on a match, and then clicking on the word in the transcript and selecting <em>Edit</em>, which displays all the annotations for the given token.</p>
 <p>If you check the table above, you will see that <em>ə</em> has no specific representation in ARPABET. This means that no CMU Pronouncing Dictionary pronunciations include schwa explicitly. Instead, ‘unstressed’ versions of other vowels are used. For example, the word “transcription” is transcribed <code>T R AE2 N S K R IH1 P SH AH0 N</code> in the original dictionary file; the final vowel <em>AH</em> is the ‘STRUT’ vowel, and the <em>0</em> means it’s ‘unstressed’. The layer manager translates this to DISC as <code>tr{nskrIpS@n</code>.</p>
-<p>Now that we have phonemic transcripts, we can do abetter job of the search we tried in the first exercise - “the” followed by a word starting with a vowel…</p>
+<p>Now that we have phonemic transcripts, we can do a better job of the search we tried in the first exercise - “the” followed by a word starting with a vowel…</p>
 <ol start="29" class="example" type="1">
 <li>Change your search so that, instead of just <code>@</code> at the beginning of the word, it matches any vowel.</li>
 </ol>
-<p>You could use the square-brackets <code>[]</code> at the start of your pattern, and type all vowel symbols inside them - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.</p>
-<p><em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘IPA helper’, which will add all the DISC vowels for you, already enclosed in square-brackets.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You could use the square-brackets <code>[]</code> at the start of your pattern, and type all vowel symbols inside them – note that the vowels in the DISC representation extend beyond a, e, i, o, and u – you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.</p>
+<p><em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘Phoneme symbol selector’, which will add all the DISC vowels for you, already enclosed in square-brackets.</p>
+</div>
+</div>
 <ol start="30" class="example" type="1">
 <li>Run the search and check that it’s giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li>
 </ol>
