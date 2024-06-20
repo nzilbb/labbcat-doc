@@ -10,16 +10,16 @@ format:
 
 ## Uploading Transcripts and Recordings
 
-Transcripts can be uploaded manually, one at a time, using the *upload transcripts* option in the *upload* menu.
+Transcripts can be uploaded one at a time, which allows the manual selection of specific options during upload, like corpus, transript type, main participant, etc.
 
 However, if you already have a collection of transcripts and media files
-(which we have for these exercises - download
+(which we have for these exercises -- download
 [QuakeStories.zip](https://publicdata.canterbury.ac.nz/Research/NZILBB/labbcat/QuakeStories.zip)
-to get the workshop data), and they are systematically organised (which
+to get the workshop data) -- and they are systematically organised (which
 they are), you may be able to save some manual uploading work by
-uploading them using the 'batch upload' utility.
+uploading them using the 'batch upload' utility, which automates some of the decision-making.
 
-1.  In LaBB-CAT, click the *transcripts* option in the menu.
+1.  In LaBB-CAT, select the *transcripts* option in the menu.
 2.  Press the *Upload Transcript Batch* icon at the bottom.\
     This shows a window with a large blank area in the middle with
     various buttons above it.
@@ -32,13 +32,13 @@ uploading them using the 'batch upload' utility.
     *Transcript*, *Media*, *Corpus*, and *Episode*.
 5.  Most of the transcripts are monologues, so set *Type* to *monologue*
     on the top left.
-6.  Click the *Upload* button above the list.\
+6.  Press the *Upload* button above the list.\
     You will see that in the *Status* column, the text changes to
     "Uploading..." for the first transcript. The progress bar
     progresses, and once it's complete, the next transcript changes to
     "Transferring", and so on.
 7.  While the files are uploading, click ![](help.png) the online help
-    link next to the upload transcript batch link you clicked above and
+    link next to the upload transcript batch link you used above and
     read the conditions that must be met in order to use the batch
     uploader.
 8.  Once the uploader is finished, you can verify that all the
@@ -66,14 +66,14 @@ This includes the words the participants utter, and also any noises,
 comments, and other annotations that were put in the transcript in
 ELAN.
 
-14. In the top right corner are some playback controls; click the play
+14. In the top right corner are some playback controls; press the play
     button. You will see a shaded rectangle following the participant's
     speech.
 14. Try the other controls to see what they do.
 15. Now click on any word in the transcript.\
     You will see a menu appear, with options for the 'Utterance' (the
     line), and the word.\
-    Click the play option in the menu to see what it does.
+    Press the play option in the menu to see what it does.
 16. Click on the *formats* link under the title.\
     You will see a menu, which includes various formats for exporting
     the transcript.
@@ -140,14 +140,15 @@ ELAN files). We could manually add this for each speaker, but
 fortunately we have it stored in a spreadsheet (actually, a CSV text
 file) that we can upload in one go.
 
-1.  In LaBB-CAT, click the *participant* option in the menu.
+1.  In LaBB-CAT, select the *participant* option in the menu.
 2.  Press the *Upload Participant Data* icon at the bottom.
-3.  Click *Choose File*, and select the file in the LaBB-CAT Exercises
+3.  Press *Choose File*, and select the file in the LaBB-CAT Exercises
     data folder called "participants.csv".
-4.  Click *Upload*
-5.  You will now see a list of the columns from the spreadsheet.\
-    Firstly, ensure that the *Participant identity column* is set to
-    *name*. This ensures that the "name" column in the spreadsheet
+4.  Press *Upload*\
+    You will now see a list of the columns from the spreadsheet.\
+5.  Firstly, ensure that the *Participant identity column* is set to
+    *name*.\
+    This ensures that the "name" column in the spreadsheet
     will be used to match names of participants in the LaBB-CAT
     database.
 6.  Below that is listed each column from the spreadsheet, with an arrow
@@ -189,7 +190,7 @@ To check the participant attributes really are now set:
 By default, the new attributes are not flagged as searchable, so we
 will make a few of them searchable now.\
 
-10. Click the *participant attributes* link on the menu.\
+10. Select the *participant attributes* link on the menu.\
     This will display a list of the participant meta-data fields.
 11. Ensure that *Searchability* is set to *Searchable* for the following
     attributes:
