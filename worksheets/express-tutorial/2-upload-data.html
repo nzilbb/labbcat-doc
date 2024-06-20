@@ -587,19 +587,19 @@ ul.task-list li input[type="checkbox"] {
 <h1>2 - Upload Data</h1>
 <section id="uploading-transcripts-and-recordings" class="level2">
 <h2 class="anchored" data-anchor-id="uploading-transcripts-and-recordings">Uploading Transcripts and Recordings</h2>
-<p>Transcripts can be uploaded manually, one at a time, using the <em>upload transcripts</em> option in the <em>upload</em> menu.</p>
-<p>However, if you already have a collection of transcripts and media files (which we have for these exercises - download <a href="https://publicdata.canterbury.ac.nz/Research/NZILBB/labbcat/QuakeStories.zip">QuakeStories.zip</a> to get the workshop data), and they are systematically organised (which they are), you may be able to save some manual uploading work by uploading them using the ‘batch upload’ utility.</p>
+<p>Transcripts can be uploaded one at a time, which allows the manual selection of specific options during upload, like corpus, transript type, main participant, etc.</p>
+<p>However, if you already have a collection of transcripts and media files (which we have for these exercises – download <a href="https://publicdata.canterbury.ac.nz/Research/NZILBB/labbcat/QuakeStories.zip">QuakeStories.zip</a> to get the workshop data) – and they are systematically organised (which they are), you may be able to save some manual uploading work by uploading them using the ‘batch upload’ utility, which automates some of the decision-making.</p>
 <ol type="1">
-<li>In LaBB-CAT, select the <em>upload</em> option on the menu.</li>
-<li>Select the <em>upload transcript batch</em> link.<br>
+<li>In LaBB-CAT, select the <em>transcripts</em> option in the menu.</li>
+<li>Press the <em>Upload Transcript Batch</em> icon at the bottom.<br>
 This shows a window with a large blank area in the middle with various buttons above it.</li>
 <li>Open Windows Explorer or Finder, and navigate to the LaBB-CAT Workshop data folder.</li>
 <li>Drag the folder called “QuakeStories”, and drop it on to LaBB-CAT, on to the blank area below the buttons.<br>
 The previously blank area will contain a list of transcripts. Each transcript should have a value filled in for each column - <em>Transcript</em>, <em>Media</em>, <em>Corpus</em>, and <em>Episode</em>.</li>
 <li>Most of the transcripts are monologues, so set <em>Type</em> to <em>monologue</em> on the top left.</li>
-<li>Click the <em>Upload</em> button above the list.<br>
+<li>Press the <em>Upload</em> button above the list.<br>
 You will see that in the <em>Status</em> column, the text changes to “Uploading…” for the first transcript. The progress bar progresses, and once it’s complete, the next transcript changes to “Transferring”, and so on.</li>
-<li>While the files are uploading, click <img src="help.png" class="img-fluid"> the online help link next to the upload transcript batch link you clicked above and read the conditions that must be met in order to use the batch uploader.</li>
+<li>While the files are uploading, click <img src="help.png" class="img-fluid"> the online help link next to the upload transcript batch link you used above and read the conditions that must be met in order to use the batch uploader.</li>
 <li>Once the uploader is finished, you can verify that all the transcripts are there by selecting the <em>transcripts</em> option on the menu in LaBB-CAT.<br>
 You should see a list of twenty transcripts.</li>
 <li>Use the “Transcript” box to find <em>UC013AM_Dom.eaf</em><br>
@@ -617,11 +617,11 @@ You should see a list of twenty transcripts.</li>
 <p>You will now see LaBB-CAT’s ‘interactive transcript’ page for the transcript.</p>
 <p>At the top there is a heading, a list of speakers, and then below this, the lines from the transcript, their speakers in the margin. This includes the words the participants utter, and also any noises, comments, and other annotations that were put in the transcript in ELAN.</p>
 <ol start="14" type="1">
-<li>In the top right corner are some playback controls; click the play button. You will see a shaded rectangle following the participant’s speech.</li>
+<li>In the top right corner are some playback controls; press the play button. You will see a shaded rectangle following the participant’s speech.</li>
 <li>Try the other controls to see what they do.</li>
 <li>Now click on any word in the transcript.<br>
 You will see a menu appear, with options for the ‘Utterance’ (the line), and the word.<br>
-Click the play option in the menu to see what it does.</li>
+Press the play option in the menu to see what it does.</li>
 <li>Click on the <em>formats</em> link under the title.<br>
 You will see a menu, which includes various formats for exporting the transcript.</li>
 <li>Select <em>Plain Text Document</em></li>
@@ -665,12 +665,14 @@ Tip
 <h2 class="anchored" data-anchor-id="participant-data-import">Participant Data Import</h2>
 <p>The transcripts are now in the database, but the meta-data for the participants hasn’t been set yet (because it’s not contained in the ELAN files). We could manually add this for each speaker, but fortunately we have it stored in a spreadsheet (actually, a CSV text file) that we can upload in one go.</p>
 <ol type="1">
-<li>In LaBB-CAT, select the <em>upload</em> option on the menu.</li>
-<li>Select the <em>upload participant data</em> option.</li>
-<li>Click <em>Choose File</em>, and select the file in the LaBB-CAT Exercises data folder called “participants.csv”.</li>
-<li>Click <em>Upload</em></li>
-<li>You will now see a list of the columns from the spreadsheet.<br>
-Firstly, ensure that the <em>Participant identity column</em> is set to <em>name</em>. This ensures that the “name” column in the spreadsheet will be used to match names of participants in the LaBB-CAT database.</li>
+<li>In LaBB-CAT, select the <em>participant</em> option in the menu.</li>
+<li>Press the <em>Upload Participant Data</em> icon at the bottom.</li>
+<li>Press <em>Choose File</em>, and select the file in the LaBB-CAT Exercises data folder called “participants.csv”.</li>
+<li>Press <em>Upload</em><br>
+You will now see a list of the columns from the spreadsheet.<br>
+</li>
+<li>Firstly, ensure that the <em>Participant identity column</em> is set to <em>name</em>.<br>
+This ensures that the “name” column in the spreadsheet will be used to match names of participants in the LaBB-CAT database.</li>
 <li>Below that is listed each column from the spreadsheet, with an arrow pointing to a drop-down box. The box contains various options, including each of the participant attributes set up in LaBB-CAT, an <em>ignore</em> option, and <em>create a new attribute</em> option.<br>
 Select the options as follows as follows:<br>
 
@@ -698,13 +700,13 @@ You will see the participant attributes page with their details filled in (e.g.&
 <p>By default, the new attributes are not flagged as searchable, so we will make a few of them searchable now.<br>
 </p>
 <ol start="10" type="1">
-<li>Click the <em>participant attributes</em> link on the menu.<br>
+<li>Select the <em>participant attributes</em> link on the menu.<br>
 This will display a list of the participant meta-data fields.</li>
 <li>Ensure that <em>Searchability</em> is set to <em>Searchable</em> for the following attributes:
 <ul>
 <li><em>gender</em></li>
-<li><em>age_category</em></li>
-<li><em>languages_spoken</em></li>
+<li><em>ageCategory</em></li>
+<li><em>languagesSpoken</em></li>
 </ul></li>
 <li>Press the <em>Save</em> button at the bottom of the list.</li>
 <li>Select <em>participants</em> on the top menu.<br>

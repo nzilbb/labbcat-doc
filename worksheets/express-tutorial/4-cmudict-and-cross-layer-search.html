@@ -598,7 +598,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="install-the-cmu-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="install-the-cmu-dictionary">Install the CMU Dictionary</h2>
 <p>The first thing we’re going to to is install the CMU Pronouncing Dictionary layer manager…</p>
-<ol type="1">
+<ol class="example" type="1">
 <li>Select the <em>layer managers</em> menu option.<br>
 You will see a list of pre-installed layer managers, which are modules that can perform automatic annotation tasks. The CMU Pronouncing Dictionary layer manager isn’t pre-installed, because it is language-specific.</li>
 <li>Follow the <em>List of layer managers that are not yet installed</em> link near the bottom.</li>
@@ -613,8 +613,8 @@ You will see a progress bar while the layer manager loads the data from the dict
 </section>
 <section id="annotate-words-with-pronunciations" class="level2">
 <h2 class="anchored" data-anchor-id="annotate-words-with-pronunciations">Annotate Words with Pronunciations</h2>
-<p>Now that we’ve installed the layer manager, we’ll create a layer that contains word pronunciations.</p>
-<ol start="7" type="1">
+<p>Now that we’ve installed the layer manager, we’ll create an annotation layer that contains word pronunciations.</p>
+<ol start="7" class="example" type="1">
 <li>Select the <em>word layers</em> option on the menu.<br>
 You will see a list of existing word layers, including the <em>orthography</em> layer, the <em>lexical</em> layer, etc.</li>
 <li>The column headings are also a form for defining a new word layer. Fill in the following details in this form:
@@ -642,15 +642,19 @@ Tip
 <p><img src="help-3.png" class="img-fluid"> If you’re curious about what the configuration options do, hover your mouse over each one to see further information about what the setting does.</p>
 </div>
 </div>
-<ol start="11" type="1">
+<ol start="11" class="example" type="1">
 <li>Press <em>Set Parameters</em>.<br>
 You will see a message asking you if you want (re)generate the layer data now.</li>
 <li>Press <em>Regenerate</em>.<br>
 You will see a progress bar moving across the page while the annotations are being generated. When it is finished, you will see a message saying <em>Layer complete</em>.</li>
-<li>Once the layer has finished generating, click the transcripts menu option, and open the first transcript in the list.</li>
+<li>Once the layer has finished generating, select the <em>transcripts</em> menu option, and open the first transcript in the list.<br>
+At the top of the transcript, there is a list of tickable annotation layers.</li>
 <li>Tick your new <em>phonemes</em> layer.<br>
-You will see that each word is tagged with a phonemic transcription. You will notice that the annotations are displayed using IPA symbols. However, the layer manager doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme.<br>
-The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>ASCII</em> option on the layer in the transcript.</li>
+You will see that each word is tagged with a phonemic transcription.</li>
+</ol>
+<p>You will notice that the annotations are displayed using IPA symbols. However, the layer manager doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme.</p>
+<p>The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>ASCII</em> option on the layer in the transcript.</p>
+<ol start="15" class="example" type="1">
 <li>Select <em>ASCII</em> on the phonemes layer, to see what the layer manager is actually producing.<br>
 You may find that this is somewhat harder to read. It’s similar to the ‘SAMPA’ system for encoding phonemes, but diphthongs are generally represented by digits, and various other characters are used to represent affricates, etc.</li>
 <li>Select <em>IPA</em> on the phonemes layer, to return to the IPA view of the layer.</li>
@@ -660,7 +664,8 @@ You may find that this is somewhat harder to read. It’s similar to the ‘SAMP
 <section id="search-across-layers" class="level2">
 <h2 class="anchored" data-anchor-id="search-across-layers">Search Across Layers</h2>
 <p>It’s nice to display the IPA symbols, but it’s important to understand the DISC symbols (shown in the table below), because they are what we have to use when searching on the phonemes layer, which we are going to try now.</p>
-<p>There is another possible representation of the pronunciations, called ARPABET; this is what is used in the original dictionary file published by CMU, and uses up to three uppercase characters per phoneme. While we’re not using ARPABET in this exercise, you can use it if you like, and the ARPABET symbols are included in the table. In the table, there are gaps where no ARPABET version of the phoneme is shown; this means that the CMU Pronouncing Dictionary contains no entries that include that phoneme.</p>
+<p>There is another possible representation of the pronunciations, called ARPABET; this is what is used in the original dictionary file published by CMU, and uses up to three uppercase characters per phoneme. While we’re not using ARPABET in this exercise, you can configure the phonemes layer to use it if you like, and the ARPABET symbols are included in the table.</p>
+<p>In the table, there are gaps where no ARPABET version of the phoneme is shown; this means that the CMU Pronouncing Dictionary contains no entries that include that phoneme.</p>
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
@@ -995,33 +1000,46 @@ You may find that this is somewhat harder to read. It’s similar to the ‘SAMP
 </tr>
 </tbody>
 </table>
-<ol start="17" type="1">
+<ol start="17" class="example" type="1">
 <li>Select the <em>search</em> option on the menu, which allows you to search all participants by default.</li>
 <li>If it’s not already ticked, tick the new <em>phonemes</em> layer.<br>
 Now you will see that our search matrix is two layers high by one word wide.<br>
-<img src="two-layers-high.png" class="img-fluid" alt="The search matrix shows a frame labelled ‘orthography’ above and a frame labelled ‘phonemes’ below, both with a ‘matches’ dropdown box and an empty ‘regular expression’ box. The ‘phonemes’ frame also includes a small button labelled: «"></li>
+<img src="two-layers-high.png" class="img-fluid" title="The search matrix shows a frame labelled 'orthography' above and a frame labelled 'phonemes' below, both with a 'matches' dropdown box and an empty 'Regular expression' box. The 'phonemes' frame also includes a button to the right of the regular expression box"></li>
 <li>Search your new <em>phonemes</em> layer for words that start with <code>h</code> by entering the appropriate regular expression in the <em>phonemes</em> box.<br>
 You will see that the results contain words that you might not expect, like “where”, “which” and “when”.</li>
 <li>Click one of these unexpected results, to open the transcript.<br>
 You will see that, in the transcript, the pronunciation appears to start with /w/, not with /h/.</li>
 <li>Click on the word and select the bottom <em>Edit</em> option on the menu that appears.<br>
-This opens a small window that displays all annotations on that word token.<br>
-Now look for the <em>phonemes</em> layer. You will see that, in addition to the pronunciation that starts with /w/, there’s another annotation that starts with /h/, which is invisible on the transcript.<br>
+This opens a small window that displays all annotations on that word token.</li>
+<li>Now look for the <em>phonemes</em> layer. You will see that, in addition to the pronunciation that starts with /w/, there’s another annotation that starts with /h/, which is invisible on the transcript.<br>
 These are all the possible phonemic transcriptions for the word, ordered most-frequent first. Only the first one is displayed in the transcript, but when you do searches, all of them are searched. This can result in unexpected matches like this, but it can be useful, as it ensures that when you search for a particular phonemic pattern, all possible tokens are returned, not just those that match on the most ‘normal’ transcription.<br>
 </li>
 </ol>
 <p>Now that we have phonemic transcripts, we can do a better job of the search we tried in the earlier exercise - “the” followed by a word starting with a vowel…</p>
-<ol start="22" type="1">
+<ol start="23" class="example" type="1">
 <li>Go to the <em>search</em> page.</li>
 <li>Create a search matrix that’s two words wide, and includes the <em>orthography</em> and <em>phonemes</em> layers.</li>
 <li>Type <code>the</code> in the first <em>orthography</em> box.</li>
 <li>Click the second box on the <em>phonemes</em> layer, but don’t enter anything in the box yet.<br>
-The box has a little symbol <code>«</code> to the right of it.</li>
-<li>Hover the mouse over it to see what it says, and then click it.<br>
+The box has a <img src="phoneme-symbol-selector.png" class="img-fluid"> button to the right of it.</li>
+<li>Hover the mouse over the button to see what it says, and then click it.<br>
 You will see that a section opens with a bunch of phoneme symbols on it; clicking on a phoneme adds its DISC representation to the search box.</li>
-<li>You could use the square-brackets <code>[</code> at the start of your pattern, and click all vowel symbols to add all possible vowels - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.<br>
-<br>
-<em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘phoneme symbol selector’, which will add all the DISC vowels for you, already enclosed in square-brackets.</li>
+<li>You could use the square-brackets <code>[</code> at the start of your pattern, and click all vowel symbols to add all possible vowels - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘phoneme symbol selector’, which will add all the DISC vowels for you, already enclosed in square-brackets.</p>
+</div>
+</div>
+<ol start="29" class="example" type="1">
 <li>Be sure to append the ‘any vowel’ regular expression with <code>.*</code> to ensure the search matches words that have phonemes after the initial vowel</li>
 <li>Run the search and check that it’s giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li>
 </ol>
@@ -1030,7 +1048,7 @@ You will see that a section opens with a bunch of phoneme symbols on it; clickin
 <li>Words which have the DRESS vowel as the second phoneme</li>
 <li>Words ending with a front vowel, followed by words beginning with /p/ or /b/</li>
 <li>Words that begin with “k” in their spelling, but begin with the phoneme /n/</li>
-<li>Words that begin with “k” in their spelling, but <em>do not</em> begin with the phoneme /n/</li>
+<li>Words that begin with “k” in their spelling, but <em>do not</em> begin with</li>
 </ul>
 
 

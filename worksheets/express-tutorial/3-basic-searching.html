@@ -586,21 +586,27 @@ ul.task-list li input[type="checkbox"] {
 <p>We’ll start with a very simple search - all the instances of the word “the” uttered by monolingual English-speaking males.</p>
 <ol type="1">
 <li>In LaBB-CAT, select the <em>participants</em> link on the menu.<br>
-This takes you to the <em>Participants</em> page you have already seen in a previous exercise, where you can list participants and filter them by their attributes. You can see various participant attributes listed across top of the page.
+This takes you to the <em>Participants</em> page you have already seen in a previous exercise, where you can list participants and filter them by their attributes. You can see various participant attributes listed across top of the page.</li>
+</ol>
+<p>As we saw earlier, the list of participants can be filtered using the participant attribute headers at the top. LaBB-CAT remembers the filters you last used, so if you filtered for only female transcripts earlier, that filter will still be applied.</p>
+<ol start="2" type="1">
+<li>To clear any previous filters, press the <img src="delete.svg" class="img-fluid" style="height: 20px;"> button to the right of the filters.<br>
+(If you hover your mouse over this or any other button, you’ll see a ‘tip’ explaining what it does.)</li>
+<li>We want a list of male monolinguals for this example;
 <ul>
-<li>We’re interested in male participants, so under the word <em>Gender</em>, select <em>M</em>.<br>
+<li>Under the word <em>Gender</em>, select <em>M</em>.<br>
 The page will then display a list of all the male participants in the database.</li>
 <li>We want the participants who speak only English, so enter the following regular expression under <em>Languages</em>:<br>
 <code>^English$</code><br>
 This pattern, starting with “^” and ending with “$”, means “match only values that <strong>start and end</strong> with the word ‘English’” - i.e.&nbsp;English is the only word mentioned.<br>
 The page will then display a list of male participants who list only <em>English</em> as their language.</li>
 </ul></li>
-<li>Press <em>Layered Search</em> at the top.<br>
-You will see the participants you selected listed at the top, followed by a list of layers (which we’ll ignore for now). Below that, there’s a heading <em>Search Matrix</em> with various controls. This is the ‘search matrix’, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
-<li>In the box labelled ‘regular expression’ under the word <em>orthography</em> type the word <code>the</code><br>
-<img src="orthography-the.png" class="img-fluid" alt="A border labelled ‘orthography’ containing a dropdown box with ‘matches’ selected, followed by a box containg the word ‘the’"></li>
+<li>Press <em>Layered Search</em> above the list of participants.<br>
+You will see the participants you selected listed at the top, followed by a list of tickable layers (which we’ll ignore for now). Below that, there’s a heading <em>orthography</em>. This is the ‘search matrix’, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
+<li>In the box labelled ‘Regular Expression’ under the word <em>orthography</em> type the word <code>the</code><br>
+<img src="orthography-the.png" class="img-fluid" title="A border labelled 'orthography' containing a dropdown box with 'matches' selected, followed by a box containg the word 'the'"></li>
 <li>Now press the <em>Search</em> button at the bottom.<br>
-A progress bar will appear, and then shortly after that, a new window will open, which has a list of search results in it.</li>
+A progress bar will appear, and then shortly after that, a new browser tab will open, which has a list of search results in it.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -616,12 +622,12 @@ Note
 </div>
 </div>
 <ol start="5" type="1">
-<li>Each match is highlighted and shown within a few words context. Click on the first match.<br>
+<li>Each match is highlighted and shown within the context of the previous and following words. Click on the first match.<br>
 You will see that the interactive transcript page opens in a new browser tab, with the match at the top, and highlighted. You will also see that all the other matches from the same transcript are also highlighted.</li>
 <li>We’ve already seen what can be done in the interactive transcript page, so close the tab to return to the results page.</li>
 <li>Each result line has a ticked checkbox next to it. Scroll to the bottom of the list.<br>
-You’ll see that there are several buttons at the bottom, which perform operations on the ticked results <em>CSV Export</em>, <em>Utterance Export</em>, and <em>Audio Export</em> (among others).</li>
-<li>Untick the <em>Select all results</em> checkbox, and then tick a handful of results in the list.</li>
+You’ll see that there are several buttons at the bottom, which perform operations on the ticked results; <em>CSV Export</em>, <em>Utterance Export</em>, and <em>Audio Export</em> (among others).</li>
+<li>Untick the <em>Select all results</em> checkbox, and then tick a handful of individual results in the list.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -665,7 +671,16 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you’re using Microsoft Excel and you find it doesn’t open all the columns correctly: 1. Create a new workbook in Excel. 2. Click the <em>Data</em> tab. 3. On the <em>Get External Data</em> ribbon click <em>From Text</em>. 4. Select the CSV file you downloaded. 5. Select <em>Delimited</em> and click <em>Next</em>. 6. Ensure <em>Comma</em> is the only delimiter ticked and click <em>Next</em>. 7. Click <em>Finish</em> and then <em>OK</em>.</p>
+<p>If you’re using Microsoft Excel and you find it doesn’t open all the columns correctly:</p>
+<ol type="1">
+<li>Create a new workbook in Excel.</li>
+<li>Click the <em>Data</em> tab.</li>
+<li>On the <em>Get External Data</em> ribbon click <em>From Text</em>.</li>
+<li>Select the CSV file you downloaded.</li>
+<li>Select <em>Delimited</em> and click <em>Next</em>.</li>
+<li>Ensure <em>Comma</em> is the only delimiter ticked and click <em>Next</em>.</li>
+<li>Click <em>Finish</em> and then <em>OK</em>.</li>
+</ol>
 </div>
 </div>
 <p>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.</p>
@@ -677,12 +692,12 @@ Note
 <ol start="18" type="1">
 <li>Change the <em>orthography</em> search text to <code>the.*</code><br>
 (i.e.&nbsp;after the word “the”, append a full-stop and an asterisk.<br>
-<img src="starts-the.png" class="img-fluid" alt="A frame labelled ‘orthography’ with a dropdown box with ‘matches’ selected, followed by a box containing: the.*">&nbsp;<br>
-The full-stop means “any character at all”, and the asterisk means “zero or more of the previous thing”, so *.** means “zero or more characters”.</li>
+<img src="starts-the.png" class="img-fluid" title="A frame labelled 'orthography' with a dropdown box with 'matches' selected, followed by a box containing: the.*"><br>
+The full-stop means “any character at all”, and the asterisk means “zero or more of the previous thing”, so <code>.*</code> means “zero or more characters”.</li>
 <li>Press <em>Search</em>.<br>
 You will see that now the search results include the word “the” and also words like “then”, “there”, “they”, etc.</li>
 <li>Now go back to the search page, and change the asterisk to a plus-sign, which means “one or more of the previous thing”<br>
-<img src="prefix-the.png" class="img-fluid" alt="A frame labelled ‘orthography’ with a drop-down box with ‘matches’ selected, followed by a box containing: the.+"></li>
+<img src="prefix-the.png" class="img-fluid" title="A frame labelled 'orthography' with a drop-down box with 'matches' selected, followed by a box containing: the.+"></li>
 <li>Click <em>Search</em><br>
 You will see that now the search results exclude the word “the”, only including words where the initial “the…” is followed by at least one character.</li>
 <li>Now change your search by replacing the <code>e</code> in “the” with <code>[aeiou]</code> - so your search pattern will be <code>th[aeiou].+</code><br>
@@ -700,13 +715,13 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><img src="help-2.png" class="img-fluid" alt="?"> You can get more information about regular expressions by using the online help on the search page, and also by clicking the the <em>regular expressions</em> link above the search matrix.</p>
+<p><img src="help-2.png" class="img-fluid" alt="?"> You can get more information about regular expressions by using the online help on the search page.</p>
 </div>
 </div>
 <p>Up until now, we’ve only been matching against one word at a time. Now we’re going to include patterns for a chain of words.</p>
 <ol start="24" type="1">
 <li>On the search page, to the right of the search matrix, there’s a <strong>+</strong> button. Press it.<br>
-![A frame labelled ‘orthography’ with ’matches th<a href="two-words-wide.png">aeiou’’ inside, followed by a dropdown box with ‘followed immediately bo’ selected, followed by another frame labelled ‘orthography’ containing a ‘matches’ dropdown box and an empty ‘regular expression’ box</a><br>
+<img src="two-words-wide.png" class="img-fluid" title="A frame labelled 'orthography' with 'matches th[aeiou]' inside, followed by a dropdown box with 'followed immediately bo' selected, followed by another frame labelled 'orthography' containing a 'matches' dropdown box and an empty 'regular expression' box"><br>
 Now you will see that our search matrix is one layer high by two words wide.</li>
 <li>Change the entries on the <em>orthography</em> layer so that it will match the word “the” followed immediately by a word that starts with a vowel, and click <em>Search</em>.</li>
 <li>Check the search results are giving you what you expected.</li>
