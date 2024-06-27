@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.4.557">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -770,7 +770,8 @@ Tip
 </div>
 </div>
 <ol start="7" class="example" type="1">
-<li>Press <em>Set Parameters</em> We will not press <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
+<li>Press <em>Set Parameters</em><br>
+We will <strong>not</strong> press <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
 </ol>
 <p>When forced-alignment is done, the resulting aligned phones will be saved on the <em>segment</em> layer. By default, this has it’s type set to <em>Phonological</em>, which assumes that the phoneme symbols will be those defined by the CELEX DISC encoding. However, MFA uses its own phoneme symbols, which are different from the CELEX DISC ones.</p>
 <p>To make later processing easier, we’re going to change the type of the <em>segment</em> layer to <em>Text</em>, and let LaBB-CAT know what the possible phoneme labels are.</p>
@@ -779,7 +780,7 @@ Tip
 You will see a single layer listed, called <em>segment</em>.</li>
 <li>Change the <em>Type</em> of the <em>segment</em> layer to <em>Text</em>.</li>
 <li>Press <em>Save</em>.<br>
-A new icon appears with a tag <img src="tag.svg" class="img-fluid"> icon - if you hover the mouse over this button, you’ll see it’s for setting <em>Valid labels</em>.</li>
+A new icon appears with a tag <img src="tag.svg" class="img-fluid" style="height: 15px;"> icon - if you hover the mouse over this button, you’ll see it’s for setting <em>Valid labels</em>.</li>
 <li>Press the <em>Valid labels</em> icon<br>
 You will see a page that allows you to add a list of possible labels.<br>
 But we don’t know what the valid labels are yet. The labels used by MFA depend on the dictionary/models selected when defining the layer. The details for all dictionaries are in <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary">MFA Models documentation</a>.</li>
