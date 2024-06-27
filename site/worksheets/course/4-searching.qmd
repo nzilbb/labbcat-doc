@@ -26,22 +26,22 @@ We'll start with a very simple search - all the instances of the word
     This takes you to a page listing all participants, where you can
     filter participants by their attributes. You can see various
     participant attributes listed across the top of page.
-(@) We're interested in male participants, so under the *Gender* attribute,
-    select *M*.\
-    After a short delay the page will display a list of all the male
-    participants in the database.
     
 :::{.callout-tip}
 LaBB-CAT remembers the last filters you used, so you may need to clear any filters you had previously applied.
 
-For example, if the last time you accessed the *participants* page, you selected the `CC` corpus to show only *CC* participants, that filter may still be active. To remove that filter, just press `CC` again to de-select that option.
+For example, if the last time you accessed the *participants* page, you selected the `CC` corpus to show only *CC* participants, that filter may still be active. To remove that filter, just press `CC` again to de-select that option, or you can press the ⌫ button at the top, to the right of the page filters, to clear all filters.
 :::
 
+(@) We're interested in male participants, so under the *Gender* attribute,
+    select *M*.\
+    After a short delay the page will display a list of all the male
+    participants in the database.
 (@) We want the participants who speak only English, so enter `English`
     under *Languages Spoken*\
     The page will then display a list of male participants who include
     *English* in their languages. It also includes participants who
-    speak other languages, who we want to eliminate.\
+    speak other languages, and we want to eliminate these.\
     The *Languages* filter box accepts a 'regular expression' for matching patterns,
     so if we enter `^English$` in the box, only those with English as their sole
     language will be listed. This is because, in regular expressions,
@@ -55,9 +55,9 @@ For example, if the last time you accessed the *participants* page, you selected
 (@) In the box under the word "orthography" type the word `the`\
     ![](orthography-the.png)
 (@) Now press the *Search* button at the bottom (or hit {{< kbd Enter >}}).\
-    A progress bar will appear, and then shortly after that, a new tab
+    A progress bar will appear, and then shortly after that, a new browser tab
     will open, which has a list of search results in it. Your browser's
-    popup-blocker might prevent the results page from opening - you can
+    popup-blocker might prevent the results page from opening -- you can
     fix that either by allowing the popups in your browser, or by
     clicking the *Display results* link that appears after the search
     finishes.
@@ -187,8 +187,7 @@ red text; a 'tip' will appear showing an error message
     
 ::: {.callout-tip}
 ![](help.png) You can get more information about regular expressions
-by using the online help on the search page, and also by clicking
-the the *regular expressions* link above the search matrix.\
+by using the online help on the search page.
 :::
 
 Up until now, we've only been matching against one word at a time.

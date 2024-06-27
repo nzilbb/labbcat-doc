@@ -124,8 +124,7 @@ we have for these exercises), and they are systematically organized
 uploading them using the 'batch upload' utility.
 
 (@) In LaBB-CAT, click the *transcripts* option in the menu.
-(@) Press the *Upload Transcript Batch* icon at the bottom.
-(@) Click the *upload transcript batch* link.\
+(@) Press the *Upload Transcript Batch* icon at the bottom.\
     This shows a window with a large blank area in the middle with
     various buttons above it.
 (@) Open Windows Explorer or Finder, and navigate to the LaBB-CAT
@@ -340,6 +339,7 @@ Now we can defined some prompts for them to read aloud.
     -   **Transcript:** `1. hit hid hint`
     -   **Max Seconds:** 30
     -   **Next Button:** *Shown*
+    -   **Rerecord Button:** *Hidden*
     -   **Image/Video:** *no image/video*
 (@) Click the ![](add.png) button to add a new step
 (@) Fill in the same details as the previous step, except:\
@@ -417,11 +417,20 @@ recordings.
 
 (@) Press the *Back* button on your browser to return to the *define elicitation tasks* page in LaBB-CAT.
 (@) Press the *participants* option on the menu.
+    
+:::{.callout-tip}
+LaBB-CAT remembers the last filters you used, so you may need to clear any filters you had previously applied.
+
+For example, if the last time you accessed the *participants* page, you selected the `F` gender option to show only female participants, that filter may still be active. 
+
+You can press the ⌫ button at the top, to the right of the page filters, to clear all filters.
+:::
+
 (@) Under the *Corpus* heading, select the *CC* option.\
     You will see one participant; the one you just created by doing the task.
 (@) Press the participant ID to open their attributes page, and check
     that the demographic information you entered has been saved.
-(@) Press the participant ID to open their attributes page, and check
+(@) Click the participant ID to open their attributes page, and check
     You will see that the participant has five transcripts, one for each
     of the task steps where audio was recorded.
 (@) Press the *Transcripts* link at the bottom to list the transcripts.

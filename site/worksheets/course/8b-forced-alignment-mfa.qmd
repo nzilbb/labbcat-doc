@@ -168,8 +168,8 @@ hover your mouse over each option to see a 'tool tip' that
 describes what the option is for.
 :::
 
-(@) Press *Set Parameters*
-    We will not press *Regenerate* to force-align the whole corpus just
+(@) Press *Set Parameters*\
+    We will **not** press *Regenerate* to force-align the whole corpus just
     yet. We need to tweak a few other settings, and then align a single
     participant's speech.
     
@@ -187,7 +187,7 @@ possible phoneme labels are.
     You will see a single layer listed, called *segment*.
 (@) Change the *Type* of the *segment* layer to *Text*.
 (@) Press *Save*.\
-    A new icon appears with a tag ![](tag.svg) icon -
+    A new icon appears with a tag ![](tag.svg){style="height: 15px;"} icon -
     if you hover the mouse over this button, you'll see it's for
     setting *Valid labels*.
 (@) Press the *Valid labels* icon\

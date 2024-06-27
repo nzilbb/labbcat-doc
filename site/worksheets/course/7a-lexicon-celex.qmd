@@ -106,7 +106,7 @@ has a special meaning - it means "one or more of the previous
 thing". 
 
 In order to search for a literal "+" in the annotation,
-you have to 'escape' the `+`. Consult the *Regular Expression* help
+you have to 'escape' the `+`. Consult the *Regular Expression* section of the help
 page to figure out how to do that.
 :::
 
