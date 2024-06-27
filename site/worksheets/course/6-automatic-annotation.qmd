@@ -376,7 +376,7 @@ this page.
     You will see a progress bar while the layer manager annotates all
     the transcripts in the database.
 (@) To see what this looks like in the transcripts, select the
-    *transcripts* option on the menu and open the first transcript in
+    *transcripts* option on the menu, clear all filters, and open the first transcript in
     the list.
 (@) Under the list of projects, if the *pauses* project isn't already
     ticked, tick it, which will reveal the *pauseCount* layer in the
