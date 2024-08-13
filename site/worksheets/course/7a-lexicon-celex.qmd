@@ -262,7 +262,7 @@ now.
   g     `g`    **g**ame           ʊ     `U`    F**OO**T
   ŋ     `N`    ba**ng**           ə     `@`    **a**nother
   m     `m`    **m**at            i:    `i`    FL**EE**CE
-  n     `n`    **n**at            α:    `#`    f**a**ther
+  n     `n`    **n**at            α:    `#`    ST**A**RT
   l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
   r     `r`    **r**at            u:    `u`    G**OO**SE
   f     `f`    **f**at            ɜ:    `3`    N**UR**SE

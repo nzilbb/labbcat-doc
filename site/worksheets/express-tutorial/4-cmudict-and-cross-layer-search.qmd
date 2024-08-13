@@ -141,7 +141,7 @@ phoneme.
   g     `g`    G         **g**ame           ʊ     `U`    UH                      F**OO**T
   ŋ     `N`    NG        ba**ng**           ə     `@`    \[vowel ending in 0\]   **a**nother
   m     `m`    M         **m**at            i:    `i`    IY                      FL**EE**CE
-  n     `n`    N         **n**at            α:    `#`    AA                      f**a**ther
+  n     `n`    N         **n**at            α:    `#`    AA                      ST**A**RT
   l     `l`    L         **l**ad            ɔ:    `$`    AO                      TH**OU**GHT
   r     `r`    R         **r**at            u:    `u`    UW                      G**OO**SE
   f     `f`    F         **f**at            ɜ:    `3`    ER                      N**UR**SE
