@@ -1,5 +1,10 @@
 ---
-title: "About"
+format:
+  html:
+    toc: false
 ---
+# About
 
-About this site
+This is the documentation for the [LaBB-CAT](https://labbcat.canterbury.ac.nz/) corpus management system.
+
+Author: Robert Fromont

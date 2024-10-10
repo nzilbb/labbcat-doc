@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # Comparing Forced Alignment Methods
 
@@ -15,7 +15,7 @@ You can compare different forced alignment methods with your own data by configu
 To do this, the broad process is:
 
 1. set up multiple forced alignment configurations, configured to output their word and phone alignments to separate layers (i.e. not the normal *word* and *segment* layers), and then
-1.run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.
+1. Run each forced alignment configuration on some subset of the data, so that the separate word and phone alignment layers are populated with aligned intervals.
 1. Finally, you can compare the configurations, either by:
     - selecting individual utterances, extracting all the alignments to a TextGrid with the audio, and doing an auditory/visual evaluation of each set of alignments, or
     - manually aligning a selection of utterances, and automatically comparing each set of automatic alignments with the corresponding manual alignments.
@@ -35,27 +35,26 @@ In order to set this up, you need to set up the forced aligment configurations t
 1. In LaBB-CAT, select the *phrase layers* menu option.  
    You will see a list of phrase layers, which may include *language* and *entity.*
 1. The column headings at the top are also a form to fill in in order to add a new phrase layer. Fill it in with the following details:
-    - Layer ID: a descriptive name of the configuration, e.g. *WebMAUS* or *HTK-P2FA*
-    - Type: *Text* (this layer will end up containing the word tokens)
-    - Alignment: *Intervals* (i.e. annotations with a start time and an end time)
-    - Manager: select the layer manager for this forced alignment configuration, e.g. *HTK Manager*
-    - Generate: *Never* (we will be running forced alignment manually on a selection of recordings, and we don't want these forced alignments being automatically triggered when new transcripts are uploaded)
-    - Project: this can be left as-is, unless you have already created a 'project' to categorise these layers under.
-    - Description: A descriptive note something like "Word alignments produced by HTK using the Penn Forced Aligner pretrained acoustic models (P2FA)"
-    - The new layer form filled in with Layer ID = HTK-P2FA, Type = Text, Alignment = Intervals, Manager = HTK Manager and Generate = Never. There is a 'New' button on the far right.  
-    ![Add the new layer details for the configuration](ForcedAlignmentComparisonConfig1.png)
+    - **Layer ID**: a descriptive name of the configuration, e.g. *WebMAUS* or *HTK-P2FA*
+    - **Type**: *Text* (this layer will end up containing the word tokens)
+    - **Alignment**: *Intervals* (i.e. annotations with a start time and an end time)
+    - **Manager**: select the layer manager for this forced alignment configuration, e.g. *HTK Manager*
+    - **Generate**: *Never* (we will be running forced alignment manually on a selection of recordings, and we don't want these forced alignments being automatically triggered when new transcripts are uploaded)
+    - **Project**: this can be left as-is, unless you have already created a 'project' to categorise these layers under.
+    - **Description**: A descriptive note something like "Word alignments produced by HTK using the Penn Forced Aligner pretrained acoustic models (P2FA)"
+    ![Add the new layer details for the configuration](ForcedAlignmentComparisonConfig1.png){fig-alt="The new layer form filled in with Layer ID = HTK-P2FA, Type = Text, Alignment = Intervals, Manager = HTK Manager and Generate = Never. There is a 'New' button on the far right."}
 1. Press the *New* button.  
    The layer's configuration form will appear.
 1. Fill in the configuration form as required for this configuration, e.g. if it's HTK with P2FA models, tick the *Use P2FA models* checkbox, etc.  
   ![Configure the forced alignment parameters](ForcedAlignmentComparisonLayerConfig1.png){fig-alt="HTK configuration form with Pronunciation Layer = cmuDictPhonemes, and User P2FA models = ticked"}  
-   The configuration form will also allow you to configure which layer the word alignments and phone alignments are saved to, with a setting like *Word Alignment Layer* set to *word* by default, and *Phone Alignment Layer* set to *segment* by default.
-1. Change the *Word Alignment Layer* to be the layer itself (i.e. if the layer you just added is called "HTK-P2FA", select the *HTK-P2FA* option in the dropdown list next to *Word Alignment Layer*).
-1. Change the *Phone Alignment Layer* by selecting the *[add new layer]* option.  
+   The configuration form will also allow you to configure which layer the word alignments and phone alignments are saved to, with a setting like **Word Alignment Layer** set to *word* by default, and **Phone Alignment Layer** set to *segment* by default.
+1. Change the **Word Alignment Layer** to be the layer itself (i.e. if the layer you just added is called "HTK-P2FA", select the *HTK-P2FA* option in the dropdown list next to *Word Alignment Layer*).
+1. Change the **Phone Alignment Layer** by selecting the *[add new layer]* option.  
    You will be asked what you want the new layer to be called.  
    ![Add a layer for the phone alignments](ForcedAlignmentComparisonNewPhoneLayer.png){fig-alt="An input dialog titled 'Please enter the new layer ID' with the default 'HTK-P2FAPhone' already entered, and the OK button highlighed"}
 1. You can leave this as the default value, which will be something like "HTK-P2FAPhone", and press *OK*
-1. There may also be an *Utterance Tag Layer* setting, which by default has the layer itself selected. We're already using the layer itself for the word alignments, and don't want it to also contain a time-stamp for when the alignment was done, so we are going to un-set this setting.  
-   Set Utterance Tag Layer to *[none]*.  
+1. There may also be an **Utterance Tag Layer** setting, which by default has the layer itself selected. We're already using the layer itself for the word alignments, and don't want it to also contain a time-stamp for when the alignment was done, so we are going to un-set this setting.  
+   **Set Utterance Tag Layer** to *[none]*.  
    ![Output layers are reconfigured to go to other layers instead of 'word' and 'segment', and the tag layer in un-set](ForcedAlignmentComparisonOutputLayers.png){fig-alt="Layer settings where Word Alignment Layer = HTK-P2FA, Phone Alignment Layer = HTK-P2FAPhone, and Utterance Tag Layer = [none]"}
 1. Press the *Set Parameters* button to save the configuration.
 1. Repeat steps 3-11 for each configuration you want to compare.  

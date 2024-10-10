@@ -4,7 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 3 - Basic Searching
 
@@ -26,8 +26,18 @@ We'll start with a very simple search - all the instances of the word
     previous exercise, where you can list participants and filter them
     by their attributes. You can see various participant attributes
     listed across top of the page.
-    -   We're interested in male participants, so under the word
-        *Gender*, select *M*.\
+
+As we saw earlier, the list of participants can be filtered using the 
+participant attribute headers at the top. LaBB-CAT remembers the filters 
+you last used, so if you filtered for only female transcripts earlier, 
+that filter will still be applied.
+
+2.  To clear any previous filters, press the ![](delete.svg){style="height: 20px;"} 
+    button to the right of the filters.\
+    (If you hover your mouse over this or any other button, 
+    you'll see a 'tip' explaining what it does.)
+3.  We want a list of male monolinguals for this example;
+    -   Under the word *Gender*, select *M*.\
         The page will then display a list of all the male participants
         in the database.
     -   We want the participants who speak only English, so enter the
@@ -38,20 +48,20 @@ We'll start with a very simple search - all the instances of the word
         'English'" - i.e. English is the only word mentioned.\
         The page will then display a list of male participants who list
         only *English* as their language.
-2.  Press *Layered Search* at the top.\
+2.  Press *Layered Search* above the list of participants.\
     You will see the participants you selected listed at the top,
-    followed by a list of layers (which we'll ignore for now). Below
-    that, there's a heading *Search Matrix* with various controls. This
+    followed by a list of tickable layers (which we'll ignore for now). Below
+    that, there's a heading *orthography*. This
     is the 'search matrix', although it doesn't look much like a matrix
     yet, because it's only one layer high and one word wide...
-3.  In the box labelled 'regular expression' under the word
+3.  In the box labelled 'Regular Expression' under the word
     *orthography* type the word `the`\
-    ![A border labelled 'orthography' containing a dropdown box with
+    ![](orthography-the.png){title="A border labelled 'orthography' containing a dropdown box with
     'matches' selected, followed by a box containg the word
-    'the'](orthography-the.png)
+    'the'"}
 4.  Now press the *Search* button at the bottom.\
     A progress bar will appear, and then shortly after that, a new
-    window will open, which has a list of search results in it. 
+    browser tab will open, which has a list of search results in it. 
 
 :::{.callout-note}
 Your browser's popup-blocker might prevent the results page from opening
@@ -60,8 +70,8 @@ or by clicking the *Display results* link that appears after the
 search finishes.
 :::
 
-5.  Each match is highlighted and shown within a few words context.
-    Click on the first match.\
+5.  Each match is highlighted and shown within the context of the previous 
+    and following words. Click on the first match.\
     You will see that the interactive transcript page opens in a new
     browser tab, with the match at the top, and highlighted. You will
     also see that all the other matches from the same transcript are
@@ -71,10 +81,10 @@ search finishes.
 7.  Each result line has a ticked checkbox next to it. Scroll to the
     bottom of the list.\
     You'll see that there are several buttons at the bottom, which
-    perform operations on the ticked results *CSV Export*, *Utterance Export*, 
+    perform operations on the ticked results; *CSV Export*, *Utterance Export*, 
     and *Audio Export* (among others).
 8.  Untick the *Select all results* checkbox, and then tick a handful of
-    results in the list.
+    individual results in the list.
 
 :::{.callout-tip}
 You can select a group of matches by ticking the first one,
@@ -107,6 +117,7 @@ quoted by *speech marks*.
 :::{.callout-note}
 If you're using Microsoft Excel and you find it doesn't
 open all the columns correctly:
+
 1.  Create a new workbook in Excel.
 2.  Click the *Data* tab.
 3.  On the *Get External Data* ribbon click *From Text*.
@@ -136,20 +147,20 @@ going to search for words *beginning with* "the..."
 
 18. Change the *orthography* search text to `the.*`\
     (i.e. after the word "the", append a full-stop and an asterisk.\
-    ![A frame labelled 'orthography' with a dropdown box with
+    ![](starts-the.png){title="A frame labelled 'orthography' with a dropdown box with
     'matches' selected, followed by a box containing:
-    the.\*](starts-the.png) \
+    the.\*"}\
     The full-stop means "any character at all", and the asterisk means
-    "zero or more of the previous thing", so *.** means "zero or more
+    "zero or more of the previous thing", so `.*` means "zero or more
     characters".
 19. Press *Search*.\
     You will see that now the search results include the word "the" and
     also words like "then", "there", "they", etc.
 20. Now go back to the search page, and change the asterisk to a
     plus-sign, which means "one or more of the previous thing"\
-    ![A frame labelled 'orthography' with a drop-down box with
+    ![](prefix-the.png){title="A frame labelled 'orthography' with a drop-down box with
     'matches' selected, followed by a box containing:
-    the.+](prefix-the.png)
+    the.+"}
 21. Click *Search*\
     You will see that now the search results exclude the word "the",
     only including words where the initial "the..." is followed by at
@@ -164,9 +175,7 @@ going to search for words *beginning with* "the..."
 
 :::{.callout-tip}
 ![?](help-2.png) You can get more information about regular
-expressions by using the online help on the search page, and also by
-clicking the the *regular expressions* link above the search
-matrix.
+expressions by using the online help on the search page.
 :::
 
 Up until now, we've only been matching against one word at a time.
@@ -174,11 +183,11 @@ Now we're going to include patterns for a chain of words.
 
 24. On the search page, to the right of the search matrix, there's a
     **+** button. Press it.\
-    ![A frame labelled 'orthography' with 'matches th[aeiou''
+    ![](two-words-wide.png){title="A frame labelled 'orthography' with 'matches th[aeiou]'
     inside, followed by a dropdown box with 'followed immediately bo'
     selected, followed by another frame labelled 'orthography'
     containing a 'matches' dropdown box and an empty 'regular
-    expression' box](two-words-wide.png)\
+    expression' box"}\
     Now you will see that our search matrix is one layer high by two
     words wide.
 25. Change the entries on the *orthography* layer so that it will match

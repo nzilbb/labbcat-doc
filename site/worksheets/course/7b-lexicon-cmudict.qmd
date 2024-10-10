@@ -4,7 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 7b. CMU Pronouncing Dictionary
 
@@ -167,11 +167,11 @@ tags.
 (@) Select the *word layers* option on the menu.
 (@) On the *phonemes* layer row, there are a number of buttons on the
     right, including one with a ![](pronounce-auxiliary-icon.png) icon. Hover your mouse
-    over this button to see what it does, and then click it.\
+    over this button to see what it does, and then press it.\
     You will see a page explaining that will copy any manually tagged
     pronunciations from the from the *pronounce* layer into the
     *phonemes*.
-(@) Click *yes* to continue.\
+(@) Pres *yes* to continue.\
     You will see a progress bar while the auxiliary layer manager copies
     the *pronounce* annotations to the *phonemes* layer.
 (@) When it's finished, select the *transcripts* menu option, and open
@@ -213,7 +213,7 @@ by a word that starts with schwa.
 (@) Type *the* in the first *orthography* box.
 (@) Click the second box on the *phonemes* layer, but don't enter
     anything in the box yet.
-(@) The box has a little `«` button to the right of it.\
+(@) The box has a ![](phoneme-symbol-selector.png) button to the right of it.\
     Hover the mouse over it to see what it says, and then click it.\
     You will see that a section opens with a bunch of phoneme symbols on
     it.
@@ -243,22 +243,24 @@ in the original dictionary file; the final vowel *AH* is the 'STRUT'
 vowel, and the *0* means it's 'unstressed'. The layer manager
 translates this to DISC as `tr{nskrIpS@n`.
 
-Now that we have phonemic transcripts, we can do abetter job of the
+Now that we have phonemic transcripts, we can do a better job of the
 search we tried in the first exercise - "the" followed by a word
 starting with a vowel...
 
 (@) Change your search so that, instead of just `@` at the beginning of
     the word, it matches any vowel.
 
+::: {.callout-tip}
 You could use the square-brackets `[]` at the start of your
-pattern, and type all vowel symbols inside them - Note that the
-vowels in the DISC representation extend beyond a, e, i, o, and u -
+pattern, and type all vowel symbols inside them -- note that the
+vowels in the DISC representation extend beyond a, e, i, o, and u --
 you should add in all the vowels you see in the list that appears
 when you expand the IPA helper, including all the diphthongs.
 
-*Alternatively*, you can simply click the *VOWEL* link in the 'IPA
-helper', which will add all the DISC vowels for you, already
-enclosed in square-brackets.
+*Alternatively*, you can simply click the *VOWEL* link in the 
+'Phoneme symbol selector',  which will add all the DISC vowels for you, 
+already enclosed in square-brackets.
+:::
 
 (@) Run the search and check that it's giving you what you expect.
     Notice that now there are no 'false positives' like "the one" that

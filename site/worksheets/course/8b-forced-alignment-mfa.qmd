@@ -4,11 +4,13 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 8b. MFA
 
-The Montreal Forced Aligner (MFA) is a 3rd-party tool developed by
+The 
+[Montreal Forced Aligner (MFA)](https://montreal-forced-aligner.readthedocs.io/) 
+is a 3rd-party tool developed by
 Michael McAuliffe and others that can use words with phonemic
 transcriptions, and the corresponding audio, to force-align words and
 phones; i.e. determine the start and end time of each speech sound
@@ -132,7 +134,7 @@ then saves to alignments MFA produces back to your database.
     installed to in the *Path to MFA* box.\
     \
     If the *Path to MFA* box is empty and there's an *Attempt to
-    Install MFA* button, click the button, and LaBB-CAT will try to
+    Install MFA* button, press the button, and LaBB-CAT will try to
     install MFA on the server for you. This process can take a few
     minutes, and the *Configure* button will be disabled until it's
     finished.
@@ -166,8 +168,8 @@ hover your mouse over each option to see a 'tool tip' that
 describes what the option is for.
 :::
 
-(@) Press *Set Parameters*
-    We will not click *Regenerate* to force-align the whole corpus just
+(@) Press *Set Parameters*\
+    We will **not** press *Regenerate* to force-align the whole corpus just
     yet. We need to tweak a few other settings, and then align a single
     participant's speech.
     
@@ -185,10 +187,10 @@ possible phoneme labels are.
     You will see a single layer listed, called *segment*.
 (@) Change the *Type* of the *segment* layer to *Text*.
 (@) Press *Save*.\
-    A new icon appears with a tag ![](tag.svg) icon -
+    A new icon appears with a tag ![](tag.svg){style="height: 15px;"} icon -
     if you hover the mouse over this button, you'll see it's for
     setting *Valid labels*.
-(@) Click the *Valid labels* icon\
+(@) Press the *Valid labels* icon\
     You will see a page that allows you to add a list of possible
     labels.\
     But we don't know what the valid labels are yet. The labels used by
@@ -200,9 +202,16 @@ possible phoneme labels are.
     You will see a page that includes information about the dictionary
     including the *Phones* used by it.
 (@) Select and copy the list of phones used by the *english_mfa*
-    dictionary - i.e. all of these:\
-    `a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj ə əw ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ`
-14. Back in the *Valid Labels* page in LaBB-CAT, paste all of the phone
+    dictionary - i.e. all of these:
+    
+```
+a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j 
+k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ
+u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj  ə əw 
+ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ
+```
+
+(@) Back in the *Valid Labels* page in LaBB-CAT, paste all of the phone
     symbols into the box labelled *Label*\
     ![The Valid Labels form with the text box filled with all the MFA
     phoneme symbols](pasted-mfa-labels.png)
@@ -216,7 +225,7 @@ Defining this list for the *segment* layer means that, when you
 search the *segment* layer for specific phones, LaBB-CAT can display
 a clickable list of possibilities.
 
-(@) At the bottom of the list, there's a *Save* button. Click it to
+(@) At the bottom of the list, there's a *Save* button. Press it to
     save your changes.
     
 ## Alignment
@@ -233,7 +242,7 @@ Although we're only going to force-align the utterances of a single speaker in t
     You will see a progress bar while all their utterances are
     identified. Then a results page will be displayed, listing the first
     20 utterances.
-(@) Click the *Mfa* button at the bottom.\
+(@) Press the *Mfa* button at the bottom.\
     You will see a progress bar appear, while LaBB-CAT gathers the files
     that MFA needs, runs MFA, and parses the resulting alignments. This
     will take a few minutes.
@@ -307,6 +316,7 @@ improvements, because HTK will never change them again.
 
 :::{.callout-important}
 There are some rules about what you can change:
+
 1.  You're not allowed to add or delete words (if this is
     necessary, it should be done by correcting the transcript
     instead).

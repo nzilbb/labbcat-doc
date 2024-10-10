@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 9. Aligned Data
 
@@ -102,12 +102,12 @@ Now we're going to search for some instances of vowels of interest
 measurements.
 
 (@) First of all, create a new project called *formants*
-(@) Now select the *segment layers* menu option.
 
 We're going to add a layer that annotates segments - i.e.
 individual phones within words.
 
-(@) Fill in the new-layer form at the bottom with the following details:
+(@) Now select the *segment layers* menu option.
+(@) Fill in the new-layer form at the top with the following details:
     -   **Layer ID:** `F1`
     -   **Type:** *Number*
     -   **Alignment:** *Instants*
@@ -144,7 +144,8 @@ because no single segment will ever match that pattern.
 :::
 
 (@) We want to search for all instances of the *FLEECE* vowel, so use
-    the label selector - the button labelled `«` - to find the right
+    the symbol selector -- the ![](phoneme-symbol-selector.png) button -- 
+    to find the right
     symbol for the *FLEECE* vowel and click it.\
     If you used HTK for forced alignment, this will be `i`\
     If you used MFA for forced alignment, this will be `iː`
@@ -193,9 +194,9 @@ You can fix that using the *segments layers* option in the menu.
     {{< kbd Ctrl >}} + {{< kbd V >}} on your keyboard)\
     Now you've annotated the vowel with its F1 value, and we want to
     save that annotation back to the LaBB-CAT database.
-(@) Click back on the LaBB-CAT transcript window.
-(@) Click the *Import Changes* button that has appeared to the left
-    ofthe line with the first match.\
+(@) Go back to the LaBB-CAT transcript window.
+(@) Press the *Import Changes* button that has appeared to the left
+    of the line with the first match.\
     You should see a message indicating that the annotations has been
     saved.
 (@) Repeat the above steps for the next few matches in the transcript.

@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 7a. CELEX
 
@@ -106,7 +106,7 @@ has a special meaning - it means "one or more of the previous
 thing". 
 
 In order to search for a literal "+" in the annotation,
-you have to 'escape' the `+`. Consult the *Regular Expression* help
+you have to 'escape' the `+`. Consult the *Regular Expression* section of the help
 page to figure out how to do that.
 :::
 
@@ -262,7 +262,7 @@ now.
   g     `g`    **g**ame           ʊ     `U`    F**OO**T
   ŋ     `N`    ba**ng**           ə     `@`    **a**nother
   m     `m`    **m**at            i:    `i`    FL**EE**CE
-  n     `n`    **n**at            α:    `#`    f**a**ther
+  n     `n`    **n**at            α:    `#`    ST**A**RT
   l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
   r     `r`    **r**at            u:    `u`    G**OO**SE
   f     `f`    **f**at            ɜ:    `3`    N**UR**SE

@@ -5,4 +5,10 @@ format:
 ---
 # How-to
 
-These pages describe how to achieve various common tasks in LaBB-CAT
+These pages describe how to achieve various common tasks in LaBB-CAT, including:
+
+- [Transcription](transcription/index.qmd)
+- [Phonemic Tagging](phonemic-tagging/index.qmd)
+- [Forced Alignment](forced-alignment/index.qmd)
+
+...and other options you can see in the menu on the left.

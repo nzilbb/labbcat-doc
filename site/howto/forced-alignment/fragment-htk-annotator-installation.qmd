@@ -1,0 +1,11 @@
+The HTK Layer Manager is a LaBB-CAT module that integrates LaBB-CAT with HTK.
+
+1. In LaBB-CAT, select the *layer managers* option on the menu, which gives you a list of the layer managers already installed.
+1. At the bottom of the page, follow the *List of layer managers that are not yet installed* link.
+1. Look for *HTK* in the list, and press it's *Install* button.
+1. You will see a form with boxes for filling in information.
+    - *HTK Path* must be set to the location where the HTK files are installed on your system. If this is already filled in, it's probably correct.  If it's blank, you have to enter the full path for the HTK programs:
+        - On Windows systems, this is where you unzipped the HTK .exe files - e.g. something like `C:\Downloads\HTK`
+        - On Unix-like systems, this is probably `/usr/local/bin`, but you can verify this by entering which HCopy at a command shell prompt.
+    - *HTK Working Folder* will already have a default value, which is probably best left as-is
+1. Press *Install Layer Manager*

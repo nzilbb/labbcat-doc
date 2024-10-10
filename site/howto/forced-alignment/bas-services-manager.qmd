@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # BAS Web Service Manager and WebMAUS
 
@@ -19,10 +19,11 @@ The general process is illustrated below:
 
 ![Transcripts/recordings from LaBB-CAT are sent to WebMAUS, and the resulting alignments are saved in LaBB-CAT](BAS-WebMAUS.svg)
 
-**NB**: Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the 
+::: {.callout-caution}
+Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party. Although point 3 of the 
 [BAS Web Services Terms of Service](https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext) 
 makes clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.
-
+:::
 
 - Albanian
 - Australian Aboriginal Languages
@@ -75,11 +76,12 @@ optionally appended with a two-letter country code - e.g. "en" or "en-NZ".
 
 1. Select the *phrase layers* option on the menu
 1. At the top of the page, there's a blank form for creating a new layer; fill in the following details:
-    - *Layer ID*: `MAUS`
-    - *Type*: *Text*
-    - *Manager*: *BAS Web Services Manager*
-    - *Alignment*: *Time Intervals*
-    - *Generate*: *Always*
+    - **Layer ID**: `MAUS`
+    - **Type**: *Text*
+    - **Manager**: *BAS Web Services Manager*
+    - **Alignment**: *Time Intervals*
+    - **Generate**: *Always*
+    - **Description**: *WebMAUS Forced alignment*
 1. Press *New*.  
    You will see a form that allows you to configure the layer; check the online help for that page to guide you. The main choice is the "Phoneme encoding": the default option, DISC, is probably the best because using this phoneme encoding ensures the layer will work well with other modules, and will be easily searchable. However, it is possible to choose sampa instead, in which case the layer type of the segments layer should be set to Text.
 1. Press *Save*

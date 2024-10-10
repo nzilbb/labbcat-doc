@@ -4,7 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 5. Manual Annotation
 
@@ -55,7 +55,8 @@ Now we're ready to find some tokens...
 
 (@) Select *participants* on the menu.
 (@) We're going to search all male monolinguals, so filter by the
-    appropriate attribute values and then click *Layered Search*.
+    appropriate attribute values if they're not already filtered,
+    and then click *Layered Search*.
 (@) Search for instances of the word "the" followed immediately by a
     word starting with a vowel, on the *orthography* layer.
 (@) Export the results to a CSV file and open it.
@@ -107,7 +108,7 @@ recording.
     searches utterances of all participants.\
     This time we're going to search for the true-positive annotations
     we just inserted.
-(@) Under the "Tick layers to include" heading, there's now a "Project"
+(@) Under the "Pattern" heading, there's now a "Projects"
     column that includes the "the" project we added at the start. Tick
     that project, so that the layer associated with it is displayed in
     the list of *Word* layers to the right.
@@ -121,9 +122,8 @@ recording.
     able to see not only the transcript text, but also the *TP*/*FP*
     tags you have added.
 (@) Click on the first match in the transcript, and select the *Play*
-    option to play the line.\
-    \
-    Listen carefully to see whether the speaker pronounces the word
+    option to play the line.
+(@) Listen carefully to see whether the speaker pronounces the word
     "the" like "thee" or not. If they do, we're going to annotate the
     word with the code `i`. Otherwise we're going to annotate it with
     the code `@`.

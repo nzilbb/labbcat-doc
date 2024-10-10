@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 1 - Install and Configure LaBB-CAT
 
@@ -122,7 +122,7 @@ transcript types ...
     *interview* and *monologue*.
 14. Press the *Save* button that has appeared below the other buttons to
     confirm this change.\
-    You will see a message at the top saying "Updated transcript types".
+    You will see a message at the top saying "Layer saved: transcript_type".
 
 ---
 

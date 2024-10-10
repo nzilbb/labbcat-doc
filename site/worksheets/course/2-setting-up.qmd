@@ -4,7 +4,7 @@ format:
     toc: false
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 ## 2. Setting Up
 
@@ -70,24 +70,24 @@ Now that we have both corpora and transcript types, we're going to set up meta-d
 For our corpus data, we don't have the exact year of birth. Instead we have the age of the participant, defined by various age group categories.
 
 (@) As with previous pages, the headings at the top are also a form you can fill in to add a new row, which we will now fill in with the following information:
-    -   **Attribute ID** : `age_category`
+    -   **Attribute ID** : `ageCategory`
     -   **Type** : *Select* (this is because we want to be able to select from a list of possible values) 
     -   **Layer Label** : `Age`
     -   **Access** : *Public*
     -   **Searchability** : *Searchable* (so that it appears on the search page)
     -   **Category** : *General*
     -   **Description** : `Age Category`
-(@) Press the *New* button to add the attribute.\
-    You will see a message saying *Layer added: participant_age_category* and the new attribute will now appear at the bottom of the list. Now we need to define the options for it...
 
 :::{.callout-tip}
 ![](help.png) If you want more information about what each of these are for, check the online help for this page.
 :::
 
+(@) Press the *New* button to add the attribute.\
+    You will see a message saying *Layer added: participant_ageCategory* and the new attribute will now appear at the bottom of the list. Now we need to define the options for it...
 (@) To the right of the *Age* attribute's *Category* there's an icon like a tag 🏷.\
     Hover your mouse over this icon to see what it does. 
 (@) Press the *Valid labels* icon.\
-    This shows a (currently empty) list of options for the *participant_age_category* attribute.
+    This shows a (currently empty) list of options for the *participant_ageCategory* attribute.
 (@) In the blank *Label* box, enter: `18-25`
 (@) Press the *New* button to add the option.\
     You will see that "18-25" appears twice on the row that's added:
@@ -108,18 +108,18 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
     -   **Description** : `85 years or more`
 (@) Lastly, press the *New* button without filling in a *Label* to add a 'default' option for participants with missing data.
 (@) Press the *Save* to save all your changes to LaBB-CAT.\
-    You will see a message saying *Layer saved: participant_age_category*
+    You will see a message saying *Layer saved: participant_ageCategory*
 (@) Now select the *participant attributes* option on the menu to return the list of all attributes.\
 
 We are going to add a few more attributes, but they will be 'free text' fields without predefined options.
 
 (@) Add another attribute, called `ethnicity`. For 'Type' select *String*, and make it *Public* and *Searchable*.
-(@) Similarly, add the following *Public* *Searchable* *string* attribute:
-    -   `languages_spoken` - a list of languages they speak\
+(@) Similarly, add the following *Public* *Searchable* *String* attributes:
+    -   `languagesSpoken` - a list of languages they speak\
         ... and the following *Not Searchable* attributes:
-    -   `grew_up` - what country they grew up in
-    -   `grew_up_region` - what region of New Zealand they grew up in
-    -   `grew_up_town` - what town or city they grew up in
+    -   `grewUp` - what country they grew up in
+    -   `grewUpRegion` - what region of New Zealand they grew up in
+    -   `grewUpTown` - what town or city they grew up in
 (@) Lastly, as we will not be using it, delete the *Birth Year* attribute.
 
 Now you have an empty database for which you've:

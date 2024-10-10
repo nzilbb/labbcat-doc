@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 ---
 # 3 - CELEX
 
@@ -144,7 +144,7 @@ to try now.
   g     `g`    **g**ame           ʊ     `U`    F**OO**T
   ŋ     `N`    ba**ng**           ə     `@`    **a**nother
   m     `m`    **m**at            i:    `i`    FL**EE**CE
-  n     `n`    **n**at            α:    `#`    f**a**ther
+  n     `n`    **n**at            α:    `#`    ST**A**RT
   l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
   r     `r`    **r**at            u:    `u`    G**OO**SE
   f     `f`    **f**at            ɜ:    `3`    N**UR**SE
@@ -177,7 +177,7 @@ word that starts with schwa.
 3.  Type `the` in the first *orthography* box.
 4.  Click the second box on the *phonemes* layer, but don't enter
     anything in the box yet.
-5.  The box has a little `«` button to the right of it.\
+5.  The box has a ![](phoneme-symbol-selector.png) button to the right of it.\
     Hover the mouse over it to see what it says, and then click it.\
     You will see that a section opens with a bunch of phoneme symbols on
     it.

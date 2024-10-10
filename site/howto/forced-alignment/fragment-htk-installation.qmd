@@ -1,0 +1,7 @@
+HTK is a 3rd-party tool that you must download and install from the Cambridge University website.
+
+1. Register at <http://htk.eng.cam.ac.uk/register.shtml>
+1. Download the version of HTK that is appropriate for the computer that LaBB-CAT is install on:  
+        For Windows systems, there are pre-compiled .exe files that you can download.
+        For Unix-like systems, you need to download the source code, which you will then install following the provided instructions (you may also need to install the xorg-dev package before it will successfully compile).
+1. Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.

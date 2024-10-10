@@ -1,0 +1,282 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: linguisticspro
+---
+# Upload and Force-align Transcripts
+
+This workflow details the steps required to upload new transcripts and then run forced alignment on them.
+
+::: {.callout-note collapse="true"}
+## Assumptions
+
+These instructions assume that 
+
+- you've got a LaBB-CAT server set up
+- it's already configured for CELEX-based pronunciations to be tagged on the *phonemes* layer
+- it's already configured for forced alignment with HTK
+- the HTK configuration is designed for the per-speaker train/align procedure
+
+:::
+
+There are two sub-tasks:
+
+1. upload the transcripts for a given speaker, and then
+2. run forced alignment for all of that speaker's utterances.
+
+These two broad steps will be repeated for each speaker.
+
+## 1. Upload Transcripts
+
+As forced alignment is done on a per-speaker database, it's best to upload all the transcripts that a speaker appears in before running forced alignment. 
+
+(@) Choose a speaker/participant to upload.
+(@) Identify all the transcripts/recordings that they appear in. This may be only one transcript, which is fine. But if they're in more than one recording, they should all be uploaded before forced alignment, to maximise the amount of speech available for training acoustic models for alignment.
+(@) In LaBB-CAT, select the *upload* option in the menu.
+(@) Select  the first option, *upload transcripts*.
+(@) Press the left-hand *Choose File* button and select the first transcript file 
+    (it may be a *.eaf* ELAN file, or a Praat *.TextGrid* file, etc.).
+
+  When you select a file, a new row of *Choose File* buttons will
+  appear below the first. This is for adding more transcripts in the
+  'episode'. An 'episode' is a set of transcripts that belong together
+  because they were recorded during the same session. 
+  Unless your recordings for a speaker wer all recorded on the same day, 
+  each recording session has only one recording.
+
+(@) Next to *Media* on the first row, press *Choose File*
+(@) Select the *.wav* file that corresponds to the transcript.
+(@) Ensure the *Corpus* option is correct for the transcript you're uploading.
+(@) Ensure the *Type* option is correct 
+    (e.g. *interview* for an interview, *word-list* for a word list reading, etc.)
+(@) Leave the other options as-is, and press *Upload*
+
+![Select the transcript on the left and the media on the right](upload-transcript.png){fig-alt="The upload form has a .eaf file selected on the left and a .wav file selected on the right, whith two Choose File buttons below, and upload uptions including Corpus and Type"}
+
+ELAN/Praat transcripts have a number of Tiers defined in them, e.g.:
+
+-   one for the participant\'s utterances,
+-   another for an 'interviewer' if there is one,
+-   one for noise annotations,
+-   one for transcriber comments, and
+-   one for topic annotations.
+
+Each tier must be mapped to a LaBB-CAT annotation layer.
+
+Now that you've uploaded the file, LaBB-CAT has analysed the structure of the transcript file and
+pre-selected some default options for layer mappings. 
+These defaults are correct under most circumstances, but it's a good idea to double-check that 
+
+- tiers that contain transcripts of speech are mapped to *utterance* and
+- tiers that contain other information **aren't** mapped to *utterance*.
+
+![Check mappings of tiers to layers](map-tiers-to-layers.png){fig-alt="A column of ELAN tiers is listed on the left, each with a dropdown selector of LaBB-CAT layers on the right. Noise, comment, and topic tiers are mapped to layers with the same name, while tiers named after speakers are mapped to the 'utterance' layer."}
+
+(@) Click *Next* to continue.\
+    This will display a page listing all the speakers in the transcript,
+    so you can select which one is the 'main participant', which is the
+    speaker selected by default for searches and other processing.
+(@) Ensure that the target speaker is ticked, and others like the
+    interviewer are not ticked, and click *Set Main Participants*.\
+    This will display a page with the name of transcript you uploaded,
+    with an *edit meta-data* link, and a progress bar (which may have
+    already finished). The progress bar indicates progress with processing of automatically generated annotations.
+(@) Ensure the progress bar finishes, and there are no errors.
+
+If there are more transcripts to upload for this speaker, you can repeat from step 5. above, using the form below the heading 'select transcripts to upload'.
+
+(@) Click the name of the (last) transcript you uploaded.\
+    This opens LaBB-CAT's interactive transcript page.
+(@) Double check that the transcript text appears correct and that the media playback control appears on the top right.
+(@) Click on an utterance and select the *Play* option from the resulting menu.\
+    Ensure that the audio corresponding to the given utterance is played.
+(@) At the top of the page, tick the *phonemes* layer, to show the pronunciation annotations on the words.\
+    You should see that most, if not all, words in the transcript have a pronunciation above them.
+
+![A transcript showing the *phonemes* layer](phonemes-layer.png){fig-alt="Part of a transcript, showing pronunciation annotations above the ortographic words in each utterance. Although most words have a tag, some tags are missing - e.g. 'um' and 'Brooklands' have no 'phonemes' layer annotation."}
+
+For HTK to force-align an utterance, it must know the pronunciation of every word in the utterance. It uses the *phonemes* layer to determine what the pronunciations are, and these are usually tagged by looking up a lexicon like CELEX.
+
+If you see gaps in the *phonemes* layer on the transcript, these are words for which there is no known pronunciation. These missing entries should be filled in in order to ensure HTK force-aligns all utterances; there are instructions for this below.
+
+At this point, the transcripts have been uploaded and are ready for forced alignment. 
+
+{{< pagebreak >}}
+
+## 2. Forced Alignment
+
+To start a forced-alignment process per-speaker, you need to first select the speaker to be aligned. Then you will fill in any pronunciations that are missing from the dictionary. After that, HTK will automatically force-align their utterances, producing start/end times for each speech sound.
+
+(@) In LaBB-CAT, select the *participants* option on the menu
+(@) Find and tick the speaker.
+(@) Press the *All Utterances* button
+(@) Press *List*
+(@) Once the paginated list of utterances appears, press the *Htk* button below.
+
+LaBB-CAT will first determine which words have missing pronunciations; you will see a progress bar, and then a list will appear of words that need their pronunciations adding to the dictionary. The list of missing words may grow as more utterances are analysed.
+
+![Missing pronuciations that need filling in](missing-pronunciations.png){fig-alt="A list of words with missing pronunciations. Each word has a 'search' button, a box for filling in the pronununciation, and a phoneme-helper button. Some pronunciaions are already filled in. At the bottom, there are two buttons: Save and Start"}
+
+The list has the following columns:
+
+- The word that is missing
+- A dictionary lookup button
+- A box for entering the pronunciation that you want to add to the dictionary
+- A phoneme selector button
+
+Each of these is explained below:
+
+{{< pagebreak >}}
+
+#### The missing word
+
+If you click the word, it will open, in a separate tab, the first transcript in which the word appears, so you can see the context, play the audio, etc.
+
+This is for cases where it's not clear from the spelling what the pronunciation should be, and cases where you need to change the transcript, instead of adding an entry to the dictionary.
+
+For example:
+
+- If the word is a spelling mistake, you need to correct it in the transcript:
+   1. click the word to open the transcript where it appears,
+   1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,
+   1. fix the spelling error:\
+      ![](transcript-correction.png){fig-alt="A window showing the original utterance above, 'so it's a fair bit of histoy...' and the corrected version in a text box below: 'so it's a fair bit of history...'"}\
+   1. press *Update* and then *Close*.
+- In some cases, it's an interrupted word, or some other one-off case that shouldn't be added to the global dictionary, because it won't come up over and again in other transcripts.\
+  These cases need to have a *pronounce* tag added to the word token directly in the transcript:
+   1. click the word to open the transcript where it appears,
+   1. click the word in the transcript and select *Edit Transcript* (under 'Utterance') from the resulting menu,\
+   1. immediately after the hesitated word, with no intervening space, add a DISC pronunciation enclosed in square brackets -- this is a *pronounce* tag:\
+      ![](add-pronounce-tag.png){fig-alt="A window showing the original utterance above, 'I pres~ I ...' and the corrected version in a text box below: 'I pres~[pr@z] I ...'"}
+   1. press *Update* and then *Close*.
+
+#### Dictionary Lookup
+
+This allows you to lookup the dictionary for similar words, in order to quickly get a pronunciation that you can adapt.
+Clicking the button allows you to lookup one or more words in the dictionary:
+
+![Look up the dictionary for one or more words](lookup-brook-lands.png){fig-alt="A popup box where 'brook lands' has been entered for looking up the dictionary"}
+
+The pronunciations for the words you enter are displayed on buttons:
+
+![Existing pronunciations of other words](brook-lands-pronunciations.png){fig-alt="A frame titled 'brook lands' with three buttons: 'brUk-'l{ndz, 'brUk, and 'l{ndz. The pronunciations box above contains the corrected pronunciations for 'brooklands': 'brUk-l@ndz"}
+
+Pressing a button adds that pronunciation to the box above, so you can base the new pronunciation on existing ones, correcting them before adding them to the global dictionary.
+
+The dictionary lookup can be useful for compound words like `tarseal`, numbers like `3` (you can look up "three"), and words that are pronounced similarly.
+
+#### Pronunciation Box
+
+Adding to the dictionary means that the pronunciation you add becomes available to all other transcripts, as well as the one(s) you're force-aligning now.
+
+The pronunciations must ben entered using CELEX's 'DISC' symbols (i.e. one character per phoneme, with no spaces), see [below](#DISC).
+
+#### Phoneme Selector
+
+This button helps with using the correct symbols.
+
+![Phoneme symbol selector](phoneme-symbol-selector.png){fig-alt="The phoneme symbol selector appears below the pronunciation box, and IPA symbols for CONSONANTS (ʔɾŋθðʃʒçʧʤpfts) and VOWELS: (ɪεæəʊʌɒεːʏ    iːαːɔːuːɜːøːeɪαɪɔɪəʊαʊɪəεəʊəaiauɔy)"}\
+
+Clicking on an IPA symbol adds the corresponding DISC symbol to the pronunciation box.
+
+Some of the pronunciations may already be filled in. In these cases, LaBB-CAT is suggesting a pronunciation, based on how the word relates to other words it already has a pronunciation for. The suggestion may be wrong, and you should check/correct these before saving them.
+
+:::{.callout-important}
+The pronunciations you add to the dictionary should include:
+
+- `-` : the syllable separator (hyphen)
+- `'` : the primary lexical stress marker (apostrophe), and
+- `"` : the secondary stress marker (double-quote) if any.
+
+If you use the dictionary lookup button, these are included in the pronunciations that are returned.
+:::
+
+Basically you need to fill in the boxes with the pronunciations and click *Save*. You don't have to fill them all in before clicking *Save*, you can save several pronunciations, which will disappear from the list, leaving the ones you haven't filled in yet.
+
+::: {.callout-note}
+
+You don't have to fill in all pronunciations, you can leave some empty 
+and continue with the HTK forced-alignment by clicking *Start*
+
+However, HTK will ignore any lines where the remaining unknown words
+appear, so not all utterances will be aligned in the end.
+
+:::
+
+(@) Once you've filled in all the missing pronunciations, forced
+    alignment will start automatically. If you want to start forced
+    alignment before you've entered all pronunciations, click the
+    *Start* button at the bottom of the page.\
+    \
+    You should see a progress bar while the forced alignment is running.
+    It will take a few minutes to complete.
+
+Once HTK has produced the word and segment alignments, it:
+
+-   sets the start/end times of the words on the transcript layer
+    accordingly,
+-   adds new phone annotations to the *segment* layer with the
+    alignments of the phones, and
+-   saves a timestamp in the *htk* layer.
+
+When the layer manager has finished, you'll see a message saying
+"Complete - words and phones from selected utterances are now
+aligned." 
+
+To double-check aligned *segment* annotations were created:
+
+(@) Select the *transcripts* option from the menu.
+(@) Find one of the transcripts the speaker appears in, and click its name to open it.
+(@) Tick the *htk* layer and the *segment* layer
+(@) Check that each of the speaker's utterances has a time-stamp annotation above, and phone annotations below for each word.
+
+![Aligned utterances are tagged with a timestamp above, and include segment annotations below](aligned-utterances.png){fig-alt="Two orthoraphic utterances, each with an annotation spanning above with a timestamp - '2024-02-27T13:42:44' - and each word has IPA pronuncation symbols below"}
+
+Exceptions might include:
+
+- utterances with words that still have missing pronunciations, and
+- simultaneous speech (i.e. there's another participant speaking at the same time) -- these are deliberately ignored as automatic aligments are usually of poor quality.
+
+{{< pagebreak >}}
+
+## CELEX 'DISC' Pronunciation Symbols{id="DISC"}
+
+These are the symbols that should be used for all pronunciations:
+
+  ----- ------ -------------- --- ----- ------ --------------
+  IPA   DISC                      IPA   DISC    
+  p     `p`    **p**at            ɪ     `I`    K**I**T
+  b     `b`    **b**ad            ε     `E`    DR**E**SS
+  t     `t`    **t**ack           æ     `{`    TR**A**P
+  d     `d`    **d**ad            ʌ     `V`    STR**U**T
+  k     `k`    **c**ad            ɒ     `Q`    L**O**T
+  g     `g`    **g**ame           ʊ     `U`    F**OO**T
+  ŋ     `N`    ba**ng**           ə     `@`    **a**nother
+  m     `m`    **m**at            i:    `i`    FL**EE**CE
+  n     `n`    **n**at            α:    `#`    ST**A**RT
+  l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
+  r     `r`    **r**at            u:    `u`    G**OO**SE
+  f     `f`    **f**at            ɜ:    `3`    N**UR**SE
+  v     `v`    **v**at            eɪ    `1`    F**A**CE
+  θ     `T`    **th**in           αɪ    `2`    PR**I**CE
+  ð     `D`    **th**en           ɔɪ    `4`    CH**OI**CE
+  s     `s`    **s**ap            əʊ    `5`    G**OA**T
+  z     `z`    **z**ap            αʊ    `6`    M**OU**TH
+  ∫     `S`    **sh**eep          ɪə    `7`    N**EAR**
+  ʒ     `Z`    mea**s**ure        εə    `8`    SQU**ARE**
+  j     `j`    **y**ank           ʊə    `9`    C**URE**
+  x     `x`    lo**ch**           æ     `c`    t**i**mbre
+  h     `h`    **h**ad            ɑ̃ː    `q`    dét**en**te
+  w     `w`    **w**et            æ̃ː    `0`    l**in**gerie
+  ʧ     `J`    **ch**eap          ɒ̃ː    `~`    bouill**on**
+  ʤ     `_`    **j**eep                         
+  ŋ̩     `C`    bac**on**                        
+  m̩     `F`    idealis**m**              `-`   syllable separator
+  n̩     `H`    burd**en**                `'`   primary stress
+  l̩     `P`    dang**le**                `"`   secondary stress
+  ----- ------ -------------- --- ----- ------ --------------
+
+

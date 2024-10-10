@@ -4,7 +4,7 @@ format:
     toc: true
   pdf: 
     toc: false
-    fontfamily: libertinus
+    fontfamily: linguisticspro
 editor: 
   markdown: 
     wrap: sentence
@@ -35,6 +35,16 @@ The Unisyn website is here:\
 
 (This layer manager has been tested with version 1.3 of Unisyn)
 
+## Install the Layer Manager
+
+First, the *Unisyn* layer manager module must be installed:
+
+1. Select the *layer managers* menu option.
+1. Follow the *List of layer managers that are not yet installed* link near the bottom.
+1. Find "Unisyn" in the list, and press its *Install* button, then *Install* again.
+
+Once the layer manager is installed, you'll see a page of information explaining more details about the layer manager. Once you've read this information, you can close the browser tab to return to LaBB-CAT.
+
 ## Using Unisyn with this layer manager
 
 Once you've got Unisyn, you can use it to produce accent-specific lexicons, and provide these lexicons to the layer manager, which then uses them to annotate words in LaBB-CAT.
@@ -46,14 +56,33 @@ For example, if you want to annotate your transcripts with 'General American Eng
     2.  `post-lex-rules.pl -a gam -f gam.1 > gam.2`
     3.  `map-unique.pl -a gam -f gam.2 > gam.unisyn`. This gives you the file gam.unisyn, which is the lexicon file you need for the next step.
 2.  Upload the accent-specific lexicon into LaBB-CAT:
-    1.  select *layer managers* on the menu
-    2.  find the *Unisyn layer manager* in the list, and click the extensions button (the second-to-last button on the right)
-    3.  press *Choose File* and select the *gam.unisyn* file you generated above.
-    4.  press *Upload.*
+    1.  Select *layer managers* on the menu.
+    2.  Find the *Unisyn layer manager* in the list, and click the *Extensions* button (the second-to-last button on the right).
+    3.  Press *Choose File* and select the *gam.unisyn* file you generated above.
+    4.  Press *Upload Lexicon*.\
+        You will see a progress bar while the file is uploaded and the data is processed.
 3.  Create the layer for your pronunciation annotations:
-    1.  select *word layers* on the menu
-    2.  add a new layer called something like "GAM Pronunciations", selecting *Unisyn* as the layer manager, and *Phonological* as the layer type.
-    3.  check the settings, but most likely the default options are correct, so press *Save*
+To create a new layer with CMUdict annotations:
+    1.  Select the *word layers* option on the menu - this will display a list of all the word layers you already have in the database.
+    2.  At the top of the list, there's a blank form for creating a new layer - fill this form in:
+        -   **Layer ID**: enter a name - e.g. `phonemes`
+        -   **Type**: select *Phonological*
+        -   **Manager**: select *Unisyn*
+        -   **Alignment**: select *None* (as these are simply tags on the orthographic words)
+        -   **Generate**: select *Always*
+        -   **Description**: something like\
+            *All possible pronnunciations according to Unisyn's General American accent-specific lexicon*
+    3.  Press the *New* button to create the layer. You will see the layer configuration page. Check the online help for explanations of all options, but at least:
+    4.  Ensure the Source Layer is *orthography*
+    5.  Select the desired Lexicon from the list (these relate to the file or files you generated and uploaded above)
+    6.  Tick the *Strip syllabification/stress* if you will use this layer for forced alignment with HTK. ![](UnisynDISCConfiguration.png)
+    7.  Press *Save*
+    8.  Press *Regenerate*. You will see a progress bar while the layer manager annotates all the transcripts that have already been uploaded.
+    
+LaBB-CAT will then generate annotations for all the transcripts you already have in your database.
+If you have a lot of data, this may take a while.
+    
+From now on, when you upload a new transcript, the Unisyn annotations will automatically be generated for it.
 
 ## Mapping Unisyn pronunciations to the DISC phoneme set
 
@@ -63,11 +92,11 @@ This set is used because each phoneme is expressed by precisely one ASCII charac
 Unisyn transcriptions use a set of phones that is greater that the set of phones available in DISC, and the transcriptions are designed to be broadly phonetic, not phonemic.
 
 This means that using the DISC representation of the transcripts is imperfect, as there is a certain amount of loss of information when mapping Unisyn phones to DISC phonemes.
-The mapping that is used is shown below.
+The default mapping that is used is shown below.
 
 Unisyn |   | DISC|IPA |Lexical set e.g.
 -------|:-:|:---:|:--:|:---------------
-Ah |→ |# |Ɑ: |BATH
+ah |→ |# |Ɑ: |BATH
 aa |→ |Q |ɒ |PALM → LOT
 ar |→ |Q |ɒ |start → PALM → LOT
 oa |→ |{ |æ |BANANA → TRAP
@@ -151,6 +180,20 @@ r |→ |r |r |
 y |→ |j |j | 
 w |→ |w |w |which
 hw |→ |w |w |which
+
+
+### Changing the DISC symbol mapping
+
+If you would like to adjust this mapping, so that Unisyn symbols correspond to different DISC symbols, you can do so by visitin the Unisyn Layer Manager's *Extensions* page, and following the dictionary's 'Phoneme Map' link, as shown in @fig-extensions
+
+![Lexicon listing, where mappings can be speccified, and lexicons uploaded, or deleted](UnisynExtensions.png){#fig-extensions fig-alt="The Unisyn Tagger's extnsions page lists all lexicons that have been uploaded. Each lexicon has a 'Phoneme Map' link next to its name, and also a delete button. Below the list is an option labelled 'Upload New Lexicon File'."}
+
+This page allows you to change how Unisyn symbols correspond to DISC symbols, as seen in @fig-disc-mapping. You can change symbols/text in the text boxes, and then save your changes with the save button that appears at the bottom of the list.
+
+![Phoneme Map page allowing correspondences to be edited](UnisynPhonemeMapping.png){#fig-disc-mapping fig-alt="Unisyn-encoded phonemes ars listed - e.g. @, @@r, @r a, aa, aai, ae, ... - each with a text box for specifying the DISC symbol for that phoneme - e.g. @, 3, @, {, Q, 2, 2. There is also a 'note' field describing the sound, and a button for deleting each row. At the top is a '+' button for adding a new row."}
+
+## Other possible phoneme encodings
+
 If having the original transcriptions precisely as defined in the Unisyn lexicon is very important, you can instead create a layer that uses the original transcription as contained in the file you uploaded.
 This has the advantage that the transcriptions are not filtered through the above mapping, and the disadvantage that LaBB-CAT won't be able to display the transcriptions using IPA symbols, nor help you when creating search patterns for the layer.
 
@@ -166,26 +209,3 @@ In order to prevent the DISC mapping from applying on your layer:
 
 -   When creating the layer, set the layer type to *Text* rather than *Phonological.*
 -   When configuring the layer, set the field to *Phonemes (original file)* rather than *Phonemes (DISC)*.
-
-## Creating a Phonemes Layer
-
-To create a new layer with CMUdict annotations:
-
-1.  Select the *word layers* option on the menu - this will display a list of all the word layers you already have in the database.
-2.  At the top of the list, there's a blank form for creating a new layer - fill this form in:
-    -   ID - enter a one- or two-word description - e.g. `phonemes`
-    -   layer type - select *Phonological*
-    -   layer manager - select *Unisyn*
-    -   alignment - select *None* (as these are simply tags on the orthographic words)
-    -   generate - select *Always*
-3.  Press the *New* button to create the layer. You will see the layer configuration page. Check the online help for explanations of all options, but at least:
-4.  Ensure the Source Layer is *orthography*
-5.  Select the desired Lexicon from the list (these relate to the file or files you generated and uploaded above)
-6.  Tick the *Strip syllabification/stress* if you will use this layer for forced alignment with HTK. ![](UnisynDISCConfiguration.png)
-7.  Press *Save*
-8.  Press *Regenerate*. You will see a progress bar while the layer manager annotates all the transcripts that have already been uploaded.
-
-LaBB-CAT will then generate annotations for all the transcripts you already have in your database.
-If you have a lot of data, this may take a while.
-
-From now on, when you upload a new transcript, the Unisyn annotations will automatically be generated for it.
