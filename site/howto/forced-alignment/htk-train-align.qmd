@@ -89,7 +89,7 @@ Once you've installed HTK and the HTK Layer Manager, you need to create a new la
 To start a forced-alignment process per-speaker, you need to first select a speaker who will be aligned. Then you will fill in any missing pronunciations. After that, HTK will automatically force-align their utterances.
 
 
-(@) In LaBB-CAT, select the *participants* optoin on the menu
+(@) In LaBB-CAT, select the *participants* option on the menu
 (@) Tick a speaker, and press the *All Utterances* button
 (@) Click *List*
 (@) Once the paginated list of utterances appears, press the *HTK* button below.  
