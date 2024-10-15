@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -769,12 +769,12 @@ This option allows the layer manager to create <em>segment</em> (sub-word) annot
 </ul></li>
 <li>Once the layer is finished generating, go to a transcript to see what it looks like.</li>
 </ol>
-<p>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>ASCII</em> option on the layer in the transcript.</p>
+<p>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>Raw</em> option on the layer in the transcript.</p>
 <ol start="28" class="example" type="1">
-<li>Select <em>ASCII</em> on the <em>phonemes</em> layer, to see what CELEX is actually producing.</li>
+<li>Select <em>Raw</em> on the <em>phonemes</em> layer, to see what CELEX is actually producing.</li>
 </ol>
 <p>You may find that this is somewhat harder to read. Diphthongs are generally represented by digits, schwa is <code>@</code>, and various other characters are used to represent affricates, etc.</p>
-<p>It’s nice to display the IPA symbols, but it’s important to understand the DISC symbols (shown in table below, because they are what we have to use when searching on the *phonemes* layer, which we are going to try now.</p>
+<p>It’s nice to display the IPA symbols, but it’s important to understand the DISC symbols (shown in table below, because they are what we have to use when searching on the <em>phonemes</em> layer, which we are going to try now.</p>
 <div style="page-break-after: always;"></div>
 <table class="caption-top table">
 <tbody>
@@ -1058,7 +1058,7 @@ This option allows the layer manager to create <em>segment</em> (sub-word) annot
 <ol start="31" class="example" type="1">
 <li>Type <code>the</code> in the first <em>orthography</em> box.</li>
 <li>Click the second box on the <em>phonemes</em> layer, but don’t enter anything in the box yet.</li>
-<li>The box has a little <code>«</code> button to the right of it.<br>
+<li>The box has a little <img src="phoneme-symbol-selector.png" style="height:0.16667in"> button to the right of it.<br>
 Hover the mouse over it to see what it says, and then click it.<br>
 You will see that a section opens with a bunch of phoneme symbols on it.</li>
 <li>Find the schwa symbol <em>ə</em> and click it.<br>
