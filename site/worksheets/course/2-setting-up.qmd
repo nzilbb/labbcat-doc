@@ -22,7 +22,7 @@ Now that the software is installed, we will set up a basic structure for receivi
 
 ::: {.callout-note}
 
-If you will be running LaBB-CAT on your own computer, you will need to start LaBB-CAT, and this will open your browser on the LaBB-CAT start page.
+If you will be running LaBB-CAT on your own computer, you may need to start LaBB-CAT, and this will open your browser on the LaBB-CAT start page.
 
 If you are using a LaBB-CAT server that's already been installed for you elsewhere, you will have been given a link or URL to use; open your browser on that page now.
 
