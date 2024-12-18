@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,10 +38,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c75bcb89907db7808f0349b764a1a524.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,12 +76,18 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="LaBB-CAT Documentation">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/demo/zoom-in.png">
 <meta property="og:site_name" content="LaBB-CAT Documentation">
+<meta property="og:image:height" content="16">
+<meta property="og:image:width" content="16">
 <meta name="twitter:title" content="LaBB-CAT Documentation">
 <meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/demo/zoom-in.png">
 <meta name="twitter:creator" content="@robertfromont">
 <meta name="twitter:site" content="@labbcat">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="16">
+<meta name="twitter:image-width" content="16">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating">
@@ -388,32 +396,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/demo/2-search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 - Search</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../worksheets/demo/3-celex.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 - CELEX</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../worksheets/demo/4-alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 - Alignment</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../worksheets/demo/5-syntax.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5 - Syntax</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../worksheets/demo/6-other-processing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6 - Other Processing</span></a>
+  <a href="../../worksheets/demo/2-layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheet 2 - Searching Annotation Layers</span></a>
   </div>
 </li>
       </ul>
@@ -572,147 +556,267 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#exploration" id="toc-exploration" class="nav-link active" data-scroll-target="#exploration">1 - Exploration</a>
   <ul class="collapse">
-  <li><a href="#easy-exploration" id="toc-easy-exploration" class="nav-link" data-scroll-target="#easy-exploration">Easy exploration</a></li>
-  <li><a href="#basic-search" id="toc-basic-search" class="nav-link" data-scroll-target="#basic-search">Basic search</a></li>
+  <li><a href="#transcripts-and-participants" id="toc-transcripts-and-participants" class="nav-link" data-scroll-target="#transcripts-and-participants">Transcripts and Participants</a></li>
+  <li><a href="#basic-search" id="toc-basic-search" class="nav-link" data-scroll-target="#basic-search">Basic Search</a></li>
   <li><a href="#regular-expressions" id="toc-regular-expressions" class="nav-link" data-scroll-target="#regular-expressions">Regular Expressions</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/demo/1-exploration.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="1-exploration.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/index.html">LaBB-CAT Demo Session</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/1-exploration.html">1 - Exploration</a></li></ol></nav></header>
 
 
 
 
+<!-- 17 min -->
 <section id="exploration" class="level1">
 <h1>1 - Exploration</h1>
-<p>LaBB-CAT is a speech/language corpus management system that:</p>
-<ul>
-<li>stores transcripts with audio/video
-<ul>
-<li>supporting a variety of formats</li>
-<li>and the definition of speech elicitation tasks;</li>
-</ul></li>
-<li>allows the addition of different layers of annotation, which can
-<ul>
-<li>be manual or automatic, and</li>
-<li>have different granularities, from topic tagging to individual phones;</li>
-</ul></li>
-<li>supports forced alignment to phone level using a speech recognition toolkit called “HTK”, or the <a href="https://montreal-forced-aligner.readthedocs.io/">Montreal Forced Aligner</a>, or the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic">WebMAUS</a> service provided by <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/">BAS Web Services</a>;</li>
-<li>allows cross-layer regular-expression search;</li>
-<li>search results are exportable to CSV for further analysis;</li>
-<li>batch acoustic measurement of segments using Praat is also supported, and</li>
-<li>transcripts and fragments of them are exportable in a variety of formats.</li>
-</ul>
+<!--
+LaBB-CAT is a speech/language corpus management system that:
+
+-   stores transcripts with audio/video
+    -   supporting a variety of upload formats
+    -   and the definition of speech elicitation tasks;
+-   allows the addition of different layers of annotation, which can
+    -   be manual or automatic, and
+    -   have different granularities, from topic tagging to individual
+        speech sounds;
+-   supports forced alignment to phone level using a speech recognition
+    toolkit called [HTK](https://htk.eng.cam.ac.uk/), or the [Montreal Forced
+    Aligner](https://montreal-forced-aligner.readthedocs.io/), or the
+    [WebMAUS](https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic)
+    service provided by [BAS Web
+    Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices/);
+-   allows cross-layer regular-expression search;
+-   search results are exportable to CSV for further analysis;
+-   batch acoustic measurement of segments using Praat is also
+    supported, and
+-   transcripts and fragments of them are exportable in a variety of
+    formats.
+
+-->
 <p>In this worksheet you will start exploring a demo LaBB-CAT corpus, to get a general idea of how to find your way around LaBB-CAT and how the language data is presented.</p>
 <p>The demo corpus contains a collection of videos of people telling stories about their experiences during the earthquakes that struck Canterbury during 2010 and 2011. They have been orthographically transcribed using a tool called <a href="https://archive.mpi.nl/tla/elan">ELAN</a>, so they have been time aligned to the utterance level; i.e.&nbsp;the start and end time of each line in the transcript has been manually synchronized with the recording. The ELAN transcripts, and their video and audio files, have been uploaded into LaBB-CAT.</p>
 <p>LaBB-CAT is a browser-based system so the first thing to do is access it with your web browser. Generally, any modern browser should be fine (although some features you’ll see in later worksheets are only supported by Mozilla Firefox or Google Chrome).</p>
-<ol type="1">
+<ol class="example" type="1">
 <li>In your web browser, type in the following URL:<br>
 <a href="https://labbcat.canterbury.ac.nz/demo/">https://labbcat.canterbury.ac.nz/demo</a><br>
 You will be asked for a username and password.</li>
+<li>The username is <em>demo</em> and the password is <em>demo</em><br>
+The very first time you access LaBB-CAT, you will see the licence agreement for accessing the corpus data.</li>
+<li>Press <em>I Agree</em> to continue.<br>
+You will see a page called “LaBB-CAT Demo” which has a menu of links along the top and a number of icons. Below the icons is some information about the corpus. This is the LaBB-CAT home page.</li>
+<li>Click the <em>where do I start?</em> icon on the left.<br>
+The help page that pops up includes a brief description of LaBB-CAT and some tips for navigation and getting more information.</li>
+<li>Read through at least the top section of the page to get some helpful tips, and then close the browser tab to return to the home page.</li>
 </ol>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="transcripts-and-participants" class="level2">
+<h2 class="anchored" data-anchor-id="transcripts-and-participants">Transcripts and Participants</h2>
+<p>First we will look at ways to manually browse the corpus data.</p>
+<ol start="6" class="example" type="1">
+<li>On the LaBB-CAT home page, select the <em>transcripts</em> option on the menu at the top.<br>
+You will see a list of transcripts in LaBB-CAT, together with some meta-data. The first twenty transcripts are listed, and there are controls at the bottom of the page to list others.</li>
+<li>Click the name of the first transcript listed: <code>AP2505_Nelson.eaf</code><br>
+You will see a page with transcript text, and the video appears in the top right corner of the page.</li>
+<li>Try clicking the magnifying-glass icon <img src="zoom-in.png" class="img-fluid"> below the video, to see what it does.</li>
+<li>Press the play button on the video.<br>
+As the video plays, you will see the current utterance highlighted in the transcript. You will also see that the current utterance appears as closed captions in the video. You can use the video controls as normal, including the <em>full-screen</em> button in the bottom right, to make the video occupy the whole screen.</li>
+<li>Pause the recording.</li>
+<li>Click one of the transcript lines further down the transcript.<br>
+A menu will appear.</li>
+<li>Select the ‘Play’ option at the bottom of the menu.<br>
+You will see that playback starts at that line. Playback will stop when the participant finishes the utterance.</li>
+<li>Click on the <em>formats</em> link at the top left under the title.<br>
+You will see a menu, which includes various formats for exporting the transcript.</li>
+<li>Select <em>Plain Text Document</em></li>
+<li>Save the resulting file and then open it.<br>
+You will see the transcript in plain-text form.</li>
+</ol>
+<p>Plain text is a format supported by many language analysis tools, so exporting text transcript allows you to use your favourite tools for whatever research you’re doing.</p>
+<ol start="16" class="example" type="1">
+<li>If you have Praat installed on your computer, click the <em>formats</em> link, and select the <em>Praat Text Grid</em> option. Save the resulting file on your desktop, and then open it with Praat.<br>
+You will see that the TextGrid has various tiers, one for whole utterances (or two if there are two speakers), and one for individual words (or two if there are two speakers). <!--
+(@) Back in LaBB-CAT, at the top of the page, you will see a link labelled *[meta-data]*; click it.\
+    You will see some meta-data about the transcript and recording 
+    e.g. the duration and number of words.\
+    LaBB-CAT attaches meta-data both to transcripts (called 'transcript attributes'), 
+    and also to participants ('participant attributes').
+(@) Below the transcript attributes is the name of the participant. Click their name.\
+    You will see a page with the participant attributes -- 
+    i.e. meta-data relating to the person speaking rather that the recording/transcript --
+    e.g. gender, age, etc.
+    --></li>
+<li>Now select the <em>participants</em> option on the menu at the top.<br>
+You will see a list that looks similar to the ‘transcripts’ list we saw earlier, but this page lists names and meta-data of speakers rather than the recordings in which they appear.</li>
+</ol>
+</section>
+<section id="basic-search" class="level2">
+<h2 class="anchored" data-anchor-id="basic-search">Basic Search</h2>
+<p>Searching is often a two-step process: first you select which participants you want to search, using their participant attributes. And then you specify the pattern you want to search for.</p>
+<p>The <em>participants</em> page you’ve got open has a number of filters listed across the top, which allow you to filter the list below.</p>
+<ol start="18" class="example" type="1">
+<li>Select ‘F’ in the <em>Gender</em> box by clicking it.<br>
+You will see a list of the female participants only.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If typing this out manually, ensure you enter ‘https’ not ‘http’</p>
+<p>Notice that each participant has a check-box; if we wanted to, we could select specific participants from the list by checking/unchecking the boxes.</p>
+<p>(But in this case, let’s search all of them, so leave all the boxes un-ticked.)</p>
 </div>
 </div>
-<ol start="2" type="1">
-<li>The username is <em>demo</em> and the password is <em>demo</em><br>
-The very first time you access LaBB-CAT, you will see its licence agreement.</li>
-<li>Scroll to the bottom of the page and click <em>I Agree</em> to continue.<br>
-You will see a page called “LaBB-CAT Demo” which has a menu of links along the top and a number of icons. Below the icons is some information about the corpus. This is the LaBB-CAT home page.</li>
-<li>Click the <em>where do I start?</em> icon on the left.<br>
-The help page that pops up includes a brief description of LaBB-CAT and some tips for navigation and getting more information.</li>
-<li>Read through the page, and then close the browser tab to return to the home page.</li>
+<ol start="19" class="example" type="1">
+<li>Press the <em>Layered Search</em> button at the top of the list.<br>
+You will see a page that lists the speakers at the top, a number of tickable annotation layers in the middle, and an empty text box labelled ‘orthography’ below.</li>
+<li>In the box labelled ‘orthography’ enter the word:<br>
+<code>quake</code></li>
+<li>Now press the <em>Search</em> button at the bottom (or hit <kbd aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span>).<br>
+A progress bar will appear below, and then shortly after that, a new tab will open, which has a list of search results in it.</li>
 </ol>
-<p>There are two main ways to use LaBB-CAT:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your browser’s popup-blocker might prevent the results page from opening - you can fix that either by allowing the popups in your browser, or by clicking the <em>Display results</em> link that appears after the search finishes.</p>
+</div>
+</div>
+<p>Each match is highlighted and shown within a few words context.</p>
+<!--
+(@) In the *Context* drop-down box at the top, select the *5 words* option, 
+    to show more context in the list of results.
+    -->
+<ol start="22" class="example" type="1">
+<li>Click the first result in the list.<br>
+You will see the transcript page, which we have already seen, but with each match from the search highlighted (you will need to scroll down to see the second match).</li>
+<li>The transcript page has opened in its own new browser tab.<br>
+Close that tab now to return to the results list.</li>
+<li>Press the <em>Audio Export</em> button at the bottom.</li>
+<li>Save and open the resulting zip file.</li>
+</ol>
+<p>The zip file contains the audio for the utterance that contained the word that matched your search.</p>
+<p>You’ll see that extracted wav files are systematically named to include:</p>
 <ul>
-<li>easy exploration and plain text search (this worksheet)</li>
-<li>layered filtering and search (the following worksheets)</li>
+<li>the name of the transcript</li>
+<li>the start and end time of the extracted utterance</li>
 </ul>
-<section id="easy-exploration" class="level2">
-<h2 class="anchored" data-anchor-id="easy-exploration">Easy exploration</h2>
-<p>Using the ‘easy’ method for exploring LaBB-CAT is simple, as annotation layers are largely ignored; each transcript is essentially treated as a plain text that you can search and display based on ordinary orthographic spelling.</p>
-<ol type="1">
-<li>On the LaBB-CAT home page, click the <em>explore</em> icon to access the easy exploration pages.<br>
-You will see a similar home page, with <em>Browse</em> icon, <em>Easy Search</em>, and <em>Layered Search</em> icons.</li>
-<li>Click the <em>Browse</em> icon.<br>
-You will see a page that lists the collections of recordings (or ‘corpora’) in the LaBB-CAT database. Each corpus contains a number of recordings.</li>
-<li>Click the first corpus listed.<br>
-You will see a page that lists the first 20 recordings in the corpus. The recording names are on the left, followed by some meta data (called ‘participant attributes’) about the participant in the recording. At the bottom is a list of pages, so you can access further recordings in the corpus.</li>
-<li>Click the name of the first recording.<br>
-You will see a page with transcript text, and the video appears in the top right corner of the page.</li>
-<li>Hover the mouse over the video.<br>
-The video pane grows larger.</li>
-<li>Press the play button.<br>
-As the video plays, you will see the current utterance highlighted in the transcript. You will also see that the current utterance appears as closed captions in the video. You can use the video controls as normal, including the <em>full-screen</em> button in the bottom right, to make the video occupy the whole screen.</li>
-<li>Pause the recording.</li>
-<li>Move the mouse over one of the utterances further down the transcript.<br>
-You will notice that the video pane shrinks again, and that the mouse pointer becomes a <em>play</em> button.</li>
-<li>Click the utterance.<br>
-You will see that playback starts at that utterance. Playback will stop when the participant finishes the utterance.</li>
-<li>At the top of the page, you will see a tab button labelled <em>General</em>; click it.<br>
-You will see some meta-data about the transcript and recording.<br>
-LaBB-CAT attaches meta-data both to transcripts (called ‘transcript attributes’), and also to participants (‘participant attributes’).</li>
-<li>Below the transcript attributes is the name of the participant. Click their name.<br>
-You will see a page with the participant attributes, and a list of the recordings they appear in. In this case, they appear in only one recording; if you were to click the name of the recording, you would be taken back to the transcript page you’ve just seen.</li>
+<ol start="26" class="example" type="1">
+<li>If you also have Praat installed on your computer, go back to the results page and click <em>Utterance Export</em> button. Save and open the resulting zip file.</li>
 </ol>
-</section>
-<section id="basic-search" class="level2">
-<h2 class="anchored" data-anchor-id="basic-search">Basic search</h2>
+<p>You’ll see that the TextGrid names match the audio file names in the previous zip file.</p>
+<p>If you open a TextGrid in Praat, you’ll see it includes a tier for the whole utterance transcript, a tier with an interval for each word, and a <em>target…</em> tier which tags the word that matched the regular expression you searched for.</p>
+<p>Exporting similarly-named utterance wav files and Praat TextGrids provides a possible way to process or analyse search results offline in Praat.</p>
+<ol start="27" class="example" type="1">
+<li>Back on the results page, click the <em>CSV Export</em> button.</li>
+<li>Save the resulting file, and open it.<br>
+You may have to specify some import options, in which case it may be handy to know that the field separator is comma, and the fields are quoted by speech marks.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you’re using Microsoft Excel and you find it doesn’t open all the columns correctly:</p>
 <ol type="1">
-<li>On the menu at the top of the page, there’s a <em>Search</em> option. Click it.<br>
-You will see a search form with a “Text” search box at the top, and options for meta data below.</li>
-<li>In the “Text” box enter the word <code>quake</code> and press the <em>Search</em> button at the bottom.<br>
-You will see a list of hits, with the name of the transcript on the left and the matched word on the right, highlighted within its immediate context.</li>
-<li>Click the <em>Search again</em> link (or the <em>Search</em> link on the menu at the top)<br>
-You’ll see that the search form remembers the last search text.</li>
-<li>Select ‘Female’ from the <em>Gender</em> drop-down box, leave the word <code>quake</code> in the “Text” box, and click <em>Search</em>.<br>
-This time the results are narrowed down to only female participants.</li>
-<li>Click the first result.<br>
-You will see the transcript page, as we saw earlier, but with each match from the search highlighted.</li>
+<li>Create a new workbook in Excel.</li>
+<li>Click the ‘Data’ tab.</li>
+<li>On the “Get External Data” ribbon click ‘From Text’.</li>
+<li>Select the CSV file you downloaded.</li>
+<li>Select ‘Delimited’ and click <em>Next</em>.</li>
+<li>Ensure ‘Comma’ is the only delimiter ticked and click <em>Next</em>.</li>
+<li>Click <em>Finish</em> and then <em>OK</em>.</li>
+</ol>
+</div>
+</div>
+<p>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.</p>
+<p>With this spreadsheet, you can work ‘offline’ with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We’ll look at a few more uses for the CSV results files later…</p>
+<ol start="29" class="example" type="1">
+<li>Close the CSV file, and got back to the results page.</li>
+<li>Close the results page, and you’ll return to the search page.</li>
 </ol>
 </section>
 <section id="regular-expressions" class="level2">
 <h2 class="anchored" data-anchor-id="regular-expressions">Regular Expressions</h2>
-<p>You can also search across multiple words, and search for patterns as well as exact spellings.</p>
-<p>For example, let’s say you want to investigate how the pronunciation of the word ‘the’ changes when the following word starts with a vowel. You can search for this pattern using the search form:</p>
-<ol start="6" type="1">
-<li>Click the <em>Search</em> option on the menu.</li>
-<li>Search for the word <code>the</code><br>
-You will see that there are lots of results, including many where ‘the’ is followed by a word that starts with a consonant.</li>
-<li>Go back to the <em>Search</em> page.</li>
-<li>Now search for: <code>the [aeiou].*</code><br>
-This is a ‘regular expression’ that allows you to identify a pattern, with the following parts:
-<ul>
-<li>the word ‘the’</li>
-<li>followed by a space</li>
-<li>followed by any vowel (<code>[aeiou]</code>)</li>
-<li>followed anything at all - <code>.</code> in a regular expression means ‘any character’, and <code>*</code> means ‘zero or more of the previous thing’, so <code>.*</code> means ‘zero or more characters’<br>
-<br>
-You will see that the results include only instances where the word that follows ‘the’ starts with a vowel.</li>
-</ul></li>
-<li>See if you can create a search for all words ending in ‘ing’</li>
+<ol start="31" class="example" type="1">
+<li>On the <em>search</em> page, in the <em>orthography</em> box, prefix the word “quake” with <code>.*</code> i.e.:<br>
+<code>.*quake</code></li>
 </ol>
+<p>This is a ‘regular expression’ that allows you to search for patterns instead of matching exact text:</p>
+<ul>
+<li><code>.</code> means “any letter, number, or other character”</li>
+<li><code>*</code> means “zero or more of the previous thing”,<br>
+so <code>.*</code> means “any number of characters of any kind”</li>
+<li><code>quake</code> means literally the sequence of letters ‘quake’<br>
+so <code>.*quake</code> means “any word ending in ‘quake’”</li>
+</ul>
+<ol start="32" class="example" type="1">
+<li>Press <em>Search</em>.<br>
+Depending on your browser, you may have to click the <em>Display results</em> link to see the results page.<br>
+Now your results include all the instances of the word “earthquake”, plus instances of “quake” as well.</li>
+</ol>
+<p>Up until now, we’ve only been matching against one word at a time. Now we’re going to create a search pattern for a chain of words.</p>
+<ol start="33" class="example" type="1">
+<li>Close the results tab of the previous search.</li>
+<li>Back on the search page, next to the <em>orthography</em> box where you entered the regular expression, there’s a <img src="add.png" class="img-fluid"> button for adding a column to the ‘search matrix’. Click it.<br>
+<img src="two-words-wide.png" class="img-fluid"><br>
+Now you will see that our ‘search matrix’ is two words wide.</li>
+<li>In the new <em>orthography</em> box on the right, enter the regular expression:<br>
+<code>hit|struck</code></li>
+</ol>
+<p>This regular expression is:</p>
+<ul>
+<li><code>hit</code> means “the word ‘hit’”</li>
+<li><code>|</code> (the vertical bar character) means “or”</li>
+<li><code>struck</code> means “the word ‘struck’”<br>
+so <code>hit|struck</code> means “the word ‘hit’ or the word ‘struck’”</li>
+</ul>
+<ol start="36" class="example" type="1">
+<li>Press <em>Search</em>.<br>
+You should see results are now words ending in ‘quake’ followed by either ‘hit’ or ‘struck’.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="help.png" class="img-fluid"> You can get more information about regular expressions by using the online help back on the search page.</p>
+</div>
+</div>
+<!--
+(@) See if you can create a search for all words ending in '...ing'.
+(@) See if you can create a search for the word "the" followed by a word starting with a vowel.
+-->
 <hr>
+<!-- TODO correct this list -->
 <p>In this worksheet you have seen that:</p>
 <ul>
 <li>LaBB-CAT is a repository for recordings and their transcripts;</li>
-<li>Transcripts are grouped together into corpora;</li>
 <li>Meta-data can be attached to transcripts (transcript attributes) and to participants (participant attributes);</li>
-<li>You can search the texts of the transcripts;</li>
+<li>You can search the texts of the transcripts for patterns using ‘regular expressions’;</li>
 <li>You can filter the search results on the basis of meta-data;</li>
-<li>You can search for patterns as well as exact spelling, by using regular expressions.</li>
 </ul>
 
 
@@ -802,8 +906,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -914,7 +1016,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

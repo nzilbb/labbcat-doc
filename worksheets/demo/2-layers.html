@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>layers – LaBB-CAT Documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c75bcb89907db7808f0349b764a1a524.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="LaBB-CAT Documentation">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/demo/orthography-pos.png">
+<meta property="og:site_name" content="LaBB-CAT Documentation">
+<meta property="og:image:height" content="118">
+<meta property="og:image:width" content="802">
+<meta name="twitter:title" content="LaBB-CAT Documentation">
+<meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/demo/orthography-pos.png">
+<meta name="twitter:creator" content="@robertfromont">
+<meta name="twitter:site" content="@labbcat">
+<meta name="twitter:image-height" content="118">
+<meta name="twitter:image-width" content="802">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/index.html">LaBB-CAT Demo Session</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/2-layers.html">Worksheet 2 - Searching Annotation Layers</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../nzilbb.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Documentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How-to</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/transcription/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcription</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with ELAN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/salt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SALT Transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/word-frequency/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/pos-tagging/stanford-pos-tagger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stanford POS Tagger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/phonemic-tagging/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phonemic Tagging</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/unisyn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unisyn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/flat-file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom Lexicon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/spanish.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spanish</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/g2p.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/character-mapper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/multilingual-corpora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multilingual Corpora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/forced-alignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/bas-services-manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Service Manager and WebMAUS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-p2fa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK and P2FA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-pretrained-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA and Pretrained Acoustic Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/compare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Forced Alignment Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/identifying-unaligned-utterances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifying Unaligned Utterances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-emu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: EMU-webApp</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/aligned-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aligned Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/articulation-rate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speech Rate and Articulation Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/syllables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllables and Stress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/corpus-management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corpus Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/change-corpus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changing Corpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/participant-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Participant Deduplication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/manual-annotation/doccano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phrase Tagging with Doccano</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-layers.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Worksheet 2 - Searching Annotation Layers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 - Basic Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#worksheet-2---searching-annotation-layers" id="toc-worksheet-2---searching-annotation-layers" class="nav-link active" data-scroll-target="#worksheet-2---searching-annotation-layers">Worksheet 2 - Searching Annotation Layers</a></li>
+  <li><a href="#frequency-analyses" id="toc-frequency-analyses" class="nav-link" data-scroll-target="#frequency-analyses">3 - Frequency Analyses</a>
+  <ul class="collapse">
+  <li><a href="#word-frequency" id="toc-word-frequency" class="nav-link" data-scroll-target="#word-frequency">Word Frequency</a></li>
+  <li><a href="#keyness" id="toc-keyness" class="nav-link" data-scroll-target="#keyness">Keyness</a></li>
+  <li><a href="#linguistic-inquiry-and-word-count" id="toc-linguistic-inquiry-and-word-count" class="nav-link" data-scroll-target="#linguistic-inquiry-and-word-count">Linguistic Inquiry and Word Count</a></li>
+  </ul></li>
+  <li><a href="#alignment" id="toc-alignment" class="nav-link" data-scroll-target="#alignment">4 - Alignment</a>
+  <ul class="collapse">
+  <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link" data-scroll-target="#forced-alignment">Forced Alignment</a></li>
+  <li><a href="#searching" id="toc-searching" class="nav-link" data-scroll-target="#searching">Searching</a></li>
+  </ul></li>
+  <li><a href="#praat" id="toc-praat" class="nav-link" data-scroll-target="#praat">5 - Praat</a>
+  <ul class="collapse">
+  <li><a href="#acoustic-measurement" id="toc-acoustic-measurement" class="nav-link" data-scroll-target="#acoustic-measurement">Acoustic Measurement</a></li>
+  <li><a href="#praat-browser-integration" id="toc-praat-browser-integration" class="nav-link" data-scroll-target="#praat-browser-integration">Praat Browser Integration</a></li>
+  </ul></li>
+  <li><a href="#syntax" id="toc-syntax" class="nav-link" data-scroll-target="#syntax">6 - Syntax</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/demo/2-layers.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2-layers.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/index.html">LaBB-CAT Demo Session</a></li><li class="breadcrumb-item"><a href="../../worksheets/demo/2-layers.html">Worksheet 2 - Searching Annotation Layers</a></li></ol></nav></header>
+
+
+
+
+<!-- 16 minutes up to Praat extension  -->
+<!-- 5-10 minutes for Praat extension  -->
+<!-- 7 minutes for syntax -->
+<section id="worksheet-2---searching-annotation-layers" class="level1">
+<h1>Worksheet 2 - Searching Annotation Layers</h1>
+<!--
+In addition to storing recordings and orthographic transcripts, the data
+can also be annotated in various ways with different information. Each
+type of annotation is stored on its own 'layer', so you can display
+and search on the basis of different aspects of the transcripts,
+including:
+
+-   part of speech
+-   frequency
+-   lemma
+-   pronunciation
+-   speech rate
+-   pause duration
+-   ...and more.
+
+Annotations can be made manually, and LaBB-CAT includes annotator modules (called
+'Layer Managers') for doing certain annotations automatically.
+
+Various automatically generated annotation layers have been configured
+in the demo instance of LaBB-CAT, and we will start to explore some of
+them in this worksheet.
+-->
+<!--
+## Regular Expressions
+
+(@) In LaBB-CAT, select the *search* option on the menu at the top, to start a new search of all transcripts and participants.
+(@) Enter the following into the *orthography* box:\
+    `.*quake`
+
+This is a 'regular expression' that allows you to search for patterns instead of matching exact text:
+
+- `.` means "any letter, number, or other character"
+- `*` means "zero or more of the previous thing",\
+  so `.*` means "any number of characters of any kind"
+- `quake` means literally the sequence of letters 'quake'\
+  so `.*quake` means "any word ending in 'quake'"
+
+(@) Press *Search*.\
+    Now your results include all the instances of the word "earthquake", plus instances of "quake" as well.
+
+Up until now, we've only been matching against one word at a time.
+Now we're going to include patterns for a chain of words. 
+
+(@) On the search page, next to the *orthography* box where you entered
+    the regular expression, there's a ➕ button for adding a column to
+    the 'search matrix'. Click it.\
+    ![](two-words-wide.png)\
+    Now you will see that our 'search matrix' is two words wide.
+(@) In the new *orthography* box on the right, enter the regular expression:\
+    `hit|struck`
+
+This regular expression is:
+
+- `hit` means "the word 'hit'"
+- `|` (the vertical bar character) means "or"
+- `struck` means "the word 'struck'"\
+  so `hit|struck` means "the word 'hit' or the word 'struck'"
+    
+(@) Press *Search*.\
+    You should see results are now words ending in 'quake' followed by either 'hit' or 'struck'.
+
+:::{.callout-tip}
+![](help.png) You can get more information about regular expressions
+by using the online help back on the search page.
+:::
+
+(@) See if you can create a search for all words ending in '...ing'.
+(@) See if you can create a search for the word "the" followed by a word starting with a vowel.
+
+## Layered Search Matrix
+
+Layered search is usually a two-step process: first you select which
+participants you want to search, using their participant attributes. And
+then you specify the pattern you want to search for.
+
+If we were interested only in monolingual speakers, for example, we
+would filter out those that speak various language by setting the
+attribute values appropriately on the filter page.
+
+1.  Firstly, return to LaBB-CAT's home page by clicking the *Home* link
+    on the menu, and then click the *Layered Search* icon.\
+    You will see a page called "Participants".
+2.  Select 'M' in the *Gender* box.\
+    You will see a list of the male participants only.\
+    Notice that each participant has a check-box; if we wanted to, we
+    could select specific participants from the list by
+    checking/unchecking the boxes. (But in this case, let's search all
+    of them, so leave all the boxes un-ticked.)
+3.  Press the *Layered Search* button at the top of the list.\
+    You will see a page that lists the speakers at the top, a number of
+    tickable annotation layers in the middle, a 'Search Matrix' below.
+    (It doesn't look much like a matrix yet, as it only includes the
+    'orthography' layer, but we will be adding rows and columns later
+    on.)
+4.  In the box labelled "orthography" type the regular expression
+    `th[aeiou].+`\
+    As you saw earlier, `[aeiou]` means 'any vowel', and a
+    full-stop/period means 'any character'\
+    The plus-sign means 'one or more of the previous thing', so `.+`
+    means 'at least one character'.
+5.  Now press the *Search* button at the bottom (or hit ).\
+    A progress bar will appear, and then shortly after that, a new
+    window will open, which has a list of search results in it. Your
+    browser's popup-blocker might prevent the results page from
+    opening - you can fix that either by allowing the popups in your
+    browser, or by clicking the *Display results* link that appears
+    after the search finishes.
+
+You will see that the results include words like "that", "there",
+"then", etc. - i.e. words that start with "th", followed by a vowel,
+followed by at least one more letter.
+
+:::{.callout-tip}
+![](help.png) You can get more information about regular expressions
+by using the online help back on the search page.
+:::
+
+As we previously saw with the 'easy search', each match is
+highlighted and shown within a few words context. However, this
+results page has a few more options available.
+
+6.  In the *Context* drop-down box at the top, select the *5 words*
+    option, to show more context in the llist of results.
+7.  Each result line has a ticked checkbox next to it. At the bottom of
+    the list, you'll see that there are various buttons, which perform
+    operations on the ticked results, including *CSV Export*, 
+    *Utterance Export*, and *Audio Export*.
+8.  Untick the "*Select all result*" checkbox, and then tick a handful
+    of results in the list.
+
+:::{.callout-tip}
+You can select a group of matches by ticking the first one,
+and then holding down the  key while ticking the last
+one.
+:::
+
+9.  Click the *Audio Export* button.
+10. Save and open the resulting zip file.
+
+The zip file contains the audio for the utterance that contained the word that matched your search.
+
+You'll see that extracted wav files are systematically named to include:
+
+-   the name of the transcript
+-   the start and end time of the extracted utterance
+
+11. If you also have Praat installed on your computer, go back to the
+    results page and click *Utterance Export* button. Save and open the
+    resulting zip file.
+    
+You'll see that the TextGrid names match the audio file names in
+the previous zip file.
+
+If you open a TextGrid in Praat, you'll see it includes a tier for
+the whole utterance transcript, a tier with an interval for each
+word, and a *target...* tier which tags the word that matched the
+regular expression you searched for.
+
+12. Back on the results page, click the *CSV Export* button.
+13. Save the resulting file, and open it.\
+    You may have to specify some import options, in which case it may be
+    handy to know that the field separator is comma, and the fields are
+    quoted by speech marks.
+
+:::{.callout-note}
+If you're using Microsoft Excel and you find it doesn't
+open all the columns correctly:
+
+1.  Create a new workbook in Excel.
+2.  Click the 'Data' tab.
+3.  On the "Get External Data" ribbon click 'From Text'.
+4.  Select the CSV file you downloaded.
+5.  Select 'Delimited' and click *Next*.
+6.  Ensure 'Comma' is the only delimiter ticked and click *Next*.
+7.  Click *Finish* and then *OK*.
+:::
+
+You will see a spreadsheet with one line per selected result,
+and various columns containing information about the speaker,
+the corpus, the match line and word, and a URL to the
+interactive transcript for the match.
+
+With this spreadsheet, you can work 'offline' with the results,
+tagging them, computing statistics in Excel, R, or any other
+program that can work with CSV files. We'll look at a few more
+uses for the CSV results files later...
+
+14. Close the CSV file, and got back to the results page.
+
+Up until now, we've only been matching against one word at a time.
+Now we're going to include patterns for a chain of words. Unlike
+the simple search, adding a space in the regular won't work,
+because each column in the search matrix only matches a single word.
+To match a chain of two words, we need to have two columns in the
+search matrix.
+
+15. On the search page, next to the *orthography* box where you entered
+    the regular expression, there's a ➕ button for adding a column to
+    the matrix. Click it.
+
+![](two-words-wide.png)
+
+Now you will see that our search matrix is one layer high by two
+words wide.
+
+16. Change the entries on the *orthography* layer so that it will match
+    the word "the" followed immediately by a word that starts with a
+    vowel, and click *Search*.
+
+Check the search results are giving you what you expected. You may
+note that some of the following words start with a vowel in the
+spelling, even though they are not *pronounced* with a vowel sound.
+We will see how to search on the basis of pronunciation in another
+worksheet.
+
+17. Now search for "the" followed, within two words, by a word that
+    starts with a vowel.
+
+:::{.callout-tip}
+![](help.png) If in doubt about a search option, try the online help page.
+:::
+
+-->
+<p>So far we have only searched the <em>orthography</em> layer - i.e.&nbsp;the ordinary spellings of words. But LaBB-CAT has been configured to generate a number of other annotation layers, which we will now explore.</p>
+<ol class="example" type="1">
+<li>If you still have the results page open from the last worksheet, close it to return to the <em>search</em> page. <!--
+Let's say we're interested in how rare or common words are in our
+data.
+
+LaBB-CAT's 'Frequency Layer Manager' is a module that counts up the
+number of times each word type appears in the database. It generates a
+frequency list, and also annotates each word token with its frequency.
+
+We'll now search for tokens of words that appear only once in the
+database.
+
+(@) If the 'search matrix' is still two words wide, press the ➖ button to remove the second columns.
+--> <!-- TODO blurb about Stanford POS tagger --></li>
+</ol>
+<p>The annotation layers are grouped into a number of ‘projects’ to avoid clutter. We will initially be interested in the layers related to syntax.</p>
+<!--
+Below the *Pattern* heading are four columns of checkboxes. The first column is labelled *Projects*, 
+and the other columns have checkboxes for annotation layers of different granularities.
+
+(@) Tick the *frequency'* project.\
+    Some addition layers will appear in the layer list on the right.
+(@) Tick the *word frequency* layer.\
+    You will see that the 'search matrix' is now two layers high.\
+    ![](frequency-search.png)
+
+Unlike the *orthography* layer, which has one box for a regular
+expression, the *word frequency* layer has two boxes, marked "≥" and
+"<". This is because the annotation values are numbers.
+
+(@) We want all the words that appeared only once in the database. Enter
+    a number or numbers in the appropriate box (you can leave either box
+    blank) and click *Search*.
+(@) Click on the first result in the list.
+
+
+This displays the transcript like you've seen before, except that now each word token has a number above it. 
+This is the frequency of that word, which is displayed because the
+*word frequency* layer is selected; there's a list of layers at the top
+of the transcript, and you can see that both *word frequency* and *word*
+are ticked.
+
+(@) At the top of the transcript, under *projects*, tick the checkbox labelled "manual annotations".\
+    This will reveal another layer under *layers* called 'type'.
+(@) Tick the *type* layer.\
+    After a short delay, the transcript will be displayed again, with only the transcript text visible.
+(@) Scroll down through the transcript, and you will see that different spans of words are tagged differently
+    depending on the content -- some spans are labelled "aftermath of the earthquakes", 
+    others "February earthquake experience", etc. These annotations were manually added to the original transcripts.
+
+There are annotation layers with different granularities:
+
+- the 'word frequency' annotations tag individual word tokens, but
+- the 'type' annotations apply to spans of multiple words.
+- Later we will also see annotations that tag parts of words.
+
+The 'word frequency' annotations were added automatically by a module called the 'Frequency Layer Manager'
+which also keeps a straight word-list with word counts for each corpus...
+
+(@) Click the *home* menu option at the top.
+(@) Click the *Frequency Layer Manager* icon.
+(@) You will see a drop-down box with each frequency layer in it.\
+    Select *Word Frequency* and press *Select*.
+(@) Press the *Export* button at the bottom.
+(@) Save and open the resulting CSV file.\
+    You will see an alphabetical list of all the distinct words in the database, 
+    and next to each, a count of the number of tokens of that type.
+
+-->
+<p>Below the <em>Pattern</em> heading on the <em>search</em> page are four columns of checkboxes. The first column is labelled <em>Projects</em>, and the other columns have checkboxes for annotation layers of different granularities.</p>
+<ol start="2" class="example" type="1">
+<li>Tick the <em>syntax</em> project.<br>
+Some additional layers will appear in the layer list on the right.</li>
+<li>Tick the <em>pos</em> layer.<br>
+You will see that the ‘search matrix’ is now two layers high and two words wide.</li>
+</ol>
+<p><img src="orthography-pos.png" class="img-fluid"></p>
+<p>The <em>pos</em> layer contains part-of-speech annotations that were automatically generated by the <a href="https://nlp.stanford.edu/software/tagger.shtml">Stanford POS Tagger</a>, which is free software developed by The Stanford Natural Languages Processing Group for tagging words in various languages with their parts of speech.</p>
+<p>We are going to use the <em>pos</em> layer to identify “…quake” words that are followed by any verb…</p>
+<ol start="4" class="example" type="1">
+<li>The <em>pos</em> box on the right has a <img src="phoneme-symbol-selector.png" class="img-fluid"> button.<br>
+Hover your mouse over it to see what it does, and then click it.<br>
+A panel will open that lists all the part-of-speech labels used by the Stanford POS Tagger, categorised by type.</li>
+<li>Hover your mouse over different part-of-speech labels, and category names, to see what they represent.</li>
+<li>Click the <em>VERB</em> link.<br>
+A regular expression will be added to the <em>pos</em> search matrix that will identify any of the verb-type part-of-speech labels.</li>
+<li>Press the <img src="phoneme-symbol-selector.png" class="img-fluid"> button to close the Symbol Selector.</li>
+<li>Delete the <code>hit|struck</code> test from the <em>orthography</em> box above.</li>
+</ol>
+<p><img src="quake-VERB.png" class="img-fluid" title="Search matrix for 'words ending in quake followed by a verb'"></p>
+<ol start="9" class="example" type="1">
+<li>Press <em>Search</em>.<br>
+You will see ‘…quake’ words followed by different verbs.</li>
+<li>Click on the first result in the list.</li>
+</ol>
+<p>This displays the transcript like you’ve seen before, except that now each word token has a part-of-speech tag above it. Some words have multiple tags (look for words with apostrophes).</p>
+</section>
+<section id="frequency-analyses" class="level1">
+<h1>3 - Frequency Analyses</h1>
+<!-- 12:56-1:01 - 5 minutes -->
+<!-- 10:20-10:28 - 8 minutes -->
+<section id="word-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="word-frequency">Word Frequency</h2>
+<ol start="11" class="example" type="1">
+<li>Scroll to the top of the transcript you have open.<br>
+You will see that under the <em>layers</em> heading, there is a list of layer checkboxes, which determine which annotation layers are displayed.</li>
+<li>Under <em>projects</em> to the left, tick the checkbox labelled “frequency”.<br>
+This will reveal new options under <em>layers</em>.</li>
+<li>Tick the <em>cobuild frequency</em> layer.<br>
+After a short delay, each word will have a number above it.</li>
+</ol>
+<p>The words have been tagged with their frequencies available in the <a href="https://catalog.ldc.upenn.edu/LDC96L14">CELEX</a> lexicon, which come from the <em>Collins Birmingham University International Language Database</em> (<a href="https://1library.net/article/the-cobuild-project-corpora-computers-and-lexicography.q58rjdjq">COBUILD</a>) corpus.</p>
+<ol start="14" class="example" type="1">
+<li>Tick the <em>word frequency</em> layer<br>
+A second set of numbers will appear; this is the number of times the word appears in this demo corpus.</li>
+</ol>
+<p>The <em>word frequency</em> layer annotations were added automatically by a module called the ‘Frequency Layer Manager’ which also keeps a straight word-list with word counts for each corpus…</p>
+<ol start="15" class="example" type="1">
+<li>Click the <em>home</em> menu option at the top.</li>
+<li>Click the <em>Frequency Layer Manager</em> icon.</li>
+<li>You will see a drop-down box with each frequency layer in it.<br>
+Select <em>Word Frequency</em> and press <em>Select</em>.</li>
+<li>Press the <em>Export</em> button at the bottom.</li>
+<li>Save and open the resulting CSV file.<br>
+You will see an alphabetical list of all the distinct words in the database, and next to each, a count of the number of tokens of that type.</li>
+</ol>
+<!--
+# 6 - Other Processing
+
+## Aggregate Measures
+
+You have seen in a previous worksheet that articulation rate can be
+calculated over the words in individual utterances, and also over all
+the words uttered by each participant. There are other useful
+computations that can be computed over different scopes.
+
+(@) Select the *transcripts* link on the menu.\
+    Like the *participants* page, this page includes filters at the top 
+    that allow you to filter the list of transcripts by attribute values.
+(@) For the *Word Count* attribute, there are two boxes which you can
+    use to specify a range of values.\
+    In the right-hand *To* box, enter *1000.*\
+    When the list reloads, you will see a list of all transcripts that
+    have up to 1000 words.
+
+This word count was computed by the Statistics Layer Manager, which
+has also been configured to compute speech duration in seconds and
+save the result in the "Duration" transcript attribute.
+
+Another simple aggregate calculation is type/token ratio. The Demo
+LaBB-CAT has been configured to compute the type/token ratio for
+each participant.
+
+(@) Select the *participants* link on the menu.
+(@) For the *corpus* attribute, tick the *QB* option to list only
+    participants recorded in the "Quake Box" portable recording studio.
+(@) At the top of the participant list, press the *Export Attributes*
+    button.
+(@) Tick the *Gender*, *Age* and *type/token ratio* attributes.
+(@) Press the *Participant Data* button.
+(@) Save and open the resulting CSV file.
+
+You will see that you have a list of their participants, with gender
+and age, and also a column for type/token ratio; this is the ratio
+expressed as a percentage.
+
+## Other Media
+
+The transcripts in this database each have a video and an audio file.
+
+However, some of the recordings have also been processed with a facial
+feature location algorithm. One of the results of this process was an
+annotated video; a copy of the original video, with the participant's
+face located, along with various facial landmarks (position of the
+eyes, shape of mouth, etc.).
+
+Although this processing was done independently of LaBB-CAT,
+LaBB-CAT supports having multiple media 'track' files for the same
+transcript, and for some of the transcripts, the annotated video has
+been uploaded as well as the original video.
+
+(@) On the *transcripts* page, list the transcripts with the *Quake Face* 
+    attribute set to *1 - true*.
+(@) Open one of the listed transcripts.
+
+On the top right of the page, by default, the original video or audio is
+selected for playback, but all the other media files available for
+the transcript are listed below the video, with a checkbox next to
+each.
+
+(@) Tick the checkbox next to the media file that ends with "..._face".
+    The transcript will reload and display the annotated video.
+(@) Press *Play* to see the annotations (marked in green and red) change
+    with the facial features.\
+    It may be easier to see the annotations if you put the video in
+    'full screen' mode.
+-->
+</section>
+<section id="keyness" class="level2">
+<h2 class="anchored" data-anchor-id="keyness">Keyness</h2>
+<p>In addition to calculating word frequencies for direct analysis, frequencies can be compared to a reference corpus to calculated their log-likelihood ‘keyness’; a measure of whether the word is unusually frequent (a high positive keyness) or unusually infrequent (a low negative keyness).</p>
+<p>See Rayson, P. and Garside, R. (2000). <em>Comparing corpora using frequency profiling</em>. In proceedings of the workshop on Comparing Corpora, held in conjunction with the 38th annual meeting of the Association for Computational Linguistics (ACL 2000). 1-8 October 2000, Hong Kong, pp.&nbsp;1 - 6.</p>
+<p>The Demo LaBB-CAT has been configured to compute keyness compared to the COBUILD corpus.</p>
+<ol start="20" class="example" type="1">
+<li>Select the <em>home</em> link on the menu.</li>
+<li>Click the ‘Keyness’ icon.<br>
+You will see a form that allows you to search for particular spelling patterns, or export a list.</li>
+<li>Press the <em>Search</em> button without filling in the <em>Pattern</em> box, to list all words above the default <em>Keyness</em> threshold.<br>
+<br>
+A list of words will be displayed, each word with its keyness metric. The high-positive words (which are unusually frequent) are listed first, with the low-negative words (unusually infrequent) below.</li>
+</ol>
+<p>Unsurprisingly for this speech corpus, as compared to the mostly-written COBUILD corpus, words with high keyness include filled pauses like “um” and “ahh”, other words more likely in informal speech like “gonna” and “yeah”, topic-specific words like “earthquake” and “aftershocks”, and Canterbury place-names like “Christchurch” and “Brooklands”.</p>
+<p>The Frequency Layer Manager can be configured to compute keyness of the data compared to any corpus for which you have word frequency data, or if you have several corpora within one LaBB-CAT database, each corpus can be compared to all the rest.</p>
+</section>
+<section id="linguistic-inquiry-and-word-count" class="level2">
+<h2 class="anchored" data-anchor-id="linguistic-inquiry-and-word-count">Linguistic Inquiry and Word Count</h2>
+<p>Linguistic Inquiry and Word Count (LIWC) text analysis can be done with the LIWC Layer Manager and categorised word lists.<br>
+See: <a href="https://www.liwc.app/help/howitworks" class="uri">https://www.liwc.app/help/howitworks</a><br>
+Or: Tausczik &amp; Pennebaker (2010) <em>The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods</em> Journal of Language and Social Psychology 29 (1) 24-54</p>
+<p>LIWC involves calculating the percentage of words in different categories. Categorised word lists can be compiled by hand, and needn’t be restricted to the categories shown here.</p>
+<p>LIWC text analysis has been done on the Demo LaBB-CAT database, and also on the COBUILD corpus as a comparison corpus.</p>
+<ol start="23" class="example" type="1">
+<li>Select the <em>home</em> option on the menu.</li>
+<li>Click the ‘LIWC’ icon.<br>
+You will see a horizontal bar graph: each bar represents category of words, with the bar length representing the percentage of that category’s usage in the database.</li>
+<li>Tick the <em>Cobuild</em> checkbox on the left.<br>
+Bars representing the percentages for the COBUILD corpus will be added to the graph, for comparison.</li>
+<li>Press the <em>Export</em> button.</li>
+<li>Save and open the resulting CSV file.<br>
+You will see that the file contains the list of categories, with two percentages for each category, first the percentage for the LaBB-CAT data, and then the percentage for the COBUILD corpus.</li>
+</ol>
+<p>The bar graph can be used to clearly visualise similarities and differences between the corpora. The CSV file is useful for further analysis, or different visualisation options, using other tools.</p>
+</section>
+</section>
+<section id="alignment" class="level1">
+<h1>4 - Alignment</h1>
+<!-- 1:01-1:09 - 8 minutes -->
+<!-- 10:28-10:35 - 7 minutes -->
+<section id="forced-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="forced-alignment">Forced Alignment</h2>
+<p>Forced alignment is the automated processing of recordings of utterances and their orthographic transcripts in order to determine the start and end times of the individual speech sounds within words (phones).</p>
+<p>LaBB-CAT can integrate with a number of forced alignment systems, including the Hidden Markov Model Toolkit (<a href="https://htk.eng.cam.ac.uk/">HTK</a>), which is a speech recognition toolkit developed at Cambridge University.</p>
+<p>In order to do forced alignment, HTK needs the following ingredients:</p>
+<ol type="i">
+<li>a set of recordings broken up into short utterances,</li>
+<li>orthographic transcriptions of each utterance, and</li>
+<li>phonemic transcriptions of each of the words in each utterance.</li>
+</ol>
+<p>In the demo database you have all of these three ingredients (pronunciations have been taken from the CELEX lexicon), and the data has already been force-aligned using HTK.</p>
+<p>We will now explore some of the uses of force-aligned data.</p>
+</section>
+<section id="searching" class="level2">
+<h2 class="anchored" data-anchor-id="searching">Searching</h2>
+<ol start="28" class="example" type="1">
+<li>Go to the <em>search</em> page.</li>
+<li>Tick the <em>segment</em> layer, which is the layer that stores the force-aligned phones produced by HTK.</li>
+</ol>
+<p>Now we’re going to do a search for tokens of the TRAP vowel /æ/.</p>
+<ol start="30" class="example" type="1">
+<li>The <em>segment</em> box has a <img src="phoneme-symbol-selector.png" class="img-fluid"> button to the right of it.<br>
+Hover the mouse over it to see what it says, and then press it.<br>
+You will see that a box opens with a bunch of phoneme symbols on it.</li>
+<li>On the ‘Monophthong’ line, find the TRAP vowel <code>æ</code> and click it.<br>
+You will see that a <code>{</code> appears in the box.</li>
+</ol>
+<p>The phonemic transcriptions used for forced-alignment came from the CELEX lexicon, and CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phoneme labels, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The DISC symbols are used for the <em>segment</em> layer labels.</p>
+<p>As you can see in the table below, many of the correspondences between IPA and DISC are straightforward, but IPA symbols that involve unusual characters or more than one character have non-obvious DISC symbols.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">IPA</td>
+<td style="text-align: left;">DISC</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p</td>
+<td style="text-align: left;"><code>p</code></td>
+<td style="text-align: left;"><strong>p</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪ</td>
+<td style="text-align: left;"><code>I</code></td>
+<td style="text-align: left;">K<strong>I</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">b</td>
+<td style="text-align: left;"><code>b</code></td>
+<td style="text-align: left;"><strong>b</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ε</td>
+<td style="text-align: left;"><code>E</code></td>
+<td style="text-align: left;">DR<strong>E</strong>SS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t</td>
+<td style="text-align: left;"><code>t</code></td>
+<td style="text-align: left;"><strong>t</strong>ack</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;"><code>{</code></td>
+<td style="text-align: left;">TR<strong>A</strong>P</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">d</td>
+<td style="text-align: left;"><code>d</code></td>
+<td style="text-align: left;"><strong>d</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʌ</td>
+<td style="text-align: left;"><code>V</code></td>
+<td style="text-align: left;">STR<strong>U</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">k</td>
+<td style="text-align: left;"><code>k</code></td>
+<td style="text-align: left;"><strong>c</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ</td>
+<td style="text-align: left;"><code>Q</code></td>
+<td style="text-align: left;">L<strong>O</strong>T</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">g</td>
+<td style="text-align: left;"><code>g</code></td>
+<td style="text-align: left;"><strong>g</strong>ame</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊ</td>
+<td style="text-align: left;"><code>U</code></td>
+<td style="text-align: left;">F<strong>OO</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ŋ</td>
+<td style="text-align: left;"><code>N</code></td>
+<td style="text-align: left;">ba<strong>ng</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ə</td>
+<td style="text-align: left;"><code>@</code></td>
+<td style="text-align: left;"><strong>a</strong>nother</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">m</td>
+<td style="text-align: left;"><code>m</code></td>
+<td style="text-align: left;"><strong>m</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">i:</td>
+<td style="text-align: left;"><code>i</code></td>
+<td style="text-align: left;">FL<strong>EE</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">n</td>
+<td style="text-align: left;"><code>n</code></td>
+<td style="text-align: left;"><strong>n</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">α:&nbsp;</td>
+<td style="text-align: left;"><code>#</code></td>
+<td style="text-align: left;">ST<strong>A</strong>RT</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">l</td>
+<td style="text-align: left;"><code>l</code></td>
+<td style="text-align: left;"><strong>l</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔ:</td>
+<td style="text-align: left;"><code>$</code></td>
+<td style="text-align: left;">TH<strong>OU</strong>GHT</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">r</td>
+<td style="text-align: left;"><code>r</code></td>
+<td style="text-align: left;"><strong>r</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">u:</td>
+<td style="text-align: left;"><code>u</code></td>
+<td style="text-align: left;">G<strong>OO</strong>SE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">f</td>
+<td style="text-align: left;"><code>f</code></td>
+<td style="text-align: left;"><strong>f</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɜ:</td>
+<td style="text-align: left;"><code>3</code></td>
+<td style="text-align: left;">N<strong>UR</strong>SE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">v</td>
+<td style="text-align: left;"><code>v</code></td>
+<td style="text-align: left;"><strong>v</strong>at</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">eɪ</td>
+<td style="text-align: left;"><code>1</code></td>
+<td style="text-align: left;">F<strong>A</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">θ</td>
+<td style="text-align: left;"><code>T</code></td>
+<td style="text-align: left;"><strong>th</strong>in</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αɪ</td>
+<td style="text-align: left;"><code>2</code></td>
+<td style="text-align: left;">PR<strong>I</strong>CE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ð</td>
+<td style="text-align: left;"><code>D</code></td>
+<td style="text-align: left;"><strong>th</strong>en</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɔɪ</td>
+<td style="text-align: left;"><code>4</code></td>
+<td style="text-align: left;">CH<strong>OI</strong>CE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">s</td>
+<td style="text-align: left;"><code>s</code></td>
+<td style="text-align: left;"><strong>s</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">əʊ</td>
+<td style="text-align: left;"><code>5</code></td>
+<td style="text-align: left;">G<strong>OA</strong>T</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">z</td>
+<td style="text-align: left;"><code>z</code></td>
+<td style="text-align: left;"><strong>z</strong>ap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">αʊ</td>
+<td style="text-align: left;"><code>6</code></td>
+<td style="text-align: left;">M<strong>OU</strong>TH</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">∫</td>
+<td style="text-align: left;"><code>S</code></td>
+<td style="text-align: left;"><strong>sh</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɪə</td>
+<td style="text-align: left;"><code>7</code></td>
+<td style="text-align: left;">N<strong>EAR</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʒ</td>
+<td style="text-align: left;"><code>Z</code></td>
+<td style="text-align: left;">mea<strong>s</strong>ure</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">εə</td>
+<td style="text-align: left;"><code>8</code></td>
+<td style="text-align: left;">SQU<strong>ARE</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">j</td>
+<td style="text-align: left;"><code>j</code></td>
+<td style="text-align: left;"><strong>y</strong>ank</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ʊə</td>
+<td style="text-align: left;"><code>9</code></td>
+<td style="text-align: left;">C<strong>URE</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">x</td>
+<td style="text-align: left;"><code>x</code></td>
+<td style="text-align: left;">lo<strong>ch</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ</td>
+<td style="text-align: left;"><code>c</code></td>
+<td style="text-align: left;">t<strong>i</strong>mbre</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">h</td>
+<td style="text-align: left;"><code>h</code></td>
+<td style="text-align: left;"><strong>h</strong>ad</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɑ̃ː</td>
+<td style="text-align: left;"><code>q</code></td>
+<td style="text-align: left;">dét<strong>en</strong>te</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">w</td>
+<td style="text-align: left;"><code>w</code></td>
+<td style="text-align: left;"><strong>w</strong>et</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">æ̃ː</td>
+<td style="text-align: left;"><code>0</code></td>
+<td style="text-align: left;">l<strong>in</strong>gerie</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ʧ</td>
+<td style="text-align: left;"><code>J</code></td>
+<td style="text-align: left;"><strong>ch</strong>eap</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">ɒ̃ː</td>
+<td style="text-align: left;"><code>~</code></td>
+<td style="text-align: left;">bouill<strong>on</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ʤ</td>
+<td style="text-align: left;"><code>_</code></td>
+<td style="text-align: left;"><strong>j</strong>eep</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ŋ̩</td>
+<td style="text-align: left;"><code>C</code></td>
+<td style="text-align: left;">bac<strong>on</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">m̩</td>
+<td style="text-align: left;"><code>F</code></td>
+<td style="text-align: left;">idealis<strong>m</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">n̩</td>
+<td style="text-align: left;"><code>H</code></td>
+<td style="text-align: left;">burd<strong>en</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">l̩</td>
+<td style="text-align: left;"><code>P</code></td>
+<td style="text-align: left;">dang<strong>le</strong></td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+<td style="text-align: left;">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p>The symbol for the TRAP vowel /æ/ is <code>{</code> which is why clicking <code>æ</code> in the Phoneme Symbol Selector adds a <code>{</code> to the search pattern.</p>
+<ol start="32" class="example" type="1">
+<li>Press <em>Search</em>.<br>
+You will see that all the matches include /æ/ somewhere in the word.</li>
+<li>Immediately to the right of the <em>CSV Export</em> button there is a <img src="down-triangle.png" height="14"> button.<br>
+Hover your mouse over it to see what it does, and then press it.</li>
+</ol>
+<p>You will see several columns of checkboxes for selecting:</p>
+<ul>
+<li>participant attributes</li>
+<li>transcript attributes</li>
+<li>annotations</li>
+</ul>
+<p>These can all be exported with the CSV results.</p>
+<ol start="34" class="example" type="1">
+<li>Under <em>Participant</em> tick <em>gender</em> and <em>age_category</em>.</li>
+<li>Under <em>Transcript</em> tick <em>syllables per minute</em>.</li>
+<li>Under <em>Span</em> tick <em>type</em></li>
+<li>Under <em>Phrase</em> tick <em>syllables per minute</em></li>
+<li>Under <em>Word</em> tick <em>cobuild frequency</em></li>
+<li>Above the checkboxes, press the <em>CSV Export</em> button, and open the resulting CSV file.</li>
+</ol>
+<p>You will see that, in addition to the columns you’ve seen before, the CSV file also includes:</p>
+<ul>
+<li><em>participant_gender</em> - the gender of the person speaking;</li>
+<li><em>participant_age_category</em> - their age bracket;</li>
+<li><em>transcript_syllables per minute</em> - the overall articulation rate throughout the whole recording;</li>
+<li><em>Target type</em> - a manually added annotation that labels what type of experience is being described;</li>
+<li><em>Target syllables per minute</em> - the local articularion rate, during the utterance in which the match was uttered;</li>
+<li><em>Target cobuild frequency</em> - the frequency of the word in the COBUILD corpus;</li>
+<li><em>Target segment</em> - the label of the vowel you searched for;</li>
+<li><em>Target segment start</em> - the start time of the vowel;</li>
+<li><em>Target segment end</em> - the end time of the vowel.</li>
+</ul>
+<p>This means you can include this data in any analysis you subsequently perform on the results data.</p>
+<p>You have seen that after forced alignment, it’s possible to identify tokens of individual speech sounds. You can also match for the context of the speech sounds within the word.</p>
+<ol start="40" class="example" type="1">
+<li>Close the results tab and return to the search page.</li>
+</ol>
+<p>You will see that on the left edge of the <em>segment</em> box there is an open padlock icon.</p>
+<ol start="41" class="example" type="1">
+<li>Hover your mouse over the padlock to see what it says, and then click it.<br>
+The padlock closes.</li>
+<li>Press <em>Search</em>.<br>
+There are much fewer matches now, as you’ll see only words where the matched segment is at the beginning of the word.</li>
+<li>Close the results tab and return to the search page.</li>
+</ol>
+<p>You can also match patterns of multiple segments within the word. Let’s say we’re interested in words that start with the TRAP vowel, followed by /n/. We can use the <em>segment</em> layer to search on the basis of pronunciation, matching multiple segments within the word.</p>
+<!--
+:::{.callout-important}
+On the *segment* layer, if you enter a pattern that
+would match more than a single character on this layer (i.e. more
+than a single phoneme) then no search results will be returned,
+because each annotation on this layer is only a single character
+long (remember the DISC encoding uses one character per phoneme).
+
+For example, if you enter `dIs` for your search, intending to
+match all words starting with "dis...", then no results will be
+returned, because no single segment will ever match that pattern.
+:::
+-->
+<ol start="44" class="example" type="1">
+<li>Inside the <em>segment</em> box, immediately to the right of the Phoneme Symbol Selector button is a small <img src="add.png" height="12"> button .<br>
+Press it.<br>
+You will see that this adds another <em>segment</em> column within the word.</li>
+<li>Enter <code>n</code> in the second <em>segment</em> box.<br>
+<img src="TRAP-n.png" class="img-fluid" style="width:65.0%"></li>
+<li>Press <em>Search</em> and check the results are what you would expect.</li>
+</ol>
+<!--
+
+---
+
+We have seen that forced alignment allows you identify patterns in the pronunciations of the words, 
+but having aligned segments opens up other possibilies for annotation and analysis, which we will see now...
+
+(@) Click on the first match of your last search.
+
+You will see that each word is tagged with its phonemic
+transcription using the International Phonetic Alphabet (IPA).
+
+The IPA symbols are being displayed by LaBB-CAT to provide a
+linguist-friendly representation of the phonemic transcription. But
+you can see the underlying DISC characters by selecting the 'Raw'
+option on the layer at the top of the transcript.
+
+(@) Select 'Raw' on the *segment* layer, to see the CELEX DISC labels HTK has used.\
+    You may find that this is somewhat harder to read. Diphthongs are digits, schwa is "@", 
+    and various other characters are used to represent affricates, etc.
+
+The interactive transcript page doesn't show you the alignments
+of the words or phones, but you can see those by extracting Praat TextGrids of the transcript,
+or individual utterances.
+
+## Praat Browser Integration
+
+:::{.callout-note}
+If you don't use Praat, or don't have it installed on your computer, you can skip this section.
+:::
+
+We have previously seen that any transcript can be exported as a Praat TextGrid from the *formats* menu, 
+so you can export a TextGrid and open it in Praat (if you have it installed on your computer)
+to check the *segment* layer alignments.
+
+However LaBB-CAT also integrates directly with Praat. With Praat integration installed, you can similarly
+inspect alignments, but you can also correct them by moving the
+alignments in Praat and then saving them back to LaBB-CAT.
+
+:::{.callout-important}
+LaBB-CAT's browser integration with Praat does not currently work with Safari, 
+so if you're using a Mac, ensure you try the steps below in Google Chrome or Mozilla Firefox.
+:::
+
+First, the LaBB-CAT/Praat integration has to be set up; this only has to
+be done once:
+
+(@) On the top-right of the transcript page, above the playback
+    controls, there's a Praat icon ![](praat-integration.png){height="18px"} - click
+    it.
+(@) Follow the instructions that appear (these vary depending on what
+    web browser you use).
+
+You may need to grant a browser extension permission to install, and
+it's possible you will need a connection to the internet in order
+to download this extension.
+
+(@) Once you've installed the browser extension, return to the transcript page.
+(@) Click on any line, and select the 'Open Text Grid in Praat' option on the menu.
+
+You will see a page with three-step instructions for finishing the Praat integration.
+
+Assuming you already have Praat and Java installed, you just have to do the third step.
+i.e. download and run a program called
+"install-jsendpraat.jar". 
+
+(@) Click the *install-jsendpraat.jar* link, save the resulting file.
+(@) Double-click the program you just saved.
+(@) On the window that appears, press the *Install* button.\
+    \
+    You also may be asked where Praat is installed; Navigate to the
+    location where Praat is installed, and double-click the "Praat.exe"
+    file (on some systems the file may simply be called "Praat"). The
+    Praat program may open, and then immediately close, as LaBB-CAT
+    tests it can communicate with Praat.\
+    \
+    If in doubt, check the ![](help.png){height="18px"} online help on the transcript
+    page; it has a section explaining how to set up Praat integration on
+    various browsers and operating systems.\
+(@) Close the instructions page.
+
+Now Praat integration has been set up, and you should be able to
+access Praat options in the transcript page from now on...
+
+(@) Click on any line, and select the 'Open Text Grid in Praat' option on the menu.\
+    After a short delay, Praat should open, and show you a spectrogram
+    of the line's audio, with a TextGrid below that includes the words
+    and the segments.
+(@) If you click on a word, and hit the  key, the word's
+    interval is played. Try out various words, and see what you think
+    about how accurate HTK has been with its alignment.
+(@) Try this out with different lines in the transcript.\
+    You will see that in some cases the alignment is pretty good, and in
+    other cases, it's not so good. In the not-so-good cases, see if you
+    can figure out why HTK got it wrong.
+
+If you had 'edit' rather than 'read-only' permissions in LaBB-CAT, then
+each time you opened an utterance in Praat, a button would appear in the
+transcript to the left of the line, labelled *Import Changes*. This
+button would allow you to save any adjustments you might want to make to
+the alignments back into the LaBB-CAT database.
+
+![](Import-Changes.png)
+
+These changes are flagged as manual edits, so if forced-alignment is run
+again, they will not be over-written with new bad alignments.
+
+This mechanism can also be used to add other annotations from Praat into
+LaBB-CAT annotation layers.
+
+### Annotating Aligned Data
+
+Once the words and segments have been aligned with HTK there are a number
+of annotation possibilities that arise.
+
+For example, word syllabification information can be retrieved from
+CELEX and combined with the aligned phones to construct aligned syllable
+annotations.
+
+(@) Tick the *alignment* project at the top of the transcript.\
+    This reveals several layers.
+(@) Tick the *syllables* layer
+(@) Once the transcript has re-loaded, open an utterance with Praat.\
+    You will see that, in addition to aligned words and phones, the
+    syllables are also aligned, and labelled with their phonemic
+    transcription, and stressed syllables are prepended with an
+    apostrophe.
+
+Also, with exact word durations (i.e. excluding pauses in speech)
+and syllable counts, the speaker's articulation rate, in syllables
+per minute, can be computed. The Statistics Layer Manager is a
+module that can be configured to compute sums, counts, and rates of
+various kinds over different scopes, including syllables per minute.
+
+(@) Tick the *syllables per minute* layer.\
+    You will see that each utterance has a spanning annotation across
+    the top of it, labelled with a number; that number is the
+    articulation rate for that particular utterance.
+
+Both local and global articulation rate can be calculated ...
+
+(@) Click on the name of the speaker at the top of the transcript.\
+    This will open the participant attributes page for that speaker.\
+    You will see that one of the attributes is *Syllables per Minute*;
+    this is the speakers overall articulation rate, across all their
+    utterances.
+
+Articulation rate is calculated by excluding the durations of
+inter-word pauses. These pauses themselves can be annotated, for
+search or analysis purposes.
+
+(@) Go back to the transcript page.
+(@) Tick the *previous pause* layer.\
+    You will see that many of the word tokens in the transcript are
+    tagged with a number. These words are preceded by a pause in speech,
+    and the number is the length of that pause in seconds.
+(@) Open an utterance in Praat to confirm these pauses are correct.
+
+<!--
+## Searching
+
+Given that HTK has created individually aligned phones in the database,
+those speech sounds can be searched and exported.
+
+Let's say you're particularly interested in the vowel in the word
+'KIT'. You can now identify and extract instances of that phoneme.
+
+(@) Click the *search* link on the menu.
+(@) Tick the *segment* layer.
+
+The segments layer contains annotations at the sub-word level -
+i.e. there are potentially multiple annotations per word, each
+annotation representing a single phone of the word. You will see that, as
+with other layers, there is a box on the segments layer for a
+regular expression.
+
+As with other patterns in the search matrix, the pattern that you
+enter in the box is matched against individual annotations. So if
+you enter `I` (i.e. capital I) in the in the box, it will match each
+'KIT' vowel segment in each word in the database.
+
+
+(@) We want to search for all instances of the 'KIT' vowel, so enter `I`
+    in the *segment* pattern box.
+(@) Click *Search*\
+    After a short delay, you should see a list of results.
+
+You will see that the results list words that have the 'KIT', but in
+many cases it's not the main stressed vowel. What if we're only
+interested in *stressed* 'KIT' vowels?
+
+That's ok, because we also have stress-marked syllable annotations,
+so we can add that layer to the search matrix, and identify only
+stressed vowels ...
+
+(@) Note down the number of results returned by your last search.
+(@) Back on the search form, add the *syllables* layer to the search
+    matrix.
+(@) As we have seen, stressed syllables are labelled with an apostrophe
+    at the start. Enter a regular expression that will identify all
+    syllables that start with apostrophe.
+    \
+    In this way, the results will give use all KIT vowels that are
+    within a stressed syllable.
+(@) Click *Search* again.\
+    This time you will see fewer results returned, because we've
+    filtered out the un-stressed version of the vowel.\
+
+
+## Exporting Alignments
+-->
+<!-- 7 min -->
+<p>You can also export segment token that match search patterns to a CSV file, including the start/end times for analysis or further processing.</p>
+<!--
+(@) Select *search* on the menu at the top.
+(@) Tick the *segment* layer and the *syllables* layer (which is in the *alignment* project)
+(@) We want to search for all instances of the 'KIT' vowel, so enter the corresponding 
+    vowel symbol in the *segment* pattern box.
+
+We only want vowels that are in a syllable with primary stress. 
+As we saw earlier, stressed syllables are labelled with an apostrophe at the start. 
+
+(@) Enter a regular expression on the *syllables* layer that will identify all
+    syllables that start with apostrophe.
+    \
+    In this way, the results will give use all KIT vowels that are
+    within a stressed syllable.
+(@) Press *Search*
+-->
+<ol start="47" class="example" type="1">
+<li>On the results page, press the <em>CSV Export</em> button.</li>
+<li>Save and open the resulting file.</li>
+</ol>
+<p>You’ll see the CSV file includes the columns “Target segment start” and “Target segment end”; these columns have the start and end time of the matching ‘TRAP’ vowel token, and can be used for calculating vowel duration, but also for acoustic measurement of the matched segments…</p>
+<!--
+
+## Acoustic Measurement
+
+Given a CSV file with token start/end times, LaBB-CAT can extract
+acoustic measurements on the speech sounds using Praat.
+
+:::{.callout-note}
+The following steps work *even if you don't have Praat
+installed on your own computer*, because Praat is used on the LaBB-CAT
+server ...
+:::
+
+(@) In LaBB-CAT, click the *upload* menu option.
+(@) Click the *process with praat* option.
+(@) Click *Browse* and select the CSV results that you saved above.\
+    You will see a form to fill in, and the first couple of settings
+    (*Transcript Name column* and *Participant column* should be already
+    filled in).
+(@) For the *Start Time column*, ensure that the *Target segment start*
+    option is selected.
+(@) For the *End Time column*, ensure the *Target segment end* option is
+    selected.
+
+These two settings define the start/end times of the phone. For some
+measurements you might extract from Praat, processing signal that
+includes surrounding context is usually a good idea. You'll see
+there's a setting for that (which you can leave at the default of
+0.025s), and you will see options for various measurements.
+
+The default options are for *F1* and *F2* only, but if you feel like
+getting other measurements, feel free to tick those options too. You
+can expand each section with the ▸ button to reveal more settings,
+which allow you to specify more detail about how Praat should do its
+computations. Again, feel free to look at those and try different
+settings.
+
+(@) Click *Process*.\
+    You will see a progress bar while LaBB-CAT generates Praat scripts
+    and runs them.
+(@) Once Praat has finished processing the intervals, you will get a CSV
+    file (you might have to click the *CSV file with measurements*
+    link) - save and open it.
+
+You will see that it's a copy of the CSV file you uploaded, with
+some extra columns added on the right.
+
+Depending on your settings, this will include at least one column
+per measurement you selected (for formant measurmenets, there is also a column
+that contains the time at which the measurements were taken), and a
+final column called *Error* which is hopefully blank, but which
+might contain errors reported back by Praat (e.g. if it couldn't
+find the audio file or ran into any other problem during
+processing).
+
+-->
+</section>
+</section>
+<section id="praat" class="level1">
+<h1>5 - Praat</h1>
+<!-- 1:09-1:19 - 10 minutes -->
+<!-- 10:35-10:50 - 15 minutes -->
+<section id="acoustic-measurement" class="level2">
+<h2 class="anchored" data-anchor-id="acoustic-measurement">Acoustic Measurement</h2>
+<p>Given a CSV file with token start/end times, LaBB-CAT can extract acoustic measurements on the speech sounds using Praat.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following steps work <em>even if you don’t have Praat installed on your own computer</em>, because Praat is used on the LaBB-CAT server …</p>
+</div>
+</div>
+<ol start="49" class="example" type="1">
+<li>In LaBB-CAT, click the <em>upload</em> menu option.</li>
+<li>Click the <em>process with praat</em> option.</li>
+<li>Click <em>Browse</em> and select the CSV results that you saved at the end of the last exercise,<br>
+i.e.&nbsp;word-intial tokens of /æ/ followed by /n/. You will see a form to fill in, and the first couple of settings (<em>Transcript Name column</em> and <em>Participant column</em> should be already filled in).</li>
+<li>For the <em>Start Time column</em>, ensure that the <em>Target segment start</em> option is selected.</li>
+<li>For the <em>End Time column</em>, ensure the <em>Target segment end</em> option is selected.</li>
+</ol>
+<p>These two settings define the start/end times of the vowel For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You’ll see there’s a setting for that (which you can leave at the default of 0.025s), and you will see options for various measurements.</p>
+<p>The default options are for <em>F1</em> and <em>F2</em> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand each section with the <img src="right-triangle.png" height="14"> button to reveal more settings, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</p>
+<ol start="54" class="example" type="1">
+<li>Click <em>Process</em>.<br>
+You will see a progress bar while LaBB-CAT generates Praat scripts and runs them.</li>
+<li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <em>CSV file with measurements</em> link) - save and open it.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may find that the CSV text data displays directly in your browser window.</p>
+<p>If this happens, just save the file with the <kbd aria-hidden="true" data-linux="Ctrl-S" data-mac="control-s" data-windows="Ctrl-S"></kbd><span class="visually-hidden"></span> keys, and open it with Excel or whatever program you have to open CSV files.</p>
+</div>
+</div>
+<p>You will see that it’s a copy of the CSV file you uploaded, with some extra columns added on the right.</p>
+<p>Depending on your settings, this will include at least one column per measurement you selected (for formant measurmenets, there is also a column that contains the time at which the measurements were taken), and a final column called <em>Error</em> which is hopefully blank, but which might contain errors reported back by Praat (e.g.&nbsp;if it couldn’t find the audio file or ran into any other problem during processing).</p>
+</section>
+<section id="praat-browser-integration" class="level2">
+<h2 class="anchored" data-anchor-id="praat-browser-integration">Praat Browser Integration</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following steps work only if:</p>
+<ul>
+<li>if you <strong>Java</strong> and <strong>Praat</strong> installed on your own computer, and</li>
+<li>you’re using a Chrome, Edge, or Firefox (i.e.&nbsp;<strong>not Safari</strong>)</li>
+</ul>
+<p>If you don’t use Praat, or don’t have Praat or Java installed, you can skip this section.</p>
+</div>
+</div>
+<p>We have previously seen that any transcript can be exported as a Praat TextGrid from the <em>formats</em> menu, so you can export a TextGrid and open it in Praat (if you have it installed on your computer) to check the <em>segment</em> layer alignments.</p>
+<p>LaBB-CAT also integrates directly with Praat. With Praat integration installed, you can inspect alignments directly from the transcript page, and with sufficient access, you can also correct them by moving the alignments in Praat and then saving them back to LaBB-CAT.</p>
+<p>First, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+<ol start="56" class="example" type="1">
+<li>Open any transcript.</li>
+<li>Tick the <em>segment</em> layer.<br>
+After a short delay, you will see a phonemic transcription below each word in the transcript – these are the phone annotations created by HTK.</li>
+<li>On the top-right of the transcript page, above the playback controls, there’s a Praat icon <img src="praat-integration.png" height="16"> - click it.</li>
+<li>Follow the instructions that appear (these vary depending on what web browser you use).</li>
+</ol>
+<p>You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.</p>
+<ol start="60" class="example" type="1">
+<li>Once you’ve installed the browser extension, return to the transcript page.</li>
+<li>Press <em>OK</em> on the message that appears, to reload the page.</li>
+<li>Click on any line, and select the ‘Open Text Grid in Praat’ option on the menu.</li>
+</ol>
+<p>You will see a page with three-step instructions for finishing the Praat integration.</p>
+<p>Assuming you already have Praat and Java installed, you just have to do the third step. i.e.&nbsp;download and run a program called “install-jsendpraat.jar”.</p>
+<ol start="63" class="example" type="1">
+<li>Click the <em>install-jsendpraat.jar</em> link, save the resulting file.</li>
+<li>Double-click the program you just saved.</li>
+<li>On the window that appears, press the <em>Install</em> button.</li>
+</ol>
+<div id="mac" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Mac Installation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When you try to run <em>install-jsendpraat.jar</em> on a Mac, you may see the following message:</p>
+<p><img src="mac-install-jsendpraat-not-opened.png" class="img-fluid" style="width:50.0%" alt="install-jsendpraat.jar Not Opened - buttons Done or Move to Trash"></p>
+<p>If so:</p>
+<ol type="1">
+<li>Press <em>Done</em>.</li>
+<li>Click the Apple icon on the top left corner of the screen to open the menu.</li>
+<li>Select <em>System Settings…</em></li>
+<li>On the left hand side, select the <em>Privacy and Security</em> option.</li>
+<li>Scroll to the bottom of the page.<br>
+Under <em>Security</em> you should seem a message saying<br>
+<em>“install-sendpraat.jar” was blocked to protect your Mac</em><br>
+<img src="mac-open-anyway.png" class="img-fluid"></li>
+<li>Press <em>Open Anyway</em><br>
+You will see a warning message:<br>
+<img src="mac-open-install-jsendpraat.png" class="img-fluid" style="width:50.0%"></li>
+<li>Press <em>Open Anyway</em><br>
+You may see a further prompt to allow this:<br>
+<img src="mac-allow.png" class="img-fluid"></li>
+</ol>
+<p>Finally you should see the installer open:</p>
+<p><img src="mac-install-jsendpraat-installer.png" class="img-fluid"></p>
+<p>Then you can press <em>Install</em>.</p>
+</div>
+</div>
+</div>
+<p>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</p>
+<p>If in doubt, check the <img src="help.png" height="16"> online help on the transcript page; it has a section explaining how to set up Praat integration on various browsers and operating systems.</p>
+<ol start="66" class="example" type="1">
+<li>Close the instructions page.</li>
+</ol>
+<p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
+<ol start="67" class="example" type="1">
+<li>Back in the transcript page you had open earlier, click on any line, and select the ‘Open Text Grid in Praat’ option on the menu.<br>
+After a short delay, Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
+<li>If you click on a word, and hit the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.</li>
+<li>Try this out with different lines in the transcript.<br>
+You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.</li>
+</ol>
+<p>If you had ‘edit’ rather than ‘read-only’ permissions in LaBB-CAT, then each time you opened an utterance in Praat, a button would appear in the transcript to the left of the line, labelled <em>Import Changes</em>. This button would allow you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
+<p><img src="Import-Changes.png" class="img-fluid"></p>
+<p>This mechanism can also be used to add other annotations from Praat into LaBB-CAT annotation layers.</p>
+</section>
+</section>
+<section id="syntax" class="level1">
+<h1>6 - Syntax</h1>
+<p>The Stanford Parser is an open-source PCFG parser that can use grammars for a variety of languages including English.</p>
+<p>LaBB-CAT includes a Layer Manager that handles integration with the parser. The Stanford Parser Layer Manager:</p>
+<ul>
+<li>extracts chunks of transcripts (ideally sentences or clauses),</li>
+<li>gives them to the Stanford Parser for processing, which produces a ‘best parse’ for the utterance provided, and</li>
+<li>saves the parse on a ‘tree’ layer, and optionally saves the resulting part-of-speech tags on a word layer.</li>
+</ul>
+<p>One of the problems with parsing speech is that speakers often don’t speak in complete, well-formed sentences. In addition, the demo corpus you are using was not generally transcribed with parsing in mind, and so grammatically complete units have not been marked with full-stops, commas, etc. (Instead, full-stop has been used to mark short pauses in speech).</p>
+<p>For these reasons, the parses you will see in this data may not be perfect. However, it’s possible to get a sense of the kinds of things that could be achieved with well-formed written texts, or speech that has been transcribed with grammatical punctuation included.</p>
+<ol start="70" class="example" type="1">
+<li>Select the <em>transcripts</em> option on the menu.</li>
+</ol>
+<p>One transcript in the database has delimiters inserted which divide the transcript into more or less grammatical units. As the ‘full-stop’ symbol is already being used to mark pauses, the ‘vertical bar’ symbol <code>|</code> has been used as a grammatical delimiter.</p>
+<p>The transcript is called <em>BR2044_OllyOhlson-b.eaf</em></p>
+<ol start="71" class="example" type="1">
+<li>In the <em>Transcript</em> box, type:<br>
+<code>olly</code><br>
+After a short pause, <em>BR2044_OllyOhlson-b.eaf</em> will be the only transcript in the filtered list.</li>
+<li>Click <em>BR2044_OllyOhlson-b.eaf</em></li>
+<li>Untick all except the <em>word</em> layer, to avoid clutter.</li>
+<li>Tick the <em>language</em> layer.</li>
+</ol>
+<p>Scrolling down, you will see that, although the transcript is mostly in English, there are some sections in Te Reo Māori. These have been annotated as such on the <em>language</em> layer, which allows LaBB-CAT to generate other layer differently, depending on what language the speech is in.</p>
+<ol start="75" class="example" type="1">
+<li>At the top of the transcript, tick the <em>syntax</em> project.<br>
+This reveals three layers.</li>
+<li>Tick the <em>parse</em> layer.</li>
+</ol>
+<p>You will see that above the words, there are bracketing annotations that are labelled with parts-of-speech or phrase labels.</p>
+<p>Each of these brackets represents a syntactic constituent constructed by the parser, smaller constituents at the bottom, building into larger constituents going up.</p>
+<p>You will also notice that there are no syntactic constituent annotations on utterances in Te Reo Māori. The Stanford Parser doesn’t have a grammar for Māori, so LaBB-CAT has excluded those utterances from this processing.</p>
+<ol start="77" class="example" type="1">
+<li>Click on any constituent label (e.g.&nbsp;“NP” or “S”).<br>
+A new window will open, which shows the selected utterance, using the familiar ‘upside-down tree’ representation.<br>
+If the tree appears far off and small, you can make it larger by widening the window, or ‘zooming in’ with you mouse wheel.</li>
+</ol>
+<p>You can also search the parses themselves.</p>
+<ol start="78" class="example" type="1">
+<li>Close the parse tree window.</li>
+<li>Select the <em>search</em> option on the menu at the top of the page.</li>
+<li>Tick the <em>syntax</em> project.</li>
+<li>Tick the <em>parse</em> and <em>pos</em> layers.</li>
+</ol>
+<p>On the <em>parse</em> layer you’ll see that you can enter a search expression for annotations on that layer, just like any other.</p>
+<p>However, it also has an open-padlock icon before and after the pattern. If you click the padlock before the pattern, it will anchor the search to the first word in the matching constituent. Similarly the padlock after the pattern anchors to the last word in the constituent.</p>
+<p>Let’s say you want all the noun phrases that <em>don’t</em> start with a determiner like “the”, “this”, “a”, etc.</p>
+<ol start="82" class="example" type="1">
+<li>On the <em>parse</em> layer, enter a pattern that matches <em>NP</em> (noun phrase) …</li>
+<li>...and click the padlock to anchor to the first word in the constituent.</li>
+<li>On the <em>pos</em> layer, enter a pattern that would match <em>DT</em> (determiner)…</li>
+<li>...and in the dropdown box before the pattern, select <em>doesn’t match</em>.</li>
+</ol>
+<p>This will match NP-initial words who have an annotation that doesn’t match “DT” on the <em>pos</em> layer.</p>
+<p><img src="NP-not-DET.png" class="img-fluid" style="width:65.0%"></p>
+<ol start="86" class="example" type="1">
+<li>Press <em>Search</em>.</li>
+<li>When the search finishes, click on the first result to open the transcript.</li>
+</ol>
+<p>You should see that lots of noun phrases have been identified, but nothing starting with “the”, “a”, “that”, or any other determiner.</p>
+<hr>
+<p>In this worksheet you have seen that:</p>
+<ul>
+<li>annotations can be added to transcripts in layers, either manually or automatically using ‘Layer Manager’ modules.</li>
+<li>Annotation layers can be searched using the search matrix.<!--, using
+    numeric value or regular expressions, depending on the type of layer.--></li>
+<li>Layers can be optionally displayed in transcripts.</li>
+<li>words can be tagged with their frequency in the corpus itself, or in the COBUILD corpus,</li>
+<li>unusually frequent or infrequent words can be identified, and</li>
+<li>LIWC text analysis can be automatically performed.</li>
+<li>Forced Alignment can be used to ascertain the start/end times of words and phones,</li>
+<li>individual phone tokens can be searched for and extracted, and</li>
+<li>acoustic measurements for matching phones can also be made.</li>
+<li>The resulting alignments can be inspected (and corrected) directly from the transcript page.</li>
+<li>the Stanford Parser can we used to annotate transcripts with part-of-speech tags and constituent annotations, and</li>
+<li>the resulting annotations can be included in syntax-based searches.</li>
+<li>Phrases can be language-tagged so that they can be processed differently from the surrounding utterances.</li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2023-2024 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/demo/2-layers.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
