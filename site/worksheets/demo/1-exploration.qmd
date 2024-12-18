@@ -8,7 +8,7 @@ format:
 ---
 <!-- 17 min -->
 
-# Worksheet 1 - Exploration
+# 1 - Exploration
 
 <!--
 LaBB-CAT is a speech/language corpus management system that:
