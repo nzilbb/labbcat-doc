@@ -236,9 +236,9 @@ actually uses the 'DISC' encoding for phonemes, which uses ordinary
 phoneme. The IPA symbols are being displayed by LaBB-CAT to provide
 a linguist-friendly representation of the phonemic transcription.
 But you can see the underlying DISC characters by selecting the
-*ASCII* option on the layer in the transcript.
+*Raw* option on the layer in the transcript.
 
-(@) Select *ASCII* on the *phonemes* layer, to see what CELEX is
+(@) Select *Raw* on the *phonemes* layer, to see what CELEX is
     actually producing.
 
 You may find that this is somewhat harder to read. Diphthongs are
@@ -247,7 +247,7 @@ characters are used to represent affricates, etc.
 
 It's nice to display the IPA symbols, but it's important to understand
 the DISC symbols (shown in table below, because they are what we have to
-use when searching on the \*phonemes\* layer, which we are going to try
+use when searching on the *phonemes* layer, which we are going to try
 now.
 
 {{< pagebreak >}}
@@ -293,7 +293,7 @@ Now we're going to do a search for the word "the" followed by a word that starts
     
 (@) Type `the` in the first *orthography* box.
 (@) Click the second box on the *phonemes* layer, but don't enter anything in the box yet.
-(@) The box has a little `«` button to the right of it.\
+(@) The box has a little ![](phoneme-symbol-selector.png){height="12pt"} button to the right of it.\
     Hover the mouse over it to see what it says, and then click it.\
     You will see that a section opens with a bunch of phoneme symbols
     on it.

@@ -231,11 +231,10 @@ the *orthography* layer, we can generate frequency data from the
     **Layer to Summarize** setting to the *stem* layer we created
     above. *Save* your settings and press *Regenerate*.\
     The layer will be generated.
-(@) Do a search of all speakers, for words with a value of 1 on your new
-    *stemFrequency* layer.\
-    You should notice that the variety of words returned seem a little
-    'rarer' that those returned previously when you were searching the
-    wordform *frequency* layer.
+(@) Do a search of all speakers, for words with a value of 1 on your 
+    *frequency* layer, but a value of more than 1 on your new *stemFrequency* layer.\
+    You will see all the words that were previously shown as 'rare', but are
+    actually more common if you count all the tokens with the same stem together.
 
 ## Pattern Matcher
 
