@@ -10,7 +10,7 @@ format:
 <!-- 5-10 minutes for Praat extension  -->
 <!-- 7 minutes for syntax -->
 
-# Worksheet 2 - Searching Annotation Layers
+# 2 - Searching Annotation Layers
 
 <!--
 In addition to storing recordings and orthographic transcripts, the data
