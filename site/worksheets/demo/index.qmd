@@ -7,12 +7,4 @@ format:
 
 [1 - Exploration](1-exploration.qmd)
 
-[2 - Search](2-search.qmd)
-
-[3 - CELEX](3-celex.qmd)
-
-[4 - Alignment](4-alignment.qmd)
-
-[5 - Syntax](5-syntax.qmd)
-
-[6 - Other Processing](6-other-processing.qmd)
+[2 - Annotation Layers](2-kayers.qmd)
