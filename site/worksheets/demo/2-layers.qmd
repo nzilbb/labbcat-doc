@@ -342,7 +342,7 @@ We are going to use the *pos* layer to identify "...quake" words that are follow
 (@) Click the *VERB* link.\
     A regular expression will be added to the *pos* search matrix that will identify any of the verb-type part-of-speech labels.
 (@) Press the ![](phoneme-symbol-selector.png) button to close the Symbol Selector.
-(@) Delete the `hit|struck` test from the *orthography* box above.
+(@) Delete the `is|was` test from the *orthography* box above.
 
 ![](quake-VERB.png){title="Search matrix for 'words ending in quake followed by a verb'"}
 
@@ -477,7 +477,9 @@ In proceedings of the workshop on Comparing Corpora, held in conjunction with th
 1-8 October 2000, Hong Kong, pp. 1 - 6.
 
 The Demo LaBB-CAT has been configured to compute keyness compared to the
-COBUILD corpus.
+frequencies available in the 
+[COBUILD](https://1library.net/article/the-cobuild-project-corpora-computers-and-lexicography.q58rjdjq)
+corpus.
 
 (@) Select the *home* link on the menu.
 (@) Click the 'Keyness' icon.\
@@ -566,7 +568,7 @@ We will now explore some of the uses of force-aligned data.
 
 ## Searching
 
-(@) Go to the *search* page.
+(@) Select the *search* option on the menu at the top.
 (@) Tick the *segment* layer, which is the layer that stores the force-aligned phones produced by HTK.
 
 Now we're going to do a search for tokens of the TRAP vowel /æ/.
@@ -690,7 +692,8 @@ returned, because no single segment will ever match that pattern.
 (@) Inside the *segment* box, immediately to the right of the Phoneme Symbol Selector button is a small ![](add.png){height="12px"} button
 .\
     Press it.\
-    You will see that this adds another *segment* column within the word.
+    You will see that this adds another *segment* column within the word.<!--\
+    ![](TRAP-plus.png)-->
 (@) Enter `n` in the second *segment* box.\
     ![](TRAP-n.png){width="65%"}
 (@) Press *Search* and check the results are what you would expect.
@@ -907,8 +910,9 @@ stressed vowels ...
 --> 
 <!-- 7 min -->
 
-You can also export segment token that match search patterns to a CSV file, including the start/end times
+You can also export segment tokens that match search patterns to a CSV file, including the start/end times
 for analysis or further processing. 
+In fact, you can also export other annotations, and transcript/participant attributes.
 
 <!--
 (@) Select *search* on the menu at the top.
@@ -930,9 +934,34 @@ As we saw earlier, stressed syllables are labelled with an apostrophe at the sta
 (@) On the results page, press the *CSV Export* button.
 (@) Save and open the resulting file.
 
-You'll see the CSV file includes the columns "Target segment start" and
-"Target segment end"; these columns have the start and end time of the
-matching 'TRAP' vowel token, and can be used for calculating vowel duration, 
+You will see several columns of checkboxes for selecting:
+
+- participant attributes,
+- transcript attributes, and
+- annotation layers.
+
+These can all be exported with the CSV results.
+
+(@) Under *Participant* tick *gender* and *age_category*.
+(@) Under *Transcript* tick *syllables per minute*.
+(@) Under *Span* tick *type*
+(@) Under *Phrase* tick *syllables per minute*
+(@) Above the checkboxes, press the *CSV Export* button, and open the resulting CSV file.
+
+You will see that, in addition to the columns you've seen before, the CSV file also includes:
+
+- *participant_gender* - the gender of the person speaking;
+- *participant_age_category* - their age bracket;
+- *transcript_syllables per minute* - the overall articulation rate throughout the whole recording;
+- *Target type* - a manually added annotation that labels what type of experience is being described;
+- *Target syllables per minute* - the local articularion rate, during the utterance in which the match was uttered.
+- *Target segment* - the label of the vowel you searched for.
+- *Target segment start* - the start time of the vowel.
+- *Target segment end* - the end time of the vowel.
+
+This means you can include this data in any analysis you subsequently perform on the results data.
+The *Target segment start* and *Target segment end* columns 
+can be used for calculating vowel duration, 
 but also for acoustic measurement of the matched segments...
 
 <!--
@@ -1007,12 +1036,11 @@ installed on your own computer*, because Praat is used on the LaBB-CAT
 server ...
 :::
 
-(@) In LaBB-CAT, click the *upload* menu option.
+(@) In LaBB-CAT, select the *upload* menu option.
 (@) Click the *process with praat* option.
-(@) Click *Browse* and select the CSV results that you saved at the end of the last exercise,\
-    i.e. word-intial tokens of /æ/ followed by /n/.
+(@) Click *Browse* and select the CSV results that you saved above.\
     You will see a form to fill in, and the first couple of settings
-    (*Transcript Name column* and *Participant column* should be already
+    (*Transcript Name column* and *Participant column*) should be already
     filled in).
 (@) For the *Start Time column*, ensure that the *Target segment start*
     option is selected.
@@ -1077,6 +1105,11 @@ to check the *segment* layer alignments.
 LaBB-CAT also integrates directly with Praat. With Praat integration installed, you can inspect alignments directly from the transcript page, 
 and with sufficient access, you can also correct them by moving the
 alignments in Praat and then saving them back to LaBB-CAT.
+
+:::{.callout-important}
+LaBB-CAT's browser integration with Praat currently **does not work** with *Safari*, 
+so if you're using a Mac, ensure you try the steps below in Google Chrome or Mozilla Firefox.
+:::
 
 First, the LaBB-CAT/Praat integration has to be set up; this only has to
 be done once:
@@ -1303,10 +1336,9 @@ In this worksheet you have seen that:
 
 -   annotations can be added to transcripts in layers, either manually or automatically
     using 'Layer Manager' modules.
--   Annotation layers can be searched using the search matrix.<!--, using
-    numeric value or regular expressions, depending on the type of layer.-->
+-   Yous searches can include annotation layers as well as orthography.
 -   Layers can be optionally displayed in transcripts.
--   words can be tagged with their frequency in the corpus itself, or in the COBUILD corpus,
+-   Words can be tagged with their frequency in the COBUILD corpus or in the corpus itself,
 -   unusually frequent or infrequent words can be identified, and
 -   LIWC text analysis can be automatically performed.
 -   Forced Alignment can be used to ascertain the start/end times of words and phones,

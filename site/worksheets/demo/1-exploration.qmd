@@ -8,7 +8,7 @@ format:
 ---
 <!-- 17 min -->
 
-# 1 - Exploration
+# Worksheet 1 - Exploration
 
 <!--
 LaBB-CAT is a speech/language corpus management system that:
@@ -77,8 +77,10 @@ First we will look at ways to manually browse the corpus data.
     The first twenty transcripts are listed, and there are controls at the bottom of the page to list others.
 (@) Click the name of the first transcript listed: `AP2505_Nelson.eaf`\
     You will see a page with transcript text, and the video appears in the top right corner of the page.
+<!--
 (@) Try clicking the magnifying-glass icon ![](zoom-in.png) below the
     video, to see what it does.
+-->
 (@) Press the play button on the video.\
     As the video plays, you will see the current utterance highlighted in the transcript. 
     You will also see that the current utterance appears as closed captions in the video. 
@@ -102,10 +104,11 @@ so exporting text transcript allows you to use your favourite tools for whatever
 
 (@) If you have Praat installed on your computer, click the *formats*
     link, and select the *Praat Text Grid* option. Save the resulting
-    file on your desktop, and then open it with Praat.\
-    You will see that the TextGrid has various tiers, one for whole
-    utterances (or two if there are two speakers), and one for
-    individual words (or two if there are two speakers).
+    file on your desktop, and then open it with Praat.
+
+You will see that the TextGrid has a couple of tiers, one for whole
+utterances, and one for individual words.
+
 <!--
 (@) Back in LaBB-CAT, at the top of the page, you will see a link labelled *[meta-data]*; click it.\
     You will see some meta-data about the transcript and recording 
@@ -124,8 +127,8 @@ so exporting text transcript allows you to use your favourite tools for whatever
 ## Basic Search
 
 Searching is often a two-step process: 
-first you select which participants you want to search, using their participant attributes. 
-And then you specify the pattern you want to search for.
+first you select which participants you want to search, using their participant attributes,
+and then you specify the pattern you want to search for.
 
 The *participants* page you've got open has a number of filters listed across the top, 
 which allow you to filter the list below.
@@ -178,7 +181,7 @@ You'll see that extracted wav files are systematically named to include:
 -   the start and end time of the extracted utterance
 
 (@) If you also have Praat installed on your computer, go back to the
-    results page and click *Utterance Export* button. Save and open the
+    results page and press *Utterance Export* button. Save and open the
     resulting zip file.
     
 You'll see that the TextGrid names match the audio file names in
@@ -187,7 +190,7 @@ the previous zip file.
 If you open a TextGrid in Praat, you'll see it includes a tier for
 the whole utterance transcript, a tier with an interval for each
 word, and a *target...* tier which tags the word that matched the
-regular expression you searched for.
+word you searched for.
 
 Exporting similarly-named utterance wav files and Praat TextGrids provides a possible way to 
 process or analyse search results offline in Praat.
@@ -222,8 +225,7 @@ interactive transcript for the match.
 
 With this spreadsheet, you can work 'offline' with the results,
 tagging them, computing statistics in Excel, R, or any other
-program that can work with CSV files. We'll look at a few more
-uses for the CSV results files later...
+program that can work with CSV files.
 
 (@) Close the CSV file, and got back to the results page.
 (@) Close the results page, and you'll return to the search page.
@@ -255,17 +257,17 @@ Now we're going to create a search pattern for a chain of words.
     ![](two-words-wide.png)\
     Now you will see that our 'search matrix' is two words wide.
 (@) In the new *orthography* box on the right, enter the regular expression:\
-    `hit|struck`
+    `is|was`
 
 This regular expression is:
 
-- `hit` means "the word 'hit'"
-- `|` (the vertical bar character) means "or"
-- `struck` means "the word 'struck'"\
-  so `hit|struck` means "the word 'hit' or the word 'struck'"
+- `is` means "the word 'is'"
+- `|` (the vertical bar character) means *or*
+- `was` means "the word 'was'"\
+  so `is|was` means "the word 'is' *or* the word 'was'"
     
 (@) Press *Search*.\
-    You should see results are now words ending in 'quake' followed by either 'hit' or 'struck'.
+    You should see results are now words ending in 'quake' followed by either 'is' or 'was'.
 
 :::{.callout-tip}
 ![](help.png) You can get more information about regular expressions
@@ -279,11 +281,12 @@ by using the online help back on the search page.
 
 ---
 
-<!-- TODO correct this list -->
 In this worksheet you have seen that:
 
 -   LaBB-CAT is a repository for recordings and their transcripts;
+-   Transcripts can be exported in a variety of formats;
 -   Meta-data can be attached to transcripts (transcript attributes) and
     to participants (participant attributes);
+-   You can filter lists of participant (or transcripts) on the basis of meta-data;
 -   You can search the texts of the transcripts for patterns using 'regular expressions';
--   You can filter the search results on the basis of meta-data;
+-   Search results can be exported to CSV files for further processing;
