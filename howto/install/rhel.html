@@ -42,6 +42,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap-5c67a7444eebc356e54fdce0a63e8750.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -144,6 +146,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../../howto/install/rhel.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Installing LaBB-CAT on Red Hat Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-mac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT on Mac OS X systems</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-windows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT on Windows</span></a>
   </div>
 </li>
       </ul>
@@ -758,7 +772,7 @@ GRANT PROCESS ON *.* TO 'labbcat'@'%';</code></pre>
 <li><p>Back in you command shell on the server on which MariaDB is installed, start the <em>mysql</em> command line interface with the following command:<br>
 <code>sudo mysql</code><br>
 This will display a command prompt something like: <code>MariaDB [(none)]&gt;</code></p></li>
-<li><p>Copy and paste the four SQL commands from your browser into the MariaDB command prompt, and hit {&lt; kbd Enter &gt;} to execute all of them.</p></li>
+<li><p>Copy and paste the four SQL commands from your browser into the MariaDB command prompt, and hit <kbd aria-hidden="true">return</kbd><span class="visually-hidden">return</span> to execute all of them.</p></li>
 <li><p>Exit from the MariaDDB command prompt with the following command:<br>
 <code>exit</code></p></li>
 <li><p>Back in your browser, on the <em>web application self-installation</em> page, tick the box labelled:<br>
