@@ -1,0 +1,257 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: linguisticspro
+---
+# Installing LaBB-CAT on Red Hat Linux
+
+Broad steps are:
+
+i. Install Apache Tomcat 9
+i. Install MariaDB
+i. Install third-party tools (Praat, ffmpeg, HTK if required)
+i. Install LaBB-CAT webapp
+
+## Tomcat
+
+Install Tomcat 9, later versions are currently not tested.
+
+<!-- Adapted from: https://www.tecmint.com/install-apache-tomcat-in-rhel-8/ -->
+
+(@) Install JDK with the following command:\
+   `sudo dnf install wget java-11-openjdk-devel`
+(@) Download and unpack the Tomcat software with the following commands:\
+   `cd /usr/local`\
+   `sudo wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.95/bin//apache-tomcat-9.0.95.tar.gz`\
+   `sudo tar -xvf apache-tomcat-9.0.95.tar.gz`\
+   `sudo mv apache-tomcat-9.0.95 tomcat9`
+
+(@) Create a user for the Tomcat service with the following commands:\
+   `sudo useradd -r tomcat`\
+   `sudo chown -R tomcat:tomcat /usr/local/tomcat9`
+
+(@) Create a service file */etc/systemd/system/tomcat.service* with your favourite text editor, e.g.\
+    `sudo vim /etc/systemd/system/tomcat.service`\
+    The content should be:
+
+```    
+[Unit]  
+Description=Apache Tomcat Server  
+After=syslog.target network.target  
+[Service]  
+Type=forking  
+User=tomcat  
+Group=tomcat  
+Environment=CATALINA_PID=/usr/local/tomcat9/temp/tomcat.pid  
+Environment=CATALINA_HOME=/usr/local/tomcat9  
+Environment=CATALINA_BASE=/usr/local/tomcat9  
+ExecStart=/usr/local/tomcat9/bin/catalina.sh start  
+ExecStop=/usr/local/tomcat9/bin/catalina.sh stop  
+RestartSec=10  
+Restart=always  
+[Install]  
+WantedBy=multi-user.target
+```
+
+<!-- /usr/local/tomcat9/webapps -->
+
+(@) Remove example webapps that are installed by default:
+    `sudo rm -r /usr/local/tomcat9/webapps/docs`
+    `sudo rm -r /usr/local/tomcat9/webapps/host-manager`
+    `sudo rm -r /usr/local/tomcat9/webapps/examples`
+(@) Enable/start the Tomcat service with the following commands:
+    `sudo systemctl daemon-reload`
+    `sudo systemctl enable tomcat.service`
+    `sudo systemctl start tomcat.service`
+(@) Ensure Tomcat can receive requests from external clients:
+    `sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp`
+    `sudo firewall-cmd --reload`
+
+At this point, Tomcat should be working. You can check this by opening your browser and browsing to your 
+server's host name, on port 8080, something like:\
+`http://example.com:8080/`\
+(Substitute *example.com* with the host name of your server.).\
+This should display the Apache Tomcat default page (and not en error).
+
+(@) Ensure Tomcat's *catalina.out* log file is rotated by creating a *logrotate* configuration file 
+    called */etc/logrotate.d/tomcat* with your favourite text editor, e.g.\
+    `sudo vim /etc/logrotate.d/tomcat`
+(@) Add the following content to the file, and save it:
+
+```
+/usr/local/tomcat9/logs/catalina.out {
+    copytruncate
+    daily
+    rotate 7
+    compress
+    missingok
+    size 5M
+}
+```
+
+## MariaDB
+
+:::{.callout-tip}
+These steps for installation of the MariaDB on relation database management software assume that you want to run 
+MariaDB on the same server as Tomcat.
+
+You can run Tomcat and MariaDB on different servers, just take the following steps on the other server, 
+and make sure communication between the Tomcat and MariaDB servers is enabled.
+
+<!--
+(@) `sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+(@) `sudo firewall-cmd --reload`
+-->
+:::
+
+(@) Install MariaDB with the following command:\
+    `sudo yum install mariadb`
+(@) Enable and system its service with the following commands:\
+    `sudo systemctl enable mariadb`\
+    `sudo systemctl start mariadb`\
+    `sudo systemctl stop mariadb`
+
+## Third Party Tools
+
+LaBB-CAT integrates with various tird party software tools, which you can install now. These steps are optional.
+
+### Praat
+
+If you want to user LaBB-CAT's batch Praat processing functionality, you must install Praat on the server, 
+with the following commands:
+
+1.    `sudo wget https://www.fon.hum.uva.nl/praat/praat6420_linux-intel64-barren.tar.gz`
+1.    `sudo tar zxvf praat6420_linux-intel64-barren.tar.gz`
+1.    `sudo cp praat_barren /usr/bin/praat`
+
+### ffmpeg
+
+If you want LaBB-CAT to be able to automatically convert media between formats 
+(e.g. automatically extract a .wav audio file from uploaded videos)
+you must install Praat on the server, with the following commands:
+
+1. `sudo dnf install epel-release`
+1. `sudo dnf install https://download.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm`
+1. `sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-next-release-latest-9.noarch.rpm`
+1. `sudo dnf install --nogpgcheck https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-$(rpm -E %rhel).noarch.rpm`
+1. `sudo dnf install https://mirrors.rpmfusion.org/nonfree/el/rpmfusion-nonfree-release-$(rpm -E %rhel).noarch.rpm`
+1. `sudo dnf install https://mirror.stream.centos.org/9-stream/CRB/x86_64/os/Packages/ladspa-1.13-28.el9.x86_64.rpm`
+1. `sudo dnf install ffmpeg ffmpeg-devel`
+
+### HTK
+
+If you want to user HTK for forced alginment, you must install HTK on the server, using the following steps.
+
+1. Ensure you have registered a username and password on <http://htk.eng.cam.ac.uk/register.shtml>
+1. Install prerequisites for coompiling HTK from source:
+   `sudo  yum -y install glibc-devel.i686 libX11-devel.i686 glibc-devel.i686 libstdc++-devel.i686`
+1. Download and unpack the source code:
+   `cd /tmp`
+1. In the following command, replace *my-username* with the username you registered on the HTK site:
+   `wget --user=my-username --ask-password http://htk.eng.cam.ac.uk/ftp/software/HTK-3.4.1.tar.gz`
+1. Enter your HTK password when asked.
+1. `tar -zxf HTK-3.4.1.tar.gz`
+1. Prepare for compilation:
+   `cd htk`
+1. `./configure`
+1. Open the *HLMTools/Makefile* file with your favourite text editor, e.g.
+   `vim HLMTools/Makefile`
+   ...and replace spaces on line 77 with a tab character. Then save the file.
+1. Compile and install the software with the following commands:
+   `make all`
+   `sudo make install`
+
+## LaBB-CAT webapp
+
+Once Tomcat and MariaDB are installed, the LaBB-CAT web application can be installed, using the following steps:
+
+(@) Download the most recent *labbcat-server_yyyymmdd.zip* file from SourceForge:\
+    <https://sourceforge.net/projects/labbcat/files/install/>
+(@) Unzip the resulting file, will with contain LaBB-CAT's Web Application Archive, called *labbcat.war*
+(@) Copy *labbcat.war* into Tomcat's *webapps* directory with a command like:\
+    `sudo cp labbcat.war /usr/local/tomcat9/webapps/`
+
+Tomcat will automatically unpack the file into a subirectory with the same name as the .war file. 
+You can check this is successful with the following command:\
+`sudo ls /usr/local/tomcat9/webapps/labbcat/`\
+...which should show a list of files, rather than returning an error.
+
+(@) In your web browser, open the *labbcat* webapp page, with a URL like:\
+    `http://example.com:8080/labbcat/`\
+    (Substitute *example.com* with the host name of your server.)
+
+You should see a page with the title: *web application self-installation* and a form asking for information for 
+database information.
+
+(@) Next to the title *LaBB-CAT Database Exists* there is an expandable section labelled:\
+    *A MySQL database and MySQL user can be pre-created*\
+    Click this section to expand it, revealing SQL statements for pre-creating the database.
+    
+There are four SQL commands that look something like this:
+
+```
+CREATE DATABASE IF NOT EXISTS labbcat CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE USER 'labbcat'@'%' IDENTIFIED BY ...;
+GRANT ALL PRIVILEGES ON labbcat.* TO 'labbcat'@'%';
+GRANT PROCESS ON *.* TO 'labbcat'@'%';
+```
+
+(@) Back in you command shell on the server on which MariaDB is installed, start the *mysql* command line interface with the following command:\
+    `sudo mysql`\
+    This will display a command prompt something like: `MariaDB [(none)]>`
+(@) Copy and paste the four SQL commands from your browser into the MariaDB command prompt, and hit {< kbd Enter >} to execute all of them.
+(@) Exit from the MariaDDB command prompt with the following command:\
+    `exit`
+
+(@) Back in your browser, on the *web application self-installation* page, tick the box labelled:\
+    *The above database already exists, so don't create it.*
+(@) Press the *install* button.
+
+You should see a page listing steps that are being taken during the webapp installation, with\
+*Installation is complete.*\
+...printed at the bottom.
+
+After a short delay, the page will reload, and the LaBB-CAT home page will be displayed.
+
+LaBB-CAT is now installed on your server, and can be accessed with the URL shown in your browser.
+
+## Password Protection
+
+When first installed, LaBB-CAT can be accessed by anyone who has a browser connection to the server. You probably want to password-protect LaBB-CAT to restrict access. 
+
+Follow these optional steps to enable password protection:
+
+(@) Ensure that Tomcat itself can connect to the MariaDB database to authenticate users, using the following commands:\
+    `sudo cp /usr/local/tomcat9/webapps/labbcat/WEB-INF/lib/mysql-connector-java-latest.jar /usr/local/tomcat9/lib/`\
+    `sudo chown tomcat:tomcat /usr/local/tomcat9/lib/mysql-connector-java-latest.jar`
+(@) Open LaBB-CAT's *WEB-INF/web.xml* file with your favourite text editor, e.g.\
+    `sudo vim /usr/local/tomcat9/webapps/labbcat/WEB-INF/web.xml`
+(@) Delete the lines that contain the phrase `USER-SECURITY` - there should be two lines, one that opens an XML comment, and one that closes it.
+(@) Save the *web.xml* file.
+(@) Restart Tomcat to ensure the changes take effect, using the followiing command:\
+    `sudo systemctl restart tomcat.service`
+(@) In your web browser, open LaBB-CAT's home-page (or reload the page if it's already displayed).\
+    You should be asked for a username and password.\
+    (If you see an error instead, close your browser completely down and start it up again, and try again.)
+(@) Enter the username `labbcat` and the password `labbcat`.\
+    You should see a page asking you to change your password. 
+(@) Set your `labbcat` user's password to something memorable, and the LaBB-CAT home page will be displayed.
+
+LaBB-CAT is now password protected.
+
+You can add new users using the *users* link at the top of the page:
+
+1. Fill in the *User ID* box at the top of the page.
+1. Press the *New* button on the right.
+1. Set an initial password for the new user by entering it twice.
+1. Press the *Save* button that appears after you've entered the same new password twice.
+
+The new user will have read-only access to LaBB-CAT. If you want them to have more privileges, 
+you need to tick corresponding *Roles* checkboxes for their user:
+
+- *edit*: the user can upload transcripts and media, and set transcript/participant meta-data.
+- *admin*: the user can do anything at all,.
+- *export*: the user can export the whole LaBB-CAT instance's data, including transcripts, media, and annotations.

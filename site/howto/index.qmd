@@ -7,6 +7,7 @@ format:
 
 These pages describe how to achieve various common tasks in LaBB-CAT, including:
 
+- [Installation](install/index.qmd)
 - [Transcription](transcription/index.qmd)
 - [Phonemic Tagging](phonemic-tagging/index.qmd)
 - [Forced Alignment](forced-alignment/index.qmd)

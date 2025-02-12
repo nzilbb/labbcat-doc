@@ -24,6 +24,8 @@ website:
         text: LaBB-CAT Documentation
       - section: howto/index.qmd
         contents:
+          - section: "Installation"
+            contents: howto/install/*
           - section: "Transcription"
             contents: howto/transcription/*
           - href: howto/word-frequency/index.qmd

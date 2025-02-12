@@ -1,0 +1,11 @@
+---
+format:
+  html:
+    toc: false
+---
+# How to Install LaBB-CAT
+
+These pages include instructions on how to install LaBB-CAT on various operating systems:
+
+- [Red Hat Linux](rhel.qmd)
+
