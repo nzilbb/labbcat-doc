@@ -201,7 +201,7 @@ GRANT PROCESS ON *.* TO 'labbcat'@'%';
 (@) Back in you command shell on the server on which MariaDB is installed, start the *mysql* command line interface with the following command:\
     `sudo mysql`\
     This will display a command prompt something like: `MariaDB [(none)]>`
-(@) Copy and paste the four SQL commands from your browser into the MariaDB command prompt, and hit {< kbd Enter >} to execute all of them.
+(@) Copy and paste the four SQL commands from your browser into the MariaDB command prompt, and hit {{< kbd return >}} to execute all of them.
 (@) Exit from the MariaDDB command prompt with the following command:\
     `exit`
 
