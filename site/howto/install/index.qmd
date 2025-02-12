@@ -7,7 +7,7 @@ format:
 
 These pages include instructions on how to install LaBB-CAT on various operating systems:
 
-- [Windows](standalone-windows.qmd)
-- [Mac](standalone-mac.qmd)
 - [Red Hat Linux](rhel.qmd)
+- [Mac](standalone-mac.qmd)
+- [Windows](standalone-windows.qmd)
 
