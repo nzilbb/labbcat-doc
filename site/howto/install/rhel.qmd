@@ -19,8 +19,6 @@ i. Install LaBB-CAT webapp
 
 Install Tomcat 9, later versions are currently not tested.
 
-<!-- Adapted from: https://www.tecmint.com/install-apache-tomcat-in-rhel-8/ -->
-
 (@) Install JDK with the following command:\
    `sudo dnf install wget java-11-openjdk-devel`
 (@) Download and unpack the Tomcat software with the following commands:\
@@ -55,8 +53,6 @@ Restart=always
 [Install]  
 WantedBy=multi-user.target
 ```
-
-<!-- /usr/local/tomcat9/webapps -->
 
 (@) Remove example webapps that are installed by default:
     `sudo rm -r /usr/local/tomcat9/webapps/docs`
@@ -101,10 +97,11 @@ MariaDB on the same server as Tomcat.
 You can run Tomcat and MariaDB on different servers, just take the following steps on the other server, 
 and make sure communication between the Tomcat and MariaDB servers is enabled.
 
-<!--
-(@) `sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-(@) `sudo firewall-cmd --reload`
--->
+If you do this, then you will also have to execute the following commands on the MariaDB server:
+
+1. `sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+1. `sudo firewall-cmd --reload`
+
 :::
 
 (@) Install MariaDB with the following command:\
@@ -164,6 +161,8 @@ If you want to user HTK for forced alginment, you must install HTK on the server
    `make all`
    `sudo make install`
 
+\newpage 
+
 ## LaBB-CAT webapp
 
 Once Tomcat and MariaDB are installed, the LaBB-CAT web application can be installed, using the following steps:
@@ -218,7 +217,7 @@ After a short delay, the page will reload, and the LaBB-CAT home page will be di
 
 LaBB-CAT is now installed on your server, and can be accessed with the URL shown in your browser.
 
-## Password Protection
+### Password Protection
 
 When first installed, LaBB-CAT can be accessed by anyone who has a browser connection to the server. You probably want to password-protect LaBB-CAT to restrict access. 
 
