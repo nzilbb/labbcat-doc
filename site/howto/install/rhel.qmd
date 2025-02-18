@@ -222,6 +222,8 @@ After a short delay, the page will reload, and the LaBB-CAT home page will be di
 
 LaBB-CAT is now installed on your server, and can be accessed with the URL shown in your browser.
 
+\newpage
+
 ## Additional steps
 
 ### Password Protection
@@ -241,7 +243,7 @@ Follow these optional steps to enable password protection:
     `sudo systemctl restart tomcat.service`
 (@) In your web browser, open LaBB-CAT's home-page (or reload the page if it's already displayed).\
     You should be asked for a username and password.\
-    (If you see an error instead, close your browser completely down and start it up again, and try again.)
+    (If you see an error, close your browser completely down and start it up again)
 (@) Enter the username `labbcat` and the password `labbcat`.\
     You should see a page asking you to change your password. 
 (@) Set your `labbcat` user's password to something memorable, and the LaBB-CAT home page will be displayed.
@@ -258,9 +260,11 @@ You can add new users using the *users* link at the top of the page:
 The new user will have read-only access to LaBB-CAT. If you want them to have more privileges, 
 you need to tick corresponding *Roles* checkboxes for their user:
 
-- *edit*: the user can upload transcripts and media, and set transcript/participant meta-data.
-- *admin*: the user can do anything at all,.
-- *export*: the user can export the whole LaBB-CAT instance's data, including transcripts, media, and annotations.
+- *edit*: the user can upload transcripts, media, and transcript/participant meta-data.
+- *admin*: the user can do anything at all, and
+- *export*: the user can export a copy of the whole LaBB-CAT instance.
+
+\newpage 
 
 ### Tomcat integration with Apache
 
@@ -287,66 +291,56 @@ Steps to integrate Apache Web Server with Tomcat are are:
       `sudo vim /etc/tomcat/server.xml`
    1. Change the *Engine* tag to be:\
       `<Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">`
-   1. Comment **out** the connector for port 8080:
+   1. Comment **out** the connector for port 8080:\
       `<!-- <Connector port="8080" protocol="HTTP/1.1" redirectPort="8443" />  -->`
-   1. Comment **in** the connector for 8009, and set the attributes as follows:\
+   1. Comment **in** the connector for 8009, and set the attributes as follows:
       ```
       <Connector protocol="AJP/1.3"
-                address="127.0.0.1"
-                port="8009"
-                maxParameterCount="-1"
-                redirectPort="8443"
-                secretRequired="false"/>
+                 address="127.0.0.1"
+                 port="8009"
+                 maxParameterCount="-1"
+                 redirectPort="8443"
+                 secretRequired="false"/>
       ```
    1. Save the file.
 4. Create the Jk module configuration file */etc/httpd/conf.d/mod_jk.conf* with the following content:
-
-```
-LoadModule jk_module "/etc/httpd/modules/mod_jk.so"
-JkWorkersFile /etc/httpd/conf/workers.properties
-# Where to put jk shared memory
-JkShmFile     /var/run/httpd/mod_jk.shm
-# Where to put jk logs
-JkLogFile     /var/log/httpd/mod_jk.log
-# Set the jk log level [debug/error/info]
-JkLogLevel    info
-# Select the timestamp log format
-JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
-#JkRequestLogFormat "%w %V %T"
-#JkEnvVar SSL_CLIENT_V_START worker1
-```
-
+   ```
+   LoadModule jk_module "/etc/httpd/modules/mod_jk.so"
+   JkWorkersFile /etc/httpd/conf/workers.properties
+   JkShmFile     /var/run/httpd/mod_jk.shm
+   JkLogFile     /var/log/httpd/mod_jk.log
+   JkLogLevel    info
+   JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
+   #JkRequestLogFormat "%w %V %T"
+   #JkEnvVar SSL_CLIENT_V_START worker1
+   ```
 5. Create */var/run/mod_jk*:
    1. `sudo mkdir -p /var/run/mod_jk`
    2. `sudo chown apache:apache /var/run/mod_jk`
 6. Create the */etc/httpd/conf/workers.properties* file with the following content:
-
-```
-workers.apache_log=/var/log/httpd
-worker.list=app1Worker
-worker.stat1.type=status
-worker.app1Worker.type=ajp13
-worker.app1Worker.host=127.0.0.1
-worker.app1Worker.port=8009
-```
-
+   ```
+   workers.apache_log=/var/log/httpd
+   worker.list=app1Worker
+   worker.stat1.type=status
+   worker.app1Worker.type=ajp13
+   worker.app1Worker.host=127.0.0.1
+   worker.app1Worker.port=8009
+   ```
 7. Create the */etc/httpd/conf.d/tomcat.conf* file with the following content (substituting *example.com* with your server's host name):
-
-```
-<VirtualHost *:80>
-  ServerName example.com
-  ServerAdmin webmaster@example.com
-  LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" combined
-  CustomLog /var/log/httpd/tomcat.log combined
-  ErrorLog /var/log/httpd/tomcat.log
-  <IfModule mod_jk.c>
-     JkMount /* app1Worker
-     # so that certbot works:
-     JkUnMount /.well-known/*  app1Worker
-  </IfModule>
-</VirtualHost>
-```
-
+   ```
+   <VirtualHost *:80>
+     ServerName example.com
+     ServerAdmin webmaster@example.com
+     LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-agent}i\"" combined
+     CustomLog /var/log/httpd/tomcat.log combined
+     ErrorLog /var/log/httpd/tomcat.log
+     <IfModule mod_jk.c>
+        JkMount /* app1Worker
+        # so that certbot works:
+        JkUnMount /.well-known/*  app1Worker
+     </IfModule>
+   </VirtualHost>
+   ```
 8. Restarts Apache Web Server and Tomcat:
    1. `sudo service httpd restart`
    2. `sudo service tomcat restart`
