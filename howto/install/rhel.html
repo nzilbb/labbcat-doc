@@ -810,7 +810,7 @@ This will display a command prompt something like: <code>MariaDB [(none)]&gt;</c
 <code>sudo systemctl restart tomcat.service</code></li>
 <li>In your web browser, open LaBB-CAT’s home-page (or reload the page if it’s already displayed).<br>
 You should be asked for a username and password.<br>
-(If you see an error instead, close your browser completely down and start it up again, and try again.)</li>
+(If you see an error, close your browser completely down and start it up again)</li>
 <li>Enter the username <code>labbcat</code> and the password <code>labbcat</code>.<br>
 You should see a page asking you to change your password.</li>
 <li>Set your <code>labbcat</code> user’s password to something memorable, and the LaBB-CAT home page will be displayed.</li>
@@ -825,9 +825,9 @@ You should see a page asking you to change your password.</li>
 </ol>
 <p>The new user will have read-only access to LaBB-CAT. If you want them to have more privileges, you need to tick corresponding <em>Roles</em> checkboxes for their user:</p>
 <ul>
-<li><em>edit</em>: the user can upload transcripts and media, and set transcript/participant meta-data.</li>
-<li><em>admin</em>: the user can do anything at all,.</li>
-<li><em>export</em>: the user can export the whole LaBB-CAT instance’s data, including transcripts, media, and annotations.</li>
+<li><em>edit</em>: the user can upload transcripts, media, and transcript/participant meta-data.</li>
+<li><em>admin</em>: the user can do anything at all, and</li>
+<li><em>export</em>: the user can export a copy of the whole LaBB-CAT instance.</li>
 </ul>
 </section>
 <section id="tomcat-integration-with-apache" class="level3">
@@ -836,9 +836,9 @@ You should see a page asking you to change your password.</li>
 <p>Tomcat can be integrated with Apache, so that HTTP/HTTPS requests received by Apache are handled by Tomcat.</p>
 <p>Steps to integrate Apache Web Server with Tomcat are are:</p>
 <ol type="1">
-<li>Install package dependencies:<br>
-<code>sudo dnf install httpd-devel apr apr-devel apr-util apr-util-devel gcc gcc-c++ make autoconf libtool httpd-devel.x86_64</code></li>
-<li>Download and install Jk:
+<li><p>Install package dependencies:<br>
+<code>sudo dnf install httpd-devel apr apr-devel apr-util apr-util-devel gcc gcc-c++ make autoconf libtool httpd-devel.x86_64</code></p></li>
+<li><p>Download and install Jk:</p>
 <ol type="1">
 <li><code>sudo mkdir -p /opt/mod_jk/</code></li>
 <li><code>cd /opt/mod_jk/</code></li>
@@ -850,54 +850,45 @@ You should see a page asking you to change your password.</li>
 <li><code>sudo libtool --finish /usr/lib64/httpd/modules</code></li>
 <li><code>sudo cp ./apache-2.0/mod_jk.so /etc/httpd/modules/mod_jk.so</code></li>
 </ol></li>
-<li>Configure Tomcat to accept connections from Apache:
+<li><p>Configure Tomcat to accept connections from Apache:</p>
 <ol type="1">
 <li><p>Open <em>/etc/tomcat/server.xml</em> with your favourite text editor, e.g.<br>
 <code>sudo vim /etc/tomcat/server.xml</code></p></li>
 <li><p>Change the <em>Engine</em> tag to be:<br>
 <code>&lt;Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1"&gt;</code></p></li>
-<li><p>Comment <strong>out</strong> the connector for port 8080: <code>&lt;!-- &lt;Connector port="8080" protocol="HTTP/1.1" redirectPort="8443" /&gt;  --&gt;</code></p></li>
-<li><p>Comment <strong>in</strong> the connector for 8009, and set the attributes as follows:<br>
-</p>
+<li><p>Comment <strong>out</strong> the connector for port 8080:<br>
+<code>&lt;!-- &lt;Connector port="8080" protocol="HTTP/1.1" redirectPort="8443" /&gt;  --&gt;</code></p></li>
+<li><p>Comment <strong>in</strong> the connector for 8009, and set the attributes as follows:</p>
 <pre><code>&lt;Connector protocol="AJP/1.3"
-          address="127.0.0.1"
-          port="8009"
-          maxParameterCount="-1"
-          redirectPort="8443"
-          secretRequired="false"/&gt;</code></pre></li>
+           address="127.0.0.1"
+           port="8009"
+           maxParameterCount="-1"
+           redirectPort="8443"
+           secretRequired="false"/&gt;</code></pre></li>
 <li><p>Save the file.</p></li>
 </ol></li>
-<li>Create the Jk module configuration file <em>/etc/httpd/conf.d/mod_jk.conf</em> with the following content:</li>
-</ol>
+<li><p>Create the Jk module configuration file <em>/etc/httpd/conf.d/mod_jk.conf</em> with the following content:</p>
 <pre><code>LoadModule jk_module "/etc/httpd/modules/mod_jk.so"
 JkWorkersFile /etc/httpd/conf/workers.properties
-# Where to put jk shared memory
 JkShmFile     /var/run/httpd/mod_jk.shm
-# Where to put jk logs
 JkLogFile     /var/log/httpd/mod_jk.log
-# Set the jk log level [debug/error/info]
 JkLogLevel    info
-# Select the timestamp log format
 JkLogStampFormat "[%a %b %d %H:%M:%S %Y] "
 #JkRequestLogFormat "%w %V %T"
-#JkEnvVar SSL_CLIENT_V_START worker1</code></pre>
-<ol start="5" type="1">
-<li>Create <em>/var/run/mod_jk</em>:
+#JkEnvVar SSL_CLIENT_V_START worker1</code></pre></li>
+<li><p>Create <em>/var/run/mod_jk</em>:</p>
 <ol type="1">
 <li><code>sudo mkdir -p /var/run/mod_jk</code></li>
 <li><code>sudo chown apache:apache /var/run/mod_jk</code></li>
 </ol></li>
-<li>Create the <em>/etc/httpd/conf/workers.properties</em> file with the following content:</li>
-</ol>
+<li><p>Create the <em>/etc/httpd/conf/workers.properties</em> file with the following content:</p>
 <pre><code>workers.apache_log=/var/log/httpd
 worker.list=app1Worker
 worker.stat1.type=status
 worker.app1Worker.type=ajp13
 worker.app1Worker.host=127.0.0.1
-worker.app1Worker.port=8009</code></pre>
-<ol start="7" type="1">
-<li>Create the <em>/etc/httpd/conf.d/tomcat.conf</em> file with the following content (substituting <em>example.com</em> with your server’s host name):</li>
-</ol>
+worker.app1Worker.port=8009</code></pre></li>
+<li><p>Create the <em>/etc/httpd/conf.d/tomcat.conf</em> file with the following content (substituting <em>example.com</em> with your server’s host name):</p>
 <pre><code>&lt;VirtualHost *:80&gt;
   ServerName example.com
   ServerAdmin webmaster@example.com
@@ -909,9 +900,8 @@ worker.app1Worker.port=8009</code></pre>
      # so that certbot works:
      JkUnMount /.well-known/*  app1Worker
   &lt;/IfModule&gt;
-&lt;/VirtualHost&gt;</code></pre>
-<ol start="8" type="1">
-<li>Restarts Apache Web Server and Tomcat:
+&lt;/VirtualHost&gt;</code></pre></li>
+<li><p>Restarts Apache Web Server and Tomcat:</p>
 <ol type="1">
 <li><code>sudo service httpd restart</code></li>
 <li><code>sudo service tomcat restart</code></li>
