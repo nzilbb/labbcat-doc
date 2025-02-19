@@ -341,9 +341,13 @@ Steps to integrate Apache Web Server with Tomcat are are:
      </IfModule>
    </VirtualHost>
    ```
-8. Restarts Apache Web Server and Tomcat:
+8. Restart Tomcat and Apache Web Server:
+   1. `sudo service tomcat restart`
    1. `sudo service httpd restart`
-   2. `sudo service tomcat restart`
+9. If you are using SElinux, you may see an error when restarting `httpd`.  If so, execute the following commands:
+   1. `sudo ausearch -c 'httpd' --raw | audit2allow -M my-httpd`
+   1. `sudo semodule -i my-httpd.pp`
+   1. `sudo service httpd restart`
 
 Now ordinary browser connections like `http://example.com/labbcat` should show the LaBB-CAT home page, 
 and if you have HTTPS configured with an SSL certificat, encrypted connections like `https://example.com/labbcat` should work.
