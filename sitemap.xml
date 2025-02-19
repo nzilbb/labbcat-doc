@@ -2,282 +2,282 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.668Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.480Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/workflow/upload-align-htk.html</loc>
-    <lastmod>2025-02-18T22:56:09.668Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.480Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/install/rhel.html</loc>
-    <lastmod>2025-02-18T22:56:09.647Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.459Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/install/standalone-windows.html</loc>
-    <lastmod>2025-02-18T22:56:09.647Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.459Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/manual-annotation/doccano.html</loc>
-    <lastmod>2025-02-18T22:56:09.658Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.471Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/elan-language.html</loc>
-    <lastmod>2025-02-18T22:56:09.664Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.664Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/elan.html</loc>
-    <lastmod>2025-02-18T22:56:09.664Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/celex.html</loc>
-    <lastmod>2025-02-18T22:56:09.660Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/unisyn.html</loc>
-    <lastmod>2025-02-18T22:56:09.661Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/cmudict.html</loc>
-    <lastmod>2025-02-18T22:56:09.660Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/multilingual-corpora.html</loc>
-    <lastmod>2025-02-18T22:56:09.661Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/g2p.html</loc>
-    <lastmod>2025-02-18T22:56:09.660Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/aligned-data/articulation-rate.html</loc>
-    <lastmod>2025-02-18T22:56:09.620Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.432Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/fragment-htk-annotator-installation.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/correction-praat.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/fragment-htk-installation.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/correction-emu.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/compare.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/mfa-train-align.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.446Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/corpus-management/change-corpus.html</loc>
-    <lastmod>2025-02-18T22:56:09.621Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.434Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/corpus-management/participant-deduplication.html</loc>
-    <lastmod>2025-02-18T22:56:09.622Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.434Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/2-upload-data.html</loc>
-    <lastmod>2025-02-18T22:56:09.675Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.487Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/1-install-and-configure-labb-cat.html</loc>
-    <lastmod>2025-02-18T22:56:09.675Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.487Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/3-basic-searching.html</loc>
-    <lastmod>2025-02-18T22:56:09.675Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.488Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/demo/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.672Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.485Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/4-searching.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/9-aligned-data.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.482Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/7a-lexicon-celex.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/8a-forced-alignment-htk.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.482Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/5-manual-annotation.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/8b-forced-alignment-mfa.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.482Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/7-lexicon.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/about.html</loc>
-    <lastmod>2025-02-18T22:56:09.619Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.431Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/8-forced-alignment.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.482Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/2-setting-up.html</loc>
-    <lastmod>2025-02-18T22:56:09.668Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/3-uploading-data.html</loc>
-    <lastmod>2025-02-18T22:56:09.668Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/1-installation.html</loc>
-    <lastmod>2025-02-18T22:56:09.668Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.670Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.482Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/7b-lexicon-cmudict.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/course/6-automatic-annotation.html</loc>
-    <lastmod>2025-02-18T22:56:09.669Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.481Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/demo/2-layers.html</loc>
-    <lastmod>2025-02-18T22:56:09.672Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.484Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/demo/1-exploration.html</loc>
-    <lastmod>2025-02-18T22:56:09.671Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.484Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html</loc>
-    <lastmod>2025-02-18T22:56:09.675Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.488Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.675Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.488Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/worksheets/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.676Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.489Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/corpus-management/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.621Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.434Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/fragment-mfa-installation.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/htk-train-align.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/htk-p2fa.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/fragment-mfa-annotator-installation.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/identifying-unaligned-utterances.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/mfa-pretrained-models.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/forced-alignment/bas-services-manager.html</loc>
-    <lastmod>2025-02-18T22:56:09.632Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.445Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/aligned-data/syllables.html</loc>
-    <lastmod>2025-02-18T22:56:09.621Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.434Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/aligned-data/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.620Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.432Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/character-mapper.html</loc>
-    <lastmod>2025-02-18T22:56:09.660Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.661Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/spanish.html</loc>
-    <lastmod>2025-02-18T22:56:09.661Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/phonemic-tagging/flat-file.html</loc>
-    <lastmod>2025-02-18T22:56:09.660Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.473Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/praat.html</loc>
-    <lastmod>2025-02-18T22:56:09.664Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/salt.html</loc>
-    <lastmod>2025-02-18T22:56:09.664Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/transcription/tei.html</loc>
-    <lastmod>2025-02-18T22:56:09.665Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.477Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.633Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.446Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/install/standalone-mac.html</loc>
-    <lastmod>2025-02-18T22:56:09.647Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.459Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/install/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.639Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.452Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/pos-tagging/stanford-pos-tagger.html</loc>
-    <lastmod>2025-02-18T22:56:09.661Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.474Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/workflow/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.667Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.479Z</lastmod>
   </url>
   <url>
     <loc>https://nzilbb.github.io/labbcat-doc/howto/word-frequency/index.html</loc>
-    <lastmod>2025-02-18T22:56:09.666Z</lastmod>
+    <lastmod>2025-02-19T13:55:50.479Z</lastmod>
   </url>
 </urlset>

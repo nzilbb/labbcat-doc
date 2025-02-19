@@ -901,10 +901,16 @@ worker.app1Worker.port=8009</code></pre></li>
      JkUnMount /.well-known/*  app1Worker
   &lt;/IfModule&gt;
 &lt;/VirtualHost&gt;</code></pre></li>
-<li><p>Restarts Apache Web Server and Tomcat:</p>
+<li><p>Restart Tomcat and Apache Web Server:</p>
 <ol type="1">
-<li><code>sudo service httpd restart</code></li>
 <li><code>sudo service tomcat restart</code></li>
+<li><code>sudo service httpd restart</code></li>
+</ol></li>
+<li><p>If you are using SElinux, you may see an error when restarting <code>httpd</code>. If so, execute the following commands:</p>
+<ol type="1">
+<li><code>sudo ausearch -c 'httpd' --raw | audit2allow -M my-httpd</code></li>
+<li><code>sudo semodule -i my-httpd.pp</code></li>
+<li><code>sudo service httpd restart</code></li>
 </ol></li>
 </ol>
 <p>Now ordinary browser connections like <code>http://example.com/labbcat</code> should show the LaBB-CAT home page, and if you have HTTPS configured with an SSL certificat, encrypted connections like <code>https://example.com/labbcat</code> should work.</p>
