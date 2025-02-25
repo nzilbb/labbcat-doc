@@ -64,6 +64,8 @@ website:
           - section: howto/corpus-management/index.qmd
             contents: howto/corpus-management/*
           - href: howto/manual-annotation/doccano.qmd
+          - href: howto/cite.qmd
+            text: Cite
       - section: worksheets/index.qmd
         contents: 
           - section: worksheets/demo/index.qmd
