@@ -25,7 +25,15 @@ website:
       - section: howto/index.qmd
         contents:
           - section: "Installation"
-            contents: howto/install/*
+            contents:
+              - href: howto/install/standalone-windows.qmd
+                text: Windows
+              - href: howto/install/standalone-mac.qmd
+                text: Mac
+              - href: howto/install/rhel.qmd
+                text: Red Hat Linux
+              - href: howto/install/praat/praat-browser.qmd
+                text: Praat Browser Extension
           - section: "Transcription"
             contents: howto/transcription/*
           - href: howto/word-frequency/index.qmd

@@ -11,3 +11,10 @@ These pages include instructions on how to install LaBB-CAT on various operating
 - [Mac](standalone-mac.qmd)
 - [Windows](standalone-windows.qmd)
 
+## Praat Browser Integration
+
+When you are browsing a LaBB-CAT corpus (either installed on your own computer or on a server),
+the transcript page can integrate directly with Praat so that you can open utterance in Praat
+directly from your browser.
+
+- [Installing Praat Browser Integration](praat/praat-browser.qmd)
