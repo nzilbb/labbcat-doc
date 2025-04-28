@@ -28,12 +28,34 @@ Or to cite specific versions, see [below](#versions).
 
 ## Publications
 
+[Robert Fromont, Lynn Clark, Joshua Wilson Black, & Margaret Blackwood (2023)](https://ldr.lps.library.cmu.edu/article/id/672/)
+*Maximizing accuracy of forced alignment for spontaneous child speech*,
+Language Development Research, Volume 3, Issue 1, 2023,
+DOI: [10.34842/SHRR-SV10](https://doi.org/10.34842/shrr-sv10)
+
+```
+@article{FromontEtAl2023,
+	author = {Robert Fromont and Lynn Clark and Joshua Wilson Black and Margaret Blackwood},
+	title = {Maximizing accuracy of forced alignment for spontaneous child speech},
+	volume = {3},
+	year = {2023},
+	url = {http://ldr.lps.library.cmu.edu/article/id/672/},
+	issue = {1},
+	doi = {10.34842/shrr-sv10},
+	month = {9},
+	pages = {182-210},
+	issn = {2771-7976},
+	publisher ={Carnegie Mellon University Library Publishing Service},
+	journal = {Language Development Research}
+}
+```
+
 [Ksenia Gnevsheva, Simon Gonzalez & Robert Fromont (2020)](https://www.tandfonline.com/doi/full/10.1080/07268602.2020.1737507), 
 *Australian English Bilingual Corpus: Automatic forced-alignment accuracy in Russian and English*, 
 Australian Journal of Linguistics, DOI: [10.1080/07268602.2020.1737507](https://doi.org/10.1080/07268602.2020.1737507)
 
 ```
-@article{doi:10.1080/07268602.2020.1737507,
+@article{GnevshevaEtAl2020,
   author = {Ksenia Gnevsheva and Simon Gonzalez and Robert Fromont},
   title = {{Australian English Bilingual Corpus: Automatic forced-alignment accuracy in Russian and English}},
   journal = {Australian Journal of Linguistics},
