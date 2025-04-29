@@ -82,7 +82,7 @@ configuring the layer.
 
 (@) Once the layer has finished generating, select the *transcripts* menu
     option, and open the first transcript in the list.
-(@) Tick the *CELEX* project, and then tick your new *morphology*
+(@) On the *Layers* tab, tick the *CELEX* project, and then tick your new *morphology*
     layer.\
     You will see that each word is tagged with morphological
     information.
@@ -127,7 +127,7 @@ Now we will create a layer for syntactic categories from CELEX.
 (@) Once the layer has finished generating, go to the search page and do
     a search for the word "fine" on the *orthography* layer.
 (@) Open the transcript of the first match.
-(@) Tick the syntactic category layer to display the annotations that
+(@) On the *Layers* tab, tick the syntactic category layer to display the annotations that
     have just been computed.
 (@) Now find your instance of the word "fine" again (it's highlighted
     in the transcript text).\
@@ -234,12 +234,13 @@ symbols. However, CELEX doesn't use IPA symbols directly, it
 actually uses the 'DISC' encoding for phonemes, which uses ordinary
 'typewriter' characters (ASCII), and uses exactly one character per
 phoneme. The IPA symbols are being displayed by LaBB-CAT to provide
-a linguist-friendly representation of the phonemic transcription.
-But you can see the underlying DISC characters by selecting the
-*Raw* option on the layer in the transcript.
+a linguist-friendly interpretation of the phonemic transcription.
+But you can disable this to see the underlying DISC characters by de-selecting the
+'interpretation' option on the layer in the transcript.
 
-(@) Select *Raw* on the *phonemes* layer, to see what CELEX is
-    actually producing.
+(@) On the *Layers* tab, immediately to the right of the *phonemes* layer, 
+    there is a tags icon ![](interpretation-option.png). \
+    Hover the mouse over it to check the description, and then click it.
 
 You may find that this is somewhat harder to read. Diphthongs are
 generally represented by digits, schwa is `@`, and various other
@@ -310,9 +311,10 @@ words against *all their possible phonemic transcriptions*, so if
 CELEX has multiple possible pronunciations for a word, and one of
 them starts with schwa, it will be matched.
 
-You can check this by clicking on a match, and then clicking on the
-word in the transcript and selecting *Edit*, which displays all the
-annotations for the given token.
+You can check this by clicking on a match, and then hovering your mouse
+over the phonemic transcription above the matching token.
+This displays all the annotations for the given token, i.e. in this case 
+all the possible pronunciations of that word.
 
 Now that we have phonemic transcripts, we can do a better job of the
 search we tried in an earlier exercise -- "the" followed by a

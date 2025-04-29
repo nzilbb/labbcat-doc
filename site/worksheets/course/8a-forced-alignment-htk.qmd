@@ -367,8 +367,7 @@ ii. Follow the instructions that appear (these vary depending on what
 Now Praat integration has been set up, and you should be able to
 access Praat options in the transcript page from now on...
 
-(@) Click on a line that has been aligned, and select the *Open Text
-    Grid in Praat* option on the menu.\
+(@) Click on a line that has been aligned, and select the *Open TextGrid* option on the menu.\
     You may be asked you if want to allow access to the "LaBB-CAT
     Integration Applet" - if so, tick "Do not show this again", and
     click *Allow*.

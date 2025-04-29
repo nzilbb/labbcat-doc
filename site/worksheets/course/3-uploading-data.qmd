@@ -25,122 +25,131 @@ so you\'ve got the demonstration data for uploading to your corpus.
 
 ### Manual Upload
 
-(@) In LaBB-CAT, click the *transcripts* option in the menu.
-(@) Press the *Upload Transcript* icon at the bottom.
-(@) Press the left-hand *Choose File* button and select the file in the
-    "QuakeStories" folder called:\
-    "BR178LK_MargaretSpencer.eaf"\
-    When you select a file, a new row of *Choose File* buttons will
-    appear below the first. This is for adding more transcripts in the
-    'episode'. An 'episode' is a set of transcripts that belong together
-    because they were recorded during the same session. In our case,
-    each recording session has only one recording.
-(@) Next to *Media* on the first row, click *Choose File*
-(@) Each transcript has an audio file and a video file, and you want to
-    upload both.\
-    Click the file called "BR178LK_MargaretSpencer.mp4", then hold down
-    the {{< kbd Shift >}} key on your keyboard and click the file called
-    "BR178LK_MargaretSpencer.wav". Then click *Open*.
-(@) Ensure the *Corpus* option is *QB*
-(@) Ensure the *Type* option is *interview*
-(@) Click *Upload*
+(@) In LaBB-CAT, select the *transcripts* option in the menu.
+(@) Press the *Upload Transcript* icon.
+
+You will see a page with some options to select on the top left,
+buttons on the top right, and in a middle, a rectangle with a dashed border;
+this is the 'upload queue', which lists files we want to upload.
+
+(@) In the top left corner of the 'upload queue' rectangle, there's a *Choose Files* button; press it, and select the file in the
+    "QuakeStories" folder called `BR178LK_MargaretSpencer.eaf`
+
+You will see that the transcript file is listed in the 'upload queue'. 
+We want to upload not only the transcript, but also its associated media files.
+Each transcript has an audio file and a video file, and you want to upload both.
+
+(@) Press *Choose Files* button again, and in the same "QuakeStories" folder 
+    click the file called `BR178LK_MargaretSpencer.mp4`, then hold down
+    the {{< kbd win=Ctrl linux=Ctrl mac=command >}} key on your keyboard and click the file called
+    `BR178LK_MargaretSpencer.wav` so that both files are selected.
+(@) Then press *Open* (or in some browsers the button to select files is labelled *Upload*).\
+    You will see that next to the `BR178LK_MargaretSpencer.eaf` transcriopt, under the
+    *Media* heading, two media types are now show; "mp4" and "wav".
+(@) To the right of this, ensure the *Corpus* option is *QB*
+(@) Also ensure the *Type* option is *interview*
+(@) Leave the other options with the default values and press the *Upload* button above.\
+    You will see that, on the right, a progress bar shows 50% progress, 
+    and below the transcript in the upload queue, a number of options have appeared.
 
 Each ELAN transcript has a number of Tiers defined in it:
 
 -   one for the participant\'s utterances,
--   another for an 'interviewer' if there is one,
+-   another for an 'interviewer' if there is one,›
 -   one for noise annotations,
 -   one for transcriber comments, and
 -   one for topic annotations.
 
 Each tier must be mapped to a LaBB-CAT annotation layer.
 
-(@) LaBB-CAT has analysed the structure of the ELAN transcript and
-    pre-selected some default options for layer mappings. For the demo
-    data, these defaults are correct, so you needn't change anything.\
-    Click *Next* to continue.\
-    This will display a page listing all the speakers in the transcript,
-    so you can select which one is the 'main participant', which is the
-    speaker selected by default for searches and other processing.
-(@) Ensure that *BR178LK_MargaretSpencer* is ticked, and the
-    interviewer is not ticked, and click *Set Main Participants*.\
-    This will display a page with the name of transcript you uploaded,
-    with an *edit meta-data* link, and a progress bar (which may have
-    already finished).
-(@) Click *edit meta data*\
-    This will display the attributes for the transcript.
-(@) Check that you remembered to set *Type* to *interview*. If not, you
-    can fix that on this page, and press the  *Save* button that appears when you make changes.
-(@) Below the transcript attributes is a *Participants* link -- click it.\
+LaBB-CAT has analysed the structure of the ELAN transcript and
+pre-selected some default options for layer mappings. For this
+data, these defaults are correct, so you needn't change anything.
+
+![](map-tiers-to-layers.png){title="ELAN tiers are listed on the left, and corresponding LaBB-CAT layers can be assigned on the right"}
+
+(@) Press *Save* to continue.\
+    You will see that the progress bar on the right continues, and after a short delay, 
+    the progress is complete, and the *Status* is listed as "Finished."
+(@) The name of the transcript on the left, *BR178LK_MargaretSpencer.eaf*, is now a link. Click it.
+
+You will see a page with transcript text, and the video appears in the top right corner of the page.
+
+(@) Press the play button on the video.\
+    As the video plays, you will see the current utterance highlighted in the transcript. 
+    You will also see that the current utterance appears as closed captions in the video. 
+    You can use the video controls as normal, including the *full-screen* button 
+    to make the video occupy the whole screen.
+(@) Pause the recording.
+(@) Click one of the transcript lines further down the transcript.\
+    A menu will appear.
+(@) Select the 'Play' option on the menu.\
+    You will see that playback starts at that line. 
+    Playback will stop when the participant finishes the utterance.
+(@) Select the *Formats* tab at the top of the transcript.\
+    You will see a list of formats for exporting the transcript to.
+(@) Select *Plain Text Document*
+(@) Save the resulting file and then open it.\
+    You will see the transcript in plain-text form.
+(@) If you have Praat installed on your computer, click the *formats*
+    link, and select the *Praat Text Grid* option. Save the resulting
+    file on your desktop, and then open it with Praat.\
+    You will see that the TextGrid has various tiers, one for whole
+    utterances (or two if there are two speakers), and one for
+    individual words (or two if there are two speakers).
+(@) Back on the transcript page, select the *Attributes* tab at the top right.\
+    This will display the attributes for the transcript 
+    (some of the attribute values are not set because the information 
+    was not in the .eaf transcript file)
+(@) Now select the *Participants* tab on the top right.\
     This will list both participants in the recording, the main participant, and the interviewer.
 (@) Click *BR178LK_MargaretSpencer*.\
-    This will display the participant attributes we defined in an earlier exercise.
-(@) BR178LK_MargaretSpencer is an 'English'-speaking 'female' who is
+    This will display the participant meta-data. There's not much here yet; we will be adding participant 
+    attributes soon. However, we can at least set the participant's gender now.
+(@) *BR178LK_MargaretSpencer* is an 'English'-speaking 'Female' who is
     between '66 and 75 years' old, who grew up in 'Christchurch', in the
     'North Canterbury' region of 'New Zealand\'.\
-    Set her attributes to reflect that, and click *Save*.
-(@) Below the participant attributes, there is a *Transcripts* link -- click it.\
-    You will see a list of transcripts that the speaker appears in (in this case, only one). 
-(@) Each has various icons on the right; hover your mouse over each icon, and a 'tip' will appear 
-    that describes what the link does.
-(@) Click name of the *BR178LK_MargaretSpencer.eaf* transcript.
+    Set her attributes to reflect that, and press *Save*.
 
-You will now see LaBB-CAT\'s 'interactive transcript' page for the transcript.
-    
-At the top there is a heading, a list of speakers, and then below
-this, the lines from the transcript, their speakers in the margin.
-This includes the words the participants utter, and also any noises,
-comments, and other events that were put in the transcript in
-ELAN.
+You have now manually uploaded one transcript, checked the ELAN-tier to LaBB-CAT layer mappings 
+and manually specified the meta-data for one participant. 
 
-(@) In the top right corner are some playback controls; click the play
-    button. You will see a shaded rectangle following the participant\'s
-    speech.
-(@) Try the other controls to see what they do.
-(@) Now click on any word in the transcript.\
-    You will see a menu appear, with options for the 'Utterance' (the line), and the word.
-(@) Click the play option in the menu to see what it does.
-(@) Click on the *formats* link under the title.\
-    You will see a menu, which includes various formats for exporting
-    the transcript.
-(@) Select 'Plain Text Document'
-(@) Save the resulting file on your desktop, and then open it.\
-    You will see the transcript in plain-text form.
-(@) Click the *formats* link, and select the 'Praat Text Grid' option.
-(@) Save the resulting file on your desktop, and then open it with Praat.\
-    You will see that the TextGrid has various tiers, two for full utterances
-    (one for each speaker), and two for individual words (one for each speaker).\
-    (You will see that each individual word has     a 'default'
-    alignment - i.e. the words are evenly spread out during the duration
-    of the line they're in. In a later exercise we will look at ways to
-    make these word alignments actually line up with the words in the
-    audio signal.)
-
-### Batch Upload
+## Automated Upload
 
 If you already have a collection of transcripts and media files (which
 we have for these exercises), and they are systematically organized
 (which they are), you may be able to save some manual uploading work by
-uploading them using the 'batch upload' utility.
+uploading them using the 'automated upload' option.
 
-(@) In LaBB-CAT, click the *transcripts* option in the menu.
-(@) Press the *Upload Transcript Batch* icon at the bottom.\
-    This shows a window with a large blank area in the middle with
-    various buttons above it.
+(@) When you clicked the name of the transcript to open it after uploading, 
+    a new browser tab was opened. Close that tab now to take you back to the upload queue.
+(@) Most of the transcripts we are going to upload are monologues, so in the *Defaults* box
+    on the top left, set *Transcript Type* to *monologue*.
 (@) Open Windows Explorer or Finder, and navigate to the LaBB-CAT
     Workshop data folder.
 (@) Drag the folder called "QuakeStories", and drop it on to LaBB-CAT,
-    on to the blank area below the buttons.\
-    The previously blank area will contain a list of transcripts. Each
-    transcript should have a value filled in for each column -
-    *Transcript*, *Media*, *Corpus*, and *Episode*.
-(@) Most of the transcripts are monologues, so set *Type* to *monologue*
-    on the top left.
-(@) One of the transcript is highlighted in orange, and the *Status*
-    says "Already exists" - this is the transcript you manually
-    uploaded. We don't need to upload it again, so remove it from the
-    list by using the *x* button on the right hand side of that row.
-(@) Click the *Upload* button above the list.\
+    on to the upload queue area below the buttons (the rectangle with the dashed border).
+    
+The upload queue will now contain a longer list of transcripts. Each
+transcript should have a value filled in for each column -
+*Transcript*, *Media*, *Corpus*, *Episode*, and *Type*.
+
+![](batch-uploader.png){title="ELAN transcript files are listed with their media and other inferred attributes"}
+    
+(@) The first transcript, *BR178LK_MargaretSpencer.eaf*, has already been uploaded,
+    and we don't want to upload it again. Remove it from the
+    list by using the `➖` button on the right hand side of that row.
+
+When we uploaded manually before, we saw a list of ELAN tiers and their correspondences
+to LaBB-CAT layers. The options had default values, but we had to manually confirm
+the choices that LaBB-CAT had made about how to interpret the ELAN tiers.
+
+The *Automated Upload* option allows LaBB-CAT to automatically use these default selections,
+instead of asking us to manually confirm them for every transcript. 
+For this corpus, the default options that LaBB-CAT automatically selects will always be correct.
+
+(@) Tick the *Automated Upload* checkbox in the *Defaults* box on the top left.
+(@) Press the *Upload* button above the list.\
     You will see that in the *Status* column, the text changes to
     "Uploading..." for the first transcript. The progress bar
     progresses, and once it\'s complete, the next transcript changes to
@@ -149,24 +158,23 @@ uploading them using the 'batch upload' utility.
 ::: {.callout-tip}
 
 While the files are uploading, click ![](help.png) the online help
-link next to the upload transcript batch link you clicked above and
-read the conditions that must be met in order to use the batch
-uploader.
+link at the top of the page to the right of the menu and
+check preconditions for uploading, and other functions the upload page can perform.
 
 :::
 
-(@)  Once the uploader is finished, you will receive a CSV report file
+(@) Once the uploader is finished, you will receive a CSV 'upload report' file
     that lists the files you uploaded and their upload status. (If there
     had been any problems with the upload, the resulting error messages
     would be included in this report for following up.)
-(@) You can verify that all the transcripts are there by clicking the
+(@) You can verify that all the transcripts are there by selecting the
     *transcripts* option on the menu in LaBB-CAT.\
     You should see a list of twenty transcripts.
-(@) Use the *Transcript* box to find `UC013AM_Dom.eaf` (You can type
-    just part of the name if you like)
-(@) Click the *Attributes* icon for *UC013AM_Dom.eaf* (the one with
-    the spanner/wrench 🔧 on it).
-(@) Change *Transcript type* to *interview* and click *Save*.
+(@) Use the *Transcript* box to find `UC013AM_Dom.eaf`\
+    (you can type just part of the name if you like).
+(@) press the *Attributes* icon for *UC013AM_Dom.eaf*\
+    (on the far right of the row).
+(@) Change *Transcript type* to *interview* and press *Save*.
 (@) Similarly, the following transcripts are interviews, so change their type accordingly
     -   UC215YW_DanielaMaoate-Cox.eaf
     -   UC226AD.eaf
@@ -209,14 +217,14 @@ file) that we can upload in one go.
         LaBB-CAT attribute
     -   The CSV column **languagesSpoken:** → the *languagesSpoken*
         LaBB-CAT attribute
-(@) Click *import*.\
+(@) Press *import*.\
     You should see a page with information about the import, including
     the columns that were ignored, and the number of participants that
     were added.
 
 To check the participant attributes really are now set:
 
-(@) Click the *participants* option on the menu.
+(@) Select the *participants* option on the menu.
     You will see a list of speakers, and page links at the bottom.
 
 The page also includes participant attribute values where they are known.
@@ -308,7 +316,7 @@ Next we'll define what demographic information we will ask
 each participant before they start recording. In this case, we will
 ask for their gender and what languages they speak.
 
-(@) Click the ![](add.png) button to add a new step.
+(@) Press the ![](add.png) button to add a new step.
 (@) Fill in the following details:
     -   **Show:** *Always*
     -   **Countdown Seconds:** 0
@@ -317,7 +325,7 @@ ask for their gender and what languages they speak.
     -   **Elicit:** *Attribute Value*
     -   **Attribute:** *participant_languagesSpoken*
     -   **Image/Video:** *no image/video*
-(@) Click the ![](add.png) button to add a new step
+(@) Press the ![](add.png) button to add a new step
 (@) Fill in the following details:
     -   **Show:** *Always*
     -   **Countdown Seconds:** 0
@@ -329,7 +337,7 @@ ask for their gender and what languages they speak.
 
 Now we can defined some prompts for them to read aloud.
 
-(@) Click the ![](add.png) button to add a new step
+(@) Press the ![](add.png) button to add a new step
 (@) Fill in the following details:
     -   **Show:** *Always*
     -   **Countdown Seconds:** 0
@@ -341,7 +349,7 @@ Now we can defined some prompts for them to read aloud.
     -   **Next Button:** *Shown*
     -   **Rerecord Button:** *Hidden*
     -   **Image/Video:** *no image/video*
-(@) Click the ![](add.png) button to add a new step
+(@) Press the ![](add.png) button to add a new step
 (@) Fill in the same details as the previous step, except:\
     **Transcript:** `2. boot booed boo tune dune`
 (@) Add a new step for **Transcript:** `3. bird curt burn`
@@ -358,7 +366,7 @@ Now we can defined some prompts for them to read aloud.
 
 This last step is what is displayed to the participant when they've finished all the steps.
 
-(@) Click *Save Changes*\
+(@) Press *Save Changes*\
     *![](TaskDefinition.png)*\
 
 Your task is almost ready. We just need to define which options for

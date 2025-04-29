@@ -79,12 +79,12 @@ Now that we have a basic structure for the data, we are going to look at how to 
     "QuakeStories" folder called `BR178LK_MargaretSpencer.eaf`
 
 You will see that the transcript file is listed in the 'upload queue'. 
-We want to upload no only the transcript, but also its associated media files.
+We want to upload not only the transcript, but also its associated media files.
 Each transcript has an audio file and a video file, and you want to upload both.
 
 (@) Press *Choose Files* button again, and in the same "QuakeStories" folder 
     click the file called `BR178LK_MargaretSpencer.mp4`, then hold down
-    the {{< kbd win=Ctrl linus=Ctrl mac=command >}} key on your keyboard and click the file called
+    the {{< kbd win=Ctrl linux=Ctrl mac=command >}} key on your keyboard and click the file called
     `BR178LK_MargaretSpencer.wav` so that both files are selected.
 (@) Then press *Open* (or in some browsers the button to select files is labelled *Upload*).\
     You will see that next to the `BR178LK_MargaretSpencer.eaf` transcriopt, under the
@@ -163,7 +163,7 @@ uploading them using the 'automated upload' option.
 
 (@) When you clicked the name of the transcript to open it after uploading, 
     a new browser tab was opened. Close that tab now to take you back to the upload queue.
-(@) Most of the transcripts we are going to upload are monologues, so set in the *Defaults* box
+(@) Most of the transcripts we are going to upload are monologues, so in the *Defaults* box
     on the top left, set *Transcript Type* to *monologue*.
 (@) Open Windows Explorer or Finder, and navigate to the LaBB-CAT
     Workshop data folder.
@@ -172,7 +172,7 @@ uploading them using the 'automated upload' option.
     
 The upload queue will now contain a longer list of transcripts. Each
 transcript should have a value filled in for each column -
-*Transcript*, *Media*, *Corpus*, and *Episode*.
+*Transcript*, *Media*, *Corpus*, *Episode*, and *Type*.
 
 ![](batch-uploader.png){title="ELAN transcript files are listed with their media and other inferred attributes"}
     

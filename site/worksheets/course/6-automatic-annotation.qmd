@@ -88,12 +88,12 @@ To see what that looks like...
 
 (@) Select the *transcripts* menu option.
 (@) Select the name of the first transcript in the list.
-(@) At the top of the transcript there is now a list of projects. Tick
+(@) Select the *Layers* tab at the top of the transcript, where there is now a list of projects. Tick
     the "frequency" project.\
     This will reveal the frequency layer in the list of layers.
 (@) Tick the *frequency* layer.\
-    When the transcript reloads, you will see that above each word is a
-    number. That number is the number of times that word appears in the
+    Above each word a number appears.
+    That number is the number of times that word appears in the
     transcript's corpus.\
     e.g. if the word "and" has 669 above it, and the transcript is in
     the *QB* corpus, that means that the word "and" appears in the *QB*
@@ -202,7 +202,7 @@ English data, so it's not installed by default).
     message saying "Layer complete..."
 (@) Select the *transcripts* menu option.
 (@) Click the name of the first transcript.
-(@) Tick the *stem* layer we just added (you may need to tick the *frequency* project 
+(@) On the *Layers* tab tick the *stem* layer we just added (you may need to tick the *frequency* project 
     to reveal the *stem* layer).\
     When the transcript refreshes, you will see, above each word, its
     'stem' according to the Porter algorithm.
@@ -377,7 +377,7 @@ this page.
 (@) To see what this looks like in the transcripts, select the
     *transcripts* option on the menu, clear all filters, and open the first transcript in
     the list.
-(@) Under the list of projects, if the *pauses* project isn't already
+(@) On the *Layers* tab under the list of projects, if the *pauses* project isn't already
     ticked, tick it, which will reveal the *pauseCount* layer in the
     list of layers.
 (@) Tick the *pauseCount* layer.\
@@ -385,7 +385,7 @@ this page.
     a filled pause like "um", the entire utterance in which it appears
     has a bracket across the top of the words, labelled with the number
     of filled-pauses that occurs in that utterance.
-(@) Scroll to the top of the transcript, and click on the name of the
+(@) Scroll to the top of the transcript, select the *Participants* tab, and click on the name of the
     main participant.\
     You will see the participant's attributes page, which now includes
     the participant's *pauseCount* attribute.
