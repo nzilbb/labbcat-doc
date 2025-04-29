@@ -453,26 +453,38 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  <a href="../../worksheets/express-tutorial/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 - Upload Data</span></a>
+ <span class="menu-text">Upload Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 - Basic Searching</span></a>
+  <a href="../../worksheets/express-tutorial/3-stanford-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part of Speech Tags</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  <a href="../../worksheets/express-tutorial/4-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pronunciation Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/5-bas-webmaus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT</span></a>
   </div>
 </li>
       </ul>
@@ -669,7 +681,7 @@ Tip
 </div>
 <ol start="9" class="example" type="1">
 <li>Once the layer has finished generating, select the <em>transcripts</em> menu option, and open the first transcript in the list.</li>
-<li>Tick the <em>CELEX</em> project, and then tick your new <em>morphology</em> layer.<br>
+<li>On the <em>Layers</em> tab, tick the <em>CELEX</em> project, and then tick your new <em>morphology</em> layer.<br>
 You will see that each word is tagged with morphological information.</li>
 </ol>
 <p>If you were to do a search for words ending in “ing” on the orthography layer, you would get both gerunds like “coming” and also words like “thing” and “anything” whose “ing” is part of the base word, not a morphological affix. You can now tell these apart in searches, by searching the <em>morphology</em> layer for words that end in “+ing”.</p>
@@ -708,7 +720,7 @@ Important
 </ul></li>
 <li>Once the layer has finished generating, go to the search page and do a search for the word “fine” on the <em>orthography</em> layer.</li>
 <li>Open the transcript of the first match.</li>
-<li>Tick the syntactic category layer to display the annotations that have just been computed.</li>
+<li>On the <em>Layers</em> tab, tick the syntactic category layer to display the annotations that have just been computed.</li>
 <li>Now find your instance of the word “fine” again (it’s highlighted in the transcript text).<br>
 You will see that it has “A” for adjective above it.</li>
 <li>Click on the word “fine” and select the <em>Edit</em> option on the menu that appears.<br>
@@ -793,9 +805,10 @@ This option allows the layer manager to create <em>segment</em> (sub-word) annot
 </ul></li>
 <li>Once the layer is finished generating, go to a transcript to see what it looks like.</li>
 </ol>
-<p>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly representation of the phonemic transcription. But you can see the underlying DISC characters by selecting the <em>Raw</em> option on the layer in the transcript.</p>
+<p>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly interpretation of the phonemic transcription. But you can disable this to see the underlying DISC characters by de-selecting the ‘interpretation’ option on the layer in the transcript.</p>
 <ol start="28" class="example" type="1">
-<li>Select <em>Raw</em> on the <em>phonemes</em> layer, to see what CELEX is actually producing.</li>
+<li>On the <em>Layers</em> tab, immediately to the right of the <em>phonemes</em> layer, there is a tags icon <img src="interpretation-option.png" class="img-fluid">.<br>
+Hover the mouse over it to check the description, and then click it.</li>
 </ol>
 <p>You may find that this is somewhat harder to read. Diphthongs are generally represented by digits, schwa is <code>@</code>, and various other characters are used to represent affricates, etc.</p>
 <p>It’s nice to display the IPA symbols, but it’s important to understand the DISC symbols (shown in table below, because they are what we have to use when searching on the <em>phonemes</em> layer, which we are going to try now.</p>
@@ -1092,7 +1105,7 @@ You will see that a <code>@</code> symbol appears in the box.<br>
 <li>Click <em>Search</em>.</li>
 </ol>
 <p>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against <em>all their possible phonemic transcriptions</em>, so if CELEX has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.</p>
-<p>You can check this by clicking on a match, and then clicking on the word in the transcript and selecting <em>Edit</em>, which displays all the annotations for the given token.</p>
+<p>You can check this by clicking on a match, and then hovering your mouse over the phonemic transcription above the matching token. This displays all the annotations for the given token, i.e.&nbsp;in this case all the possible pronunciations of that word.</p>
 <p>Now that we have phonemic transcripts, we can do a better job of the search we tried in an earlier exercise – “the” followed by a word starting with a vowel…</p>
 <ol start="37" class="example" type="1">
 <li>Change your search so that, instead of just <code>@</code> at the beginning of the word, it matches any vowel.</li>

@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>bas-webmaus – LaBB-CAT Documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-630147fbe0b9ab2b2a517857e522e257.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
+<link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="LaBB-CAT Documentation">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/add.svg">
+<meta property="og:site_name" content="LaBB-CAT Documentation">
+<meta name="twitter:title" content="LaBB-CAT Documentation">
+<meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/express-tutorial/add.svg">
+<meta name="twitter:creator" content="@robertfromont">
+<meta name="twitter:site" content="@labbcat">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/express-tutorial/index.html">LaBB-CAT Express Tutorial</a></li><li class="breadcrumb-item"><a href="../../worksheets/express-tutorial/5-bas-webmaus.html">Forced Alignment</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../nzilbb.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Documentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How-to</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-windows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-mac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mac</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/rhel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Red Hat Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/praat/praat-browser.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praat Browser Extension</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/transcription/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcription</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with ELAN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/salt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SALT Transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/word-frequency/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/pos-tagging/stanford-pos-tagger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stanford POS Tagger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/phonemic-tagging/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phonemic Tagging</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/unisyn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unisyn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/flat-file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom Lexicon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/spanish.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spanish</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/g2p.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/character-mapper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/multilingual-corpora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multilingual Corpora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/forced-alignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/bas-services-manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Service Manager and WebMAUS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-p2fa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK and P2FA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-pretrained-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA and Pretrained Acoustic Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/compare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Forced Alignment Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/identifying-unaligned-utterances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifying Unaligned Utterances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-emu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: EMU-webApp</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/aligned-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aligned Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/articulation-rate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speech Rate and Articulation Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/syllables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllables and Stress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/corpus-management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corpus Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/change-corpus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changing Corpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/participant-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Participant Deduplication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/manual-annotation/doccano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phrase Tagging with Doccano</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cite</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Searching Annotation Layers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-stanford-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part of Speech Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pronunciation Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/5-bas-webmaus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Forced Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#forced-alignment" id="toc-forced-alignment" class="nav-link active" data-scroll-target="#forced-alignment">Forced Alignment</a>
+  <ul class="collapse">
+  <li><a href="#install-the-layer-manager" id="toc-install-the-layer-manager" class="nav-link" data-scroll-target="#install-the-layer-manager">Install the layer manager</a></li>
+  <li><a href="#set-up-a-layer-for-triggering-forced-alignment" id="toc-set-up-a-layer-for-triggering-forced-alignment" class="nav-link" data-scroll-target="#set-up-a-layer-for-triggering-forced-alignment">Set up a layer for triggering forced alignment</a></li>
+  <li><a href="#forced-alignment-1" id="toc-forced-alignment-1" class="nav-link" data-scroll-target="#forced-alignment-1">Forced Alignment</a></li>
+  <li><a href="#inspectioncorrection" id="toc-inspectioncorrection" class="nav-link" data-scroll-target="#inspectioncorrection">Inspection/Correction</a></li>
+  <li><a href="#segment-layer-searches" id="toc-segment-layer-searches" class="nav-link" data-scroll-target="#segment-layer-searches">Segment Layer Searches</a></li>
+  <li><a href="#acoustic-measurement" id="toc-acoustic-measurement" class="nav-link" data-scroll-target="#acoustic-measurement">Acoustic Measurement</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/express-tutorial/5-bas-webmaus.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="5-bas-webmaus.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../worksheets/index.html">Worksheets</a></li><li class="breadcrumb-item"><a href="../../worksheets/express-tutorial/index.html">LaBB-CAT Express Tutorial</a></li><li class="breadcrumb-item"><a href="../../worksheets/express-tutorial/5-bas-webmaus.html">Forced Alignment</a></li></ol></nav></header>
+
+
+
+
+<!-- 3:57-4:15 to completed alignment - 18 minutes -->
+<!-- 4:15-4:23 for the rest - 8 minutes TOTAL 26 minutes-->
+<section id="forced-alignment" class="level1">
+<h1>Forced Alignment</h1>
+<p>The <a href="https://www.bas.uni-muenchen.de/Bas/BasHomeeng.html">Bavarian Archive for Speech Signals (BAS)</a> has kindly published a set of <a href="http://hdl.handle.net/11858/00-1779-0000-0028-421B-4">speech processing web services</a> including one for for forced alignment called <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic">WebMAUS</a>. You can use this service yourself directly, using your web browser, but LaBB-CAT also has a module for using it automatically, called the <em>BAS Services Manager</em>.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using WebMAUS for forced alignment requires LaBB-CAT to send your recordings and transcripts over the internet to a third party.</p>
+<p>Although the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/help#termsofusagetext">BAS Web Services Terms of Service</a> make clear that uploaded data is deleted after 24 hours, using the service is only suitable in situations in which you have consent from participants to do so.</p>
+<p>(We <em>do</em> have such permission for the recordings used in this exercise.)</p>
+</div>
+</div>
+<section id="install-the-layer-manager" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-layer-manager">Install the layer manager</h2>
+<p>LaBB-CAT has a specialised ‘layer manager’ module for integrating with the BAS Web Services.</p>
+<ol class="example" type="1">
+<li>In LaBB-CAT, select the <em>layer managers</em> option on the menu, which gives you a list of the layer managers already installed.</li>
+<li>At the bottom of the page, click the <em>List of layer managers that are not yet installed</em> link.</li>
+<li>Look for <em>BAS Web Services Manager</em> in the list, and press its <em>Install</em> button.</li>
+<li>Follow the “terms of usage” link and read the terms.</li>
+<li>Close the terms page, returning to LaBB-CAT.</li>
+<li>Tick the “Accept Terms of Usage” option.</li>
+<li>Press <em>Install</em>.</li>
+</ol>
+<p>You will see a page of information about the Layer Manager.</p>
+</section>
+<section id="set-up-a-layer-for-triggering-forced-alignment" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-a-layer-for-triggering-forced-alignment">Set up a layer for triggering forced alignment</h2>
+<p>Forced alignment is a process that works on each ‘utterance’ the recording - i.e.&nbsp;each line in the transcript. As it processes all the words on a line at once, we need to create a ‘phrase’ layer.</p>
+<ol start="8" class="example" type="1">
+<li>Select the <em>phrase layers</em> option on the menu</li>
+<li>At the top of the page, there’s a blank form for creating a new layer; fill in the following details:
+<ul>
+<li><strong>Layer ID</strong>: <code>MAUS</code></li>
+<li><strong>Type</strong>: <em>Text</em></li>
+<li><strong>Alignment</strong>: <em>Intervals</em></li>
+<li><strong>Manager</strong>: <em>BAS Web Services Manager</em></li>
+<li><strong>Generate</strong>: <em>Always</em></li>
+<li><strong>Description</strong>: <code>WebMAUS forced alignment</code></li>
+</ul></li>
+<li>Press <em>New</em>.<br>
+You will see a form that allows you to configure the layer; hover the mouse pointer over each setting to see what its purpose is.</li>
+<li>The main choice is the <em>Phoneme encoding</em>; choose <em>DISC</em> for this setting.</li>
+<li>Press <em>Set Parameters</em></li>
+</ol>
+<p>We are going to force-align only a single participant’s for now, so don’t click <em>Regenerate</em> on this page.</p>
+</section>
+<section id="forced-alignment-1" class="level2">
+<h2 class="anchored" data-anchor-id="forced-alignment-1">Forced Alignment</h2>
+<ol start="13" class="example" type="1">
+<li>Select the <em>participants</em> option on the menu at the top.</li>
+<li>Tick the checkbox next to the first participant’s name.</li>
+<li>Press the <em>All Utterances</em> button above.</li>
+<li>Press <em>List</em>.<br>
+LaBB-CAT will identify all the selected participant’s utterances, and then list the first twenty.</li>
+<li>Press the <em>MAUS</em> button at the bottom of the page.</li>
+</ol>
+<p>LaBB-CAT will now upload each utterance – both the audio and the transcript – to the BAS Web Services server. LaBB-CAT must be able to access the internet for this to work, so if there is no internet connectivity, forced alignment will fail at this point.</p>
+<p>Once WebMAUS has completed the forced alignment, LaBB-CAT downloads the resulting phone alignment times, and saves them in the <em>segment</em> layer.</p>
+</section>
+<section id="inspectioncorrection" class="level2">
+<h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
+<p>Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can follow the following steps without having to wait for the forced alignment to complete.</p>
+<p>Processing will continue even if you leave the current page.</p>
+<p>If you later want to check back on the progress of the forced alignment task select the <em>activity</em> option on the menu. If the task is still running, a progress bar will be shown there.</p>
+</div>
+</div>
+<ol start="18" class="example" type="1">
+<li>Select the <em>transcripts</em> option on the menu.</li>
+<li>Open the transcript you aligned.</li>
+<li>On the <em>Layers</em> tab at the top, tick both the <em>MAUS</em> layer and the <em>segment</em> layer.<br>
+You will see which lines have been force-aligned, as they have a timestamp, and have the <em>segment</em> layer filled in.</li>
+</ol>
+<p>The interactive transcript page doesn’t show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+<ol type="i">
+<li>On the top-right of the page, above the playback controls, there’s a Praat icon &nbsp;- click it.</li>
+<li>Follow the instructions that appear (these vary depending on what web browser you use).</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.</p>
+<p>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</p>
+</div>
+</div>
+<p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
+<ol start="21" class="example" type="1">
+<li>Click on a line that has been aligned, and select the <em>Open TextGrid</em> option on the menu.<br>
+Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
+<li>If you click on a word, and hit the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate the forced aligner has been.</li>
+</ol>
+<p>Try this out with different lines in the transcript. You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why the forced aligner got it wrong.</p>
+<p>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <em>Import Changes</em>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
+<ol start="23" class="example" type="1">
+<li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they’re more accurate, and then press the <em>Import Changes</em> button in the transcript.</li>
+</ol>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it’s important that the changes you make are actually improvements, because automated forced alignment will never change them again.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are some rules about what you can change when correcting word/segment alignments:</p>
+<ol type="1">
+<li>You’re not allowed to add or delete words (if this is necessary, it should be done by correcting the transcript instead).</li>
+<li>All the segments must be within the bounds of their own word.</li>
+<li>The start of the first phone should line up with the start of the word, and the end of the last phone should line up with the end of the word.</li>
+<li>You should not change the alignment of the utterance itself (which would only be possible if you select the <em>Open Text Grid incl.&nbsp;± 1 utterance in Praat</em> option).</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="segment-layer-searches" class="level2">
+<h2 class="anchored" data-anchor-id="segment-layer-searches">Segment Layer Searches</h2>
+<!-- TODO java.lang.NullPointerException
+    at nzilbb.labbcat.server.db.OneQuerySearch.search(OneQuerySearch.java:1652)
+    at nzilbb.labbcat.server.search.SearchTask.run(SearchTask.java:290) -->
+<p>Now that WebMAUS has created individually aligned phones in the corpus, those speech sounds can be searched and their labels and alignment information exported.</p>
+<p>Let’s say you’re particularly interested in the NEAR /ɪə/ and SQUARE /ɛə/ monophthongs. You can now identify and extract instances of those phonemes, using their CELEX DISC labels <code>7</code> and <code>8</code>.</p>
+<ol start="24" class="example" type="1">
+<li>Select the <em>search</em> option on the menu.</li>
+<li>Tick the <em>segment</em> layer.</li>
+</ol>
+<p>The segments layer contains annotations at the sub-word level - i.e.&nbsp;there are potentially multiple annotations per word, each annotation representing a single phone of the word. On the search page you will see that, as with other layers, there is a box on the segments layer for a regular expression.</p>
+<p>As with other patterns in the search matrix, the pattern that you enter in the box is matched against individual annotations. So if you enter <code>7</code> (i.e.&nbsp;CELEX DISC for /ɪə/) in the in the box, it will match each ‘NEAR’ vowel segment in each word in the database.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you enter a pattern that would match more than a single character on this layer (i.e.&nbsp;more than a single phoneme) then no search results will be returned, because each annotation on this layer is only a single character long (remember the DISC encoding uses one character per phoneme).</p>
+<p>For example, if you enter <code>n7</code> for your search, intending to match all instances of the word “near”, then no results will be returned, because no single segment will ever match that pattern.</p>
+<p>You <em>can</em> match multiple segments, by adding another <em>segment</em> box using the <img src="add.svg" class="img-fluid" style="height:15px;"> button in it, and entering for example <code>n</code> in the first box and <code>7</code> in the second box.</p>
+</div>
+</div>
+<ol start="26" class="example" type="1">
+<li>We want to search for all instances of the ‘NEAR’ and ‘SQUARE’ vowels, so enter <code>[78]</code> in the <em>segment</em> pattern box.</li>
+<li>Press <em>Search</em><br>
+After a short delay, you should see a list of words that have either /ɪə/ or /ɛə/.</li>
+</ol>
+<p>You can export all these vowel tokens to a CSV file for analysis or further processing</p>
+<ol start="28" class="example" type="1">
+<li>Press the <em>CSV Export</em> button.</li>
+<li>Save and open the resulting file.</li>
+</ol>
+<p>You will see that the file includes the following columns:</p>
+<ul>
+<li><strong>Target segment</strong> – the label of the phone that matched the search pattern,</li>
+<li><strong>Target segment start</strong> – the start time of the phone and</li>
+<li><strong>Target segment end</strong> – the end time of the phone, as determined by WebMAUS.</li>
+</ul>
+<p>This data can be used directly to calculate vowel duration, and in combination with Praat to make acoustic measurements.</p>
+</section>
+<section id="acoustic-measurement" class="level2">
+<h2 class="anchored" data-anchor-id="acoustic-measurement">Acoustic Measurement</h2>
+<p>The CSV file includes the columns “Target segments start” and “Target segments end”; these columns have the start and end time of the matching segment tokens. Given this information, LaBB-CAT can extract acoustic measurements on the speech sounds using Praat.</p>
+<ol start="30" class="example" type="1">
+<li>In LaBB-CAT, select the <em>extract</em> menu option.</li>
+<li>Click the <em>process with praat</em> option.</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you have no <em>process with praat</em> option, and you have LaBB-CAT installed locally on your own computer (as opposed to it running on a server you access over the internet):</p>
+<ol type="1">
+<li>Find out where Praat is installed on your own computer.<br>
+On a Windows computer this might be somewhere like <code>C:\Program Files\Praat</code><br>
+On a Mac this will probably be <code>/Applications</code></li>
+<li>Select the <em>system attributes</em> option on the LaBB-CAT menu.</li>
+<li>In the <strong>Praat Path</strong> box, enter the location you found above.</li>
+<li>Press the <em>Save</em> button at the bottom right of the page.</li>
+</ol>
+<p>Then go back the the <em>upload</em> page, and you should find that the <em>process with praat</em> option has appeared.</p>
+</div>
+</div>
+<ol start="32" class="example" type="1">
+<li>Press <em>Browse</em> or <em>Choose File</em> and select the CSV results that you saved above.<br>
+You will see a form to fill in, and the first couple of settings (<em>Transcript Name column</em> and <em>Participant column</em> should be already filled in).</li>
+<li>For the <em>Start Time column</em>, ensure that the <em>Target segment start</em> option is selected.</li>
+<li>For the <em>End Time column</em>, ensure the <em>Target segment end</em> option is selected.</li>
+</ol>
+<p>These two settings define the start/end times of the phone. For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You’ll see there’s a setting for that (which you can leave at the default of 0.025s), and you will see options for various measurements.</p>
+<p>The default options are for <em>F1</em> and <em>F2</em> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand each section with the ► button to reveal more settings, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</p>
+<ol start="6" type="1">
+<li>Press <em>Process</em>.<br>
+You will see a progress bar while LaBB-CAT generates Praat scripts and runs them.</li>
+<li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <em>CSV file with measurements</em> link) - save and open it.</li>
+</ol>
+<p>You will see that it’s a copy of the CSV file you uploaded, with some extra columns added on the right.</p>
+<p>Depending on your settings, this will include at least one column per measurement you selected (the formant columns also include a column containing the time at which the measurements were taken), and a final column called <em>Error</em> which is hopefully blank, but which might contain errors reported back by Praat (e.g.&nbsp;if it couldn’t find the audio file or ran into any other problem during processing).</p>
+<hr>
+<p>In this exercise, you have seen how WebMAUS can be used to compute word and phone alignments automatically from your data. Perfect automatic labels and alignments are not guaranteed, but LaBB-CAT has a mechanism for manually correcting poor alignments.</p>
+<p>Once forced alignment has been done, individual speech sounds can be identified by searching, extracted, and measured using Praat.</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2023-2024 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/express-tutorial/5-bas-webmaus.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

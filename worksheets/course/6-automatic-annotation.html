@@ -453,26 +453,38 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  <a href="../../worksheets/express-tutorial/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 - Upload Data</span></a>
+ <span class="menu-text">Upload Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 - Basic Searching</span></a>
+  <a href="../../worksheets/express-tutorial/3-stanford-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part of Speech Tags</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  <a href="../../worksheets/express-tutorial/4-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pronunciation Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/5-bas-webmaus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT</span></a>
   </div>
 </li>
       </ul>
@@ -683,10 +695,10 @@ You will see a progress bar moving across the page while the counts are being ge
 <ol start="7" class="example" type="1">
 <li>Select the <em>transcripts</em> menu option.</li>
 <li>Select the name of the first transcript in the list.</li>
-<li>At the top of the transcript there is now a list of projects. Tick the “frequency” project.<br>
+<li>Select the <em>Layers</em> tab at the top of the transcript, where there is now a list of projects. Tick the “frequency” project.<br>
 This will reveal the frequency layer in the list of layers.</li>
 <li>Tick the <em>frequency</em> layer.<br>
-When the transcript reloads, you will see that above each word is a number. That number is the number of times that word appears in the transcript’s corpus.<br>
+Above each word a number appears. That number is the number of times that word appears in the transcript’s corpus.<br>
 e.g.&nbsp;if the word “and” has 669 above it, and the transcript is in the <em>QB</em> corpus, that means that the word “and” appears in the <em>QB</em> corpus 669 times.</li>
 </ol>
 <p>The newly-generated annotations are also searchable…</p>
@@ -758,7 +770,7 @@ Press the <em>New</em> button.</li>
 You will see a progress bar, and once it’s finished, you will see a message saying “Layer complete…”</li>
 <li>Select the <em>transcripts</em> menu option.</li>
 <li>Click the name of the first transcript.</li>
-<li>Tick the <em>stem</em> layer we just added (you may need to tick the <em>frequency</em> project to reveal the <em>stem</em> layer).<br>
+<li>On the <em>Layers</em> tab tick the <em>stem</em> layer we just added (you may need to tick the <em>frequency</em> project to reveal the <em>stem</em> layer).<br>
 When the transcript refreshes, you will see, above each word, its ‘stem’ according to the Porter algorithm.</li>
 </ol>
 <p>You will notice that, although the stems are not what you might regard as being the ‘lemma’ of each word (i.e.&nbsp;not necessarily valid words of English in themselves), they nevertheless generally strip off plural and 3rd-person-present suffixes, such that different wordforms of the same lemma will have the same ‘stem’.</p>
@@ -903,10 +915,10 @@ Tip
 <li><em>Save</em> the layer configuration, and then press <em>Regenerate</em>.<br>
 You will see a progress bar while the layer manager annotates all the transcripts in the database.</li>
 <li>To see what this looks like in the transcripts, select the <em>transcripts</em> option on the menu, clear all filters, and open the first transcript in the list.</li>
-<li>Under the list of projects, if the <em>pauses</em> project isn’t already ticked, tick it, which will reveal the <em>pauseCount</em> layer in the list of layers.</li>
+<li>On the <em>Layers</em> tab under the list of projects, if the <em>pauses</em> project isn’t already ticked, tick it, which will reveal the <em>pauseCount</em> layer in the list of layers.</li>
 <li>Tick the <em>pauseCount</em> layer.<br>
 Scrolling down the transcript, you will see that, wherever there is a filled pause like “um”, the entire utterance in which it appears has a bracket across the top of the words, labelled with the number of filled-pauses that occurs in that utterance.</li>
-<li>Scroll to the top of the transcript, and click on the name of the main participant.<br>
+<li>Scroll to the top of the transcript, select the <em>Participants</em> tab, and click on the name of the main participant.<br>
 You will see the participant’s attributes page, which now includes the participant’s <em>pauseCount</em> attribute.</li>
 <li>Both the local utterance count, and the participant’s overall count, can also be exported to CSV search results files.<br>
 Select <em>search</em> and perform a search involving the <em>pause</em> layer.</li>

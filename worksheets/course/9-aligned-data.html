@@ -455,26 +455,38 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/1-install-and-configure-labb-cat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 - Install and Configure LaBB-CAT</span></a>
+  <a href="../../worksheets/express-tutorial/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 - Upload Data</span></a>
+ <span class="menu-text">Upload Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/3-basic-searching.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 - Basic Searching</span></a>
+  <a href="../../worksheets/express-tutorial/3-stanford-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part of Speech Tags</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../worksheets/express-tutorial/4-cmudict-and-cross-layer-search.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4 - The CMU Dictionary and Cross Layer Searching</span></a>
+  <a href="../../worksheets/express-tutorial/4-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pronunciation Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/5-bas-webmaus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT</span></a>
   </div>
 </li>
       </ul>
@@ -630,9 +642,10 @@ ul.task-list li input[type="checkbox"] {
 <ol class="example" type="1">
 <li>Go to the <em>transcripts</em> page and open the transcript we force-aligned earlier, <em>UC207YW.eaf</em>, if you don’t still have it open.</li>
 <li>Tick the <em>speechRate</em> layer for display, and make a note of some of the speech rate annotations (which ones are there depends on what you selected as the scopes for the layer).</li>
-<li>At the top of the transcript, in the <em>formats</em> menu, select the <em>regenerate layers</em> option.<br>
-This will display a list of managed layers.</li>
-<li>Select the <em>speechRate</em> layer and press <em>Regenerate</em>.<br>
+<li>In the bottom right corner of the <em>Layers</em> tab is a button labelled <em>Generate</em><br>
+Press it.<br>
+This will display a dropdown list to the left of the <em>Generate</em> button, with <em>All layers</em> selected.</li>
+<li>Select the <em>speechRate</em> option in this dropdown list and press <em>Generate</em> again.<br>
 You will see a progress bar while the statistics for the transcript are computed again.</li>
 <li>Once that’s finished, go back to the transcript and check the speech rate annotations again. You should see that at least some of them are different.</li>
 </ol>
@@ -731,13 +744,13 @@ If you used MFA for forced alignment, this will be <code>iː</code></li>
 Once the search is finished, you should notice that the only transcripts returned are those that include speakers you’ve done force-alignment on.</li>
 <li>Click on the first result, to open its transcript.</li>
 <li>Scroll to the top and tick the <em>include empty layers</em> option.</li>
-<li>Tick the <em>formants</em> project option.<br>
+<li>On the <em>Layers</em> tab, tick the <em>formants</em> project option.<br>
 This will reveal the (empty) <em>F1</em> layer below segments in the list of layers.</li>
 <li>Tick the <em>F1</em> layer.<br>
 The transcript will reload to include that layer (even though it’s currently empty).</li>
 <li>Also tick the <em>segments</em> layer if it’s currently un-ticked.</li>
 <li>Click on the first search result (which is highlighted in green).</li>
-<li>Select the <em>Open TextGrid in Praat</em> option.<br>
+<li>Select the <em>Open TextGrid</em> option.<br>
 This will open the audio of the line, with a TextGrid that includes the aligned words and segments.<br>
 There’s also a tier for the <em>F1</em> layer.</li>
 </ol>
@@ -798,7 +811,7 @@ This shows a form with various options on it, one of which is <strong>Praat Path
 <p>The CSV file includes a column called “Target segment”, which contains the annotation that matched the pattern (in this case they will all be “i”), and columns called “Target segment start” and “Target segment end” - these are the start and end times of each matching <em>FLEECE</em> vowel.</p>
 <p>We are going to use these start/end times to get Praat to take formant measurements for us.</p>
 <ol start="40" class="example" type="1">
-<li>In LaBB-CAT, click the <em>upload</em> menu option.</li>
+<li>In LaBB-CAT, click the <em>extract</em> menu option.</li>
 <li>Click the <em>process with praat</em> option.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
