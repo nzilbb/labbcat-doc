@@ -1,0 +1,451 @@
+---
+format:
+  html:
+    toc: true
+---
+# How-to cite LaBB-CAT
+
+To cite LaBB-CAT, you may use:
+
+[Fromont, Robert & Jennifer Hay (2012)](https://www.aclweb.org/anthology/U12-1015.pdf) 
+*LaBB-CAT: an Annotation Store*, 
+Proceedings of Australasian Language Technology Association Workshop, 
+pp. 113-117, Australasian Language Technology Association, Dunedin.
+
+```
+@InProceedings{FromontHay2012,
+  author = {Robert Fromont and Jennifer Hay},
+  title = {{LaBB-CAT: an Annotation Store}},
+  booktitle = {{Proceedings of Australasian Language Technology Association Workshop}},
+  year = {2012},
+  pages = {113--117},
+  month = {November},
+  organization = {Australasian Language Technology Association},
+}
+```
+
+Or to cite specific versions, see [below](#versions).
+
+## Publications
+
+[Robert Fromont, Lynn Clark, Joshua Wilson Black, & Margaret Blackwood (2023)](https://ldr.lps.library.cmu.edu/article/id/672/)
+*Maximizing accuracy of forced alignment for spontaneous child speech*,
+Language Development Research, Volume 3, Issue 1, 2023,
+DOI: [10.34842/SHRR-SV10](https://doi.org/10.34842/shrr-sv10)
+
+```
+@article{FromontEtAl2023,
+	author = {Robert Fromont and Lynn Clark and Joshua Wilson Black and Margaret Blackwood},
+	title = {Maximizing accuracy of forced alignment for spontaneous child speech},
+	volume = {3},
+	year = {2023},
+	url = {http://ldr.lps.library.cmu.edu/article/id/672/},
+	issue = {1},
+	doi = {10.34842/shrr-sv10},
+	month = {9},
+	pages = {182-210},
+	issn = {2771-7976},
+	publisher ={Carnegie Mellon University Library Publishing Service},
+	journal = {Language Development Research}
+}
+```
+
+[Ksenia Gnevsheva, Simon Gonzalez & Robert Fromont (2020)](https://www.tandfonline.com/doi/full/10.1080/07268602.2020.1737507), 
+*Australian English Bilingual Corpus: Automatic forced-alignment accuracy in Russian and English*, 
+Australian Journal of Linguistics, DOI: [10.1080/07268602.2020.1737507](https://doi.org/10.1080/07268602.2020.1737507)
+
+```
+@article{GnevshevaEtAl2020,
+  author = {Ksenia Gnevsheva and Simon Gonzalez and Robert Fromont},
+  title = {{Australian English Bilingual Corpus: Automatic forced-alignment accuracy in Russian and English}},
+  journal = {Australian Journal of Linguistics},
+  pages = {1-12},
+  year  = {2020},
+  publisher = {Routledge},
+  doi = {10.1080/07268602.2020.1737507},
+  URL = {https://doi.org/10.1080/07268602.2020.1737507}
+}
+```
+
+---
+
+[Fromont, Robert (2019)](https://www.aclweb.org/anthology/U12-1015.pdf), 
+*Forced Alignment of Different Language Varieties using LaBB-CAT*, 
+in proceedings of the International Congress of Phonetic Sciences 2019 (ICPhS2019), Melbourne.
+
+```
+@inproceedings{Fromont2019,
+  title={{Forced Alignment of Different Language Varieties using LaBB-CAT}},
+  author={Fromont, Robert},
+  booktitle={International Congress of Phonetic Sciences 2019 (ICPhS2019)},
+  year={2019}
+}
+```
+
+---
+
+[Fromont, Robert (2017)](https://doi.org/10.1016/j.csl.2017.01.004), 
+*Toward a format-neutral annotation store*, 
+Computer Speech & Language Vol. 45, pp. 348-374, Academic Press,
+DOI: [10.1016/j.csl.2017.01.004](https://doi.org/10.1016/j.csl.2017.01.004)
+
+```
+@article{Fromont2017,
+  title={Toward a format-neutral annotation store},
+  author={Fromont, Robert},
+  journal={Computer Speech \& Language},
+  volume={45},
+  pages={348--374},
+  year={2017},
+  publisher={Academic Press},
+  doi = {10.1016/j.csl.2017.01.004},
+  URL = {https://doi.org/10.1016/j.csl.2017.01.004}
+}
+```
+
+---
+
+[Fromont, Robert & Kevin Watson (2016)](https://doi.org/10.3366/cor.2016.0101), 
+*Factors influencing automatic segmental alignment of sociophonetic corpora*, 
+Corpora Vol. 11 (3), pp. 401-431, Edinburgh University Press 22 George Square, Edinburgh EH8 9LF UK
+DOI: [10.3366/cor.2016.0101]
+
+```
+@Article{FromontWatson2016,
+  author = {Robert Fromont and Kevin Watson},
+  title = {Factors influencing automatic segmental alignment of sociophonetic corpora},
+  journal = {Corpora},
+  year = {2016},
+  volume = {11},
+  number = {3},
+  pages = {401--431},
+  publisher={Edinburgh University Press 22 George Square, Edinburgh EH8 9LF UK,
+  doi = {10.3366/cor.2016.0101},
+  URL = {https://doi.org/10.3366/cor.2016.0101}
+}
+```
+
+---
+
+[Fromont, Robert & Jennifer Hay (2012)](https://www.aclweb.org/anthology/U12-1015.pdf)
+*LaBB-CAT: an Annotation Store*, 
+Proceedings of Australasian Language Technology Association Workshop, pp. 113-117, Australasian Language Technology Association, Dunedin.
+
+```
+@InProceedings{FromontHay2012,
+  author = {Robert Fromont and Jennifer Hay},
+  title = {{LaBB-CAT: an Annotation Store}},
+  booktitle = {{Proceedings of Australasian Language Technology Association Workshop}},
+  year = {2012},
+  pages = {113--117},
+  month = {November},
+  organization = {Australasian Language Technology Association},
+}
+```
+
+---
+
+[Fromont, Robert & Jennifer Hay (2008)](https://www.researchgate.net/profile/Robert_Fromont/publication/228972742_ONZE_Miner_Development_of_a_browser-based_research_tool/links/09e41511bc52476281000000.pdf), 
+*ONZE Miner: the development of a browser-based research tool*, 
+Corpora Vol. 3 (2), pp. 173-193, Edinburgh University Press 22 George Square, Edinburgh EH8 9LF UK
+
+```
+@Article{FromontHay2008,
+  author = {Robert Fromont and Jennifer Hay},
+  title = {{ONZE Miner}: the development of a browser-based research tool},
+  journal = {Corpora},
+  year = {2008},
+  volume = {3},
+  number = {2},
+  pages = {173--193},
+  publisher={Edinburgh University Press 22 George Square, Edinburgh EH8 9LF UK
+}
+```
+
+## Specific Versions {#versions}
+
+Version [20241111](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20241111.zip)
+
+```
+@Misc{labbcat20241111,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20241111.zip}}
+  year = {2024}
+}
+```
+
+Version [20241018](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20241018.zip)
+
+```
+@Misc{labbcat20241018,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20241018.zip}}
+  year = {2024}
+}
+```
+
+Version [20240702](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20240702.zip)
+
+```
+@Misc{labbcat20240702,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20240702.zip}}
+  year = {2024}
+}
+```
+
+Version [20240306](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20240306.zip)
+
+```
+@Misc{labbcat20240306,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20240306.zip}}
+  year = {2024}
+}
+```
+
+Version [20230719](https://sourceforge.net/projects/labbcat/files/install/labbcat_20230719.zip)
+
+  ```
+@Misc{labbcat20230719,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat_20230719.zip}}
+  year = {2023}
+}
+```
+
+Version [20230202](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230202.zip)
+
+```
+@Misc{labbcat20230202,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230202.zip}}
+  year = {2023}
+}
+```
+
+Version [20230119](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230119.zip)
+
+```
+@Misc{labbcat20230119,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230119.zip}}
+  year = {2023}
+}
+```
+
+Version [20230118](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230118.zip)
+
+```
+@Misc{labbcat20230118,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20230118.zip}}
+  year = {2023}
+}
+```
+
+Version [20221013](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20221013.zip)
+
+```
+@Misc{labbcat20221013,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20221013.zip}}
+  year = {2022}
+}
+```
+
+Version [20220413](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220413.zip)
+
+```
+@Misc{labbcat20220413,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220413.zip}}
+  year = {2022}
+}
+```
+
+Version [20220120](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220120.zip)
+
+```
+@Misc{labbcat20220120,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220120.zip}}
+  year = {2022}
+}
+```
+
+Version [20220112](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220112.zip)
+
+```
+@Misc{labbcat20220112,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20220112.zip}}
+  year = {2022}
+}
+```
+
+Version [20210528](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20210528.zip)
+
+```
+@Misc{labbcat20210528,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20210528.zip}}
+  year = {2021}
+}
+```
+
+Version [20210216](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20210216.zip)
+
+```
+@Misc{labbcat20210216,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20210216.zip}}
+  year = {2021}
+}
+```
+
+Version [20200901](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200901.zip)
+
+```
+@Misc{labbcat20200901,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200901.zip}}
+  year = {2020}
+}
+```
+
+Version [20200615](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200615.zip)
+
+```
+@Misc{labbcat20200615,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200615.zip}}
+  year = {2020}
+}
+```
+
+Version [20200110](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200110.zip)
+
+```
+@Misc{labbcat20200110,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20200110.zip}},
+  year = {2020}
+}
+```
+
+Version [20191031](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20191031.zip)
+
+```
+@Misc{labbcat20191031,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20191031.zip}},
+  year = {2019}
+}
+```
+
+Version [20190724](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20190724.zip)
+
+```
+@Misc{labbcat20190724,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20190724.zip}},
+  year = {2019}
+}
+```
+
+Version {20190425}(https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20190425.zip)
+
+```
+@Misc{labbcat20190425,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20190425.zip}},
+  year = {2019}
+}
+```
+
+Version {20181221}(https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20181221.zip)
+
+```
+@Misc{labbcat20181221,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20181221.zip}},
+  year = {2018}
+}
+```
+
+Version [20180626](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20180626.zip)
+
+```
+@Misc{labbcat20180626,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20180626.zip}},
+  year = {2018}
+}
+```
+
+Version [20171221](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20171221.zip)
+
+```
+@Misc{labbcat20171221,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20171221.zip}},
+  year = {2017}
+}
+```
+
+Version [20170614](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20170614.zip)
+
+```
+@Misc{labbcat20170614,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20170614.zip}},
+  year = {2017}
+}
+```
+
+Version [20161003](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20161003.zip)
+
+```
+@Misc{labbcat20161003,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20161003.zip}},
+  year = {2016}
+}
+```
+
+Version [20160707](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20160707.zip)
+
+```
+@Misc{labbcat20160707,
+  author =   {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20160707.zip}},
+  year = {2016}
+}
+```

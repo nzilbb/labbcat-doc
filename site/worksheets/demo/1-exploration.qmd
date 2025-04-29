@@ -6,19 +6,22 @@ format:
     toc: false
     fontfamily: linguisticspro
 ---
+<!-- 17 min -->
+
 # 1 - Exploration
 
+<!--
 LaBB-CAT is a speech/language corpus management system that:
 
 -   stores transcripts with audio/video
-    -   supporting a variety of formats
+    -   supporting a variety of upload formats
     -   and the definition of speech elicitation tasks;
 -   allows the addition of different layers of annotation, which can
     -   be manual or automatic, and
     -   have different granularities, from topic tagging to individual
-        phones;
+        speech sounds;
 -   supports forced alignment to phone level using a speech recognition
-    toolkit called "HTK", or the [Montreal Forced
+    toolkit called [HTK](https://htk.eng.cam.ac.uk/), or the [Montreal Forced
     Aligner](https://montreal-forced-aligner.readthedocs.io/), or the
     [WebMAUS](https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic)
     service provided by [BAS Web
@@ -30,6 +33,7 @@ LaBB-CAT is a speech/language corpus management system that:
 -   transcripts and fragments of them are exportable in a variety of
     formats.
 
+--> 
 In this worksheet you will start exploring a demo LaBB-CAT corpus, to
 get a general idea of how to find your way around LaBB-CAT and how the
 language data is presented.
@@ -48,143 +52,241 @@ with your web browser. Generally, any modern browser should be fine
 (although some features you'll see in later worksheets are only
 supported by Mozilla Firefox or Google Chrome).
 
-1.  In your web browser, type in the following URL:\
+(@) In your web browser, type in the following URL:\
     [https://labbcat.canterbury.ac.nz/demo](https://labbcat.canterbury.ac.nz/demo/)\
     You will be asked for a username and password.
-
-:::{.callout-important}
-If typing this out manually, ensure you enter 'https' not 'http'
-:::
-
-2.  The username is *demo* and the password is *demo*\
-    The very first time you access LaBB-CAT, you will see its licence
-    agreement.
-3.  Scroll to the bottom of the page and click *I Agree* to continue.\
+(@) The username is *demo* and the password is *demo*\
+    The very first time you access LaBB-CAT, you will see the licence
+    agreement for accessing the corpus data.
+(@) Press *I Agree* to continue.\
     You will see a page called "LaBB-CAT Demo" which has a menu of links
     along the top and a number of icons. Below the icons is some
     information about the corpus. This is the LaBB-CAT home page.
-4.  Click the *where do I start?* icon on the left.\
+(@) Click the *where do I start?* icon on the left.\
     The help page that pops up includes a brief description of LaBB-CAT
     and some tips for navigation and getting more information.
-5.  Read through the page, and then close the browser tab to return to
-    the home page.
+(@) Read through at least the top section of the page to get some helpful tips, and then 
+    close the browser tab to return to the home page.
 
-There are two main ways to use LaBB-CAT:
+## Transcripts and Participants
 
--   easy exploration and plain text search (this worksheet)
--   layered filtering and search (the following worksheets)
+First we will look at ways to manually browse the corpus data.
 
-## Easy exploration
-
-Using the 'easy' method for exploring LaBB-CAT is simple, as
-annotation layers are largely ignored; each transcript is essentially
-treated as a plain text that you can search and display based on
-ordinary orthographic spelling.
-
-1.  On the LaBB-CAT home page, click the *explore* icon to access the
-    easy exploration pages.\
-    You will see a similar home page, with *Browse* icon, *Easy Search*,
-    and *Layered Search* icons.
-2.  Click the *Browse* icon.\
-    You will see a page that lists the collections of recordings (or
-    'corpora') in the LaBB-CAT database. Each corpus contains a number
-    of recordings.
-3.  Click the first corpus listed.\
-    You will see a page that lists the first 20 recordings in the
-    corpus. The recording names are on the left, followed by some meta
-    data (called 'participant attributes') about the participant in the
-    recording. At the bottom is a list of pages, so you can access
-    further recordings in the corpus.
-4.  Click the name of the first recording.\
-    You will see a page with transcript text, and the video appears in
-    the top right corner of the page.
-5.  Hover the mouse over the video.\
-    The video pane grows larger.
-6.  Press the play button.\
-    As the video plays, you will see the current utterance highlighted
-    in the transcript. You will also see that the current utterance
-    appears as closed captions in the video. You can use the video
-    controls as normal, including the *full-screen* button in the bottom
+(@) On the LaBB-CAT home page, select the *transcripts* option on the menu at the top.\
+    You will see a list of transcripts in LaBB-CAT, together with some meta-data.
+    The first twenty transcripts are listed, and there are controls at the bottom of the page to list others.
+(@) Click the name of the first transcript listed: `AP2505_Nelson.eaf`\
+    You will see a page with transcript text, and the video appears in the top right corner of the page.
+<!--
+(@) Try clicking the magnifying-glass icon ![](zoom-in.png) below the
+    video, to see what it does.
+-->
+(@) Press the play button on the video.\
+    As the video plays, you will see the current utterance highlighted in the transcript. 
+    You will also see that the current utterance appears as closed captions in the video. 
+    You can use the video controls as normal, including the *full-screen* button in the bottom
     right, to make the video occupy the whole screen.
-7.  Pause the recording.
-8.  Move the mouse over one of the utterances further down the
-    transcript.\
-    You will notice that the video pane shrinks again, and that the
-    mouse pointer becomes a *play* button.
-9.  Click the utterance.\
-    You will see that playback starts at that utterance. Playback will
-    stop when the participant finishes the utterance.
-10. At the top of the page, you will see a tab button labelled
-    *General*; click it.\
-    You will see some meta-data about the transcript and recording.\
-    LaBB-CAT attaches meta-data both to transcripts (called 'transcript
-    attributes'), and also to participants ('participant attributes').
-11. Below the transcript attributes is the name of the participant.
-    Click their name.\
-    You will see a page with the participant attributes, and a list of
-    the recordings they appear in. In this case, they appear in only one
-    recording; if you were to click the name of the recording, you would
-    be taken back to the transcript page you've just seen.
+(@) Pause the recording.
+(@) Click one of the transcript lines further down the transcript.\
+    A menu will appear.
+(@) Select the 'Play' option at the bottom of the menu.\
+    You will see that playback starts at that line. 
+    Playback will stop when the participant finishes the utterance.
+(@) Click on the *formats* link at the top left under the title.\
+    You will see a menu, which includes various formats for exporting
+    the transcript.
+(@) Select *Plain Text Document*
+(@) Save the resulting file and then open it.\
+    You will see the transcript in plain-text form.
 
-## Basic search
+Plain text is a format supported by many language analysis tools, 
+so exporting text transcript allows you to use your favourite tools for whatever research you're doing.
 
-1.  On the menu at the top of the page, there's a *Search* option.
-    Click it.\
-    You will see a search form with a "Text" search box at the top, and
-    options for meta data below.
-2.  In the "Text" box enter the word `quake` and press the *Search*
-    button at the bottom.\
-    You will see a list of hits, with the name of the transcript on the
-    left and the matched word on the right, highlighted within its
-    immediate context.
-3.  Click the *Search again* link (or the *Search* link on the menu at
-    the top)\
-    You'll see that the search form remembers the last search text.
-4.  Select 'Female' from the *Gender* drop-down box, leave the word
-    `quake` in the "Text" box, and click *Search*.\
-    This time the results are narrowed down to only female participants.
-5.  Click the first result.\
-    You will see the transcript page, as we saw earlier, but with each
-    match from the search highlighted.
+(@) If you have Praat installed on your computer, click the *formats*
+    link, and select the *Praat Text Grid* option. Save the resulting
+    file on your desktop, and then open it with Praat.
+
+You will see that the TextGrid has a couple of tiers, one for whole
+utterances, and one for individual words.
+
+<!--
+(@) Back in LaBB-CAT, at the top of the page, you will see a link labelled *[meta-data]*; click it.\
+    You will see some meta-data about the transcript and recording 
+    e.g. the duration and number of words.\
+    LaBB-CAT attaches meta-data both to transcripts (called 'transcript attributes'), 
+    and also to participants ('participant attributes').
+(@) Below the transcript attributes is the name of the participant. Click their name.\
+    You will see a page with the participant attributes -- 
+    i.e. meta-data relating to the person speaking rather that the recording/transcript --
+    e.g. gender, age, etc.
+    -->
+(@) Now select the *participants* option on the menu at the top.\
+    You will see a list that looks similar to the 'transcripts' list we saw earlier, 
+    but this page lists names and meta-data of speakers rather than the recordings in which they appear.
+
+## Basic Search
+
+Searching is often a two-step process: 
+first you select which participants you want to search, using their participant attributes,
+and then you specify the pattern you want to search for.
+
+The *participants* page you've got open has a number of filters listed across the top, 
+which allow you to filter the list below.
+
+(@) Select 'F' in the *Gender* box by clicking it.\
+    You will see a list of the female participants only.
+
+:::{.callout-note}
+Notice that each participant has a check-box; if we wanted to, 
+we could select specific participants from the list by checking/unchecking the boxes.
+
+(But in this case, let's search all of them, so leave all the boxes un-ticked.)
+:::
+
+(@) Press the *Layered Search* button at the top of the list.\
+    You will see a page that lists the speakers at the top, 
+    a number of tickable annotation layers in the middle, and an empty text box labelled 'orthography' below.
+(@) In the box labelled 'orthography' enter the word:\
+    `quake`
+(@) Now press the *Search* button at the bottom (or hit {{< kbd Enter >}}).\
+    A progress bar will appear below, and then shortly after that, a new
+    tab will open, which has a list of search results in it. 
+
+:::{.callout-tip}
+Your browser's popup-blocker might prevent the results page from
+opening - you can fix that either by allowing the popups in your
+browser, or by clicking the *Display results* link that appears
+after the search finishes.
+:::
+
+Each match is highlighted and shown within a few words context.
+
+<!--
+(@) In the *Context* drop-down box at the top, select the *5 words* option, 
+    to show more context in the list of results.
+    -->
+(@) Click the first result in the list.\
+    You will see the transcript page, which we have already seen, but with each match from the search highlighted
+    (you will need to scroll down to see the second match).
+(@) The transcript page has opened in its own new browser tab.\
+    Close that tab now to return to the results list.
+(@) Press the *Audio Export* button at the bottom.
+(@) Save and open the resulting zip file.
+
+The zip file contains the audio for the utterance that contained the word that matched your search.
+
+You'll see that extracted wav files are systematically named to include:
+
+-   the name of the transcript
+-   the start and end time of the extracted utterance
+
+(@) If you also have Praat installed on your computer, go back to the
+    results page and press *Utterance Export* button. Save and open the
+    resulting zip file.
+    
+You'll see that the TextGrid names match the audio file names in
+the previous zip file.
+
+If you open a TextGrid in Praat, you'll see it includes a tier for
+the whole utterance transcript, a tier with an interval for each
+word, and a *target...* tier which tags the word that matched the
+word you searched for.
+
+Exporting similarly-named utterance wav files and Praat TextGrids provides a possible way to 
+process or analyse search results offline in Praat.
+
+(@) Back on the results page, click the *CSV Export* button.
+(@) Save the resulting file, and open it.\
+    You may have to specify some import options, in which case it may be
+    handy to know that the field separator is comma, and the fields are
+    quoted by speech marks.
+
+:::: {.content-visible when-format="html"}
+
+:::{.callout-note}
+If you're using Microsoft Excel and you find it doesn't
+open all the columns correctly:
+
+1.  Create a new workbook in Excel.
+2.  Click the 'Data' tab.
+3.  On the "Get External Data" ribbon click 'From Text'.
+4.  Select the CSV file you downloaded.
+5.  Select 'Delimited' and click *Next*.
+6.  Ensure 'Comma' is the only delimiter ticked and click *Next*.
+7.  Click *Finish* and then *OK*.
+:::
+
+::::
+
+You will see a spreadsheet with one line per selected result,
+and various columns containing information about the speaker,
+the corpus, the match line and word, and a URL to the
+interactive transcript for the match.
+
+With this spreadsheet, you can work 'offline' with the results,
+tagging them, computing statistics in Excel, R, or any other
+program that can work with CSV files.
+
+(@) Close the CSV file, and got back to the results page.
+(@) Close the results page, and you'll return to the search page.
 
 ## Regular Expressions
 
-You can also search across multiple words, and search for patterns
-as well as exact spellings.
+(@) On the *search* page, in the *orthography* box, prefix the word "quake" with `.*` i.e.:\
+    `.*quake`
 
-For example, let's say you want to investigate how the
-pronunciation of the word 'the' changes when the following word
-starts with a vowel. You can search for this pattern using the
-search form:
+This is a 'regular expression' that allows you to search for patterns instead of matching exact text:
 
-6.  Click the *Search* option on the menu.
-7.  Search for the word `the`\
-    You will see that there are lots of results, including many where
-    'the' is followed by a word that starts with a consonant.
-8.  Go back to the *Search* page.
-9.  Now search for: `the [aeiou].*`\
-    This is a 'regular expression' that allows you to identify a
-    pattern, with the following parts:
-    -   the word 'the'
-    -   followed by a space
-    -   followed by any vowel (`[aeiou]`)
-    -   followed anything at all - `.` in a regular expression means
-        'any character', and `*` means 'zero or more of the previous
-        thing', so `.*` means 'zero or more characters'\
-        \
-        You will see that the results include only instances where the
-        word that follows 'the' starts with a vowel.
-10. See if you can create a search for all words ending in 'ing'
+- `.` means "any letter, number, or other character"
+- `*` means "zero or more of the previous thing",\
+  so `.*` means "any number of characters of any kind"
+- `quake` means literally the sequence of letters 'quake'\
+  so `.*quake` means "any word ending in 'quake'"
+
+(@) Press *Search*.\
+    Depending on your browser, you may have to click the *Display results* link to see the results page.\
+    Now your results include all the instances of the word "earthquake", plus instances of "quake" as well.
+
+Up until now, we've only been matching against one word at a time.
+Now we're going to create a search pattern for a chain of words. 
+
+(@) Close the results tab of the previous search.
+(@) Back on the search page, next to the *orthography* box where you entered
+    the regular expression, there's a ![](add.png) button for adding a column to
+    the 'search matrix'. Click it.\
+    ![](two-words-wide.png)\
+    Now you will see that our 'search matrix' is two words wide.
+(@) In the new *orthography* box on the right, enter the regular expression:\
+    `is|was`
+
+This regular expression is:
+
+- `is` means "the word 'is'"
+- `|` (the vertical bar character) means *or*
+- `was` means "the word 'was'"\
+  so `is|was` means "the word 'is' *or* the word 'was'"
+    
+(@) Press *Search*.\
+    You should see results are now words ending in 'quake' followed by either 'is' or 'was'.
+
+:::{.callout-tip}
+![](help.png) You can get more information about regular expressions
+by using the online help back on the search page.
+:::
+
+<!--
+(@) See if you can create a search for all words ending in '...ing'.
+(@) See if you can create a search for the word "the" followed by a word starting with a vowel.
+-->
 
 ---
 
 In this worksheet you have seen that:
 
 -   LaBB-CAT is a repository for recordings and their transcripts;
--   Transcripts are grouped together into corpora;
+-   Transcripts can be exported in a variety of formats;
 -   Meta-data can be attached to transcripts (transcript attributes) and
     to participants (participant attributes);
--   You can search the texts of the transcripts;
--   You can filter the search results on the basis of meta-data;
--   You can search for patterns as well as exact spelling, by using
-    regular expressions.
+-   You can filter lists of participant (or transcripts) on the basis of meta-data;
+-   You can search the texts of the transcripts for patterns using 'regular expressions';
+-   Search results can be exported to CSV files for further processing;

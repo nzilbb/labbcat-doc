@@ -1,0 +1,195 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: linguisticspro
+---
+## Installing Praat Browser Integration
+
+When you are browsing a LaBB-CAT corpus (either installed on your own computer or on a server),
+the transcript page can integrate directly with Praat so that you can open utterance in Praat
+directly from your browser.
+
+:::{.callout-important}
+LaBB-CAT's browser integration with Praat currently **does not work** with *Safari*, 
+so if you're using a Mac, ensure you try the steps below in Google Chrome, Microsoft Edge, or Mozilla Firefox.
+:::
+
+In order for this to work, you need some software installed on your local computer:
+
+### 1. Install Praat
+
+If you don't already have Praat, or you have a version older than <b>6.2.05</b>, download and install Praat from the Praat website:
+
+<http://praat.org>
+    
+### 2. Install *Java* if it's not already installed
+
+Java may already be installed on you system. The steps for discovering if Java is already installed, 
+and how to install it if it's not, depend on your operating system:
+
+::::{#java-windows .callout-note collapse=true}
+#### ![](windows-start.jpg){height="30px" style="vertical-align: bottom;"} Windows 
+
+On Windows, before you can install LaBB-CAT, you first must have Java installed.
+
+##### 1. Check Java
+
+Use the following steps to check whether you already have Java installed.
+
+1. Press the ![](windows-start.jpg){height="22px" style="vertical-align: bottom;"} Start menu button.
+2. Type `Control Panel`
+3. Select the *Control Panel* option that appears.\
+   ![](control-panel-icon.png){title="The Windows Control Panel menu item"}
+4. Type `Java`
+
+If a *Java* icon appears as shown in @fig-control-panel-java, then you already have Java, and can skip section 2.
+
+![Java in the Control Panel](control-panel-java.png){#fig-control-panel-java width="70%" title="Java in the Control Panel"}
+
+If there's no *Java* icon in the Control Panel, follow the steps in the next section to install it.
+
+\newpage
+
+##### 2. Install Java
+
+1. Open the Java website in your browser:\
+   <https://www.java.com/>
+2. Press the *Download Java* button.
+3. Press the *Download Java* button on the next page and save the resulting installer file.
+4. Click the installer to run it.
+
+![The Java installer](java-installer.png){#fig-java-installer width="70%" title="Press Install"}
+
+5. Press *Install*.
+
+![Java installation is complete](java-installed.png){#fig-java-installed width="70%" title="Press Close"}
+
+6. Press *Close*.
+
+::::
+
+::::{#java-mac .callout-note collapse=true}
+#### ![](apple.jpg){height="30px" style="vertical-align: bottom;"} Mac
+
+:::{.callout-important}
+These instructions are for newer M-series Macs, and will not work for older Intel-based Macs. Sorry!
+:::
+
+On OS X, there are a various ways to install Java.
+
+You can try the Java website in your browser:\
+   <https://www.java.com/>
+
+Or you can use the 'Homebrew' package management system.
+
+You may already have one or other of these installed; if so, you can skip the corresponding
+section below.
+
+##### 1. Install Homebrew
+
+Homebrew is a 'package manager' for Mac computers, which allows you to install other programes, including Java.
+
+1. Open the following page in your web browser:\
+   <https://github.com/Homebrew/brew/releases/latest>
+2. Scroll down to the *Assets* section.\
+   ![Assets](homebrew-assets.png){#fig-homebrew-asset width="200" title="Assets available for download including the .pkg installer, and the source code"}
+3. Click the file called *Homebrew-n.n.n.pkg* (where *n.n.n* is the version number) to download the file.
+4. Once the file has been downloaded, double-click on it to run the installer.\
+   ![Homebrew Installer](homebrew-installer.png){#fig-homebrew-installer width="50%" title="The Homebrew installer"}
+5. Click *Continue*, *Continue*, *Agree* and *Install* to complete the installation.
+
+##### 2. Install Java
+
+1. Open *Launchpad* and type `Terminal`.
+2. Double click *Terminal* to open a command shell.
+3. Type in the following command:\
+   `brew install openjdk`
+4. Press the {{< kbd return >}} key on your keyboard to enter the command.\
+   Some text will appear in the *Terminal* window while Homebrew downloads everything it needs to install Java\
+   Once it's finished, you'll see the `%` shell prompt again.
+
+![brew install openjdk](brew-install-openjdk.png){#fig-brew-install-openjdk title="Terminal window after running 'brew install openjdk'"}
+
+::::
+
+### 3. Install the *Praat Integration* browser extension
+
+1. In LaBB-CAT, open any transcript.
+2. On the top-right of the transcript page, above the playback
+    controls, there's a Praat icon ![](praat-integration.png){height="16px"} - click
+    it.
+3. Follow the instructions that appear (these vary depending on what web browser you use).
+
+You may need to grant a browser extension permission to install, and
+it's possible you will need a connection to the internet in order
+to download this extension.
+
+### 4. Install the *Praat Messaging Host*
+
+1. Once you've installed the browser extension, return to the transcript page.
+2. Press *OK* on the message that appears, to reload the page.
+3. Click on any line, and select the 'Open Text Grid in Praat' option on the menu.
+
+You will see a page with three-step instructions for finishing the Praat integration.
+
+Assuming you already have Praat and Java installed, you just have to do the third step.
+i.e. download and run a program called
+"install-jsendpraat.jar". 
+
+4. Click the *install-jsendpraat.jar* link, save the resulting file.
+5. Double-click the program you just saved.
+6. On the window that appears, press the *Install* button.
+
+::::{#mac .callout-note collapse=true}
+
+## Mac Installation
+
+When you try to run *install-jsendpraat.jar* on a Mac, you may see the following message:
+
+![](mac-install-jsendpraat-not-opened.png){alt="install-jsendpraat.jar Not Opened - buttons Done or Move to Trash" width=50%}
+
+
+If so:
+
+a. Press *Done*.
+b. Click the Apple icon on the top left corner of the screen to open the menu.
+c. Select *System Settings...*
+d. On the left hand side, select the *Privacy and Security* option.
+e. Scroll to the bottom of the page.\
+   Under *Security* you should seem a message saying\
+   *"install-sendpraat.jar" was blocked to protect your Mac*\
+   ![](mac-open-anyway.png)
+   
+f. Press *Open Anyway*\
+   You will see a warning message:\
+   ![](mac-open-install-jsendpraat.png){width=50%}
+   
+g. Press *Open Anyway*\
+   You may see a further prompt to allow this:\
+   ![](mac-allow.png)
+   
+Finally you should see the installer open:
+
+![](mac-install-jsendpraat-installer.png)
+
+Then you can press *Install*.
+
+::::
+
+7. You also may be asked where Praat is installed; Navigate to the
+   location where Praat is installed, and double-click the "Praat.exe"
+   file (on some systems the file may simply be called "Praat"). The
+   Praat program may open, and then immediately close, as LaBB-CAT
+   tests it can communicate with Praat.
+
+7. Close the instructions page.
+
+If in doubt, check the ![](help.png){height="16px"} online help on the transcript
+page; it has a section explaining how to set up Praat integration on
+various browsers and operating systems.
+
+Now Praat integration has been set up, and you should be able to
+access Praat options in the transcript page from now on...

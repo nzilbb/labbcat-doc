@@ -1,0 +1,119 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: linguisticspro
+---
+# Installing LaBB-CAT on Windows
+
+LaBB-CAT is a web-browser based application, and is primarily designed to run
+on a central web server accessible over the internet, so that multiple collaborators
+can easily work on the same corpus data from different locations.
+
+However, it is possible to have a 'private' installation of LaBB-CAT which runs
+directly on your personal computer. These instructions explain how to achieve that.
+
+On Windows, before you can install LaBB-CAT, you first must have Java installed.
+
+### 1. Check Java
+
+Use the following steps to check whether you already have Java installed.
+
+1. Press the ![](windows-start.jpg){height="22px" style="vertical-align: bottom;"} Start menu button.
+2. Type `Control Panel`
+3. Select the *Control Panel* option that appears.\
+   ![](control-panel-icon.png){title="The Windows Control Panel menu item"}
+4. Type `Java`
+
+If a *Java* icon appears as shown in @fig-control-panel-java, then you already have Java, and can skip section 2.
+
+![Java in the Control Panel](control-panel-java.png){#fig-control-panel-java width="70%" title="Java in the Control Panel"}
+
+If there's no *Java* icon in the Control Panel, follow the steps in the next section to install it.
+
+\newpage
+
+### 2. Install Java
+
+1. Open the Java website in your browser:\
+   <https://www.java.com/>
+2. Press the *Download Java* button.
+3. Press the *Download Java* button on the next page and save the resulting installer file.
+4. Click the installer to run it.
+
+![The Java installer](java-installer.png){#fig-java-installer width="70%" title="Press Install"}
+
+5. Press *Install*.
+
+![Java installation is complete](java-installed.png){#fig-java-installed width="70%" title="Press Close"}
+
+6. Press *Close*.
+
+\newpage
+
+### 3. Install LaBB-CAT
+
+Once Java is installed, you can install LaBB-CAT:
+
+(@) Open the following page in your web browser:\
+    <https://sourceforge.net/projects/labbcat/files/install/>\
+    This page has all versions of the LaBB-CAT installer, both for personal computer installations\
+    and also for web-server installations. The the files are listed most recent first.
+(@) Download the first file named *install-labbcat_yyyymmdd.jar* (where *yyyymmdd* are numbers).
+(@) Double-click on the file you just downloaded to open it.
+
+You should see the LaBB-CAT installer program (@fig-install-labbcat-windows).
+
+![LaBB-CAT Installer](install-labbcat-windows.png){#fig-install-labbcat-windows width="70%" title="The LaBB-CAT installer with buttons: Start and Cancel"}
+
+(@) Press *Start*.
+
+You should see a progress bar while components are installed and files are copied.
+
+Once the installation is finished, the progress bar will be all blue, 
+and there will be a button labelled *Finished* (@fig-install-labbcat-finished).
+
+![Installer finished](install-labbcat-finished-windows.png){#fig-install-labbcat-finished width="70%" title="The LaBB-CAT installer with the message 'Installation complete' and a 'Finished' button to close it"}
+
+(@) Press *Finished*.
+
+The LaBB-CAT Server application will appear, as shown in @fig-labbcat-windows.
+
+![LaBB-CAT Server](labbcat-windows.png){#fig-labbcat-windows width="70%" title="The LaBB-CAT Server app must be open while you're using LaBB-CAT"}
+
+Then your default web browser will open on your LaBB-CAT home page, as shown in @fig-LaBB-CAT-home-windows.
+
+![LaBB-CAT is successfully installed and running](LaBB-CAT-home-windows.png){#fig-LaBB-CAT-home-windows title="The LaBB-CAT home page"}
+
+(@) If you are shown the LaBB-CAT Licence page, scroll to the bottom and press *I Agree*.
+
+As seen in @fig-start-menu-labb-cat, in your Start Menu, 
+you will see that there is a LaBB-CAT app that can be used to 
+start and access LaBB-CAT from now on.
+
+![Use Start/LaBB-CAT to open LaBB-CAT](start-menu-labb-cat.png){#fig-start-menu-labb-cat width="50%" title="The LaBB-CAT Start Menu item"}
+
+This starts the LaBB-CAT Server app (@fig-labbcat-windows), which must be 
+running when you're using LaBB-CAT. 
+It can be closed once you've finished working with LaBB-CAT.
+
+\newpage 
+
+## Uninstalling LaBB-CAT
+
+In future you may want to uninstall LaBB-CAT, in which case you can use the same installer you used to install it.
+
+If you run *install-labbcat_yyyymmdd.jar* and LaBB-CAT is already installed, 
+after pressing *Start* it will offer further options.
+
+![Running *install-labbcat_yyyymmdd.jar* when LaBB-CAT is already installed](uninstall-labbcat.png){title="An 'Already Installed' window, with buttons: Cancel, Uninstall, Replace, and Upgrade"}
+
+The options are:
+
+- **Upgrade** -- Install this version of LaBB-CAT, keeping all your corpus data intact.
+- **Replace** -- Install LaBB-CAT afresh, deleting all your existing corpus data and leaving you with an empty LaBB-CAT installation.
+- **Uninstall** -- Remove LaBB-CAT from your personal computer.
+- **Cancel** -- Close the installer without taking any action.
+

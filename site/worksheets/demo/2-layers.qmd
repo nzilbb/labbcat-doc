@@ -1,0 +1,1352 @@
+---
+format:
+  html:
+    toc: true
+  pdf: 
+    toc: false
+    fontfamily: linguisticspro
+---
+<!-- 16 minutes up to Praat extension  -->
+<!-- 5-10 minutes for Praat extension  -->
+<!-- 7 minutes for syntax -->
+
+# 2 - Searching Annotation Layers
+
+<!--
+In addition to storing recordings and orthographic transcripts, the data
+can also be annotated in various ways with different information. Each
+type of annotation is stored on its own 'layer', so you can display
+and search on the basis of different aspects of the transcripts,
+including:
+
+-   part of speech
+-   frequency
+-   lemma
+-   pronunciation
+-   speech rate
+-   pause duration
+-   ...and more.
+
+Annotations can be made manually, and LaBB-CAT includes annotator modules (called
+'Layer Managers') for doing certain annotations automatically.
+
+Various automatically generated annotation layers have been configured
+in the demo instance of LaBB-CAT, and we will start to explore some of
+them in this worksheet.
+-->
+
+<!--
+## Regular Expressions
+
+(@) In LaBB-CAT, select the *search* option on the menu at the top, to start a new search of all transcripts and participants.
+(@) Enter the following into the *orthography* box:\
+    `.*quake`
+
+This is a 'regular expression' that allows you to search for patterns instead of matching exact text:
+
+- `.` means "any letter, number, or other character"
+- `*` means "zero or more of the previous thing",\
+  so `.*` means "any number of characters of any kind"
+- `quake` means literally the sequence of letters 'quake'\
+  so `.*quake` means "any word ending in 'quake'"
+
+(@) Press *Search*.\
+    Now your results include all the instances of the word "earthquake", plus instances of "quake" as well.
+
+Up until now, we've only been matching against one word at a time.
+Now we're going to include patterns for a chain of words. 
+
+(@) On the search page, next to the *orthography* box where you entered
+    the regular expression, there's a ➕ button for adding a column to
+    the 'search matrix'. Click it.\
+    ![](two-words-wide.png)\
+    Now you will see that our 'search matrix' is two words wide.
+(@) In the new *orthography* box on the right, enter the regular expression:\
+    `hit|struck`
+
+This regular expression is:
+
+- `hit` means "the word 'hit'"
+- `|` (the vertical bar character) means "or"
+- `struck` means "the word 'struck'"\
+  so `hit|struck` means "the word 'hit' or the word 'struck'"
+    
+(@) Press *Search*.\
+    You should see results are now words ending in 'quake' followed by either 'hit' or 'struck'.
+
+:::{.callout-tip}
+![](help.png) You can get more information about regular expressions
+by using the online help back on the search page.
+:::
+
+(@) See if you can create a search for all words ending in '...ing'.
+(@) See if you can create a search for the word "the" followed by a word starting with a vowel.
+
+## Layered Search Matrix
+
+Layered search is usually a two-step process: first you select which
+participants you want to search, using their participant attributes. And
+then you specify the pattern you want to search for.
+
+If we were interested only in monolingual speakers, for example, we
+would filter out those that speak various language by setting the
+attribute values appropriately on the filter page.
+
+1.  Firstly, return to LaBB-CAT's home page by clicking the *Home* link
+    on the menu, and then click the *Layered Search* icon.\
+    You will see a page called "Participants".
+2.  Select 'M' in the *Gender* box.\
+    You will see a list of the male participants only.\
+    Notice that each participant has a check-box; if we wanted to, we
+    could select specific participants from the list by
+    checking/unchecking the boxes. (But in this case, let's search all
+    of them, so leave all the boxes un-ticked.)
+3.  Press the *Layered Search* button at the top of the list.\
+    You will see a page that lists the speakers at the top, a number of
+    tickable annotation layers in the middle, a 'Search Matrix' below.
+    (It doesn't look much like a matrix yet, as it only includes the
+    'orthography' layer, but we will be adding rows and columns later
+    on.)
+4.  In the box labelled "orthography" type the regular expression
+    `th[aeiou].+`\
+    As you saw earlier, `[aeiou]` means 'any vowel', and a
+    full-stop/period means 'any character'\
+    The plus-sign means 'one or more of the previous thing', so `.+`
+    means 'at least one character'.
+5.  Now press the *Search* button at the bottom (or hit {{< kbd Enter >}}).\
+    A progress bar will appear, and then shortly after that, a new
+    window will open, which has a list of search results in it. Your
+    browser's popup-blocker might prevent the results page from
+    opening - you can fix that either by allowing the popups in your
+    browser, or by clicking the *Display results* link that appears
+    after the search finishes.
+
+You will see that the results include words like "that", "there",
+"then", etc. - i.e. words that start with "th", followed by a vowel,
+followed by at least one more letter.
+
+:::{.callout-tip}
+![](help.png) You can get more information about regular expressions
+by using the online help back on the search page.
+:::
+
+As we previously saw with the 'easy search', each match is
+highlighted and shown within a few words context. However, this
+results page has a few more options available.
+
+6.  In the *Context* drop-down box at the top, select the *5 words*
+    option, to show more context in the llist of results.
+7.  Each result line has a ticked checkbox next to it. At the bottom of
+    the list, you'll see that there are various buttons, which perform
+    operations on the ticked results, including *CSV Export*, 
+    *Utterance Export*, and *Audio Export*.
+8.  Untick the "*Select all result*" checkbox, and then tick a handful
+    of results in the list.
+
+:::{.callout-tip}
+You can select a group of matches by ticking the first one,
+and then holding down the {{< kbd Shift >}} key while ticking the last
+one.
+:::
+
+9.  Click the *Audio Export* button.
+10. Save and open the resulting zip file.
+
+The zip file contains the audio for the utterance that contained the word that matched your search.
+
+You'll see that extracted wav files are systematically named to include:
+
+-   the name of the transcript
+-   the start and end time of the extracted utterance
+
+11. If you also have Praat installed on your computer, go back to the
+    results page and click *Utterance Export* button. Save and open the
+    resulting zip file.
+    
+You'll see that the TextGrid names match the audio file names in
+the previous zip file.
+
+If you open a TextGrid in Praat, you'll see it includes a tier for
+the whole utterance transcript, a tier with an interval for each
+word, and a *target...* tier which tags the word that matched the
+regular expression you searched for.
+
+12. Back on the results page, click the *CSV Export* button.
+13. Save the resulting file, and open it.\
+    You may have to specify some import options, in which case it may be
+    handy to know that the field separator is comma, and the fields are
+    quoted by speech marks.
+
+:::{.callout-note}
+If you're using Microsoft Excel and you find it doesn't
+open all the columns correctly:
+
+1.  Create a new workbook in Excel.
+2.  Click the 'Data' tab.
+3.  On the "Get External Data" ribbon click 'From Text'.
+4.  Select the CSV file you downloaded.
+5.  Select 'Delimited' and click *Next*.
+6.  Ensure 'Comma' is the only delimiter ticked and click *Next*.
+7.  Click *Finish* and then *OK*.
+:::
+
+You will see a spreadsheet with one line per selected result,
+and various columns containing information about the speaker,
+the corpus, the match line and word, and a URL to the
+interactive transcript for the match.
+
+With this spreadsheet, you can work 'offline' with the results,
+tagging them, computing statistics in Excel, R, or any other
+program that can work with CSV files. We'll look at a few more
+uses for the CSV results files later...
+
+14. Close the CSV file, and got back to the results page.
+
+Up until now, we've only been matching against one word at a time.
+Now we're going to include patterns for a chain of words. Unlike
+the simple search, adding a space in the regular won't work,
+because each column in the search matrix only matches a single word.
+To match a chain of two words, we need to have two columns in the
+search matrix.
+
+15. On the search page, next to the *orthography* box where you entered
+    the regular expression, there's a ➕ button for adding a column to
+    the matrix. Click it.
+
+![](two-words-wide.png)
+
+Now you will see that our search matrix is one layer high by two
+words wide.
+
+16. Change the entries on the *orthography* layer so that it will match
+    the word "the" followed immediately by a word that starts with a
+    vowel, and click *Search*.
+
+Check the search results are giving you what you expected. You may
+note that some of the following words start with a vowel in the
+spelling, even though they are not *pronounced* with a vowel sound.
+We will see how to search on the basis of pronunciation in another
+worksheet.
+
+17. Now search for "the" followed, within two words, by a word that
+    starts with a vowel.
+
+:::{.callout-tip}
+![](help.png) If in doubt about a search option, try the online help page.
+:::
+
+-->
+
+So far we have only searched the *orthography* layer - i.e. the ordinary
+spellings of words. But LaBB-CAT has been configured to generate a
+number of other annotation layers, which we will now explore.
+
+
+(@) If you still have the results page open from the last worksheet, close it to return to the *search* page.
+<!--
+Let's say we're interested in how rare or common words are in our
+data.
+
+LaBB-CAT's 'Frequency Layer Manager' is a module that counts up the
+number of times each word type appears in the database. It generates a
+frequency list, and also annotates each word token with its frequency.
+
+We'll now search for tokens of words that appear only once in the
+database.
+
+(@) If the 'search matrix' is still two words wide, press the ➖ button to remove the second columns.
+-->
+<!-- TODO blurb about Stanford POS tagger -->
+
+The annotation layers are grouped into a number of 'projects' to avoid
+clutter. We will initially be interested in the layers related to
+syntax.
+
+<!--
+Below the *Pattern* heading are four columns of checkboxes. The first column is labelled *Projects*, 
+and the other columns have checkboxes for annotation layers of different granularities.
+
+(@) Tick the *frequency'* project.\
+    Some addition layers will appear in the layer list on the right.
+(@) Tick the *word frequency* layer.\
+    You will see that the 'search matrix' is now two layers high.\
+    ![](frequency-search.png)
+
+Unlike the *orthography* layer, which has one box for a regular
+expression, the *word frequency* layer has two boxes, marked "≥" and
+"<". This is because the annotation values are numbers.
+
+(@) We want all the words that appeared only once in the database. Enter
+    a number or numbers in the appropriate box (you can leave either box
+    blank) and click *Search*.
+(@) Click on the first result in the list.
+
+
+This displays the transcript like you've seen before, except that now each word token has a number above it. 
+This is the frequency of that word, which is displayed because the
+*word frequency* layer is selected; there's a list of layers at the top
+of the transcript, and you can see that both *word frequency* and *word*
+are ticked.
+
+(@) At the top of the transcript, under *projects*, tick the checkbox labelled "manual annotations".\
+    This will reveal another layer under *layers* called 'type'.
+(@) Tick the *type* layer.\
+    After a short delay, the transcript will be displayed again, with only the transcript text visible.
+(@) Scroll down through the transcript, and you will see that different spans of words are tagged differently
+    depending on the content -- some spans are labelled "aftermath of the earthquakes", 
+    others "February earthquake experience", etc. These annotations were manually added to the original transcripts.
+
+There are annotation layers with different granularities:
+
+- the 'word frequency' annotations tag individual word tokens, but
+- the 'type' annotations apply to spans of multiple words.
+- Later we will also see annotations that tag parts of words.
+
+The 'word frequency' annotations were added automatically by a module called the 'Frequency Layer Manager'
+which also keeps a straight word-list with word counts for each corpus...
+
+(@) Click the *home* menu option at the top.
+(@) Click the *Frequency Layer Manager* icon.
+(@) You will see a drop-down box with each frequency layer in it.\
+    Select *Word Frequency* and press *Select*.
+(@) Press the *Export* button at the bottom.
+(@) Save and open the resulting CSV file.\
+    You will see an alphabetical list of all the distinct words in the database, 
+    and next to each, a count of the number of tokens of that type.
+
+-->
+
+Below the *Pattern* heading on the *search* page are four columns of checkboxes. 
+The first column is labelled *Projects*, 
+and the other columns have checkboxes for annotation layers of different granularities.
+
+(@) Tick the *syntax* project.\
+    Some additional layers will appear in the layer list on the right.
+(@) Tick the *pos* layer.\
+    You will see that the 'search matrix' is now two layers high and two words wide.
+    
+![](orthography-pos.png)
+
+The *pos* layer contains part-of-speech annotations that were automatically generated by the 
+[Stanford POS Tagger](https://nlp.stanford.edu/software/tagger.shtml), 
+which is free software developed by The Stanford Natural Languages Processing Group
+for tagging words in various languages with their parts of speech.
+
+We are going to use the *pos* layer to identify "...quake" words that are followed by any verb...
+
+(@) The *pos* box on the right has a ![](phoneme-symbol-selector.png) button.\
+    Hover your mouse over it to see what it does, and then click it.\
+    A panel will open that lists all the part-of-speech labels used by the Stanford POS Tagger,
+    categorised by type.
+(@) Hover your mouse over different part-of-speech labels, and category names, to see what they represent.
+(@) Click the *VERB* link.\
+    A regular expression will be added to the *pos* search matrix that will identify any of the verb-type part-of-speech labels.
+(@) Press the ![](phoneme-symbol-selector.png) button to close the Symbol Selector.
+(@) Delete the `is|was` test from the *orthography* box above.
+
+![](quake-VERB.png){title="Search matrix for 'words ending in quake followed by a verb'"}
+
+(@) Press *Search*.\
+    You will see '...quake' words followed by different verbs.
+(@) Click on the first result in the list.
+
+This displays the transcript like you've seen before, except that now each word token has a part-of-speech tag above it. Some words have multiple tags (look for words with apostrophes).
+
+# 3 - Frequency Analyses
+
+<!-- 12:56-1:01 - 5 minutes -->
+<!-- 10:20-10:28 - 8 minutes -->
+
+## Word Frequency
+
+(@) Scroll to the top of the transcript you have open.\
+    You will see that under the *layers* heading, there is a list of layer checkboxes, which 
+    determine which annotation layers are displayed.
+(@) Under *projects* to the left, tick the checkbox labelled "frequency".\
+    This will reveal new options under *layers*.
+(@) Tick the *cobuild frequency* layer.\
+    After a short delay, each word will have a number above it.
+
+The words have been tagged with their 
+frequencies available in the 
+[CELEX](https://catalog.ldc.upenn.edu/LDC96L14)
+lexicon, which come from the 
+*Collins Birmingham University International Language Database*
+([COBUILD](https://1library.net/article/the-cobuild-project-corpora-computers-and-lexicography.q58rjdjq))
+corpus.
+
+(@) Tick the *word frequency* layer\
+    A second set of numbers will appear; this is the number of times the word appears in this demo corpus.
+
+The *word frequency* layer annotations were added automatically by a module called the 'Frequency Layer Manager'
+which also keeps a straight word-list with word counts for each corpus...
+
+(@) Click the *home* menu option at the top.
+(@) Click the *Frequency Layer Manager* icon.
+(@) You will see a drop-down box with each frequency layer in it.\
+    Select *Word Frequency* and press *Select*.
+(@) Press the *Export* button at the bottom.
+(@) Save and open the resulting CSV file.\
+    You will see an alphabetical list of all the distinct words in the database, 
+    and next to each, a count of the number of tokens of that type.
+
+<!--
+# 6 - Other Processing
+
+## Aggregate Measures
+
+You have seen in a previous worksheet that articulation rate can be
+calculated over the words in individual utterances, and also over all
+the words uttered by each participant. There are other useful
+computations that can be computed over different scopes.
+
+(@) Select the *transcripts* link on the menu.\
+    Like the *participants* page, this page includes filters at the top 
+    that allow you to filter the list of transcripts by attribute values.
+(@) For the *Word Count* attribute, there are two boxes which you can
+    use to specify a range of values.\
+    In the right-hand *To* box, enter *1000.*\
+    When the list reloads, you will see a list of all transcripts that
+    have up to 1000 words.
+
+This word count was computed by the Statistics Layer Manager, which
+has also been configured to compute speech duration in seconds and
+save the result in the "Duration" transcript attribute.
+
+Another simple aggregate calculation is type/token ratio. The Demo
+LaBB-CAT has been configured to compute the type/token ratio for
+each participant.
+
+(@) Select the *participants* link on the menu.
+(@) For the *corpus* attribute, tick the *QB* option to list only
+    participants recorded in the "Quake Box" portable recording studio.
+(@) At the top of the participant list, press the *Export Attributes*
+    button.
+(@) Tick the *Gender*, *Age* and *type/token ratio* attributes.
+(@) Press the *Participant Data* button.
+(@) Save and open the resulting CSV file.
+
+You will see that you have a list of their participants, with gender
+and age, and also a column for type/token ratio; this is the ratio
+expressed as a percentage.
+
+## Other Media
+
+The transcripts in this database each have a video and an audio file.
+
+However, some of the recordings have also been processed with a facial
+feature location algorithm. One of the results of this process was an
+annotated video; a copy of the original video, with the participant's
+face located, along with various facial landmarks (position of the
+eyes, shape of mouth, etc.).
+
+Although this processing was done independently of LaBB-CAT,
+LaBB-CAT supports having multiple media 'track' files for the same
+transcript, and for some of the transcripts, the annotated video has
+been uploaded as well as the original video.
+
+(@) On the *transcripts* page, list the transcripts with the *Quake Face* 
+    attribute set to *1 - true*.
+(@) Open one of the listed transcripts.
+
+On the top right of the page, by default, the original video or audio is
+selected for playback, but all the other media files available for
+the transcript are listed below the video, with a checkbox next to
+each.
+
+(@) Tick the checkbox next to the media file that ends with "..._face".
+    The transcript will reload and display the annotated video.
+(@) Press *Play* to see the annotations (marked in green and red) change
+    with the facial features.\
+    It may be easier to see the annotations if you put the video in
+    'full screen' mode.
+--> 
+
+## Keyness
+
+In addition to calculating word frequencies for direct analysis,
+frequencies can be compared to a reference corpus to calculated their
+log-likelihood
+'keyness'; a measure of whether the word is unusually frequent (a high
+positive keyness) or unusually infrequent (a low negative keyness).
+
+See
+Rayson, P. and Garside, R. (2000). *Comparing corpora using frequency profiling*. 
+In proceedings of the workshop on Comparing Corpora, held in conjunction with the 
+38th annual meeting of the Association for Computational Linguistics (ACL 2000). 
+1-8 October 2000, Hong Kong, pp. 1 - 6.
+
+The Demo LaBB-CAT has been configured to compute keyness compared to the
+frequencies available in the 
+[COBUILD](https://1library.net/article/the-cobuild-project-corpora-computers-and-lexicography.q58rjdjq)
+corpus.
+
+(@) Select the *home* link on the menu.
+(@) Click the 'Keyness' icon.\
+    You will see a form that allows you to search for particular
+    spelling patterns, or export a list.
+(@) Press the *Search* button without filling in the *Pattern* box, to
+    list all words above the default *Keyness* threshold.\
+    \
+    A list of words will be displayed, each word with its keyness
+    metric. The high-positive words (which are unusually frequent) are
+    listed first, with the low-negative words (unusually infrequent)
+    below.
+
+Unsurprisingly for this speech corpus, as compared to the mostly-written
+COBUILD corpus, words with high keyness include filled pauses like "um"
+and "ahh", other words more likely in informal speech like "gonna" and
+"yeah", topic-specific words like "earthquake" and "aftershocks", and
+Canterbury place-names like "Christchurch" and "Brooklands".
+
+The Frequency Layer Manager can be configured to compute keyness of the
+data compared to any corpus for which you have word frequency data, or
+if you have several corpora within one LaBB-CAT database, each corpus
+can be compared to all the rest.
+
+\newpage
+
+## Linguistic Inquiry and Word Count
+
+Linguistic Inquiry and Word Count (LIWC) text analysis can be done with
+the LIWC Layer Manager and categorised word lists.\
+See: <https://www.liwc.app/help/howitworks>\
+Or: Tausczik & Pennebaker (2010) 
+*The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods* 
+Journal of Language and Social Psychology 29 (1) 24-54
+
+LIWC involves calculating the percentage of words in different
+categories. Categorised word lists can be compiled by hand, 
+and needn't be restricted to the categories shown here.
+
+LIWC text analysis has been done on the Demo LaBB-CAT database, and also
+on the COBUILD corpus as a comparison corpus.
+
+(@) Select the *home* option on the menu.
+(@) Click the 'LIWC' icon.\
+    You will see a horizontal bar graph: each bar represents category of
+    words, with the bar length representing the percentage of that
+    category's usage in the database.
+(@) Tick the *Cobuild* checkbox on the left.\
+    Bars representing the percentages for the COBUILD corpus will be
+    added to the graph, for comparison.
+(@) Press the *Export* button.
+(@) Save and open the resulting CSV file.\
+    You will see that the file contains the list of categories, with two
+    percentages for each category, first the percentage for the LaBB-CAT
+    data, and then the percentage for the COBUILD corpus.
+
+The bar graph can be used to clearly visualise similarities and differences between the corpora. 
+The CSV file is useful for further analysis, or different visualisation options, using other tools.
+
+\newpage
+
+# 4 - Alignment
+<!-- 1:01-1:09 - 8 minutes -->
+<!-- 10:28-10:35 - 7 minutes -->
+
+## Forced Alignment
+
+Forced alignment is the automated processing of recordings of utterances and their orthographic transcripts in order to determine the start and end times of the individual speech sounds within words (phones).
+
+LaBB-CAT can integrate with a number of forced alignment systems, including 
+the Hidden Markov Model Toolkit ([HTK](https://htk.eng.cam.ac.uk/)), 
+which is a speech recognition toolkit developed at Cambridge University.
+
+In order to do forced alignment, HTK needs the following ingredients:
+
+i.    a set of recordings broken up into short utterances,
+ii.   orthographic transcriptions of each utterance, and
+iii.  phonemic transcriptions of each of the words in each utterance.
+
+In the demo database you have all of these three ingredients 
+(pronunciations have been taken from the 
+CELEX lexicon), 
+and the data has already been force-aligned using HTK.
+
+We will now explore some of the uses of force-aligned data.
+
+## Searching
+
+(@) Select the *search* option on the menu at the top.
+(@) Tick the *segment* layer, which is the layer that stores the force-aligned phones produced by HTK.
+
+Now we're going to do a search for tokens of the TRAP vowel /æ/.
+
+(@) The *segment* box has a ![](phoneme-symbol-selector.png) button to the right of it.\
+    Hover the mouse over it to see what it says, and then press it.\
+    You will see that a box opens with a bunch of phoneme symbols on it.
+(@) On the 'Monophthong' line, find the TRAP vowel `æ` and click it.\
+    You will see that a `{` appears in the box.
+
+The phonemic transcriptions used for forced-alignment came from the CELEX lexicon, 
+and CELEX doesn't use IPA symbols directly, it actually uses
+the 'DISC' encoding for phoneme labels, which uses ordinary 'typewriter'
+characters (ASCII), and uses exactly one character per phoneme. 
+The DISC symbols are used for the *segment* layer labels.
+
+As you can see in the table below, many of the correspondences between IPA and DISC are straightforward, but
+IPA symbols that involve unusual characters or more than one character have non-obvious DISC symbols. 
+
+  ----- ------ -------------- --- ----- ------ --------------
+  IPA   DISC                      IPA   DISC    
+  p     `p`    **p**at            ɪ     `I`    K**I**T
+  b     `b`    **b**ad            ε     `E`    DR**E**SS
+  t     `t`    **t**ack           æ     `{`    TR**A**P
+  d     `d`    **d**ad            ʌ     `V`    STR**U**T
+  k     `k`    **c**ad            ɒ     `Q`    L**O**T
+  g     `g`    **g**ame           ʊ     `U`    F**OO**T
+  ŋ     `N`    ba**ng**           ə     `@`    **a**nother
+  m     `m`    **m**at            i:    `i`    FL**EE**CE
+  n     `n`    **n**at            α:    `#`    ST**A**RT
+  l     `l`    **l**ad            ɔ:    `$`    TH**OU**GHT
+  r     `r`    **r**at            u:    `u`    G**OO**SE
+  f     `f`    **f**at            ɜ:    `3`    N**UR**SE
+  v     `v`    **v**at            eɪ    `1`    F**A**CE
+  θ     `T`    **th**in           αɪ    `2`    PR**I**CE
+  ð     `D`    **th**en           ɔɪ    `4`    CH**OI**CE
+  s     `s`    **s**ap            əʊ    `5`    G**OA**T
+  z     `z`    **z**ap            αʊ    `6`    M**OU**TH
+  ∫     `S`    **sh**eep          ɪə    `7`    N**EAR**
+  ʒ     `Z`    mea**s**ure        εə    `8`    SQU**ARE**
+  j     `j`    **y**ank           ʊə    `9`    C**URE**
+  x     `x`    lo**ch**           æ     `c`    t**i**mbre
+  h     `h`    **h**ad            ɑ̃ː    `q`    dét**en**te
+  w     `w`    **w**et            æ̃ː    `0`    l**in**gerie
+  ʧ     `J`    **ch**eap          ɒ̃ː    `~`    bouill**on**
+  ʤ     `_`    **j**eep                         
+  ŋ̩     `C`    bac**on**                        
+  m̩     `F`    idealis**m**                     
+  n̩     `H`    burd**en**                       
+  l̩     `P`    dang**le**                       
+  ----- ------ -------------- --- ----- ------ --------------
+
+The symbol for the TRAP vowel /æ/ is `{` which is why clicking `æ` in the Phoneme Symbol Selector adds a `{` to the search pattern.
+
+(@) Press *Search*.\
+    You will see that all the matches include /æ/ somewhere in the word. 
+(@) Immediately to the right of the *CSV Export*  button there is a ![](down-triangle.png){height=14} button.\
+    Hover your mouse over it to see what it does, and then press it.
+
+You will see several columns of checkboxes for selecting:
+
+- participant attributes
+- transcript attributes
+- annotations
+
+These can all be exported with the CSV results.
+
+(@) Under *Participant* tick *gender* and *age_category*.
+(@) Under *Transcript* tick *syllables per minute*.
+(@) Under *Span* tick *type*
+(@) Under *Phrase* tick *syllables per minute*
+(@) Under *Word* tick *cobuild frequency*
+(@) Above the checkboxes, press the *CSV Export* button, and open the resulting CSV file.
+
+You will see that, in addition to the columns you've seen before, the CSV file also includes:
+
+- *participant_gender* - the gender of the person speaking;
+- *participant_age_category* - their age bracket;
+- *transcript_syllables per minute* - the overall articulation rate throughout the whole recording;
+- *Target type* - a manually added annotation that labels what type of experience is being described;
+- *Target syllables per minute* - the local articularion rate, during the utterance in which the match was uttered;
+- *Target cobuild frequency* - the frequency of the word in the COBUILD corpus;
+- *Target segment* - the label of the vowel you searched for;
+- *Target segment start* - the start time of the vowel;
+- *Target segment end* - the end time of the vowel.
+
+This means you can include this data in any analysis you subsequently perform on the results data.
+
+You have seen that after forced alignment, it's possible to identify tokens of individual speech sounds.
+You can also match for the context of the speech sounds within the word.
+
+(@) Close the results tab and return to the search page.
+
+You will see that on the left edge of the *segment* box there is an open padlock icon.
+
+(@) Hover your mouse over the padlock to see what it says, and then click it.\
+    The padlock closes.
+(@) Press *Search*.\
+    There are much fewer matches now, as you'll see only words where the matched segment is 
+    at the beginning of the word.
+(@) Close the results tab and return to the search page.
+
+You can also match patterns of multiple segments within the word. 
+Let's say we're interested in words that start with the TRAP vowel, followed by /n/. 
+We can use the *segment* layer to search on the basis of pronunciation, matching multiple segments within the word.
+
+<!--
+:::{.callout-important}
+On the *segment* layer, if you enter a pattern that
+would match more than a single character on this layer (i.e. more
+than a single phoneme) then no search results will be returned,
+because each annotation on this layer is only a single character
+long (remember the DISC encoding uses one character per phoneme).
+
+For example, if you enter `dIs` for your search, intending to
+match all words starting with "dis...", then no results will be
+returned, because no single segment will ever match that pattern.
+:::
+-->
+
+(@) Inside the *segment* box, immediately to the right of the Phoneme Symbol Selector button is a small ![](add.png){height="12px"} button
+.\
+    Press it.\
+    You will see that this adds another *segment* column within the word.<!--\
+    ![](TRAP-plus.png)-->
+(@) Enter `n` in the second *segment* box.\
+    ![](TRAP-n.png){width="65%"}
+(@) Press *Search* and check the results are what you would expect.
+
+<!--
+---
+
+We have seen that forced alignment allows you identify patterns in the pronunciations of the words, 
+but having aligned segments opens up other possibilies for annotation and analysis, which we will see now...
+
+(@) Click on the first match of your last search.
+
+You will see that each word is tagged with its phonemic
+transcription using the International Phonetic Alphabet (IPA).
+
+The IPA symbols are being displayed by LaBB-CAT to provide a
+linguist-friendly representation of the phonemic transcription. But
+you can see the underlying DISC characters by selecting the 'Raw'
+option on the layer at the top of the transcript.
+
+(@) Select 'Raw' on the *segment* layer, to see the CELEX DISC labels HTK has used.\
+    You may find that this is somewhat harder to read. Diphthongs are digits, schwa is "@", 
+    and various other characters are used to represent affricates, etc.
+
+The interactive transcript page doesn't show you the alignments
+of the words or phones, but you can see those by extracting Praat TextGrids of the transcript,
+or individual utterances.
+
+## Praat Browser Integration
+
+:::{.callout-note}
+If you don't use Praat, or don't have it installed on your computer, you can skip this section.
+:::
+
+We have previously seen that any transcript can be exported as a Praat TextGrid from the *formats* menu, 
+so you can export a TextGrid and open it in Praat (if you have it installed on your computer)
+to check the *segment* layer alignments.
+
+However LaBB-CAT also integrates directly with Praat. With Praat integration installed, you can similarly
+inspect alignments, but you can also correct them by moving the
+alignments in Praat and then saving them back to LaBB-CAT.
+
+:::{.callout-important}
+LaBB-CAT's browser integration with Praat does not currently work with Safari, 
+so if you're using a Mac, ensure you try the steps below in Google Chrome or Mozilla Firefox.
+:::
+
+First, the LaBB-CAT/Praat integration has to be set up; this only has to
+be done once:
+
+(@) On the top-right of the transcript page, above the playback
+    controls, there's a Praat icon ![](praat-integration.png){height="18px"} - click
+    it.
+(@) Follow the instructions that appear (these vary depending on what
+    web browser you use).
+
+You may need to grant a browser extension permission to install, and
+it's possible you will need a connection to the internet in order
+to download this extension.
+
+(@) Once you've installed the browser extension, return to the transcript page.
+(@) Click on any line, and select the 'Open Text Grid in Praat' option on the menu.
+
+You will see a page with three-step instructions for finishing the Praat integration.
+
+Assuming you already have Praat and Java installed, you just have to do the third step.
+i.e. download and run a program called
+"install-jsendpraat.jar". 
+
+(@) Click the *install-jsendpraat.jar* link, save the resulting file.
+(@) Double-click the program you just saved.
+(@) On the window that appears, press the *Install* button.\
+    \
+    You also may be asked where Praat is installed; Navigate to the
+    location where Praat is installed, and double-click the "Praat.exe"
+    file (on some systems the file may simply be called "Praat"). The
+    Praat program may open, and then immediately close, as LaBB-CAT
+    tests it can communicate with Praat.\
+    \
+    If in doubt, check the ![](help.png){height="18px"} online help on the transcript
+    page; it has a section explaining how to set up Praat integration on
+    various browsers and operating systems.\
+(@) Close the instructions page.
+
+Now Praat integration has been set up, and you should be able to
+access Praat options in the transcript page from now on...
+
+(@) Click on any line, and select the 'Open Text Grid in Praat' option on the menu.\
+    After a short delay, Praat should open, and show you a spectrogram
+    of the line's audio, with a TextGrid below that includes the words
+    and the segments.
+(@) If you click on a word, and hit the {{< kbd tab >}} key, the word's
+    interval is played. Try out various words, and see what you think
+    about how accurate HTK has been with its alignment.
+(@) Try this out with different lines in the transcript.\
+    You will see that in some cases the alignment is pretty good, and in
+    other cases, it's not so good. In the not-so-good cases, see if you
+    can figure out why HTK got it wrong.
+
+If you had 'edit' rather than 'read-only' permissions in LaBB-CAT, then
+each time you opened an utterance in Praat, a button would appear in the
+transcript to the left of the line, labelled *Import Changes*. This
+button would allow you to save any adjustments you might want to make to
+the alignments back into the LaBB-CAT database.
+
+![](Import-Changes.png)
+
+These changes are flagged as manual edits, so if forced-alignment is run
+again, they will not be over-written with new bad alignments.
+
+This mechanism can also be used to add other annotations from Praat into
+LaBB-CAT annotation layers.
+
+### Annotating Aligned Data
+
+Once the words and segments have been aligned with HTK there are a number
+of annotation possibilities that arise.
+
+For example, word syllabification information can be retrieved from
+CELEX and combined with the aligned phones to construct aligned syllable
+annotations.
+
+(@) Tick the *alignment* project at the top of the transcript.\
+    This reveals several layers.
+(@) Tick the *syllables* layer
+(@) Once the transcript has re-loaded, open an utterance with Praat.\
+    You will see that, in addition to aligned words and phones, the
+    syllables are also aligned, and labelled with their phonemic
+    transcription, and stressed syllables are prepended with an
+    apostrophe.
+
+Also, with exact word durations (i.e. excluding pauses in speech)
+and syllable counts, the speaker's articulation rate, in syllables
+per minute, can be computed. The Statistics Layer Manager is a
+module that can be configured to compute sums, counts, and rates of
+various kinds over different scopes, including syllables per minute.
+
+(@) Tick the *syllables per minute* layer.\
+    You will see that each utterance has a spanning annotation across
+    the top of it, labelled with a number; that number is the
+    articulation rate for that particular utterance.
+
+Both local and global articulation rate can be calculated ...
+
+(@) Click on the name of the speaker at the top of the transcript.\
+    This will open the participant attributes page for that speaker.\
+    You will see that one of the attributes is *Syllables per Minute*;
+    this is the speakers overall articulation rate, across all their
+    utterances.
+
+Articulation rate is calculated by excluding the durations of
+inter-word pauses. These pauses themselves can be annotated, for
+search or analysis purposes.
+
+(@) Go back to the transcript page.
+(@) Tick the *previous pause* layer.\
+    You will see that many of the word tokens in the transcript are
+    tagged with a number. These words are preceded by a pause in speech,
+    and the number is the length of that pause in seconds.
+(@) Open an utterance in Praat to confirm these pauses are correct.
+
+<!--
+## Searching
+
+Given that HTK has created individually aligned phones in the database,
+those speech sounds can be searched and exported.
+
+Let's say you're particularly interested in the vowel in the word
+'KIT'. You can now identify and extract instances of that phoneme.
+
+(@) Click the *search* link on the menu.
+(@) Tick the *segment* layer.
+
+The segments layer contains annotations at the sub-word level -
+i.e. there are potentially multiple annotations per word, each
+annotation representing a single phone of the word. You will see that, as
+with other layers, there is a box on the segments layer for a
+regular expression.
+
+As with other patterns in the search matrix, the pattern that you
+enter in the box is matched against individual annotations. So if
+you enter `I` (i.e. capital I) in the in the box, it will match each
+'KIT' vowel segment in each word in the database.
+
+
+(@) We want to search for all instances of the 'KIT' vowel, so enter `I`
+    in the *segment* pattern box.
+(@) Click *Search*\
+    After a short delay, you should see a list of results.
+
+You will see that the results list words that have the 'KIT', but in
+many cases it's not the main stressed vowel. What if we're only
+interested in *stressed* 'KIT' vowels?
+
+That's ok, because we also have stress-marked syllable annotations,
+so we can add that layer to the search matrix, and identify only
+stressed vowels ...
+
+(@) Note down the number of results returned by your last search.
+(@) Back on the search form, add the *syllables* layer to the search
+    matrix.
+(@) As we have seen, stressed syllables are labelled with an apostrophe
+    at the start. Enter a regular expression that will identify all
+    syllables that start with apostrophe.
+    \
+    In this way, the results will give use all KIT vowels that are
+    within a stressed syllable.
+(@) Click *Search* again.\
+    This time you will see fewer results returned, because we've
+    filtered out the un-stressed version of the vowel.\
+
+
+## Exporting Alignments
+--> 
+<!-- 7 min -->
+
+You can also export segment tokens that match search patterns to a CSV file, including the start/end times
+for analysis or further processing. 
+In fact, you can also export other annotations, and transcript/participant attributes.
+
+<!--
+(@) Select *search* on the menu at the top.
+(@) Tick the *segment* layer and the *syllables* layer (which is in the *alignment* project)
+(@) We want to search for all instances of the 'KIT' vowel, so enter the corresponding 
+    vowel symbol in the *segment* pattern box.
+
+We only want vowels that are in a syllable with primary stress. 
+As we saw earlier, stressed syllables are labelled with an apostrophe at the start. 
+
+(@) Enter a regular expression on the *syllables* layer that will identify all
+    syllables that start with apostrophe.
+    \
+    In this way, the results will give use all KIT vowels that are
+    within a stressed syllable.
+(@) Press *Search*
+-->
+
+(@) On the results page, press the *CSV Export* button.
+(@) Save and open the resulting file.
+
+You will see several columns of checkboxes for selecting:
+
+- participant attributes,
+- transcript attributes, and
+- annotation layers.
+
+These can all be exported with the CSV results.
+
+(@) Under *Participant* tick *gender* and *age_category*.
+(@) Under *Transcript* tick *syllables per minute*.
+(@) Under *Span* tick *type*
+(@) Under *Phrase* tick *syllables per minute*
+(@) Above the checkboxes, press the *CSV Export* button, and open the resulting CSV file.
+
+You will see that, in addition to the columns you've seen before, the CSV file also includes:
+
+- *participant_gender* - the gender of the person speaking;
+- *participant_age_category* - their age bracket;
+- *transcript_syllables per minute* - the overall articulation rate throughout the whole recording;
+- *Target type* - a manually added annotation that labels what type of experience is being described;
+- *Target syllables per minute* - the local articularion rate, during the utterance in which the match was uttered.
+- *Target segment* - the label of the vowel you searched for.
+- *Target segment start* - the start time of the vowel.
+- *Target segment end* - the end time of the vowel.
+
+This means you can include this data in any analysis you subsequently perform on the results data.
+The *Target segment start* and *Target segment end* columns 
+can be used for calculating vowel duration, 
+but also for acoustic measurement of the matched segments...
+
+<!--
+
+## Acoustic Measurement
+
+Given a CSV file with token start/end times, LaBB-CAT can extract
+acoustic measurements on the speech sounds using Praat.
+
+:::{.callout-note}
+The following steps work *even if you don't have Praat
+installed on your own computer*, because Praat is used on the LaBB-CAT
+server ...
+:::
+
+(@) In LaBB-CAT, click the *upload* menu option.
+(@) Click the *process with praat* option.
+(@) Click *Browse* and select the CSV results that you saved above.\
+    You will see a form to fill in, and the first couple of settings
+    (*Transcript Name column* and *Participant column* should be already
+    filled in).
+(@) For the *Start Time column*, ensure that the *Target segment start*
+    option is selected.
+(@) For the *End Time column*, ensure the *Target segment end* option is
+    selected.
+
+These two settings define the start/end times of the phone. For some
+measurements you might extract from Praat, processing signal that
+includes surrounding context is usually a good idea. You'll see
+there's a setting for that (which you can leave at the default of
+0.025s), and you will see options for various measurements.
+
+The default options are for *F1* and *F2* only, but if you feel like
+getting other measurements, feel free to tick those options too. You
+can expand each section with the ▸ button to reveal more settings,
+which allow you to specify more detail about how Praat should do its
+computations. Again, feel free to look at those and try different
+settings.
+
+(@) Click *Process*.\
+    You will see a progress bar while LaBB-CAT generates Praat scripts
+    and runs them.
+(@) Once Praat has finished processing the intervals, you will get a CSV
+    file (you might have to click the *CSV file with measurements*
+    link) - save and open it.
+
+You will see that it's a copy of the CSV file you uploaded, with
+some extra columns added on the right.
+
+Depending on your settings, this will include at least one column
+per measurement you selected (for formant measurmenets, there is also a column
+that contains the time at which the measurements were taken), and a
+final column called *Error* which is hopefully blank, but which
+might contain errors reported back by Praat (e.g. if it couldn't
+find the audio file or ran into any other problem during
+processing).
+
+-->
+
+# 5 - Praat
+<!-- 1:09-1:19 - 10 minutes -->
+<!-- 10:35-10:50 - 15 minutes -->
+
+## Acoustic Measurement
+
+Given a CSV file with token start/end times, LaBB-CAT can extract
+acoustic measurements on the speech sounds using Praat.
+
+:::{.callout-note}
+The following steps work *even if you don't have Praat
+installed on your own computer*, because Praat is used on the LaBB-CAT
+server ...
+:::
+
+(@) In LaBB-CAT, select the *upload* menu option.
+(@) Click the *process with praat* option.
+(@) Click *Browse* and select the CSV results that you saved above.\
+    You will see a form to fill in, and the first couple of settings
+    (*Transcript Name column* and *Participant column*) should be already
+    filled in).
+(@) For the *Start Time column*, ensure that the *Target segment start*
+    option is selected.
+(@) For the *End Time column*, ensure the *Target segment end* option is
+    selected.
+
+These two settings define the start/end times of the vowel For some
+measurements you might extract from Praat, processing signal that
+includes surrounding context is usually a good idea. You'll see
+there's a setting for that (which you can leave at the default of
+0.025s), and you will see options for various measurements.
+
+The default options are for *F1* and *F2* only, but if you feel like
+getting other measurements, feel free to tick those options too. You
+can expand each section with the ![](right-triangle.png){height=14} button to reveal more settings,
+which allow you to specify more detail about how Praat should do its
+computations. Again, feel free to look at those and try different
+settings.
+
+(@) Click *Process*.\
+    You will see a progress bar while LaBB-CAT generates Praat scripts
+    and runs them.
+(@) Once Praat has finished processing the intervals, you will get a CSV
+    file (you might have to click the *CSV file with measurements*
+    link) - save and open it.
+
+:::{.callout-tip}
+
+You may find that the CSV text data displays directly in your browser window.
+
+If this happens, just save the file with the {{< kbd mac=control-s win=Ctrl-S linux=Ctrl-S >}} keys, 
+and open it with Excel or whatever program you have to open CSV files.
+
+:::
+
+You will see that it's a copy of the CSV file you uploaded, with
+some extra columns added on the right.
+
+Depending on your settings, this will include at least one column
+per measurement you selected (for formant measurmenets, there is also a column
+that contains the time at which the measurements were taken), and a
+final column called *Error* which is hopefully blank, but which
+might contain errors reported back by Praat (e.g. if it couldn't
+find the audio file or ran into any other problem during
+processing).
+
+## Praat Browser Integration
+
+:::{.callout-note}
+The following steps work only if:
+
+- if you **Java** and **Praat** installed on your own computer, and
+- you're using a Chrome, Edge, or Firefox (i.e. **not Safari**)
+
+If you don't use Praat, or don't have Praat or Java installed, you can skip this section.
+:::
+
+We have previously seen that any transcript can be exported as a Praat TextGrid from the *formats* menu, 
+so you can export a TextGrid and open it in Praat (if you have it installed on your computer)
+to check the *segment* layer alignments.
+
+LaBB-CAT also integrates directly with Praat. With Praat integration installed, you can inspect alignments directly from the transcript page, 
+and with sufficient access, you can also correct them by moving the
+alignments in Praat and then saving them back to LaBB-CAT.
+
+:::{.callout-important}
+LaBB-CAT's browser integration with Praat currently **does not work** with *Safari*, 
+so if you're using a Mac, ensure you try the steps below in Google Chrome or Mozilla Firefox.
+:::
+
+First, the LaBB-CAT/Praat integration has to be set up; this only has to
+be done once:
+
+(@) Open any transcript.
+(@) Tick the *segment* layer.\
+    After a short delay, you will see a phonemic transcription below each word in the transcript -- these are the phone annotations created by HTK.
+(@) On the top-right of the transcript page, above the playback
+    controls, there's a Praat icon ![](praat-integration.png){height="16px"} - click
+    it.
+(@) Follow the instructions that appear (these vary depending on what
+    web browser you use).
+
+You may need to grant a browser extension permission to install, and
+it's possible you will need a connection to the internet in order
+to download this extension.
+
+(@) Once you've installed the browser extension, return to the transcript page.
+(@) Press *OK* on the message that appears, to reload the page.
+(@) Click on any line, and select the 'Open Text Grid in Praat' option on the menu.
+
+You will see a page with three-step instructions for finishing the Praat integration.
+
+Assuming you already have Praat and Java installed, you just have to do the third step.
+i.e. download and run a program called
+"install-jsendpraat.jar". 
+
+(@) Click the *install-jsendpraat.jar* link, save the resulting file.
+(@) Double-click the program you just saved.
+(@) On the window that appears, press the *Install* button.
+
+::::{#mac .callout-note collapse=true}
+## Mac Installation
+
+::: {.content-visible when-format="pdf"}
+
+For more details on installation on Macs, please see:
+
+<https://labbcat.canterbury.ac.nz/nzlingsoc2024/2-layers.html#mac>
+
+:::
+
+::: {.content-visible when-format="html"}
+
+When you try to run *install-jsendpraat.jar* on a Mac, you may see the following message:
+
+![](mac-install-jsendpraat-not-opened.png){alt="install-jsendpraat.jar Not Opened - buttons Done or Move to Trash" width=50%}
+
+If so:
+
+1. Press *Done*.
+2. Click the Apple icon on the top left corner of the screen to open the menu.
+3. Select *System Settings...*
+4. On the left hand side, select the *Privacy and Security* option.
+5. Scroll to the bottom of the page.\
+   Under *Security* you should seem a message saying\
+   *"install-sendpraat.jar" was blocked to protect your Mac*\
+   ![](mac-open-anyway.png)
+6. Press *Open Anyway*\
+   You will see a warning message:\
+   ![](mac-open-install-jsendpraat.png){width=50%}
+7. Press *Open Anyway*\
+   You may see a further prompt to allow this:\
+   ![](mac-allow.png)
+
+Finally you should see the installer open:
+
+![](mac-install-jsendpraat-installer.png)
+
+Then you can press *Install*.
+
+:::
+
+::::
+
+You also may be asked where Praat is installed; Navigate to the
+location where Praat is installed, and double-click the "Praat.exe"
+file (on some systems the file may simply be called "Praat"). The
+Praat program may open, and then immediately close, as LaBB-CAT
+tests it can communicate with Praat.
+
+If in doubt, check the ![](help.png){height="16px"} online help on the transcript
+page; it has a section explaining how to set up Praat integration on
+various browsers and operating systems.
+
+(@) Close the instructions page.
+
+Now Praat integration has been set up, and you should be able to
+access Praat options in the transcript page from now on...
+
+(@) Back in the transcript page you had open earlier, click on any line, and select the 'Open Text Grid in Praat' option on the menu.\
+    After a short delay, Praat should open, and show you a spectrogram
+    of the line's audio, with a TextGrid below that includes the words
+    and the segments.
+(@) If you click on a word, and hit the {{< kbd tab >}} key, the word's
+    interval is played. Try out various words, and see what you think
+    about how accurate HTK has been with its alignment.
+(@) Try this out with different lines in the transcript.\
+    You will see that in some cases the alignment is pretty good, and in
+    other cases, it's not so good. In the not-so-good cases, see if you
+    can figure out why HTK got it wrong.
+
+If you had 'edit' rather than 'read-only' permissions in LaBB-CAT, then
+each time you opened an utterance in Praat, a button would appear in the
+transcript to the left of the line, labelled *Import Changes*. This
+button would allow you to save any adjustments you might want to make to
+the alignments back into the LaBB-CAT database.
+
+![](Import-Changes.png)
+
+This mechanism can also be used to add other annotations from Praat into
+LaBB-CAT annotation layers.
+
+\newpage 
+
+# 6 - Syntax
+
+The Stanford Parser is an open-source PCFG parser that can use grammars
+for a variety of languages including English.
+
+LaBB-CAT includes a Layer Manager that handles integration with the
+parser. The Stanford Parser Layer Manager:
+
+-   extracts chunks of transcripts (ideally sentences or clauses),
+-   gives them to the Stanford Parser for processing, which produces a
+    'best parse' for the utterance provided, and
+-   saves the parse on a 'tree' layer, and optionally saves the
+    resulting part-of-speech tags on a word layer.
+
+One of the problems with parsing speech is that speakers often don't
+speak in complete, well-formed sentences. In addition, the demo corpus
+you are using was not generally transcribed with parsing in mind, and so
+grammatically complete units have not been marked with full-stops,
+commas, etc. (Instead, full-stop has been used to mark short pauses in
+speech).
+
+For these reasons, the parses you will see in this data may not be
+perfect. However, it's possible to get a sense of the kinds of things
+that could be achieved with well-formed written texts, or speech that
+has been transcribed with grammatical punctuation included.
+
+(@) Select the *transcripts* option on the menu.
+
+One transcript in the database has delimiters inserted which divide
+the transcript into more or less grammatical units. As the
+'full-stop' symbol is already being used to mark pauses, the
+'vertical bar' symbol `|` has been used as a grammatical delimiter.
+
+The transcript is called *BR2044\_OllyOhlson-b.eaf*
+
+(@) In the *Transcript* box, type:\
+    `olly`\
+    After a short pause, *BR2044\_OllyOhlson-b.eaf* will be the only
+    transcript in the filtered list.
+(@) Click *BR2044\_OllyOhlson-b.eaf*
+(@) Untick all except the *word* layer, to avoid clutter.
+(@) Tick the *language* layer.
+
+Scrolling down, you will see that, although the transcript is mostly in English, 
+there are some sections in Te Reo Māori. 
+These have been annotated as such on the *language* layer, 
+which allows LaBB-CAT to generate other layer differently, 
+depending on what language the speech is in.
+
+(@) At the top of the transcript, tick the *syntax* project.\
+    This reveals three layers.
+(@) Tick the *parse* layer.
+
+You will see that above the words, there are bracketing annotations
+that are labelled with parts-of-speech or phrase labels.
+
+Each of these brackets represents a syntactic constituent
+constructed by the parser, smaller constituents at the bottom,
+building into larger constituents going up.
+
+You will also notice that there are no syntactic constituent annotations on utterances in Te Reo Māori.
+The Stanford Parser doesn't have a grammar for Māori, 
+so LaBB-CAT has excluded those utterances from this processing.
+
+(@) Click on any constituent label (e.g. "NP" or "S").\
+    A new window will open, which shows the selected utterance, using
+    the familiar 'upside-down tree' representation.\
+    If the tree appears far off and small, you can make it larger by
+    widening the window, or 'zooming in' with you mouse wheel.
+
+You can also search the parses themselves.
+
+(@) Close the parse tree window.
+(@) Select the *search* option on the menu at the top of the page.
+(@) Tick the *syntax* project.
+(@)  Tick the *parse* and *pos* layers.
+
+On the *parse* layer you'll see that you can enter a search
+expression for annotations on that layer, just like any other.
+
+However, it also has an open-padlock icon before and after the pattern. If you
+click the padlock before the pattern, it will anchor the search to
+the first word in the matching constituent. Similarly the padlock
+after the pattern anchors to the last word in the constituent.
+
+Let's say you want all the noun phrases that *don't* start with a
+determiner like "the", "this", "a", etc.
+
+(@) On the *parse* layer, enter a pattern that matches *NP* (noun phrase) ...
+(@) \...and click the padlock to anchor to the first word in the
+    constituent.
+(@) On the *pos* layer, enter a pattern that would match *DT* (determiner)...
+(@) \...and in the dropdown box before the pattern, select *doesn't match*.
+
+This will match NP-initial words who have an annotation that doesn't match
+"DT" on the *pos* layer.
+
+![](NP-not-DET.png){width="65%"}
+
+(@) Press *Search*.
+(@) When the search finishes, click on the first result to open the transcript.
+
+You should see that lots of noun phrases have been identified, 
+but nothing starting with "the", "a", "that", or any other determiner.
+
+---
+
+In this worksheet you have seen that:
+
+-   annotations can be added to transcripts in layers, either manually or automatically
+    using 'Layer Manager' modules.
+-   Yous searches can include annotation layers as well as orthography.
+-   Layers can be optionally displayed in transcripts.
+-   Words can be tagged with their frequency in the COBUILD corpus or in the corpus itself,
+-   unusually frequent or infrequent words can be identified, and
+-   LIWC text analysis can be automatically performed.
+-   Forced Alignment can be used to ascertain the start/end times of words and phones,
+-   individual phone tokens can be searched for and extracted, and
+-   acoustic measurements for matching phones can also be made.
+-   The resulting alignments can be inspected (and corrected) directly
+    from the transcript page.
+-   the Stanford Parser can we used to annotate transcripts with
+    part-of-speech tags and constituent annotations, and
+-   the resulting annotations can be included in syntax-based searches.
+-   Phrases can be language-tagged so that they can be processed differently from the surrounding utterances.

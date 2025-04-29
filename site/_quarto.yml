@@ -24,6 +24,16 @@ website:
         text: LaBB-CAT Documentation
       - section: howto/index.qmd
         contents:
+          - section: "Installation"
+            contents:
+              - href: howto/install/standalone-windows.qmd
+                text: Windows
+              - href: howto/install/standalone-mac.qmd
+                text: Mac
+              - href: howto/install/rhel.qmd
+                text: Red Hat Linux
+              - href: howto/install/praat/praat-browser.qmd
+                text: Praat Browser Extension
           - section: "Transcription"
             contents: howto/transcription/*
           - href: howto/word-frequency/index.qmd
@@ -62,6 +72,8 @@ website:
           - section: howto/corpus-management/index.qmd
             contents: howto/corpus-management/*
           - href: howto/manual-annotation/doccano.qmd
+          - href: howto/cite.qmd
+            text: Cite
       - section: worksheets/index.qmd
         contents: 
           - section: worksheets/demo/index.qmd

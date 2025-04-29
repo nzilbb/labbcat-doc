@@ -85,7 +85,7 @@ so that your web server can access it if required:
     `chmod -R go-w /opt/conda`\
     `chmod -R go+rX /opt/conda`
 7.  Install the Montreal Forced Aligner\
-    `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=2.2.17`
+    `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=3.2.1`
 :::
 
 :::{.callout-note collapse=true}
@@ -103,7 +103,7 @@ so that your web server can access it if required:
 4.  When asked, tick the *add to PATH* option.
 5.  Install the Montreal Forced Aligner by specifying a path to the
     environment\
-    `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner=2.2.17`
+    `conda create -c conda-forge -p C:\ProgramData\Miniconda3\envs\aligner montreal-forced-aligner=3.2.1`
 
 If you have problems getting MFA working on Windows, check *Troubleshooting on Windows* section of the [MFA Installation instructions](../../howto/forced-alignment/mfa-install.html#callout-3).
 :::
