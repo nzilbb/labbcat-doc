@@ -614,30 +614,24 @@ ul.task-list li input[type="checkbox"] {
 <!-- 17 min -->
 <section id="exploration" class="level1">
 <h1>1 - Exploration</h1>
-<!--
-LaBB-CAT is a speech/language corpus management system that:
-
--   stores transcripts with audio/video
-    -   supporting a variety of upload formats
-    -   and the definition of speech elicitation tasks;
--   allows the addition of different layers of annotation, which can
-    -   be manual or automatic, and
-    -   have different granularities, from topic tagging to individual
-        speech sounds;
--   supports forced alignment to phone level using a speech recognition
-    toolkit called [HTK](https://htk.eng.cam.ac.uk/), or the [Montreal Forced
-    Aligner](https://montreal-forced-aligner.readthedocs.io/), or the
-    [WebMAUS](https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic)
-    service provided by [BAS Web
-    Services](https://clarin.phonetik.uni-muenchen.de/BASWebServices/);
--   allows cross-layer regular-expression search;
--   search results are exportable to CSV for further analysis;
--   batch acoustic measurement of segments using Praat is also
-    supported, and
--   transcripts and fragments of them are exportable in a variety of
-    formats.
-
--->
+<p>LaBB-CAT is a speech/language corpus management system that:</p>
+<ul>
+<li>stores transcripts with audio/video
+<ul>
+<li>supporting a variety of upload formats</li>
+<li>and the definition of speech elicitation tasks;</li>
+</ul></li>
+<li>allows the addition of different layers of annotation, which can
+<ul>
+<li>be manual or automatic, and</li>
+<li>have different granularities, from topic tagging to individual speech sounds;</li>
+</ul></li>
+<li>supports forced alignment to phone level using a speech recognition toolkit called <a href="https://htk.eng.cam.ac.uk/">HTK</a>, or the <a href="https://montreal-forced-aligner.readthedocs.io/">Montreal Forced Aligner</a>, or the <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/interface/WebMAUSBasic">WebMAUS</a> service provided by <a href="https://clarin.phonetik.uni-muenchen.de/BASWebServices/">BAS Web Services</a>;</li>
+<li>allows cross-layer regular-expression search;</li>
+<li>search results are exportable to CSV for further analysis;</li>
+<li>batch acoustic measurement of segments using Praat is also supported, and</li>
+<li>transcripts and fragments of them are exportable in a variety of formats.</li>
+</ul>
 <p>In this worksheet you will start exploring a demo LaBB-CAT corpus, to get a general idea of how to find your way around LaBB-CAT and how the language data is presented.</p>
 <p>The demo corpus contains a collection of videos of people telling stories about their experiences during the earthquakes that struck Canterbury during 2010 and 2011. They have been orthographically transcribed using a tool called <a href="https://archive.mpi.nl/tla/elan">ELAN</a>, so they have been time aligned to the utterance level; i.e.&nbsp;the start and end time of each line in the transcript has been manually synchronized with the recording. The ELAN transcripts, and their video and audio files, have been uploaded into LaBB-CAT.</p>
 <p>LaBB-CAT is a browser-based system so the first thing to do is access it with your web browser. Generally, any modern browser should be fine (although some features you’ll see in later worksheets are only supported by Mozilla Firefox or Google Chrome).</p>
@@ -669,17 +663,17 @@ As the video plays, you will see the current utterance highlighted in the transc
 <li>Pause the recording.</li>
 <li>Click one of the transcript lines further down the transcript.<br>
 A menu will appear.</li>
-<li>Select the ‘Play’ option at the bottom of the menu.<br>
+<li>Select the ‘Play’ option on the menu.<br>
 You will see that playback starts at that line. Playback will stop when the participant finishes the utterance.</li>
-<li>Click on the <em>formats</em> link at the top left under the title.<br>
-You will see a menu, which includes various formats for exporting the transcript.</li>
+<li>Select the <em>Formats</em> tab at the top of the page.<br>
+You will see a list of formats for exporting the transcript.</li>
 <li>Select <em>Plain Text Document</em></li>
 <li>Save the resulting file and then open it.<br>
 You will see the transcript in plain-text form.</li>
 </ol>
 <p>Plain text is a format supported by many language analysis tools, so exporting text transcript allows you to use your favourite tools for whatever research you’re doing.</p>
 <ol start="15" class="example" type="1">
-<li>If you have Praat installed on your computer, click the <em>formats</em> link, and select the <em>Praat Text Grid</em> option. Save the resulting file on your desktop, and then open it with Praat.</li>
+<li>If you have Praat installed on your computer, select the <em>Praat Text Grid</em> option. Save the resulting file on your desktop, and then open it with Praat.</li>
 </ol>
 <p>You will see that the TextGrid has a couple of tiers, one for whole utterances, and one for individual words.</p>
 <!--

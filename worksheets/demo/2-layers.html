@@ -956,8 +956,8 @@ You will see ‘…quake’ words followed by different verbs.</li>
 <section id="word-frequency" class="level2">
 <h2 class="anchored" data-anchor-id="word-frequency">Word Frequency</h2>
 <ol start="11" class="example" type="1">
-<li>Scroll to the top of the transcript you have open.<br>
-You will see that under the <em>layers</em> heading, there is a list of layer checkboxes, which determine which annotation layers are displayed.</li>
+<li>Scroll to the top of the transcript you have open and select the <em>Layers</em> tab.<br>
+You will see a list of layer checkboxes, which determine which annotation layers are displayed.</li>
 <li>Under <em>projects</em> to the left, tick the checkbox labelled “frequency”.<br>
 This will reveal new options under <em>layers</em>.</li>
 <li>Tick the <em>cobuild frequency</em> layer.<br>
@@ -1053,7 +1053,19 @@ each.
 <section id="keyness" class="level2">
 <h2 class="anchored" data-anchor-id="keyness">Keyness</h2>
 <p>In addition to calculating word frequencies for direct analysis, frequencies can be compared to a reference corpus to calculated their log-likelihood ‘keyness’; a measure of whether the word is unusually frequent (a high positive keyness) or unusually infrequent (a low negative keyness).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>See Rayson, P. and Garside, R. (2000). <em>Comparing corpora using frequency profiling</em>. In proceedings of the workshop on Comparing Corpora, held in conjunction with the 38th annual meeting of the Association for Computational Linguistics (ACL 2000). 1-8 October 2000, Hong Kong, pp.&nbsp;1 - 6.</p>
+</div>
+</div>
 <p>The Demo LaBB-CAT has been configured to compute keyness compared to the frequencies available in the <a href="https://1library.net/article/the-cobuild-project-corpora-computers-and-lexicography.q58rjdjq">COBUILD</a> corpus.</p>
 <ol start="20" class="example" type="1">
 <li>Select the <em>home</em> link on the menu.</li>
@@ -1068,9 +1080,21 @@ A list of words will be displayed, each word with its keyness metric. The high-p
 </section>
 <section id="linguistic-inquiry-and-word-count" class="level2">
 <h2 class="anchored" data-anchor-id="linguistic-inquiry-and-word-count">Linguistic Inquiry and Word Count</h2>
-<p>Linguistic Inquiry and Word Count (LIWC) text analysis can be done with the LIWC Layer Manager and categorised word lists.<br>
-See: <a href="https://www.liwc.app/help/howitworks" class="uri">https://www.liwc.app/help/howitworks</a><br>
+<p>Linguistic Inquiry and Word Count (LIWC) text analysis can be done with the LIWC Layer Manager and categorised word lists.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See: <a href="https://www.liwc.app/help/howitworks" class="uri">https://www.liwc.app/help/howitworks</a><br>
 Or: Tausczik &amp; Pennebaker (2010) <em>The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods</em> Journal of Language and Social Psychology 29 (1) 24-54</p>
+</div>
+</div>
 <p>LIWC involves calculating the percentage of words in different categories. Categorised word lists can be compiled by hand, and needn’t be restricted to the categories shown here.</p>
 <p>LIWC text analysis has been done on the Demo LaBB-CAT database, and also on the COBUILD corpus as a comparison corpus.</p>
 <ol start="23" class="example" type="1">
@@ -1695,32 +1719,12 @@ As we saw earlier, stressed syllables are labelled with an apostrophe at the sta
 <li>On the results page, press the <em>CSV Export</em> button.</li>
 <li>Save and open the resulting file.</li>
 </ol>
-<p>You will see several columns of checkboxes for selecting:</p>
+<p>As youve seen before, the last two columns are:</p>
 <ul>
-<li>participant attributes,</li>
-<li>transcript attributes, and</li>
-<li>annotation layers.</li>
-</ul>
-<p>These can all be exported with the CSV results.</p>
-<ol start="49" class="example" type="1">
-<li>Under <em>Participant</em> tick <em>gender</em> and <em>age_category</em>.</li>
-<li>Under <em>Transcript</em> tick <em>syllables per minute</em>.</li>
-<li>Under <em>Span</em> tick <em>type</em></li>
-<li>Under <em>Phrase</em> tick <em>syllables per minute</em></li>
-<li>Above the checkboxes, press the <em>CSV Export</em> button, and open the resulting CSV file.</li>
-</ol>
-<p>You will see that, in addition to the columns you’ve seen before, the CSV file also includes:</p>
-<ul>
-<li><em>participant_gender</em> - the gender of the person speaking;</li>
-<li><em>participant_age_category</em> - their age bracket;</li>
-<li><em>transcript_syllables per minute</em> - the overall articulation rate throughout the whole recording;</li>
-<li><em>Target type</em> - a manually added annotation that labels what type of experience is being described;</li>
-<li><em>Target syllables per minute</em> - the local articularion rate, during the utterance in which the match was uttered.</li>
-<li><em>Target segment</em> - the label of the vowel you searched for.</li>
-<li><em>Target segment start</em> - the start time of the vowel.</li>
+<li><em>Target segment start</em> - the start time of the vowel;</li>
 <li><em>Target segment end</em> - the end time of the vowel.</li>
 </ul>
-<p>This means you can include this data in any analysis you subsequently perform on the results data. The <em>Target segment start</em> and <em>Target segment end</em> columns can be used for calculating vowel duration, but also for acoustic measurement of the matched segments…</p>
+<p>These can be used for calculating vowel duration, but also for acoustic measurement of the matched segments…</p>
 <!--
 
 ## Acoustic Measurement
@@ -1799,9 +1803,9 @@ Note
 <p>The following steps work <em>even if you don’t have Praat installed on your own computer</em>, because Praat is used on the LaBB-CAT server …</p>
 </div>
 </div>
-<ol start="54" class="example" type="1">
-<li>In LaBB-CAT, select the <em>upload</em> menu option.</li>
-<li>Click the <em>process with praat</em> option.</li>
+<ol start="49" class="example" type="1">
+<li>In LaBB-CAT, select the <em>extract</em> menu option.</li>
+<li>Select the <em>process with praat</em> option.</li>
 <li>Click <em>Browse</em> and select the CSV results that you saved above.<br>
 You will see a form to fill in, and the first couple of settings (<em>Transcript Name column</em> and <em>Participant column</em>) should be already filled in).</li>
 <li>For the <em>Start Time column</em>, ensure that the <em>Target segment start</em> option is selected.</li>
@@ -1809,8 +1813,8 @@ You will see a form to fill in, and the first couple of settings (<em>Transcript
 </ol>
 <p>These two settings define the start/end times of the vowel For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You’ll see there’s a setting for that (which you can leave at the default of 0.025s), and you will see options for various measurements.</p>
 <p>The default options are for <em>F1</em> and <em>F2</em> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand each section with the <img src="right-triangle.png" height="14"> button to reveal more settings, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</p>
-<ol start="59" class="example" type="1">
-<li>Click <em>Process</em>.<br>
+<ol start="54" class="example" type="1">
+<li>Press <em>Process</em>.<br>
 You will see a progress bar while LaBB-CAT generates Praat scripts and runs them.</li>
 <li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <em>CSV file with measurements</em> link) - save and open it.</li>
 </ol>
@@ -1867,28 +1871,29 @@ Important
 </div>
 </div>
 <p>First, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
-<ol start="61" class="example" type="1">
+<ol start="56" class="example" type="1">
 <li>Open any transcript.</li>
-<li>Tick the <em>segment</em> layer.<br>
+<li>On the <em>Layers</em> tab tick the <em>segment</em> layer.<br>
+(If there are other layers preselected, you can un-tick them)<br>
 After a short delay, you will see a phonemic transcription below each word in the transcript – these are the phone annotations created by HTK.</li>
 <li>On the top-right of the transcript page, above the playback controls, there’s a Praat icon <img src="praat-integration.png" height="16"> - click it.</li>
 <li>Follow the instructions that appear (these vary depending on what web browser you use).</li>
 </ol>
 <p>You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.</p>
-<ol start="65" class="example" type="1">
+<ol start="60" class="example" type="1">
 <li>Once you’ve installed the browser extension, return to the transcript page.</li>
 <li>Press <em>OK</em> on the message that appears, to reload the page.</li>
 <li>Click on any line, and select the ‘Open Text Grid in Praat’ option on the menu.</li>
 </ol>
 <p>You will see a page with three-step instructions for finishing the Praat integration.</p>
 <p>Assuming you already have Praat and Java installed, you just have to do the third step. i.e.&nbsp;download and run a program called “install-jsendpraat.jar”.</p>
-<ol start="68" class="example" type="1">
+<ol start="63" class="example" type="1">
 <li>Click the <em>install-jsendpraat.jar</em> link, save the resulting file.</li>
 <li>Double-click the program you just saved.</li>
 <li>On the window that appears, press the <em>Install</em> button.</li>
 </ol>
 <div id="mac" class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1897,7 +1902,7 @@ Mac Installation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When you try to run <em>install-jsendpraat.jar</em> on a Mac, you may see the following message:</p>
 <p><img src="mac-install-jsendpraat-not-opened.png" class="img-fluid" style="width:50.0%" alt="install-jsendpraat.jar Not Opened - buttons Done or Move to Trash"></p>
@@ -1926,12 +1931,12 @@ You may see a further prompt to allow this:<br>
 </div>
 <p>You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</p>
 <p>If in doubt, check the <img src="help.png" height="16"> online help on the transcript page; it has a section explaining how to set up Praat integration on various browsers and operating systems.</p>
-<ol start="71" class="example" type="1">
+<ol start="66" class="example" type="1">
 <li>Close the instructions page.</li>
 </ol>
 <p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
-<ol start="72" class="example" type="1">
-<li>Back in the transcript page you had open earlier, click on any line, and select the ‘Open Text Grid in Praat’ option on the menu.<br>
+<ol start="67" class="example" type="1">
+<li>Back in the transcript page you had open earlier, click on any line, and select the <em>Open Text Grid</em> option on the menu.<br>
 After a short delay, Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
 <li>If you click on a word, and hit the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.</li>
 <li>Try this out with different lines in the transcript.<br>
@@ -1953,21 +1958,21 @@ You will see that in some cases the alignment is pretty good, and in other cases
 </ul>
 <p>One of the problems with parsing speech is that speakers often don’t speak in complete, well-formed sentences. In addition, the demo corpus you are using was not generally transcribed with parsing in mind, and so grammatically complete units have not been marked with full-stops, commas, etc. (Instead, full-stop has been used to mark short pauses in speech).</p>
 <p>For these reasons, the parses you will see in this data may not be perfect. However, it’s possible to get a sense of the kinds of things that could be achieved with well-formed written texts, or speech that has been transcribed with grammatical punctuation included.</p>
-<ol start="75" class="example" type="1">
+<ol start="70" class="example" type="1">
 <li>Select the <em>transcripts</em> option on the menu.</li>
 </ol>
 <p>One transcript in the database has delimiters inserted which divide the transcript into more or less grammatical units. As the ‘full-stop’ symbol is already being used to mark pauses, the ‘vertical bar’ symbol <code>|</code> has been used as a grammatical delimiter.</p>
 <p>The transcript is called <em>BR2044_OllyOhlson-b.eaf</em></p>
-<ol start="76" class="example" type="1">
+<ol start="71" class="example" type="1">
 <li>In the <em>Transcript</em> box, type:<br>
 <code>olly</code><br>
 After a short pause, <em>BR2044_OllyOhlson-b.eaf</em> will be the only transcript in the filtered list.</li>
 <li>Click <em>BR2044_OllyOhlson-b.eaf</em></li>
-<li>Untick all except the <em>word</em> layer, to avoid clutter.</li>
+<li>On the <em>Layers</em> tab, untick all except the <em>word</em> layer, to avoid clutter.</li>
 <li>Tick the <em>language</em> layer.</li>
 </ol>
 <p>Scrolling down, you will see that, although the transcript is mostly in English, there are some sections in Te Reo Māori. These have been annotated as such on the <em>language</em> layer, which allows LaBB-CAT to generate other layer differently, depending on what language the speech is in.</p>
-<ol start="80" class="example" type="1">
+<ol start="75" class="example" type="1">
 <li>At the top of the transcript, tick the <em>syntax</em> project.<br>
 This reveals three layers.</li>
 <li>Tick the <em>parse</em> layer.</li>
@@ -1975,13 +1980,13 @@ This reveals three layers.</li>
 <p>You will see that above the words, there are bracketing annotations that are labelled with parts-of-speech or phrase labels.</p>
 <p>Each of these brackets represents a syntactic constituent constructed by the parser, smaller constituents at the bottom, building into larger constituents going up.</p>
 <p>You will also notice that there are no syntactic constituent annotations on utterances in Te Reo Māori. The Stanford Parser doesn’t have a grammar for Māori, so LaBB-CAT has excluded those utterances from this processing.</p>
-<ol start="82" class="example" type="1">
+<ol start="77" class="example" type="1">
 <li>Click on any constituent label (e.g.&nbsp;“NP” or “S”).<br>
 A new window will open, which shows the selected utterance, using the familiar ‘upside-down tree’ representation.<br>
 If the tree appears far off and small, you can make it larger by widening the window, or ‘zooming in’ with you mouse wheel.</li>
 </ol>
 <p>You can also search the parses themselves.</p>
-<ol start="83" class="example" type="1">
+<ol start="78" class="example" type="1">
 <li>Close the parse tree window.</li>
 <li>Select the <em>search</em> option on the menu at the top of the page.</li>
 <li>Tick the <em>syntax</em> project.</li>
@@ -1990,7 +1995,7 @@ If the tree appears far off and small, you can make it larger by widening the wi
 <p>On the <em>parse</em> layer you’ll see that you can enter a search expression for annotations on that layer, just like any other.</p>
 <p>However, it also has an open-padlock icon before and after the pattern. If you click the padlock before the pattern, it will anchor the search to the first word in the matching constituent. Similarly the padlock after the pattern anchors to the last word in the constituent.</p>
 <p>Let’s say you want all the noun phrases that <em>don’t</em> start with a determiner like “the”, “this”, “a”, etc.</p>
-<ol start="87" class="example" type="1">
+<ol start="82" class="example" type="1">
 <li>On the <em>parse</em> layer, enter a pattern that matches <em>NP</em> (noun phrase) …</li>
 <li>...and click the padlock to anchor to the first word in the constituent.</li>
 <li>On the <em>pos</em> layer, enter a pattern that would match <em>DT</em> (determiner)…</li>
@@ -1998,7 +2003,7 @@ If the tree appears far off and small, you can make it larger by widening the wi
 </ol>
 <p>This will match NP-initial words who have an annotation that doesn’t match “DT” on the <em>pos</em> layer.</p>
 <p><img src="NP-not-DET.png" class="img-fluid" style="width:65.0%"></p>
-<ol start="91" class="example" type="1">
+<ol start="86" class="example" type="1">
 <li>Press <em>Search</em>.</li>
 <li>When the search finishes, click on the first result to open the transcript.</li>
 </ol>
