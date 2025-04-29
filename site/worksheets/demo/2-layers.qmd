@@ -359,8 +359,8 @@ This displays the transcript like you've seen before, except that now each word 
 
 ## Word Frequency
 
-(@) Scroll to the top of the transcript you have open.\
-    You will see that under the *layers* heading, there is a list of layer checkboxes, which 
+(@) Scroll to the top of the transcript you have open and select the *Layers* tab.\
+    You will see a list of layer checkboxes, which 
     determine which annotation layers are displayed.
 (@) Under *projects* to the left, tick the checkbox labelled "frequency".\
     This will reveal new options under *layers*.
@@ -470,11 +470,15 @@ log-likelihood
 'keyness'; a measure of whether the word is unusually frequent (a high
 positive keyness) or unusually infrequent (a low negative keyness).
 
+::::{.callout-note}
+
 See
 Rayson, P. and Garside, R. (2000). *Comparing corpora using frequency profiling*. 
 In proceedings of the workshop on Comparing Corpora, held in conjunction with the 
 38th annual meeting of the Association for Computational Linguistics (ACL 2000). 
 1-8 October 2000, Hong Kong, pp. 1 - 6.
+
+::::
 
 The Demo LaBB-CAT has been configured to compute keyness compared to the
 frequencies available in the 
@@ -509,11 +513,16 @@ can be compared to all the rest.
 ## Linguistic Inquiry and Word Count
 
 Linguistic Inquiry and Word Count (LIWC) text analysis can be done with
-the LIWC Layer Manager and categorised word lists.\
+the LIWC Layer Manager and categorised word lists.
+
+::::{.callout-note}
+
 See: <https://www.liwc.app/help/howitworks>\
 Or: Tausczik & Pennebaker (2010) 
 *The Psychological Meaning of Words: LIWC and Computerized Text Analysis Methods* 
 Journal of Language and Social Psychology 29 (1) 24-54
+
+::::
 
 LIWC involves calculating the percentage of words in different
 categories. Categorised word lists can be compiled by hand, 
@@ -934,34 +943,12 @@ As we saw earlier, stressed syllables are labelled with an apostrophe at the sta
 (@) On the results page, press the *CSV Export* button.
 (@) Save and open the resulting file.
 
-You will see several columns of checkboxes for selecting:
+As youve seen before, the last two columns are:
 
-- participant attributes,
-- transcript attributes, and
-- annotation layers.
-
-These can all be exported with the CSV results.
-
-(@) Under *Participant* tick *gender* and *age_category*.
-(@) Under *Transcript* tick *syllables per minute*.
-(@) Under *Span* tick *type*
-(@) Under *Phrase* tick *syllables per minute*
-(@) Above the checkboxes, press the *CSV Export* button, and open the resulting CSV file.
-
-You will see that, in addition to the columns you've seen before, the CSV file also includes:
-
-- *participant_gender* - the gender of the person speaking;
-- *participant_age_category* - their age bracket;
-- *transcript_syllables per minute* - the overall articulation rate throughout the whole recording;
-- *Target type* - a manually added annotation that labels what type of experience is being described;
-- *Target syllables per minute* - the local articularion rate, during the utterance in which the match was uttered.
-- *Target segment* - the label of the vowel you searched for.
-- *Target segment start* - the start time of the vowel.
+- *Target segment start* - the start time of the vowel;
 - *Target segment end* - the end time of the vowel.
 
-This means you can include this data in any analysis you subsequently perform on the results data.
-The *Target segment start* and *Target segment end* columns 
-can be used for calculating vowel duration, 
+These can be used for calculating vowel duration, 
 but also for acoustic measurement of the matched segments...
 
 <!--
@@ -1036,8 +1023,8 @@ installed on your own computer*, because Praat is used on the LaBB-CAT
 server ...
 :::
 
-(@) In LaBB-CAT, select the *upload* menu option.
-(@) Click the *process with praat* option.
+(@) In LaBB-CAT, select the *extract* menu option.
+(@) Select the *process with praat* option.
 (@) Click *Browse* and select the CSV results that you saved above.\
     You will see a form to fill in, and the first couple of settings
     (*Transcript Name column* and *Participant column*) should be already
@@ -1060,7 +1047,7 @@ which allow you to specify more detail about how Praat should do its
 computations. Again, feel free to look at those and try different
 settings.
 
-(@) Click *Process*.\
+(@) Press *Process*.\
     You will see a progress bar while LaBB-CAT generates Praat scripts
     and runs them.
 (@) Once Praat has finished processing the intervals, you will get a CSV
@@ -1115,7 +1102,8 @@ First, the LaBB-CAT/Praat integration has to be set up; this only has to
 be done once:
 
 (@) Open any transcript.
-(@) Tick the *segment* layer.\
+(@) On the *Layers* tab tick the *segment* layer.\
+    (If there are other layers preselected, you can un-tick them)\
     After a short delay, you will see a phonemic transcription below each word in the transcript -- these are the phone annotations created by HTK.
 (@) On the top-right of the transcript page, above the playback
     controls, there's a Praat icon ![](praat-integration.png){height="16px"} - click
@@ -1200,7 +1188,8 @@ various browsers and operating systems.
 Now Praat integration has been set up, and you should be able to
 access Praat options in the transcript page from now on...
 
-(@) Back in the transcript page you had open earlier, click on any line, and select the 'Open Text Grid in Praat' option on the menu.\
+(@) Back in the transcript page you had open earlier, click on any line, and select the 
+    *Open Text Grid* option on the menu.\
     After a short delay, Praat should open, and show you a spectrogram
     of the line's audio, with a TextGrid below that includes the words
     and the segments.
@@ -1265,7 +1254,7 @@ The transcript is called *BR2044\_OllyOhlson-b.eaf*
     After a short pause, *BR2044\_OllyOhlson-b.eaf* will be the only
     transcript in the filtered list.
 (@) Click *BR2044\_OllyOhlson-b.eaf*
-(@) Untick all except the *word* layer, to avoid clutter.
+(@) On the *Layers* tab, untick all except the *word* layer, to avoid clutter.
 (@) Tick the *language* layer.
 
 Scrolling down, you will see that, although the transcript is mostly in English, 

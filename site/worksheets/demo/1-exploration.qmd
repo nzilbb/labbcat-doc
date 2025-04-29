@@ -10,7 +10,6 @@ format:
 
 # 1 - Exploration
 
-<!--
 LaBB-CAT is a speech/language corpus management system that:
 
 -   stores transcripts with audio/video
@@ -33,7 +32,6 @@ LaBB-CAT is a speech/language corpus management system that:
 -   transcripts and fragments of them are exportable in a variety of
     formats.
 
---> 
 In this worksheet you will start exploring a demo LaBB-CAT corpus, to
 get a general idea of how to find your way around LaBB-CAT and how the
 language data is presented.
@@ -89,12 +87,11 @@ First we will look at ways to manually browse the corpus data.
 (@) Pause the recording.
 (@) Click one of the transcript lines further down the transcript.\
     A menu will appear.
-(@) Select the 'Play' option at the bottom of the menu.\
+(@) Select the 'Play' option on the menu.\
     You will see that playback starts at that line. 
     Playback will stop when the participant finishes the utterance.
-(@) Click on the *formats* link at the top left under the title.\
-    You will see a menu, which includes various formats for exporting
-    the transcript.
+(@) Select the *Formats* tab at the top of the page.\
+    You will see a list of formats for exporting the transcript.
 (@) Select *Plain Text Document*
 (@) Save the resulting file and then open it.\
     You will see the transcript in plain-text form.
@@ -102,9 +99,8 @@ First we will look at ways to manually browse the corpus data.
 Plain text is a format supported by many language analysis tools, 
 so exporting text transcript allows you to use your favourite tools for whatever research you're doing.
 
-(@) If you have Praat installed on your computer, click the *formats*
-    link, and select the *Praat Text Grid* option. Save the resulting
-    file on your desktop, and then open it with Praat.
+(@) If you have Praat installed on your computer, select the *Praat Text Grid* option. 
+    Save the resulting file on your desktop, and then open it with Praat.
 
 You will see that the TextGrid has a couple of tiers, one for whole
 utterances, and one for individual words.
