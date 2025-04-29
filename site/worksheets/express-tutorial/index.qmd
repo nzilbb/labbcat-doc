@@ -7,7 +7,8 @@ format:
 
 This tutorial is a very brief introduction to the LaBB-CAT corpus analysis tool. There are four exercises, in which you:
 
-- [install and configure LaBB-CAT](1-install-and-configure-labb-cat.qmd),
+- [install LaBB-CAT on your personal computer](1-installation.qmd),
 - [upload a small corpus of recordings into your database and explore the transcript page](2-upload-data.qmd),
-- [search for some tokens using regular expressions](3-basic-searching.qmd) and,
-- [install and configure a module for automatically annotating tokens](4-cmudict-and-cross-layer-search.qmd) with their phonemic transcriptions, and search for tokens based on pronunciation instead of spelling.
+- [add autonmatically generateed part-of-speech tags](3-stanford-pos.qmd) and,
+- [add autonmatically generateed pronunciation tags](4-cmudict.qmd) and,
+- [compute the start/end times of each speech sound](5-bas-webmauds.qmd) and extract automated formant measurements from vowels.

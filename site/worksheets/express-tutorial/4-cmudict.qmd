@@ -6,42 +6,40 @@ format:
     toc: false
     fontfamily: linguisticspro
 ---
-# 4 - The CMU Dictionary and Cross Layer Searching
+# Pronunciation Tags
 
 LaBB-CAT can be integrated with the CMU Pronouncing Dictionary, which is
 a free pronounciation dictionary of English maintained by the Speech
-Group in the School of Computer Science at Carnegie Mellon University.
-The pronunciations are based on American English, so are suitable for
-American English recordings.
+Group in the School of Computer Science at Carnegie Mellon University (CMU).
+The pronunciations are based on American English, so are most suitable for
+recordings of North American speakers. 
 
-It can also serve as a free alternative to the CELEX lexicon (which is
-based on British English), for those that have not purchased CELEX,
-although is less ideal for 'non-rhotic' varieties of English.
+The dictionary's suitability for other varieties of English depends on which variety 
+and what specific aspects of pronunciation will be studied.
 
 In this exercise you will:
 
-1.  install the CMU Pronouncing Dictionary layer manager,
-2.  use it to create new annotations for word pronunciations, and 
-3.  incorporate the new layers in more sophisticated searches.
+1.  install the CMU Pronouncing Dictionary layer manager module, and
+2.  use it to tag each word with its pronunciations.
 
 ## Install the CMU Dictionary
 
 The first thing we're going to to is install the CMU Pronouncing
-Dictionary layer manager...
+Dictionary layer manager, which is a LaBB-CAT module that integrates with the dictionary...
 
-(@) Select the *layer managers* menu option.\
+(@) In LaBB-CAT, select the *layer managers* menu option.\
     You will see a list of pre-installed layer managers, which are
     modules that can perform automatic annotation tasks. The CMU Pronouncing
     Dictionary layer manager isn't pre-installed, because it is language-specific.
-(@) Follow the *List of layer managers that are not yet installed* link
+(@) Click the *List of layer managers that are not yet installed* link
     near the bottom.
 (@) Find *CMU Pronouncing Dictionary* in the list, and press its
     *Install* button.
 (@) Press *Install* on the resulting information page.\
     This displays some further information about the layer manager,
-    allowing you to upload an alternative version of the dictionary
+    allowing you to optionally upload an alternative version of the dictionary
     file.\
-    We be using the standard file that is included with the layer
+    We won't upload a file, we'll be using the standard file that is included in the layer
     manager.
 (@) Press *Configure*.\
     You will see a progress bar while the layer manager loads the data
@@ -53,21 +51,35 @@ Dictionary layer manager...
 ## Annotate Words with Pronunciations    
     
 Now that we've installed the layer manager, we'll create an annotation layer
-that contains word pronunciations.
+that tags words with their pronunciations.
 
 (@) Select the *word layers* option on the menu.\
     You will see a list of existing word layers, including the
     *orthography* layer, the *lexical* layer, etc.
 (@) The column headings are also a form for defining a new word layer.
     Fill in the following details in this form:
-    -   **Layer ID:** `phonemes`
+    -   **Layer ID:** `cmudict`
     -   **Type:** *Phonological*
     -   **Alignment:** *None*
     -   **Manager:** *CMU Pronouncing Dictionary*
     -   **Description:** `All possible phonemic transcriptions for each word.`
 (@) Press *New* to add the layer.\
     You will see the layer configuration form.
-(@) Set the **Encoding** field to *CELEX DISC*, and the default values
+
+The CMUdict file contains pronunciations expressed using the 'ARPAbet' symbols, 
+in which a phonemes are one or two uppercase letters, possibly suffixed with a digit indicating stress, 
+and a space between each phoneme. 
+e.g. the pronunciation for the word "transcription" is:\
+`T R AE2 N S K R IH1 P SH AH0 N`
+
+The layer manager can also convert the pronunciations to use an alternative set of symbols called 'CELEX DISC'
+which uses exactly one character per phoneme no intervening spaces.
+e.g. the pronunciation for the word "transcription" is:\
+`tr{nskrIpS@n`
+
+Which set of symbols you choose depends somewhat on what you want to do with the labels; using 'ARPAbet' conserves stress information, but CELEX DISC can be easier for searching for pronunciation patterns. For this exercise, we'll use 'CELEX DISC'.
+
+(@) Set the **Encoding** field to *CELEX DISC*, and leave the default values
     for everything else.
 
 :::{.callout-tip}
@@ -84,47 +96,33 @@ information about what the setting does.
     annotations are being generated. When it is finished, you will see a
     message saying *Layer complete*.
 (@) Once the layer has finished generating, select the *transcripts* menu
-    option, and open the first transcript in the list.\
-    At the top of the transcript, there is a list of tickable annotation layers.
-(@) Tick your new *phonemes* layer.\
-    You will see that each word is tagged with a phonemic transcription.
-
-You will notice that the annotations are displayed using IPA
-symbols. However, the layer manager doesn't use IPA symbols
-directly, it actually uses the 'DISC' encoding for phonemes, which
-uses ordinary 'typewriter' characters (ASCII), and uses exactly one
-character per phoneme.
+    option, and open the first transcript in the list by clicking the transcript name.
+(@) Select the *Layers* tab at the top to show a list of tickable annotation layers.
+(@) Tick your new *cmudict* layer.\
+    The tags will load and you'll see that each word is tagged with a phonemic transcription.
 
 The IPA symbols are being displayed by LaBB-CAT to provide a
-linguist-friendly representation of the phonemic transcription. But
-you can see the underlying DISC characters by selecting the *ASCII*
-option on the layer in the transcript.
+linguist-friendly interpretation of the phonemic transcription. But
+you can see the underlying CELEX DISC characters by de-activating this 'interpretation'. 
 
-(@) Select *ASCII* on the phonemes layer, to see what the layer manager
-    is actually producing.\
+(@) On the *Layers* tab, to the right of the name of the *cmudict* layer, there is
+a small 'tags' 🏷 icon.\
+   Hover your mouse over this icon to see what it does.
+(@) Click the tags icon, to see what the layer manager is actually producing.\
     You may find that this is somewhat harder to read. It's similar to
-    the 'SAMPA' system for encoding phonemes, but diphthongs are
+    the 'SAMPA' system for encoding phonemes, which you may be familiar with, but diphthongs are
     generally represented by digits, and various other characters are
     used to represent affricates, etc.
-(@) Select *IPA* on the phonemes layer, to return to the IPA view of the
-    layer.
+(@) Click the tags icon again, to return to the IPA view of the labels.
 
 {{< pagebreak >}}
 
 ## Search Across Layers
 
 It's nice to display the IPA symbols, but it's important to
-understand the DISC symbols (shown in the table below), because they
+understand the ARPAbet symbols (shown in the table below), because they
 are what we have to use when searching on the phonemes layer, which
 we are going to try now.
-
-There is
-another possible representation of the pronunciations, called
-ARPABET; this is what is used in the original dictionary file
-published by CMU, and uses up to three uppercase characters per
-phoneme. While we're not using ARPABET in this exercise, you can configure the
-phonemes layer to use it if you like, and the ARPABET symbols are included in the
-table. 
 
 In the table, there are gaps where no
 ARPABET version of the phoneme is shown; this means that the CMU
@@ -166,77 +164,95 @@ phoneme.
 
 (@) Select the *search* option on the menu, which allows you to search
     all participants by default.
-(@) If it's not already ticked, tick the new *phonemes* layer.\
+(@) Tick the new *cmudict* layer.\
     Now you will see that our search matrix is two layers high by one
     word wide.\
-    ![](two-layers-high.png){title="The search matrix shows a frame labelled 'orthography' above and
-    a frame labelled 'phonemes' below, both with a 'matches'
-    dropdown box and an empty 'Regular expression' box. The
-    'phonemes' frame also includes a button to the right of the regular expression box"}
-(@) Search your new *phonemes* layer for words that start with `h` by
-    entering the appropriate regular expression in the *phonemes* box.\
-    You will see that the results contain words that you might not
-    expect, like "where", "which" and "when".
+    ![](two-layers-high.png){title="The search matrix shows a frame labelled 'orthography' above and a frame labelled 'cmudict' below, both with a 'matches' dropdown box and an empty 'Regular expression' box. The 'phonemes' frame also includes a button to the right of the regular expression box"}
+(@) Search your new *cmudict* layer for words that start with "h" by
+    entering `h.*` (i.e. "h" followed by zero or more characters) in the *cmudict* box and hitting {{< kbd enter >}}.
+(@) If the results page does not automatically open when the search is finished, click the *Display results* link that appears.
+
+You will see that the results contain words that you might not expect, like "where", "which" and "when".
+
 (@) Click one of these unexpected results, to open the transcript.\
     You will see that, in the transcript, the pronunciation appears to
     start with /w/, not with /h/.
-(@) Click on the word and select the bottom *Edit* option on the menu
-    that appears.\
-    This opens a small window that displays all annotations on that word
-    token.
-(@) Now look for the *phonemes* layer. You will see that, in addition to
+(@) Hover your mouse over the *cmudict* layer tag of the word.\
+    You will see a list of *all* the pronunciations for that word not just the first one, which is displayed in the transcript.\
+    You will see that, in addition to
     the pronunciation that starts with /w/, there's another annotation
-    that starts with /h/, which is invisible on the transcript.\
-    These are all the possible phonemic transcriptions for the word,
-    ordered most-frequent first. Only the first one is displayed in the
-    transcript, but when you do searches, all of them are searched. This
-    can result in unexpected matches like this, but it can be useful, as
-    it ensures that when you search for a particular phonemic pattern,
-    all possible tokens are returned, not just those that match on the
-    most 'normal' transcription.\
+    that starts with /h/, which is invisible on the transcript.
+    
+These are all the possible phonemic transcriptions for the word, 
+in the order they are found in the CMUdict dictionary file. 
+Only the first one is displayed in the transcript, 
+but when you do searches, all of them are searched. This
+can result in unexpected matches like this, but it can be useful, as
+it ensures that when you search for a particular phonemic pattern,
+all possible tokens are returned, not just those that match on the
+most 'normal' transcription.
 
-Now that we have phonemic transcripts, we can do a better job of the
-search we tried in the earlier exercise - "the" followed by a word
-starting with a vowel...
+Now we are going to search a multi-word, multi-layer pattern:
+"the" followed by a word starting with a vowel...
 
 (@)  Go to the *search* page.
-(@) Create a search matrix that's two words wide, and includes the
-    *orthography* and *phonemes* layers.
+(@) Create a search matrix that's two words wide by pressing the ![](add.svg){style="height:15px;"} button, and tick the
+    *orthography* and *cmudict* layers.
 (@) Type `the` in the first *orthography* box.
-(@) Click the second box on the *phonemes* layer, but don't enter
+(@) Click the second box on the *cmudict* layer, but don't enter
     anything in the box yet.\
-    The box has a ![](phoneme-symbol-selector.png) button to the right of it.
-(@) Hover the mouse over the button to see what it says, and then click it.\
-    You will see that a section opens with a bunch of phoneme symbols on
-    it; clicking on a phoneme adds its DISC representation to the search
-    box.
-(@) You could use the square-brackets `[` at the start of your pattern,
-    and click all vowel symbols to add all possible vowels - Note that
-    the vowels in the DISC representation extend beyond a, e, i, o, and
-    u - you should add in all the vowels you see in the list that
-    appears when you expand the IPA helper, including all the
-    diphthongs.
+    The box has a ![](collapse-down.svg){style="height:15px;"} button to the right of it.
+(@) Hover the mouse over the button to see what it says, and then click it.
 
-:::{.callout-tip}
+You will see that a section opens with a bunch of phoneme symbols on it; clicking on a phoneme 
+adds its CELEX DISC representation to the search box.
+
+In a regular expression, to match several single-letter symbols at once, 
+you need to enclose the symbols in parentheses `[]`.
+
+For example, to match *either* the KIT vowel -- `I` in DISC -- *or* the FLEECE vowel -- `i` in DISC, 
+you would need a regular expression like this:\
+`[Ii]`
+
+We want to match *any vowel at all* at the beginning of this second word, 
+so you need to construct a regular expression for that.
+
+You could use the square-brackets `[` at the start of your pattern,
+and click each of the vowel symbols to add all possible vowels -- you should add in all the vowels you see in the list that
+appears when you expand the IPA helper, including all the
+diphthongs. Finally, you would need to add the closing square bracket `]`.
+
 *Alternatively*, you can simply click the *VOWEL* link in the
 'phoneme symbol selector', which will add all the DISC vowels for
 you, already enclosed in square-brackets.
+
+(@) Enter the regular expression to match any vowel, using either of the methods just mentioned.
+(@) Be sure to append your 'any vowel' regular expression with `.*` to ensure the search 
+    matches words that have phonemes after the initial vowel.
+
+:::{.callout-tip}
+Some regular expressions are so long that not all of the expression is visible in the text box.
+You can see the whole expression by hovering your mouse over the text box.
 :::
 
-(@) Be sure to append the 'any vowel' regular expression with `.*` to
-    ensure the search matches words that have phonemes after the initial
-    vowel
 (@) Run the search and check that it's giving you what you expect.
     Notice that now there are no 'false positives' like "the one" that
-    we were getting when searching by orthography alone.
+    we might get if we searched using orthographic spelling only.
 
-Now that you've generated an annotation layer, and have seen how the
-search matrix works, you might want to try out some of the following
-searches, or invent some others:
+Now that you've generated an annotation layer, and have seen how the search matrix works, 
+you might want to try out some of the searches listed below, or invent some others:
+
+:::{.callout-tip}
+If you need help with creating regular expressions, try the online help page, 
+which is accessible via the help icon ![](help-1.png) at the top right of the page.
+:::
 
 -   Words which have the DRESS vowel as the second phoneme
 -   Words ending with a front vowel, followed by words beginning with
     /p/ or /b/
 -   Words that begin with "k" in their spelling, but begin with the
     phoneme /n/
--   Words that begin with "k" in their spelling, but *do not* begin with
+-   Words that begin with "k" in their spelling, but *do not* begin with the
+    phoneme /n/
+
+

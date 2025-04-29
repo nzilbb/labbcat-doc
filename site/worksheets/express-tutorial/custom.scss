@@ -1,0 +1,44 @@
+/*-- scss:defaults --*/
+
+$presentation-heading-color: #78832E;
+$code-color: #78832E;
+
+/*-- scss:rules --*/
+
+.subtitle {
+  font-weight: bold;
+  color: #78832E;
+}
+
+li::marker {
+  content: '► ';
+  color: #78832E;
+}
+li li::marker {
+  content: '▻ ';
+  color: #78832E;
+}
+li li li::marker {
+  content: '▹ ';
+  color: #78832E;
+}
+
+img.inline {
+  margin: 0;
+  padding-left: 5px;
+}
+
+.centre {
+  text-align: center;
+}
+
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: unset !important;
+  top: 5px;
+  height: 10% !important;
+  max-width: unset !important;
+  max-height: unset !important;
+  opacity: 0.7;
+}

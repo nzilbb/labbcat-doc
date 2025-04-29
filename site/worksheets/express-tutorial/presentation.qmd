@@ -1,0 +1,236 @@
+---
+title: "LaBB-CAT"
+subtitle: "Setting Up a Corpus"
+author: "Robert Fromont"
+date: "2024-12-11"
+date-format: "d MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    embed-resources: true
+    logo: nzilbb-logo.svg
+    preview-links: true
+---
+
+## LaBB-CAT needs:
+### Transcripts
+
+:::{.incremental}
+
+- `what`: Orthographic *transcripts* (audio/video is optional)
+- `when`: ...divided into time-stamped *utterances* (≤ 15 words)
+- `who`: ...with some way to identify the *speaker*
+
+::::{.fragment}
+
+Textual data is supported
+
+- *Transcript* = text
+- *Utterances* = lines
+- *Speaker* = author
+
+::::
+:::
+
+## Transcript Formats {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+
+![One tier per speaker](PraatTierPerSpeaker.png)
+
+## Transcript Formats {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+
+![One tier per layer](PraatTierPerLayer.png)
+
+## Transcript Formats {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+
+![](Transcriber.png){width="70%"}
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+
+![](ELANTranscript.png){width="70%"}
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+- ![](text-plain.png){height="30px"} Plain Text
+
+![](PlainText.png){width="70%"}
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+- ![](text-plain.png){height="30px"} Plain Text
+- ![](clan.png){height="30px"} CHAT (partial support)
+
+![](CLANTranscript.png){width="70%"}
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+- ![](text-plain.png){height="30px"} Plain Text
+- ![](clan.png){height="30px"} CHAT (partial support)
+- ![](salt.png){height="30px"} SALT (partial support)
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+- ![](text-plain.png){height="30px"} Plain Text
+- ![](clan.png){height="30px"} CHAT (partial support)
+- ![](salt.png){height="30px"} SALT (partial support)
+- ![](application-tei-xml.png){height="30px"} TEI (partial support)
+
+## Transcript Formats  {auto-animate=true}
+
+- ![](text-praat-textgrid.png){height="30px"} Praat TextGrid
+- ![](text-xml-transcriber.png){height="30px"} Transcriber
+- ![](text-x-eaf-xml.png){height="30px"} ELAN
+- ![](text-plain.png){height="30px"} Plain Text
+- ![](clan.png){height="30px"} CHAT (partial support)
+- ![](salt.png){height="30px"} SALT (partial support)
+- ![](application-tei-xml.png){height="30px"} TEI (partial support)
+- ![](text-vtt.png){height="30px"} VTT Subtitles
+
+## Elicitation Tasks
+
+![Define a speech elicitation task](task-definition.png)
+
+## Elicitation Tasks
+
+![Recording via the web browser](elicitation-task.png)
+
+## Meta-data {.smaller}
+
+Both *Transcripts* and *Participants* can have defined 'attributes'
+
+:::: {.columns}
+::: {.column width="50%"}
+- Textual types:
+  - **String** - e.g. ethnicity
+  - **Text** - e.g. notes
+  - **Email** - e.g. contact address
+  - **URL** - e.g. source document
+  - **Read Only** - e.g. transcript version
+- Numeric types:
+  - **Integer** - e.g. age in years
+  - **Number** - e.g. syllables per minute
+  - Styles: *Slider* - e.g. rating
+
+:::
+::: {.column width="50%"}
+- Temporal types:
+  - **Date** - e.g. date of birth
+  - **Time** - e.g. interview duration
+  - **Date/Time** - e.g. recording date/time
+- Fixed class types:
+  - **Boolean** e.g. checked
+  - **Select** e.g. language\
+    Styles:
+    - *Multiple* - e.g. permissions
+    - *Other* - e.g. gender
+
+:::
+::::
+
+## Client/Server
+
+:::: {.columns}
+
+::: {.column width="44%"}
+![Browser on Clients](client.png)
+:::
+
+::: {.column width="12%"}
+![](go-left.png)
+:::
+
+::: {.column width="44%"}
+![Web Server](server.png)
+:::
+
+::::
+
+## Standalone
+
+![Browser and Web Server on the same computer](standalone.png)
+
+## Layer Managers {.smaller}
+#### Automated Annotation
+
+- Porter Stemmer – English stem
+- Lexicon layer managers: CELEX, CMU Dictionary, Unisyn, Flat file dictionary
+- Pattern Matcher and Character Mapper – regular-expression-based processing
+- Frequency – word counts in different scopes
+- LIWC – percentages of words in different categories
+- Statistics – aggregation od groups of tokens
+- Context – previous mention, previous pause
+- Partition – partitions of n tokens
+- Javascript and Python managers – arbitrary scripting
+- **Stanford POS Tagger** – part-of-speech
+- Stanford Parser – syntactic parsing
+- Forced alignment ...
+
+## Forced Alignment
+
+![Automatically locate start/end times of speech sounds](ForcedAlignment.png)
+
+<!-- 
+## Forced Aligners
+
+- Hidden Markov Model Toolkit (HTK)\
+  *Cambridge University Engineering Department (CUED)*
+- Penn Phonetics Lab Forced Aligner (P2FA)\
+  *University of Pennsylvania*
+- Montreal Forced Aligner\
+  *Department of Linguistics, McGill University*
+- WebMAUS (BAS Web Services)\
+  *Department of Phonetics, University of Munich*
+
+## HTK
+
+![Train → Align](HTK-TrainAndAlign.png){fig-width="90%"}
+-->
+
+## HTK / Penn Aligner
+
+![HTK software, Penn pretrained models](HTK-P2FA.png)
+
+## Montreal Forced Aligner
+
+![MFA software, Dictionaries and pretrained models downloaded from GitHub](MFA-Pretrained.png)
+
+## WebMAUS
+
+![Transcripts and recordings sent over the internet](BAS-WebMAUS.png)
+
+## LaBB-CAT
+
+- Open Source
+- Cross Platform
+- Free to install\
+  <https://sourceforge.net/projects/labbcat>
+
+robert.fromont\@canterbury.ac.nz
+
+<https://labbcat.canterbury.ac.nz>
+
+## Worksheets...
+
+![Create a corpus from ELAN transcripts](ELANTranscript.png){fig-align="center"}
