@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Fromont">
+<meta name="description" content="Information, how-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+
+<title>mediapipe – LaBB-CAT Documentation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="LaBB-CAT Documentation">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/howto/media-annotation/mediapipe-all.png">
+<meta property="og:site_name" content="LaBB-CAT Documentation">
+<meta property="og:image:height" content="540">
+<meta property="og:image:width" content="720">
+<meta name="twitter:title" content="LaBB-CAT Documentation">
+<meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/howto/media-annotation/mediapipe-all.png">
+<meta name="twitter:creator" content="@robertfromont">
+<meta name="twitter:site" content="@labbcat">
+<meta name="twitter:image-height" content="540">
+<meta name="twitter:image-width" content="720">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../howto/index.html">How-to</a></li><li class="breadcrumb-item"><a href="../../howto/media-annotation/index.html">Annotating Media</a></li><li class="breadcrumb-item"><a href="../../howto/media-annotation/mediapipe.html">MediaPipe</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../nzilbb.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Documentation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How-to</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Installation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-windows.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Windows</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/standalone-mac.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mac</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/rhel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Red Hat Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/install/praat/praat-browser.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Praat Browser Extension</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/transcription/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcription</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with ELAN</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/elan-language.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Specifying Language in ELAN transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transcribing with Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/salt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SALT Transcripts</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/transcription/tei.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">TEI Texts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/word-frequency/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Frequency</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/pos-tagging/stanford-pos-tagger.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stanford POS Tagger</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/phonemic-tagging/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phonemic Tagging</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/unisyn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Unisyn</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/flat-file.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Custom Lexicon</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/spanish.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spanish</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/g2p.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Services</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/character-mapper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Mapping</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/phonemic-tagging/multilingual-corpora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multilingual Corpora</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/forced-alignment/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/bas-services-manager.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">BAS Web Service Manager and WebMAUS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-p2fa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK and P2FA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/htk-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HTK: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-pretrained-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA and Pretrained Acoustic Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/mfa-train-align.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MFA: Train-and-Align</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/compare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Forced Alignment Methods</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/identifying-unaligned-utterances.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifying Unaligned Utterances</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-praat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: Praat</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/forced-alignment/correction-emu.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Checking/Correcting Alignments: EMU-webApp</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/aligned-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Aligned Data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/articulation-rate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Speech Rate and Articulation Rate</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/aligned-data/syllables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllables and Stress</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/media-annotation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annotating Media</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/media-annotation/mediapipe.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">MediaPipe</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../howto/corpus-management/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corpus Management</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/change-corpus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Changing Corpus</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/corpus-management/participant-deduplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Participant Deduplication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/manual-annotation/doccano.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Phrase Tagging with Doccano</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../howto/cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cite</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Worksheets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/demo/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Demo Session</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/1-exploration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 - Exploration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/demo/2-layers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 - Searching Annotation Layers</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/express-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Express Tutorial</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing LaBB-CAT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/2-upload-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Upload Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/3-stanford-pos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part of Speech Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/4-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pronunciation Tags</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/5-bas-webmaus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forced Alignment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/express-tutorial/presentation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">LaBB-CAT Course</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/1-installation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/2-setting-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Setting Up</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/3-uploading-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Uploading Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/4-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Searching</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/5-manual-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Manual Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/6-automatic-annotation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Automatic Annotation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/7-lexicon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Lexicons</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7a-lexicon-celex.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7a. CELEX</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/7b-lexicon-cmudict.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7b. CMU Pronouncing Dictionary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../worksheets/course/8-forced-alignment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Forced Alignment</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8a-forced-alignment-htk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8a. HTK</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/8b-forced-alignment-mfa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8b. MFA</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../worksheets/course/9-aligned-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Aligned Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#mediapipe" id="toc-mediapipe" class="nav-link active" data-scroll-target="#mediapipe">MediaPipe</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a>
+  <ul class="collapse">
+  <li><a href="#media-track" id="toc-media-track" class="nav-link" data-scroll-target="#media-track">Media Track for Annotated Video</a></li>
+  <li><a href="#mediapipe-project" id="toc-mediapipe-project" class="nav-link" data-scroll-target="#mediapipe-project">MediaPipe Project</a></li>
+  <li><a href="#mediapipe-configuration-layer" id="toc-mediapipe-configuration-layer" class="nav-link" data-scroll-target="#mediapipe-configuration-layer">MediaPipe Configuration Layer</a></li>
+  </ul></li>
+  <li><a href="#accessing-annotations" id="toc-accessing-annotations" class="nav-link" data-scroll-target="#accessing-annotations">Accessing Annotations</a>
+  <ul class="collapse">
+  <li><a href="#annotated-frame-count" id="toc-annotated-frame-count" class="nav-link" data-scroll-target="#annotated-frame-count">Annotated Frame Count</a></li>
+  <li><a href="#annotated-video" id="toc-annotated-video" class="nav-link" data-scroll-target="#annotated-video">Annotated Video</a></li>
+  <li><a href="#annotated-frame-images" id="toc-annotated-frame-images" class="nav-link" data-scroll-target="#annotated-frame-images">Annotated Frame Images</a></li>
+  <li><a href="#blendshape-coordinates" id="toc-blendshape-coordinates" class="nav-link" data-scroll-target="#blendshape-coordinates">Blendshape Coordinates</a></li>
+  <li><a href="#feature-scores" id="toc-feature-scores" class="nav-link" data-scroll-target="#feature-scores">Feature Scores</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/howto/media-annotation/mediapipe.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mediapipe.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../howto/index.html">How-to</a></li><li class="breadcrumb-item"><a href="../../howto/media-annotation/index.html">Annotating Media</a></li><li class="breadcrumb-item"><a href="../../howto/media-annotation/mediapipe.html">MediaPipe</a></li></ol></nav></header>
+
+
+
+
+<section id="mediapipe" class="level1">
+<h1>MediaPipe</h1>
+<p><a href="https://github.com/google-ai-edge/mediapipe">MediaPipe</a> is a suite of tools produced by Google which includes a system for detecting faces in video media, and producing landmark coordinates and scores for facial features.</p>
+<p>LaBB-CAT includes a module that integrates with MediaPipe call the <em>MediaPipe Annotator</em>.</p>
+<p>The annotator can produce four outputs, each of which is optional:</p>
+<ul>
+<li>an alternative <code>webm</code> version of the video, visually annotated with facial features,</li>
+<li>individual video frame images, annotated with facial features,<br>
+</li>
+<li>a JSON file for each video frame representing the <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker">blendshape</a> landmark coordinates of each facial feature, and</li>
+<li>instantaneous numeric score annotations for each facial feature.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-all.png" class="img-fluid figure-img"></p>
+<figcaption>Visually annotated facial features produces by MediaPipe</figcaption>
+</figure>
+</div>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<p>Currently the module has only been tested on Unix-like systems (i.e.&nbsp;Ubuntu Linux, and the LaBB-CAT <a href="https://hub.docker.com/r/nzilbb/labbcat">Docker image</a>)</p>
+<p>The following must already be installed on the same machine that LaBB-CAT runs on:</p>
+<ul>
+<li>Python 3</li>
+<li>Support for Python virtual environments (venv)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+venv on Ubuntu
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Support for Python ‘venv’ can be installed on Ubuntu-like systems with the command:</p>
+<p><code>apt install python3.10-venv</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="installation" class="level2">
+<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During installation, the annotator needs to be able to connect to the internet so that required Python packages and model files can be installed.</p>
+<p>(Once installed, the annotator should function without an internet connection.)</p>
+</div>
+</div>
+<ol type="1">
+<li>In LaBB-CAT, select the <em>layer managers</em> option on the menu.</li>
+<li>Click the link at the bottom of the page:<br>
+<em>List of layer managers that are not yet installed</em></li>
+<li>Find <em>MediaPipeAnnotator</em> in the list, and press its <em>Install</em> button.</li>
+<li>Press <em>Install</em>.<br>
+LaBB-CAT will check for the required prerequisites, and download/install the MediaPipe software and models. You will see a progress bar and status messages during this process.</li>
+<li>Once everything is installed, you will see an information page titled “MediaPipeAnnotator” open in a new browser tab.<br>
+Close the browser tab that just opened.</li>
+</ol>
+<p>MediaPipe and LaBB-CAT’s integration module are now installed.</p>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<section id="media-track" class="level3">
+<h3 class="anchored" data-anchor-id="media-track">Media Track for Annotated Video</h3>
+<p>For each video, the annotator can produce a sound-less <code>webm</code> video of the original video input, annotated with the detected facial features.</p>
+<p>If you want this video, LaBB-CAT needs a distinct place to store it - i.e.&nbsp;a new ‘media track’ that differentiates the annotated video from the origina video, for each transcript.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you don’t want an annotated video file, you can skip these steps.</p>
+</div>
+</div>
+<ol type="1">
+<li>Select the <em>media tracks</em> option on the right of LaBB-CAT’s menu at the top of the page.</li>
+</ol>
+<p>You will see a list of Media Tracks that most likely has only one item called “Media”.</p>
+<p>Each media track is distinguished by a unique ‘suffix’ - i.e.&nbsp;a string of characters that is appeneded to the end of the file name to distinguish it from the main media file. For example, for the video file called <code>AP513_Steve.mp4</code> we will configure the annotator to produce an annotated video called something like <code>AP513_Steve-facial-features.webm</code>.</p>
+<p>The ‘suffix’ in this example would be the <code>-facial-features</code> part of the name.</p>
+<ol start="2" type="1">
+<li>The row of headings at the top of the <em>Media Tracks</em> are a form you can fill in to create a new track.<br>
+Fill in the following details:
+<ul>
+<li><strong>Suffix:</strong> <code>-facial-features</code></li>
+<li><strong>Description:</strong> “Video annotated with facial features, with no audio track.”</li>
+</ul></li>
+<li>Press the <em>New</em> button to the right.<br>
+The new track will be added to the list.</li>
+</ol>
+</section>
+<section id="mediapipe-project" class="level3">
+<h3 class="anchored" data-anchor-id="mediapipe-project">MediaPipe Project</h3>
+<p>By default, the annotator produces a large number of annotations on a large number of annotation layers:</p>
+<ul>
+<li>a layer for the <em>blendshapes</em> file,</li>
+<li>a layer for the annotated frame images file,</li>
+<li>a layer for each facial featre that is tracked (there are 52 of these)</li>
+</ul>
+<p>For organizational purposes, it’s a good idea to create a ‘project’ for the MediaPipe data, so that layers can easily be all hidden or shown as required.</p>
+<ol type="1">
+<li>Select the <em>projects</em> option on the menu at the top.</li>
+<li>Fill in the following details on the form at the top of the page:
+<ul>
+<li><strong>Name:</strong> <code>mediapipe</code></li>
+<li><strong>Description:</strong> “Layers of facial-feature annotations produced by MediaPipe.”</li>
+</ul></li>
+<li>Press the <em>New</em> button on the right to add the project.</li>
+</ol>
+</section>
+<section id="mediapipe-configuration-layer" class="level3">
+<h3 class="anchored" data-anchor-id="mediapipe-configuration-layer">MediaPipe Configuration Layer</h3>
+<p>The instantaneous frame annotations that are produced by the annotator relate only to the video media, and are not assigned to a participant in the transcript. As they don’t relate directly to word annotations or speaker turns, they go on a ‘span layer’.</p>
+<ol type="1">
+<li>Select the <em>span layers</em> option on the menu.</li>
+<li>On the header row form, fill out the following details:
+<ul>
+<li><strong>Layer ID:</strong> <code>blendshape</code></li>
+<li><strong>Type:</strong> <em>Text</em></li>
+<li><strong>Alignment:</strong> <em>Instants</em> (there will be a blendshape annotation for each video frame in which a face is detected)</li>
+<li><strong>Manager:</strong> <em>MediaPipe Manager</em></li>
+<li><strong>Generate:</strong> <em>Always</em></li>
+<li><strong>Project:</strong> <em>mediapipe</em></li>
+<li><strong>Description:</strong> “Blendshape coordinates for each frame”</li>
+</ul></li>
+<li>Press the <em>New</em> button on the right to add the layer.</li>
+</ol>
+<p>You will see the annotators configuration page. The top section of the page relates to saving the blendshapes, annotated video and frame images, and what to include in the visual annotations.</p>
+<ol start="4" type="1">
+<li>If you want a video visually annotated with tracked facial features, and you have created the corresponding <a href="#media-track">media track</a>, set the <em>Annotated Video Track</em> setting to the track you created before.</li>
+<li>If you want individual frame images visually annotated with facial features, for the <strong>Annotated Images Layer</strong>, select the <em>[add new layer]</em> option, specify a name for that layer (or use the default layer name) and press <em>OK</em></li>
+<li>There are three options for what aspects of the facial features you would like visually represented, tick the options you prefer.</li>
+</ol>
+<div class="columns">
+<div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-tesselation.png" class="img-fluid figure-img"></p>
+<figcaption>Visual annotation of feature tesselation only</figcaption>
+</figure>
+</div>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-contours.png" class="img-fluid figure-img"></p>
+<figcaption>Visual annotation of contours only</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The annotator runs facial feature detection on each frame in the video, and creates annotations only for frames in which detection was successful. The annotator can store the number of frames with faces in a transcript attribute. This can be useful for identifying videos for which few frames had faces found, in order to better calibrate the recognition tresholds.</p>
+<ol start="7" type="1">
+<li>If you want a count of frames with detected faces, for the <strong>Annotated Frame Count</strong> setting, select the <em>[add new layer]</em> option, and press <em>OK</em>.</li>
+</ol>
+<p>The middle section, labelled “Face Blendshapes”, allows you to select which facial featured you’d like numerical annotations for, for each video frame. There are 52 facial features tracked, and a numeric rating is assigned to each one, for each frame in which a face is detected. By default, a layer is create for each feature.</p>
+<ol start="8" type="1">
+<li>For any features that you do <strong>not</strong> want the rating stored for each frame, select <em>[none]</em> in the dropdown list of options.</li>
+</ol>
+<p>The bottom section allows you to calibrate thresholds for face/feature detection when processing video frames. These can probably be left with their default values, but if you find that no frames (or only a few) are annotated, you might try a lower value e.g.&nbsp;for the <strong>min_face_detection_confidence</strong> theshold.</p>
+<ol start="9" type="1">
+<li>Once you have the configuration options you want, press <em>Set Parameters</em> at the bottom.</li>
+</ol>
+<p>Now the MediaPipe annotations are configured, you can either generate annotations for you entire corpus, by pressing the <em>Regenerate</em> button, or you can target specific transcripts by:</p>
+<ol type="i">
+<li>locating them on the <em>transcripts</em> page,</li>
+<li>ticking their checkboxes,</li>
+<li>pressing the <em>Generate</em> button at the top,</li>
+<li>selecting the <em>blendshape</em> layer you just created, and</li>
+<li>pressing <em>Generate</em> to run MediaPipe on only the ticked recordings.</li>
+</ol>
+<p>The amount of time it takes to generate annotations can be quite long, and depends on how long the videos are, how many there are, and how much computing power your LaBB-CAT server has.</p>
+</section>
+</section>
+<section id="accessing-annotations" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-annotations">Accessing Annotations</h2>
+<p>Different types of annotations are accessible in different ways.</p>
+<section id="annotated-frame-count" class="level3">
+<h3 class="anchored" data-anchor-id="annotated-frame-count">Annotated Frame Count</h3>
+<p>You can get a list of annotated frame counts from the <em>transcripts</em> page:</p>
+<ol type="1">
+<li>Select the <em>transcripts</em> option on the menu at the top.</li>
+<li>Press the <em>Export Attributes</em> button.<br>
+A dropdown list of transcript attributes will appear.</li>
+<li>Ensure that the <code>transcript</code> and <code>mediapipeFrameCount</code> options are ticked.</li>
+<li>Press the <em>Export Attributes</em> button.</li>
+</ol>
+<p>You will receive a CSV file, with a column containing the transcript/recording name, and a column with the number of video frames in which a face was detected.</p>
+</section>
+<section id="annotated-video" class="level3">
+<h3 class="anchored" data-anchor-id="annotated-video">Annotated Video</h3>
+<p>If an <em>Annotated Video Track</em> has been specified, an alternative version of the video is created, with no audio, and with the detected facial features painted on to the video frames.</p>
+<p>You can view this video directly in the transcript page, by ticking the <em>-facial-features</em> track on the top-right of the page.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-annotated-webm.png" class="img-fluid figure-img"></p>
+<figcaption>Video track annotated with tesselation, contours, and irises</figcaption>
+</figure>
+</div>
+<p>You can also download the video file by using the <em>webm</em> link to the right of the track’s name.</p>
+</section>
+<section id="annotated-frame-images" class="level3">
+<h3 class="anchored" data-anchor-id="annotated-frame-images">Annotated Frame Images</h3>
+<p>If you specified an <em>Annotated Images Layer</em>, then the visually annotated frame images are created on that layer.</p>
+<p>The images can be seen directly in the transcript page:</p>
+<ol type="1">
+<li>Open the transcript page of a recording that has been annotated.</li>
+<li>Select the <em>Layers</em> tab to list selectable layers.</li>
+<li>Tick the <em>mediapipe</em> project on the left, to list all of the MediaPipe layers.</li>
+<li>Tick the <em>mediapipeFrame</em> layer (or whate layer name you specified on the configuration page)<br>
+You will see a number of annotations appear on the page, labelled with a ‘camera’ icon.</li>
+<li>Hover your mouse over one of the camera icons to see the annotated image.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-frame-image.png" class="img-fluid figure-img"></p>
+<figcaption>A single frame (annotated with iris positions only)</figcaption>
+</figure>
+</div>
+<p>You can open the image full size in your browser, save it, etc. by clicking on the image.</p>
+<p>Although only one link per word is visualized on the transcript, there is on image for every video frame in which a face was located. They can all be accessed using LaBB-CAT API, for example using the <code>getFragmentAnnotationData</code> function of the <a href="https://cran.r-project.org/web/packages/nzilbb.labbcat/">nzilbb.labbcat</a> R package, or the <a href="https://pypi.org/project/nzilbb-labbcat/">nzilbb-labbcat</a> Python package.</p>
+</section>
+<section id="blendshape-coordinates" class="level3">
+<h3 class="anchored" data-anchor-id="blendshape-coordinates">Blendshape Coordinates</h3>
+<p>For each frame containing a face, the <em>blendshape</em> layer has JSON-encoded data that include the facial feature coordinates and the blendshape feature scores.</p>
+<p>These are accessible on the transcript page in a similar way to the frame images; if you select the <em>blendshape</em> layer icons will appear in the transcript text which, if clicked, will download a JSON file containing mediapipe’s recognition result.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mediapipe-json.png" class="img-fluid figure-img"></p>
+<figcaption>JSON-encoded recognition result data</figcaption>
+</figure>
+</div>
+<p>As with annotated images, these can all be accessed using the <code>getFragmentAnnotationData</code> function of the <a href="https://cran.r-project.org/web/packages/nzilbb.labbcat/">nzilbb.labbcat</a> R package, or the <a href="https://pypi.org/project/nzilbb-labbcat/">nzilbb-labbcat</a> Python package.</p>
+</section>
+<section id="feature-scores" class="level3">
+<h3 class="anchored" data-anchor-id="feature-scores">Feature Scores</h3>
+<p>In addition to raw JSON-encoded data, numeric feature scores for each facial feature are available as instantaneous numeric annotations on layers named after the feature they score.</p>
+<p>Although these can be visualized on the transcript page, they are perhaps more usefully extracted using the <code>getFragmentAnnotations</code> or <code>getFragments</code> functions of the <a href="https://cran.r-project.org/web/packages/nzilbb.labbcat/">nzilbb.labbcat</a> R package to extract score values between targeted start/end times, for targeted facial features.</p>
+<p>For example the following R code will extract a CSV file with selected feature scores during given time intervals:</p>
+<pre><code>csvFragments &lt;- nzilbb.labbcat::getFragments(
+  url, matches$Transcript, matches$startTime, matches$endTime, 
+  layer.ids = c("jawOpen", "eyeBlinkLeft", "eyeBlinkRight"), 
+  mime.type = "text/csv")</code></pre>
+
+
+</section>
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-copyright"><h2 class="anchored quarto-appendix-heading">Copyright</h2><div class="quarto-appendix-contents"><div>© 2023-2024 NZILBB</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nzilbb\.github\.io\/labbcat-doc\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/howto/media-annotation/mediapipe.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
