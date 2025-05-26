@@ -69,6 +69,8 @@ website:
               - href: howto/forced-alignment/correction-emu.qmd
           - section: howto/aligned-data/index.qmd
             contents: howto/aligned-data/*
+          - section: howto/media-annotation/index.qmd
+            contents: howto/media-annotation/*
           - section: howto/corpus-management/index.qmd
             contents: howto/corpus-management/*
           - href: howto/manual-annotation/doccano.qmd

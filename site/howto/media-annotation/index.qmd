@@ -1,0 +1,14 @@
+---
+format:
+  html:
+    toc: true
+---
+# Annotating Media
+
+Some automatic annotation processes do not involve reference to the transcript text,
+but rather involve computations that come directly and solely from the media.
+
+LaBB-CAT includes annotation modules that integrate with some 3rd-party tools that produce such computations:
+
+- Reaper - for automated voicing and pitch measurement.
+- [MediaPipe](mediapipe.qmd) - for detecting facial features in video recordings.
