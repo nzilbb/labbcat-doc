@@ -11,4 +11,4 @@ This tutorial is a very brief introduction to the LaBB-CAT corpus analysis tool.
 - [upload a small corpus of recordings into your database and explore the transcript page](2-upload-data.qmd),
 - [add autonmatically generateed part-of-speech tags](3-stanford-pos.qmd) and,
 - [add autonmatically generateed pronunciation tags](4-cmudict.qmd) and,
-- [compute the start/end times of each speech sound](5-bas-webmauds.qmd) and extract automated formant measurements from vowels.
+- [compute the start/end times of each speech sound](5-bas-webmaus.qmd) and extract automated formant measurements from vowels.
