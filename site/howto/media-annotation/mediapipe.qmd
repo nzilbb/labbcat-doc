@@ -247,8 +247,7 @@ to extract score values between targeted start/end times, for targeted facial fe
 
 For example the following R code will extract a CSV file with selected feature scores during given time intervals:
 
-```{r}
-#| eval: false
+```
 csvFragments <- nzilbb.labbcat::getFragments(
   url, matches$Transcript, matches$startTime, matches$endTime, 
   layer.ids = c("jawOpen", "eyeBlinkLeft", "eyeBlinkRight"), 
