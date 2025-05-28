@@ -172,6 +172,18 @@ v. pressing *Generate* to run MediaPipe on only the ticked recordings.
 
 The amount of time it takes to generate annotations can be quite long, and depends on how long the videos are, how many there are, and how much computing power your LaBB-CAT server has.
 
+:::{.callout-tip}
+
+While generating annotations, the mediapipe may show warnings like the following:
+
+> ...OpenCV: FFMPEG: tag 0x30387076/'vp80' is not supported with codec id 139 and format 'webm / WebM' WARNING: All log messages before absl::InitializeLog() is called are written to STDERR I0000 00:00:1748469849.962542 71 task_runner.cc:85] GPU suport is not available...
+
+Do not be alarmed by these apparent problems, faces will be annotated anyway.
+
+If you find that no faces are found in your videos, the most likely solution is to set **min_face_detection_confidence** to a lower value.
+
+:::
+
 ## Accessing Annotations
 
 Different types of annotations are accessible in different ways.
