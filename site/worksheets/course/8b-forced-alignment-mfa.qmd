@@ -150,7 +150,7 @@ then saves to alignments MFA produces back to your database.
     -   **Description:** `MFA alignment time`
 
 :::{.callout-note}
-After saving the layer, the MFA configuraion form will appear.
+<!-- After saving the layer, the MFA configuration form will appear. -->
 
 Initially, there will be a 'spinner' and the form will be disabled while LaBB-CAT is making internet requests in order to retrieve lists of available dictionaries and acoustic models.
 

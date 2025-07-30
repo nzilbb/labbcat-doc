@@ -41,7 +41,7 @@ mini-research projects:
 To start with, we'll simply annotate each word token in the database
 with the count of how many times that word appears in the database\...
 
-(@)  First of all, create a new project called *frequency*, using the steps we saw before.
+(@) First of all, create a new project called *frequency*, using the steps we saw before.
 (@) Select the *word layers* menu option.\
     You will see a list of word layers (including the 'custom' layer for
     the "the" project we created earlier).
@@ -243,8 +243,10 @@ Let's suppose that we're interested in 'filled pauses' -- words
 like "um", "ah", "er", "mmm", etc. You can actually identify them
 using regular expressions...
 
-(@) Do a search of all speakers, for the word `ah`. Select the *no
-    matches, only a summary of results* option.\
+(@) Select *search* on the menu.
+(@) Select the *Options* tab at the top.
+(@) Tick the *No matches, only a summary of results* option.
+(@) Do a search for the word `ah`.\
     Note the number of results you get back.
 (@) Now do a similar search, for the pattern: `a+h+` i.e. 1 or more
     *a*'s followed by one or more *h*'s.\
@@ -385,8 +387,8 @@ this page.
     a filled pause like "um", the entire utterance in which it appears
     has a bracket across the top of the words, labelled with the number
     of filled-pauses that occurs in that utterance.
-(@) Scroll to the top of the transcript, select the *Participants* tab, and click on the name of the
-    main participant.\
+(@) Scroll to the top of the transcript, select the *Participants* tab, 
+    and click the *Attributes* link for the main participant.\
     You will see the participant's attributes page, which now includes
     the participant's *pauseCount* attribute.
 (@) Both the local utterance count, and the participant's overall

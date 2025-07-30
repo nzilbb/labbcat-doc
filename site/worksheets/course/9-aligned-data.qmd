@@ -157,7 +157,8 @@ configurations of CELEX layers that would put unaligned annotations
 on that layer.
 
 (@) To make sure we only get words that have been aligned by HTK/MFA or
-    manually, tick the *only match words that are aligned* option.
+    manually, in the *Options* tab,
+    tick the *Only match words that are aligned* option.
 (@) Press *Search*.\
     Once the search is finished, you should notice that the only
     transcripts returned are those that include speakers you've done

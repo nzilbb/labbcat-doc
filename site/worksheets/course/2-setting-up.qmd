@@ -34,34 +34,34 @@ If you are using a LaBB-CAT server that's already been installed for you elsewhe
     \
     Now we will set up some corpus names...\
     
-(@)  On the menu at the top, click the *corpora* link.\
+(@)  On the menu at the top, select the *corpora* option.\
     This page shows a list of current corpora, which only contains one corpus, called *corpus*.
 (@)  Above the *corpus* corpus, there's a form that you can fill in to add a new corpus. Fill in the following information:
     -   **Name** : `QB`
     -   **Language** : *English*
     -   **Description** : `Quakebox recordings`
-(@)  Click the *New* button to add the "QB" corpus.\
+(@)  Press the *New* button to add the "QB" corpus.\
     You should see a message at the top of the page saying *Record created* and now the *QB* corpus is in the list, under the "corpus" corpus.
 (@)  Add another corpus called *UC* with the description *Campus recordings*.
-(@)  We won't actually be using the corpus called *corpus*, so we want to delete it. To do this, click the *Delete* button to the right of the *corpus* corpus in the list.
-(@)  You will be asked *Are you sure you want to delete corpus?* You are sure, so click *OK*.\
+(@)  We won't actually be using the corpus called *corpus*, so we want to delete it. To do this, press the *Delete* button to the right of the *corpus* corpus in the list.
+(@)  You will be asked *Are you sure you want to delete corpus?* You are sure, so press *OK*.\
     The row will be deleted from the list.
     
 Now you have some corpora set up with the names you've provided.
 
 The data we are using is a collection of stories about peoples' experiences during the devastating earthquakes that hit the Canterbury region of New Zealand in 2010 and 2011. Some recordings are interviews, where an interviewer asks the participant questions, and others are monologues. Now we're going to set up these two transcript types...
 
-(@) Click on the *transcript types* menu option.\
+(@) Select the *transcript types* option in the menu at the top of the page.\
     You will see a list of transcript types, although there's currently only one type in the list, called *interview*.
 (@) Above this, fill in the empty *Type* box with the word: `monologue`
-(@) Click the *New* button.\
+(@) Press the *New* button.\
     You will notice that now the list has two transcript types, *interview* and *monologue*. A *Save* button has appeared, because your changes aren't yet saved to LaBB-CAT.
-(@) Click the *Save* button.\
+(@) Press the *Save* button.\
     You will see a message at the top saying *Layer saved: transcript_type*.\
 
 Now that we have both corpora and transcript types, we're going to set up meta-data options for the participants in our corpus...
 
-(@) Click on the *participant attributes* menu option.\
+(@) Select the *participant attributes* menu option.\
     You will see a list of fields or attributes that participants (or speakers) can have. There are currently only three attributes:
     -   *Gender* - i.e. whether the participant is female or male or something else 
     -   *Birth Year* - i.e. the year the participant was born 
@@ -114,7 +114,7 @@ For our corpus data, we don't have the exact year of birth. Instead we have the 
 We are going to add a few more attributes, but they will be 'free text' fields without predefined options.
 
 (@) Add another attribute, called `ethnicity`. For 'Type' select *String*, and make it *Public* and *Searchable*.
-(@) Similarly, add the following *Public* *Searchable* *String* attributes:
+(@) Similarly, add the following *Public* *Searchable* *String* attribute:
     -   `languagesSpoken` - a list of languages they speak\
         ... and the following *Not Searchable* attributes:
     -   `grewUp` - what country they grew up in

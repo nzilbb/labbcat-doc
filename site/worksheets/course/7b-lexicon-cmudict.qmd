@@ -69,13 +69,15 @@ uses ordinary 'typewriter' characters (ASCII), and uses exactly one
 character per phoneme.
 
 The IPA symbols are being displayed by LaBB-CAT to provide a
-linguist-friendly representation of the phonemic transcription. But
-you can see the underlying DISC characters by selecting the *ASCII*
+linguist-friendly interpretation of the phonemic transcription. But
+you can see the underlying DISC characters by disabling the 'interpretation'
 option on the layer in the transcript.
 
-(@) Select *ASCII* on the phonemes layer, to see what the layer manager
-    is actually producing.
-    
+(@) On the *Layers* tab, to the right of the name of the *phonemes* layer, there is
+a small 'interpretation' ![](interpretation-selector.png) selector.\
+   Hover your mouse over the icon to see what it does.
+(@) Click the selector to disable it, to see what the layer manager is actually producing.
+
 You may find that this is somewhat harder to read. Diphthongs are
 generally represented by digits, and various other characters are
 used to represent affricates, etc.
@@ -187,17 +189,17 @@ word tokens.
 
 You will see that the results contain words that you might not expect, like "where", "which" and "when".
     
-(@) Click one of these unexpected results, to open the transcript.   \
+(@) Click one of these unexpected results, to open the transcript.\
     You will see that, in the transcript, the pronunciation appears to
     start with /w/, not with /h/.
-(@) Click on the word and select the *Edit* option on the menu that
-    appears.\
-    Now look for the *phonemes* layer. You will see that, in addition to
-    the pronunciation that starts with /w/, there's another annotation
-    that starts with /h/, which is invisible on the transcript.\
+(@) Hover your mouse pointer over the *phonemes* tag you can see.\
+    You will see that above
+    the pronunciation that starts with /w/, another annotation appears
+    that starts with /h/. 
 
-These are all the possible phonemic transcriptions for the word.
-Only the first one is displayed in the transcript, but when you do
+This word has multiple *phonemes* tags and hovering the mouse reveals all of them.
+
+Only the first one is displayed in the transcript by default, but when you do
 searches, all of them are searched. This can result in unexpected
 matches like this, but it can be useful, as it ensures that when you
 search for a particular phonemic pattern, all possible tokens are
@@ -223,16 +225,6 @@ by a word that starts with schwa.
     we have to use it in our search pattern.
 (@) We want words that start with schwa, so type `.*` after the `@` symbol.
 (@) Click *Search*.
-
-You will see that some of the words being matched are words that you
-might not normally think start with a schwa. LaBB-CAT is matching
-words against *all their possible phonemic transcriptions*, so if
-the CMU dictionary has multiple possible pronunciations for a word,
-and one of them starts with schwa, it will be matched.
-
-You can check this by clicking on a match, and then clicking on the
-word in the transcript and selecting *Edit*, which displays all the
-annotations for the given token.
 
 If you check the table above, you will see that *ə* has no specific
 representation in ARPABET. This means that no CMU Pronouncing

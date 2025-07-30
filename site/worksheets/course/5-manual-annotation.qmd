@@ -56,7 +56,7 @@ Now we're ready to find some tokens...
 (@) Select *participants* on the menu.
 (@) We're going to search all male monolinguals, so filter by the
     appropriate attribute values if they're not already filtered,
-    and then click *Layered Search*.
+    and then press *Layered Search*.
 (@) Search for instances of the word "the" followed immediately by a
     word starting with a vowel, on the *orthography* layer.
 (@) Export the results to a CSV file and open it.
@@ -108,8 +108,8 @@ recording.
     searches utterances of all participants.\
     This time we're going to search for the true-positive annotations
     we just inserted.
-(@) Under the "Pattern" heading, there's now a "Projects"
-    column that includes the "the" project we added at the start. Tick
+(@) There's now a "Projects" to the left of the layer checkboxes
+    which includes the "the" project we added at the start. Tick
     that project, so that the layer associated with it is displayed in
     the list of *Word* layers to the right.
 (@) Tick your custom layer (called "the") in the *Word* column.\
@@ -127,34 +127,21 @@ recording.
     "the" like "thee" or not. If they do, we're going to annotate the
     word with the code `i`. Otherwise we're going to annotate it with
     the code `@`.
-(@) Click the match word again, and select the last option on the menu:
-    *Edit*. A window will appear, with a list of layers. Each line has
-    the token's annotation on the given row. So at the bottom, the
-    value on the *word* layer is probably "the" or maybe "The" or "the
-    ." or something similar. On the *orthography* layer, the annotation
-    will be "the". Other layers may be blank, except for your *the*
-    layer, whose annotation will be "TP".
+(@) Hover your mouse pointer over the `TP` tag above the matched word, and you will see
+    a small button appear with the icon of a pencil on it ![](edit-token.png). 
+    Hover your mouse pointer over the button to see what it does, and then press it.
+    The `TP` tag will now appear in a text box that allows you to change the label.
 (@) We're going to change the "TP" annotation depending on the
     pronunciation of the token. So replace "TP" with `i` or `@` as
     appropriate.
-(@) Click the *Save* button ![](save-token.png) to save your annotation
+(@) Press the *Save* button ![](save-token.png) to save your annotation
     to the database.
-(@) Close the "edit word" window.
-(@) Back in the interactive transcript, find the next match result - it
-    will be highlighted.
+(@) You will see an alert asking if you're sure. Press *OK*.
+(@) Find the next match result - it will be highlighted.
 (@) Annotate the next match in exactly the same way - play the
     utterance, listen to the pronunciation, and change the `TP` to an
     appropriate code.
-(@) Similarly annotate the rest of the matches in the transcript.\
-
-:::{.callout-note}    
-You may notice that, although you're changing labels to `i` or `@`,
-the tags still appear as `TP` in the transcript page; this is simply
-because that's what the tag was when you opened the transcript. If
-you refresh the page, you'll see your new tags instead of the old
-ones.
-:::
-
+(@) Similarly annotate the rest of the matches in the transcript.
 (@) Once you've annotated the last match in the transcript, close the
     browser's tab.\
     This will take you back to the search results page.

@@ -57,6 +57,17 @@ sense, you just need to register on the HTK website, and you can then
 download and use HTK free of charge.
 
 (@) Register at <http://htk.eng.cam.ac.uk/register.shtml>
+
+:::{.callout-note}
+
+If your LaBB-CAT server is installed in a *Docker Container*, LaBB-CAT
+can itself download and compile HTK (i.e. steps 2 and 3), as long has
+you have a username and password for the HTK website. In this case,
+these steps are automatically attempted when you install the HTK layer
+manager (from step 4).
+
+:::
+
 (@) Download the version of HTK that is appropriate for the computer
     that LaBB-CAT is installed on:
     -   For Windows systems, there are pre-compiled .exe files that you
@@ -67,15 +78,6 @@ download and use HTK free of charge.
 (@) Unzip (for Windows) or compile and install (for Unix-like systems)
     the downloaded files on the computer that LaBB-CAT is installed on.
 
-:::{.callout-note}
-
-If your LaBB-CAT server is installed in a *Docker Container*, LaBB-CAT
-can itself download and compile HTK (i.e. steps 2 and 3), as long has
-you have a username and password for the HTK website. In this case,
-these steps are automatically attempted when you install the HTK layer
-manager (below).
-
-:::
 
 Now, you have to install the HTK Layer Manager, which is the LaBB-CAT
 module that provides HTK with all the data it needs, and then saves to
@@ -211,11 +213,12 @@ we'll use for this exercise.
 
 (@) Click on the word "Febuary", and select the *Edit Transcript* option
     from the menu.\
-    A window will open that allows you to edit that line in the
+    A text box will appear that allows you to edit that line in the
     transcript.
 (@) Correct the spelling of the word to be "February"
-(@) Press *Update*
-(@) Press *Close*
+(@) Press the save button to the right of the text box ![](save-token.png).\
+    After a short delay, the transcript will re-load, and you will see that
+    the corrected word now has a pronunciation.
 (@) Similarly change "w-" to be "w~" and "mm" to be "mmm"
 (@) Click on the word "me's", and select the *Edit Transcript* option
     from the menu.\
@@ -228,12 +231,12 @@ we'll use for this exercise.
     works if you edit the original transcript in ELAN)
 (@) Change the line text from "\...bit of me's a bit ..." to be "...bit
     of me's[miz] a bit ..." instead.
-(@) Click *Update* and then *Close*\
+(@) Save the utterance.\
     The *pronounce* annotation you've just added isn't displayed in
     the transcript. It's added to the *pronounce* layer, which is for
     this type of manual pronunciation tagging.
-(@) Scroll to the top of the transcript and tick the *pronounce* layer
-    so that it will be displayed.\
+(@) Scroll to the top of the transcript, open the *Layers* tab
+    and tick the *pronounce* layer so that it will be displayed.\
     When the transcript is reloaded, you will be able to see "miz" as an
     annotation on "me's", and that this has been copied into the
     *phonemes* layer by its layer manager.
@@ -248,8 +251,8 @@ and filled pauses like "mmm", "um", etc. it's not efficient to tag
 every token. Instead, we add these to the lexicon.
 
 (@) Select the *participants* menu option.
-(@) Find *UC207YW* in the list, and click on their name.
-(@) Click the *All Utterances* link below their attributes.
+(@) Find *UC207YW* in the list, and tick the checkbox before their name.
+(@) Press the *All Utterances* button above the list of participants.
 (@) Leave the default selections and press *List*.\
     This displays a page with a list of all the speaker's utterances,
     from which you can do various things with all the utterances of a

@@ -47,7 +47,7 @@ For example, if the last time you accessed the *participants* page, you selected
     language will be listed. This is because, in regular expressions,
     `^` means "the beginning" and `$` means "the end", so
     `^English$` means, "English at the beginning, and at the end"
-(@) Click the *Layered Search* button at the top of the list.\
+(@) Press the *Layered Search* button at the top of the list.\
     You will see the participants you selected listed at the top, above
     a list of annotation layers. Below that, there's a "Search Matrix",
     although it doesn't look much like a matrix yet, because it's only
@@ -91,8 +91,9 @@ one.
     You'll see that the files are systematically named to include:
     -   the name of the transcript
     -   the start and end time of the extracted utterance
-(@) Now go back to the results page and tick the *Prefix Names*
-    checkbox.
+(@) Now go back to the results page and press the expand `▾` button to the right 
+    of the *Audio Export* button, to reveal further options. 
+(@) Tick the *Prefix Names* checkbox that has been revealed.
 (@) Press the *Audio Export* button again.
 (@) Save and open the resulting zip file.\
     This time you'll see that the files are also prefixed by the result
@@ -104,7 +105,7 @@ one.
     by the result number.
 (@) Now go back to the results page and un-tick the *Prefix Names*
     checkbox.
-(@) Click the *Utterance Export* button.
+(@) Press the *Utterance Export* button.
 (@) Save and open the resulting zip file.\
     You'll see that the TextGrid names match the audio file names in
     the first zip file.
@@ -112,7 +113,7 @@ one.
     You'll see that the TextGrid includes a tier named *target...*
     which indicates which token(s) in the *word...* tier matched the
     search pattern.
-(@) Back on the results page, click the *CSV Export* button.
+(@) Back on the results page, press the *CSV Export* button.
 (@) Save the resulting file, and open it.\
     You may have to specify some import options, in which case it may be
     handy to know that the field separator is comma, and the fields are
@@ -155,13 +156,13 @@ going to search for words *beginning with* "the..."
     The full-stop means "any character at all", and the asterisk means
     "zero or more of the previous thing", so `.*` means "zero or more
     characters".
-(@) Click *Search*.\
+(@) Press *Search*.\
     You will see that now the search results include the word "the"
     and also words like "then", "there", "they", etc.
 (@) Now go back to the search page, and change the asterisk to a
     plus-sign, which means "one or more of the previous thing"\
     ![](prefix-the.png)
-(@) Click *Search*\
+(@) Press *Search*\
     You will see that now the search results exclude the word "the",
     only including words where the initial "the\..." is followed by at
     least one character.
@@ -181,7 +182,7 @@ can see what the problem with it is by hovering your mouse over the
 red text; a 'tip' will appear showing an error message
 :::
 
-(@) Click *Search*.\
+(@) Press *Search*.\
     You will now see that the results include words like "think",
     "that", "thought", etc.
     
@@ -200,7 +201,7 @@ Now we're going to include patterns for a chain of words...\
     words wide.
 (@) Change the entries on the *orthography* layer so that it will match
     the word "the" followed immediately by a word that starts with a
-    vowel, and click *Search*.\
+    vowel, and press *Search*.\
     Check the search results are giving you what you expected.
 (@) Now search for "the" followed, within two words, by a word that
     starts with a vowel.

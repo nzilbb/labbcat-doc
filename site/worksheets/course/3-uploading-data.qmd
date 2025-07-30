@@ -86,26 +86,25 @@ You will see a page with transcript text, and the video appears in the top right
 (@) Select the 'Play' option on the menu.\
     You will see that playback starts at that line. 
     Playback will stop when the participant finishes the utterance.
-(@) Select the *Formats* tab at the top of the transcript.\
+(@) Select the *Export* tab at the top of the transcript.\
     You will see a list of formats for exporting the transcript to.
 (@) Select *Plain Text Document*
 (@) Save the resulting file and then open it.\
     You will see the transcript in plain-text form.
-(@) If you have Praat installed on your computer, click the *formats*
-    link, and select the *Praat Text Grid* option. Save the resulting
+(@) If you have Praat installed on your computer, 
+    select the *Praat Text Grid* option on the *Export* tab. Save the resulting
     file on your desktop, and then open it with Praat.\
-    You will see that the TextGrid has various tiers, one for whole
-    utterances (or two if there are two speakers), and one for
-    individual words (or two if there are two speakers).
-(@) Back on the transcript page, select the *Attributes* tab at the top right.\
+    You will see that the TextGrid has a couple of tiers, one for each speaker
+    with utterance transcripts.
+(@) Back on the transcript page, select the *Attributes* tab at the top.\
     This will display the attributes for the transcript 
     (some of the attribute values are not set because the information 
     was not in the .eaf transcript file)
-(@) Now select the *Participants* tab on the top right.\
+(@) Now select the *Participants* tab at the top.\
     This will list both participants in the recording, the main participant, and the interviewer.
-(@) Click *BR178LK_MargaretSpencer*.\
-    This will display the participant meta-data. There's not much here yet; we will be adding participant 
-    attributes soon. However, we can at least set the participant's gender now.
+(@) Click the *Attributes* link for the main participant.\
+    This will display the participant meta-data, except that there are no values 
+    because we haven't entered them yet!
 (@) *BR178LK_MargaretSpencer* is an 'English'-speaking 'Female' who is
     between '66 and 75 years' old, who grew up in 'Christchurch', in the
     'North Canterbury' region of 'New Zealand\'.\
@@ -169,10 +168,10 @@ check preconditions for uploading, and other functions the upload page can perfo
     would be included in this report for following up.)
 (@) You can verify that all the transcripts are there by selecting the
     *transcripts* option on the menu in LaBB-CAT.\
-    You should see a list of twenty transcripts.
+    You should see a list of nineteen transcripts.
 (@) Use the *Transcript* box to find `UC013AM_Dom.eaf`\
     (you can type just part of the name if you like).
-(@) press the *Attributes* icon for *UC013AM_Dom.eaf*\
+(@) Press the *Attributes* icon for *UC013AM_Dom.eaf*\
     (on the far right of the row).
 (@) Change *Transcript type* to *interview* and press *Save*.
 (@) Similarly, the following transcripts are interviews, so change their type accordingly
@@ -187,7 +186,9 @@ ELAN files). We could manually add this for each speaker, but
 fortunately we have it stored in a spreadsheet (actually, a CSV text
 file) that we can upload in one go.
 
-(@) In LaBB-CAT, select the *participants* option on the menu.
+(@) In LaBB-CAT, select the *participants* option on the menu.\
+    You will see all the participants in the the transcripts you have uploaded,
+    many of which include an interviewer as well as a main participant.
 (@) Press the *Upload Participant Data* icon at the bottom.
 (@) Press *Choose File*, and select the file in the LaBB-CAT Exercises
     data folder called *participants.csv*
@@ -225,9 +226,10 @@ file) that we can upload in one go.
 To check the participant attributes really are now set:
 
 (@) Select the *participants* option on the menu.
-    You will see a list of speakers, and page links at the bottom.
-
-The page also includes participant attribute values where they are known.
+    You will see a list of speakers, and page links at the bottom.\
+    The page also includes participant attribute values where they are known, 
+    and you will see that now the speakers who are main-participants have values
+    filled in for their participant attributes.
 
 You can also filter the list by these values, using the column headings above the list:
 
