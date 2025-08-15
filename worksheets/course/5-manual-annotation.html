@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -660,7 +660,7 @@ The row of column headings at the top is also a form for adding a new layer.</li
 <p>Now we’re ready to find some tokens…</p>
 <ol start="6" class="example" type="1">
 <li>Select <em>participants</em> on the menu.</li>
-<li>We’re going to search all male monolinguals, so filter by the appropriate attribute values if they’re not already filtered, and then click <em>Layered Search</em>.</li>
+<li>We’re going to search all male monolinguals, so filter by the appropriate attribute values if they’re not already filtered, and then press <em>Layered Search</em>.</li>
 <li>Search for instances of the word “the” followed immediately by a word starting with a vowel, on the <em>orthography</em> layer.</li>
 <li>Export the results to a CSV file and open it.</li>
 </ol>
@@ -688,7 +688,7 @@ You will see a message about how many annotations were added. Now, within LaBB-C
 <ol start="19" class="example" type="1">
 <li>In LaBB-CAT, select the <em>search</em> menu option, which by default searches utterances of all participants.<br>
 This time we’re going to search for the true-positive annotations we just inserted.</li>
-<li>Under the “Pattern” heading, there’s now a “Projects” column that includes the “the” project we added at the start. Tick that project, so that the layer associated with it is displayed in the list of <em>Word</em> layers to the right.</li>
+<li>There’s now a “Projects” to the left of the layer checkboxes which includes the “the” project we added at the start. Tick that project, so that the layer associated with it is displayed in the list of <em>Word</em> layers to the right.</li>
 <li>Tick your custom layer (called “the”) in the <em>Word</em> column.<br>
 Your search matrix is now two layers high by one word wide.</li>
 <li>Search for <code>TP</code> on the <em>the</em> layer.<br>
@@ -697,29 +697,13 @@ The results page should show you all the words you annotated with <code>TP</code
 This will open the interactive transcript for the match. You’ll be able to see not only the transcript text, but also the <em>TP</em>/<em>FP</em> tags you have added.</li>
 <li>Click on the first match in the transcript, and select the <em>Play</em> option to play the line.</li>
 <li>Listen carefully to see whether the speaker pronounces the word “the” like “thee” or not. If they do, we’re going to annotate the word with the code <code>i</code>. Otherwise we’re going to annotate it with the code <code>@</code>.</li>
-<li>Click the match word again, and select the last option on the menu: <em>Edit</em>. A window will appear, with a list of layers. Each line has the token’s annotation on the given row. So at the bottom, the value on the <em>word</em> layer is probably “the” or maybe “The” or “the .” or something similar. On the <em>orthography</em> layer, the annotation will be “the”. Other layers may be blank, except for your <em>the</em> layer, whose annotation will be “TP”.</li>
+<li>Hover your mouse pointer over the <code>TP</code> tag above the matched word, and you will see a small button appear with the icon of a pencil on it <img src="edit-token.png" class="img-fluid">. Hover your mouse pointer over the button to see what it does, and then press it. The <code>TP</code> tag will now appear in a text box that allows you to change the label.</li>
 <li>We’re going to change the “TP” annotation depending on the pronunciation of the token. So replace “TP” with <code>i</code> or <code>@</code> as appropriate.</li>
-<li>Click the <em>Save</em> button <img src="save-token.png" class="img-fluid"> to save your annotation to the database.</li>
-<li>Close the “edit word” window.</li>
-<li>Back in the interactive transcript, find the next match result - it will be highlighted.</li>
+<li>Press the <em>Save</em> button <img src="save-token.png" class="img-fluid"> to save your annotation to the database.</li>
+<li>You will see an alert asking if you’re sure. Press <em>OK</em>.</li>
+<li>Find the next match result - it will be highlighted.</li>
 <li>Annotate the next match in exactly the same way - play the utterance, listen to the pronunciation, and change the <code>TP</code> to an appropriate code.</li>
-<li>Similarly annotate the rest of the matches in the transcript.<br>
-</li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>You may notice that, although you’re changing labels to <code>i</code> or <code>@</code>, the tags still appear as <code>TP</code> in the transcript page; this is simply because that’s what the tag was when you opened the transcript. If you refresh the page, you’ll see your new tags instead of the old ones.</p>
-</div>
-</div>
-<ol start="33" class="example" type="1">
+<li>Similarly annotate the rest of the matches in the transcript.</li>
 <li>Once you’ve annotated the last match in the transcript, close the browser’s tab.<br>
 This will take you back to the search results page.</li>
 <li>You’ve already annotated all the matches in the first transcript, so move to the next transcript in the results list, and click the first match.</li>

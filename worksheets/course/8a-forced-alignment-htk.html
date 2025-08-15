@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -77,12 +77,18 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="LaBB-CAT Documentation">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/save-token.png">
 <meta property="og:site_name" content="LaBB-CAT Documentation">
+<meta property="og:image:height" content="18">
+<meta property="og:image:width" content="18">
 <meta name="twitter:title" content="LaBB-CAT Documentation">
 <meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/save-token.png">
 <meta name="twitter:creator" content="@robertfromont">
 <meta name="twitter:site" content="@labbcat">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="18">
+<meta name="twitter:image-width" content="18">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -671,12 +677,6 @@ Important
 <p>HTK is not free software in the “GNU” sense - i.e.&nbsp;we can not distribute it with LaBB-CAT, instead you have to download it yourself from the Cambridge University website – however it is free in the “no cost” sense, you just need to register on the HTK website, and you can then download and use HTK free of charge.</p>
 <ol class="example" type="1">
 <li>Register at <a href="http://htk.eng.cam.ac.uk/register.shtml" class="uri">http://htk.eng.cam.ac.uk/register.shtml</a></li>
-<li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is installed on:
-<ul>
-<li>For Windows systems, there are pre-compiled .exe files that you can download.</li>
-<li>For Unix-like systems including OS X, you need to download the source code, which you will then install following the provided instructions.</li>
-</ul></li>
-<li>Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -688,9 +688,17 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If your LaBB-CAT server is installed in a <em>Docker Container</em>, LaBB-CAT can itself download and compile HTK (i.e.&nbsp;steps 2 and 3), as long has you have a username and password for the HTK website. In this case, these steps are automatically attempted when you install the HTK layer manager (below).</p>
+<p>If your LaBB-CAT server is installed in a <em>Docker Container</em>, LaBB-CAT can itself download and compile HTK (i.e.&nbsp;steps 2 and 3), as long has you have a username and password for the HTK website. In this case, these steps are automatically attempted when you install the HTK layer manager (from step 4).</p>
 </div>
 </div>
+<ol start="2" class="example" type="1">
+<li>Download the version of HTK that is appropriate for the computer that LaBB-CAT is installed on:
+<ul>
+<li>For Windows systems, there are pre-compiled .exe files that you can download.</li>
+<li>For Unix-like systems including OS X, you need to download the source code, which you will then install following the provided instructions.</li>
+</ul></li>
+<li>Unzip (for Windows) or compile and install (for Unix-like systems) the downloaded files on the computer that LaBB-CAT is installed on.</li>
+</ol>
 <p>Now, you have to install the HTK Layer Manager, which is the LaBB-CAT module that provides HTK with all the data it needs, and then saves to alignments HTK produces back to your database.</p>
 <ol start="4" class="example" type="1">
 <li>Select the <em>layer managers</em> menu option.</li>
@@ -787,25 +795,25 @@ Look for the hesitiation “w-” and the filled-pause “mm” to see if you ca
 <p>Alternatively, LaBB-CAT has a mechanism for editing the transcript ‘in-situ’; this doesn’t update the original file, but it’s sometimes much more convenient, and this is the method we’ll use for this exercise.</p>
 <ol start="15" class="example" type="1">
 <li>Click on the word “Febuary”, and select the <em>Edit Transcript</em> option from the menu.<br>
-A window will open that allows you to edit that line in the transcript.</li>
+A text box will appear that allows you to edit that line in the transcript.</li>
 <li>Correct the spelling of the word to be “February”</li>
-<li>Press <em>Update</em></li>
-<li>Press <em>Close</em></li>
+<li>Press the save button to the right of the text box <img src="save-token.png" class="img-fluid">.<br>
+After a short delay, the transcript will re-load, and you will see that the corrected word now has a pronunciation.</li>
 <li>Similarly change “w-” to be “w~” and “mm” to be “mmm”</li>
 <li>Click on the word “me’s”, and select the <em>Edit Transcript</em> option from the menu.<br>
 It seems unlikely that anyone else will say “me’s”, so instead of adding it to the lexicon, we’re simply going to tag this token with a <em>pronounce</em> tag. This is achieved by adding the pronunciation we want to tag it with in square brackets, using the DISC phoneme symbols. We have to add the <em>pronounce</em> tag immediately after the word, with no intervening space. (This transcription convention also works if you edit the original transcript in ELAN)</li>
 <li>Change the line text from “...bit of me’s a bit …” to be “…bit of me’s[miz] a bit …” instead.</li>
-<li>Click <em>Update</em> and then <em>Close</em><br>
+<li>Save the utterance.<br>
 The <em>pronounce</em> annotation you’ve just added isn’t displayed in the transcript. It’s added to the <em>pronounce</em> layer, which is for this type of manual pronunciation tagging.</li>
-<li>Scroll to the top of the transcript and tick the <em>pronounce</em> layer so that it will be displayed.<br>
+<li>Scroll to the top of the transcript, open the <em>Layers</em> tab and tick the <em>pronounce</em> layer so that it will be displayed.<br>
 When the transcript is reloaded, you will be able to see “miz” as an annotation on “me’s”, and that this has been copied into the <em>phonemes</em> layer by its layer manager.</li>
 <li>Similarly you should tag the word “exac~” with the pronunciation <code>Igz{k</code></li>
 </ol>
 <p>This method takes care of instances where the transcript is incorrect, and ‘one off’ missing pronunciations. However, for missing words that are likely to appear over and again in the corpus, including names like “Bealey”, “Wainoni”, and “Lyttleton”, and filled pauses like “mmm”, “um”, etc. it’s not efficient to tag every token. Instead, we add these to the lexicon.</p>
-<ol start="25" class="example" type="1">
+<ol start="24" class="example" type="1">
 <li>Select the <em>participants</em> menu option.</li>
-<li>Find <em>UC207YW</em> in the list, and click on their name.</li>
-<li>Click the <em>All Utterances</em> link below their attributes.</li>
+<li>Find <em>UC207YW</em> in the list, and tick the checkbox before their name.</li>
+<li>Press the <em>All Utterances</em> button above the list of participants.</li>
 <li>Leave the default selections and press <em>List</em>.<br>
 This displays a page with a list of all the speaker’s utterances, from which you can do various things with all the utterances of a particular participant in the database.</li>
 <li>Press the <em>Htk</em> button.<br>
@@ -838,7 +846,7 @@ Note
 </section>
 <section id="alignment" class="level2">
 <h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
-<ol start="31" class="example" type="1">
+<ol start="30" class="example" type="1">
 <li>Once you’ve filled in all the missing pronunciations, forced alignment will start automatically. If you want to start forced alignment before you’ve entered all pronunciations, click the <em>Start</em> button at the bottom of the page.<br>
 <br>
 You should see a progress bar while the forced alignment is running. It will take a few minutes to complete.</li>
@@ -854,7 +862,7 @@ You should see a progress bar while the forced alignment is running. It will tak
 <section id="inspectioncorrection" class="level2">
 <h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
 <p>You can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
-<ol start="32" class="example" type="1">
+<ol start="31" class="example" type="1">
 <li>Go back to the <em>UC207YW.eaf</em> transcript.</li>
 <li>Tick both the <em>htk</em> layer and the <em>segments</em> layer.<br>
 You will see which lines have been force-aligned, as they have an HTK timestamp, and have the <em>segments</em> layer filled in. If it has missed some lines, this is most likely because there is an unknown word, another speaker speaking at the same time, or possibly HTK simply failed to align the line (there are various reasons this happens, including not enough data for training, noisy recordings, inaccurate transcription, etc.).</li>
@@ -868,18 +876,18 @@ You may need to grant a browser extension permission to install, and it’s poss
 You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</li>
 </ol>
 <p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
-<ol start="34" class="example" type="1">
+<ol start="33" class="example" type="1">
 <li>Click on a line that has been aligned, and select the <em>Open TextGrid</em> option on the menu.<br>
 You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <em>Allow</em>.</li>
 </ol>
 <p>Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</p>
-<ol start="35" class="example" type="1">
+<ol start="34" class="example" type="1">
 <li>If you click on a word, and hit the <kbd aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.<br>
 Try this out with different lines in the transcript.<br>
 You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.</li>
 </ol>
 <p>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <em>Import Changes</em>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
-<ol start="36" class="example" type="1">
+<ol start="35" class="example" type="1">
 <li>If you feel confident using Praat, open an utterance TextGrid, adjust the alignments of the words an phones so that they’re more accurate, and then click the <em>Import Changes</em> button in the transcript.</li>
 </ol>
 <div class="callout callout-style-default callout-warning callout-titled">

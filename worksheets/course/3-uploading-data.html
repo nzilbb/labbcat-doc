@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -700,19 +700,19 @@ As the video plays, you will see the current utterance highlighted in the transc
 A menu will appear.</li>
 <li>Select the ‘Play’ option on the menu.<br>
 You will see that playback starts at that line. Playback will stop when the participant finishes the utterance.</li>
-<li>Select the <em>Formats</em> tab at the top of the transcript.<br>
+<li>Select the <em>Export</em> tab at the top of the transcript.<br>
 You will see a list of formats for exporting the transcript to.</li>
 <li>Select <em>Plain Text Document</em></li>
 <li>Save the resulting file and then open it.<br>
 You will see the transcript in plain-text form.</li>
-<li>If you have Praat installed on your computer, click the <em>formats</em> link, and select the <em>Praat Text Grid</em> option. Save the resulting file on your desktop, and then open it with Praat.<br>
-You will see that the TextGrid has various tiers, one for whole utterances (or two if there are two speakers), and one for individual words (or two if there are two speakers).</li>
-<li>Back on the transcript page, select the <em>Attributes</em> tab at the top right.<br>
+<li>If you have Praat installed on your computer, select the <em>Praat Text Grid</em> option on the <em>Export</em> tab. Save the resulting file on your desktop, and then open it with Praat.<br>
+You will see that the TextGrid has a couple of tiers, one for each speaker with utterance transcripts.</li>
+<li>Back on the transcript page, select the <em>Attributes</em> tab at the top.<br>
 This will display the attributes for the transcript (some of the attribute values are not set because the information was not in the .eaf transcript file)</li>
-<li>Now select the <em>Participants</em> tab on the top right.<br>
+<li>Now select the <em>Participants</em> tab at the top.<br>
 This will list both participants in the recording, the main participant, and the interviewer.</li>
-<li>Click <em>BR178LK_MargaretSpencer</em>.<br>
-This will display the participant meta-data. There’s not much here yet; we will be adding participant attributes soon. However, we can at least set the participant’s gender now.</li>
+<li>Click the <em>Attributes</em> link for the main participant.<br>
+This will display the participant meta-data, except that there are no values because we haven’t entered them yet!</li>
 <li><em>BR178LK_MargaretSpencer</em> is an ‘English’-speaking ‘Female’ who is between ‘66 and 75 years’ old, who grew up in ‘Christchurch’, in the ‘North Canterbury’ region of ’New Zealand'.<br>
 Set her attributes to reflect that, and press <em>Save</em>.</li>
 </ol>
@@ -755,10 +755,10 @@ Tip
 <ol start="30" class="example" type="1">
 <li>Once the uploader is finished, you will receive a CSV ‘upload report’ file that lists the files you uploaded and their upload status. (If there had been any problems with the upload, the resulting error messages would be included in this report for following up.)</li>
 <li>You can verify that all the transcripts are there by selecting the <em>transcripts</em> option on the menu in LaBB-CAT.<br>
-You should see a list of twenty transcripts.</li>
+You should see a list of nineteen transcripts.</li>
 <li>Use the <em>Transcript</em> box to find <code>UC013AM_Dom.eaf</code><br>
 (you can type just part of the name if you like).</li>
-<li>press the <em>Attributes</em> icon for <em>UC013AM_Dom.eaf</em><br>
+<li>Press the <em>Attributes</em> icon for <em>UC013AM_Dom.eaf</em><br>
 (on the far right of the row).</li>
 <li>Change <em>Transcript type</em> to <em>interview</em> and press <em>Save</em>.</li>
 <li>Similarly, the following transcripts are interviews, so change their type accordingly
@@ -771,7 +771,8 @@ You should see a list of twenty transcripts.</li>
 <h3 class="anchored" data-anchor-id="participant-data-import">Participant Data Import</h3>
 <p>The transcripts are now in the database, but the meta-data for the participants hasn't been set yet (because it’s not contained in the ELAN files). We could manually add this for each speaker, but fortunately we have it stored in a spreadsheet (actually, a CSV text file) that we can upload in one go.</p>
 <ol start="36" class="example" type="1">
-<li>In LaBB-CAT, select the <em>participants</em> option on the menu.</li>
+<li>In LaBB-CAT, select the <em>participants</em> option on the menu.<br>
+You will see all the participants in the the transcripts you have uploaded, many of which include an interviewer as well as a main participant.</li>
 <li>Press the <em>Upload Participant Data</em> icon at the bottom.</li>
 <li>Press <em>Choose File</em>, and select the file in the LaBB-CAT Exercises data folder called <em>participants.csv</em></li>
 <li>Press <em>Upload</em></li>
@@ -795,9 +796,9 @@ You should see a page with information about the import, including the columns t
 </ol>
 <p>To check the participant attributes really are now set:</p>
 <ol start="43" class="example" type="1">
-<li>Select the <em>participants</em> option on the menu. You will see a list of speakers, and page links at the bottom.</li>
+<li>Select the <em>participants</em> option on the menu. You will see a list of speakers, and page links at the bottom.<br>
+The page also includes participant attribute values where they are known, and you will see that now the speakers who are main-participants have values filled in for their participant attributes.</li>
 </ol>
-<p>The page also includes participant attribute values where they are known.</p>
 <p>You can also filter the list by these values, using the column headings above the list:</p>
 <ol start="44" class="example" type="1">
 <li>Under <em>Gender</em>, select the <em>F</em> option.<br>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-dde8d7229bfee0f8bb5efd37f0f9ae1e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4df3b0c4fafa0f66eafcead0ee6cff11.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -663,7 +663,7 @@ After a short delay the page will display a list of all the male participants in
 <li>We want the participants who speak only English, so enter <code>English</code> under <em>Languages Spoken</em><br>
 The page will then display a list of male participants who include <em>English</em> in their languages. It also includes participants who speak other languages, and we want to eliminate these.<br>
 The <em>Languages</em> filter box accepts a ‘regular expression’ for matching patterns, so if we enter <code>^English$</code> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <code>^</code> means “the beginning” and <code>$</code> means “the end”, so <code>^English$</code> means, “English at the beginning, and at the end”</li>
-<li>Click the <em>Layered Search</em> button at the top of the list.<br>
+<li>Press the <em>Layered Search</em> button at the top of the list.<br>
 You will see the participants you selected listed at the top, above a list of annotation layers. Below that, there’s a “Search Matrix”, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
 <li>In the box under the word “orthography” type the word <code>the</code><br>
 <img src="orthography-the.png" class="img-fluid"></li>
@@ -699,18 +699,19 @@ You’ll see that the files are systematically named to include:
 <li>the name of the transcript</li>
 <li>the start and end time of the extracted utterance</li>
 </ul></li>
-<li>Now go back to the results page and tick the <em>Prefix Names</em> checkbox.</li>
+<li>Now go back to the results page and press the expand <code>▾</code> button to the right of the <em>Audio Export</em> button, to reveal further options.</li>
+<li>Tick the <em>Prefix Names</em> checkbox that has been revealed.</li>
 <li>Press the <em>Audio Export</em> button again.</li>
 <li>Save and open the resulting zip file.<br>
 This time you’ll see that the files are also prefixed by the result number.<br>
 You may notice that there are more audio files this time; that’s because there were multiple results in the same utterance. Previously, only one copy of the utterance was exported, but this time, each match has its own copy of the utterance audio, prefixed by the result number.</li>
 <li>Now go back to the results page and un-tick the <em>Prefix Names</em> checkbox.</li>
-<li>Click the <em>Utterance Export</em> button.</li>
+<li>Press the <em>Utterance Export</em> button.</li>
 <li>Save and open the resulting zip file.<br>
 You’ll see that the TextGrid names match the audio file names in the first zip file.</li>
 <li>Open one of the TextGrids in Praat.<br>
 You’ll see that the TextGrid includes a tier named <em>target…</em> which indicates which token(s) in the <em>word…</em> tier matched the search pattern.</li>
-<li>Back on the results page, click the <em>CSV Export</em> button.</li>
+<li>Back on the results page, press the <em>CSV Export</em> button.</li>
 <li>Save the resulting file, and open it.<br>
 You may have to specify some import options, in which case it may be handy to know that the field separator is comma, and the fields are quoted by speech marks.</li>
 </ol>
@@ -738,19 +739,19 @@ Note
 </div>
 <p>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.</p>
 <p>With this spreadsheet, you can work ‘offline’ with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We’ll look at a few more uses for the CSV results files later…</p>
-<ol start="23" class="example" type="1">
+<ol start="24" class="example" type="1">
 <li>Close the CSV file, and the results page, and go back to the search matrix page.</li>
 </ol>
 <p>We’ve seen that you can search for exact word matches, but you can also&nbsp;search for patterns, using ‘regular expressions’. Now we’re going to search for words <em>beginning with</em> “the…”</p>
-<ol start="24" class="example" type="1">
+<ol start="25" class="example" type="1">
 <li>Change the <em>orthography</em> search text to <code>the.*</code> (i.e.&nbsp;after the word “the”, append a full-stop and an asterisk.<br>
 <img src="starts-the.png" class="img-fluid"><br>
 The full-stop means “any character at all”, and the asterisk means “zero or more of the previous thing”, so <code>.*</code> means “zero or more characters”.</li>
-<li>Click <em>Search</em>.<br>
+<li>Press <em>Search</em>.<br>
 You will see that now the search results include the word “the” and also words like “then”, “there”, “they”, etc.</li>
 <li>Now go back to the search page, and change the asterisk to a plus-sign, which means “one or more of the previous thing”<br>
 <img src="prefix-the.png" class="img-fluid"></li>
-<li>Click <em>Search</em><br>
+<li>Press <em>Search</em><br>
 You will see that now the search results exclude the word “the”, only including words where the initial “the...” is followed by at least one character.</li>
 <li>Now change your search by replacing the <code>e</code> in “the” with <code>[aeiou]</code> - so your search pattern will be:<br>
 <code>th[aeiou].+</code><br>
@@ -769,8 +770,8 @@ Note
 <p>While you are typing the regular expression, you may notice that the text goes red; this means that what’s currently in the box is not a valid regular expression. That’s fine while you’re still typing, but when you’re ready to search, if the text is red, the search will likely fail. If the regular expression text is red, you can see what the problem with it is by hovering your mouse over the red text; a ‘tip’ will appear showing an error message</p>
 </div>
 </div>
-<ol start="29" class="example" type="1">
-<li>Click <em>Search</em>.<br>
+<ol start="30" class="example" type="1">
+<li>Press <em>Search</em>.<br>
 You will now see that the results include words like “think”, “that”, “thought”, etc.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -788,11 +789,11 @@ Tip
 </div>
 <p>Up until now, we’ve only been matching against one word at a time. Now&nbsp;we’re going to include patterns for a chain of words…<br>
 </p>
-<ol start="30" class="example" type="1">
+<ol start="31" class="example" type="1">
 <li>On the search page, to the right of the search matrix, there’s a <em>+</em> button. Click it.<br>
 <img src="two-words-wide.png" class="img-fluid"> &nbsp;&nbsp;&nbsp;<br>
 Now you will see that our search matrix is one layer high by two words wide.</li>
-<li>Change the entries on the <em>orthography</em> layer so that it will match the word “the” followed immediately by a word that starts with a vowel, and click <em>Search</em>.<br>
+<li>Change the entries on the <em>orthography</em> layer so that it will match the word “the” followed immediately by a word that starts with a vowel, and press <em>Search</em>.<br>
 Check the search results are giving you what you expected.</li>
 <li>Now search for “the” followed, within two words, by a word that starts with a vowel.</li>
 <li>Dream up some other searches that interest you, and try out other options on the search page.</li>
