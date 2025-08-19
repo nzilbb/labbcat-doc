@@ -164,6 +164,28 @@ Corpora Vol. 3 (2), pp. 173-193, Edinburgh University Press 22 George Square, Ed
 
 ## Specific Versions {#versions}
 
+Version [20250819](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20250819.zip)
+
+```
+@Misc{labbcat20250819,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20250819.zip}}
+  year = {2024}
+}
+```
+
+Version [20250430](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20250430.zip)
+
+```
+@Misc{labbcat20250430,
+  author = {Robert Fromont},
+  title = {LaBB-CAT: linguistic annotation system [Computer program]},
+  howpublished = {{https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20250430.zip}}
+  year = {2025}
+}
+```
+
 Version [20241111](https://sourceforge.net/projects/labbcat/files/install/labbcat-server_20241111.zip)
 
 ```
