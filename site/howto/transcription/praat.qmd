@@ -77,9 +77,9 @@ In @fig-mapping, the `crosscheck` tier is not being imported, the annotations on
 
 Praat has no direct mechanism for marking non-speech annotations in their position within the transcript text.  However, LaBB-CAT supports the use of textual conventions in various ways to make certain annotations:
 
-- To tag a word with its pronunciation, enter the pronunciation in square brackets, directly following the word (i.e. with no intervening space), e.g.:\
+- To tag a word with its pronunciation, enter the pronunciation (with no spaces) in square brackets, directly following the word (i.e. with no intervening space), e.g.:\
     `…this was at Wingatui[wIN@tui]…`
-- To tag a word with its full orthography (if the transcript doesn't include it), enter the orthography in round parentheses, directly following the word (i.e. with no intervening space), e.g.:\
+- To tag a word with its full orthography (if the transcript doesn't include it), enter the orthography (with no spaces) in round parentheses, directly following the word (i.e. with no intervening space), e.g.:\
     `…I can't remem~(remember)…`
 - To insert a noise annotation within the text, enclose it in square brackets (surrounded by spaces so it's not taken as a pronunciation annotation), e.g.:\
     `…sometimes me [laughs] not always but sometimes…`
