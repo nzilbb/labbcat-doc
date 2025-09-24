@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.34">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d68be38d83eca2bb035acf846ffba811.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1713c1db1ad41a796903378fc9ac7b2b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -115,7 +116,8 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../nzilbb.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../nzilbb.svg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../nzilbb.svg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -787,16 +789,16 @@ Tip
 </div>
 <ol start="26" class="example" type="1">
 <li>In Praat, find our instance of the <em>FLEECE</em> vowel, and click on a good point in the spectrogram for measuring it’s F1 value.</li>
-<li>Get the F1 value (hit the <kbd aria-hidden="true">F1</kbd><span class="visually-hidden">F1</span> key on your keyboard)</li>
-<li>Copy the value that is displayed on to the clipboard (i.e.&nbsp;select it and hit <kbd aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd aria-hidden="true">C</kbd><span class="visually-hidden">C</span> on your keyboard)</li>
-<li>Back in the TextGrid, add a boundary on the <em>F1</em> tier at that point (if it’s the fourth tier, hit <kbd aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd aria-hidden="true">F4</kbd><span class="visually-hidden">F4</span> on your keyboard)</li>
-<li>Paste the F1 value that you copied earlier (i.e.&nbsp;hit <kbd aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd aria-hidden="true">V</kbd><span class="visually-hidden">V</span> on your keyboard)<br>
+<li>Get the F1 value (hit the <kbd title="F1" aria-hidden="true">F1</kbd><span class="visually-hidden">F1</span> key on your keyboard)</li>
+<li>Copy the value that is displayed on to the clipboard (i.e.&nbsp;select it and hit <kbd title="Ctrl" aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd title="C" aria-hidden="true">C</kbd><span class="visually-hidden">C</span> on your keyboard)</li>
+<li>Back in the TextGrid, add a boundary on the <em>F1</em> tier at that point (if it’s the fourth tier, hit <kbd title="Ctrl" aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd title="F4" aria-hidden="true">F4</kbd><span class="visually-hidden">F4</span> on your keyboard)</li>
+<li>Paste the F1 value that you copied earlier (i.e.&nbsp;hit <kbd title="Ctrl" aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd title="V" aria-hidden="true">V</kbd><span class="visually-hidden">V</span> on your keyboard)<br>
 Now you’ve annotated the vowel with its F1 value, and we want to save that annotation back to the LaBB-CAT database.</li>
 <li>Go back to the LaBB-CAT transcript window.</li>
 <li>Press the <em>Import Changes</em> button that has appeared to the left of the line with the first match.<br>
 You should see a message indicating that the annotations has been saved.</li>
 <li>Repeat the above steps for the next few matches in the transcript.</li>
-<li>Once you’ve added at least a handful of annotations on the <em>F1</em> layer, refresh the interactive transcript page (i.e.&nbsp;use the reload button in your browser, or the <kbd aria-hidden="true">F5</kbd><span class="visually-hidden">F5</span> key).<br>
+<li>Once you’ve added at least a handful of annotations on the <em>F1</em> layer, refresh the interactive transcript page (i.e.&nbsp;use the reload button in your browser, or the <kbd title="F5" aria-hidden="true">F5</kbd><span class="visually-hidden">F5</span> key).<br>
 You will see that for each match you’ve annotated, the F1 value you entered appears below the corresponding word. The transcript doesn’t display the time-alignment information, but that is also stored in the database.</li>
 <li>Open the TextGrid for one of the lines you’ve annotated.<br>
 You should see the annotation that you made is in the TextGrid, at the corresponding point in time.</li>
@@ -922,13 +924,14 @@ Depending on your settings, this will include at least one column per measuremen
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
