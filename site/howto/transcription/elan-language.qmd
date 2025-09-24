@@ -47,6 +47,6 @@ for the language. e.g.
 
 > …me mudé de Christchurch[CS:eng] en 2004…
 
-For longer phrases, the code-switch tag can be placed immediately before the first word and immediately after the last word, to mark those and all intervening words as being in a different language. e.g.
+For longer phrases, the code-switch tag can be placed immediately before the first word and immediately after the last word (again with no intervening space between the word and the tag), to mark those and all intervening words as being in a different language. e.g.
 
 > …it has a certain [CS:fre]je ne sais quoi[CS:fre] I think…

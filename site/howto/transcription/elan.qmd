@@ -44,7 +44,7 @@ ELAN has no direct mechanism for marking non-speech annotations in their positio
     `…I can't remem~(remember)…`
 - To tag a word as being in a different language, enter the code CS: (for 'code switch') followed by the the ISO 639 3-letter code for the language, in square brackets (with no spaces), directly following the word (i.e. with no intervening space), e.g.:  
     `…me mudé de New[CS:eng] Zealand[CS:eng] en dos mil cuátro…`
-- For longer phrases, the code-switch tag can be placed immediately before the first word and immediately after the last word, to mark those and all intervening words as being in a different language. e.g.:  
+- For longer phrases, the code-switch tag can be placed immediately before the first word and immediately after the last word (again with no intervening space between the word and the tag), to mark those and all intervening words as being in a different language. e.g.:  
     `…has a certain [CS:fre]je ne sais quoi[CS:fre] I think…`
 - To insert a noise annotation within the text, enclose it in square brackets (surrounded by spaces so it's not taken as a pronunciation annotation), e.g.:  
     `…sometimes me [laughs] not always but sometimes…`
