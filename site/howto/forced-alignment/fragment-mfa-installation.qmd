@@ -25,6 +25,21 @@ so that your web server can access it if required:
     `chmod -R go+rX /opt/conda`
 7.  Install the Montreal Forced Aligner\
     `/opt/conda/bin/conda create -n aligner -c conda-forge montreal-forced-aligner=3.2.1`
+
+If you see errors when trying to use MFA, you may find that one of the following
+resolves the issue:
+
+```
+/opt/conda/envs/aligner/bin/pip install joblib==1.3.2
+```
+
+and/or
+
+```
+/opt/conda/envs/aligner/bin/pip uninstall setuptools
+/opt/conda/envs/aligner/bin/pip install setuptools==66.1.1
+```
+
 :::
 
 {{< pagebreak >}}
