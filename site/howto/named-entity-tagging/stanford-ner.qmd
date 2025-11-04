@@ -6,7 +6,7 @@ format:
     toc: false
     fontfamily: linguisticspro
 ---
-# Stanford Named Entity Recognizer
+# Named Entity Recognition
 
 Depending on the language of your transcripts, you may be able to automatically
 tag dates and names of people, places and organisations, using the

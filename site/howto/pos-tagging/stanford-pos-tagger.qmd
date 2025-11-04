@@ -6,7 +6,7 @@ format:
     toc: false
     fontfamily: linguisticspro
 ---
-# Stanford POS Tagger
+# Part of Speech Tagging
 
 Depending on the language of your transcripts, you may be able to tag each word with its part of speech (Noun, Verb, Adjective, etc.) using the 
 [Stanford POS Tagger](https://nlp.stanford.edu/software/tagger.html).
