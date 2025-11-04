@@ -779,56 +779,56 @@
   {
     "objectID": "howto/named-entity-tagging/stanford-ner.html",
     "href": "howto/named-entity-tagging/stanford-ner.html",
-    "title": "Stanford Named Entity Recognizer",
+    "title": "Named Entity Recognition",
     "section": "",
     "text": "Depending on the language of your transcripts, you may be able to automatically tag dates and names of people, places and organisations, using the Stanford Named Entity Recognizer (NER).\nThe Stanford NER has recognizers for:\n\nArabic\nChinese\nEnglish\nFrench\nGerman\nHungarian\nItalian\nSpanish\n\n\nExample of named-entity tags\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEntities:\n\nPERSON\nPERSON\n\n\n\nLOCATION\n\n\n\n\nDATE\n\n\n\n\nWords:\nPresident\nBarack\nObama\nwas\nborn\nin\nHawaii.\nHe\nwas\nelected\nin\n2008.\n\n\n\nSeveral classifiers for English are included in the default installation. You can download classifiers for other languages from the Stanford CoreNLP site.\nDifferent classifiers include different possible entity labels:\n\n3 class : LOCATION, PERSON, ORGANIZATION\n4 class : LOCATION, PERSON, ORGANIZATION, MISC\n7 class : LOCATION, PERSON, ORGANIZATION, MONEY, PERCENT, DATE, TIME\n\nThe steps for Named Entity tagging your corpus are:\n\nInstall the Layer Manager\nConfigure a Named Entity layer\n\n\n\n\nIn LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordNERecognizer layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger, and an option to upload a tagger file, which we don’t need to do.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.\n\n\n\nNow the layer manager is installed, we need to create a layer that is configured to use it to tag words that are names of entitities…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: namedEntity 1\nType: Text\nAlignment: None\n\nManager: Stanford Named Entity Recognizer\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nBy default, the Classifier to use options are all for English data; you can choose whether 3, 4, or 7 types of entities are tagged.\n\n\n\n\n\n\n\nNoteInstalling another Classifier\n\n\n\nIf your data is not in English, you can download a recognizer for your language from the Stanford CoreNLP website\nTo install a classifier:\n\nDownload the corresponding files from the CoreNLP website\nIn the layer configuration form, set Classifier to use to [other classifier]\nYou will be asked to select a file.\nSelect the file you just downloaded.\nAfter a short delay while the file is uploaded, you’ll see a message saying “Classifier(s) installed.”\nIn the layer configuration form, you can now set Classifier to use to the classifier you just installed.\n\n\n\n\nPress Set Parameters.\nNow press Regenerate to run the Named Entity Recognizer on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new namedEntity layer to display the tags.\nYou will see that some words have a tag above them - these identify the type of named entity found by the classifier.\n\n\n\n\nNamed Entity tags\n\n\n\n\n\nThe NER tags can be manually corrected if required.\nTo change the label of a tag on the transcript page:\n\nHover the mouse over the tag you want to change.\nAn ‘edit’ button will appear to the right.\n\nPress the edit button.\nThe tag will become a text box you can type in.\n\nChange the tag’s label as desired.\nPress then save button  to save your changes.\nYou will see a message asking “Are you sure you want to save this tag?”\nPress OK to confirm your change.\n\nTo delete a tag, follow the steps to change the label, and set the label to be blank before saving.\nTo add a new tag for a word that the NER has not recognized:\n\nHover the mouse in the space above the word you want tag, where the tag would be if it had been recognized.\nAn ‘add tag’ button will appear.\n\nPress the ‘add tag’ button.\nAn empty text box will appear.\n\nType in the desired label.\n\nPress the save button  to save your changes.\nYou will see a message asking “Are you sure you want to create this tag?”\nPress OK to confirm your change.\n\nIf you manually add or edit Named Entity tags, and then run the StanforNER again, the manual changes will be preserved, although the tagger will re-create deleted entity tags.",
     "crumbs": [
       "How-to",
-      "Stanford Named Entity Recognizer"
+      "Named Entity Recognition"
     ]
   },
   {
     "objectID": "howto/named-entity-tagging/stanford-ner.html#install-the-layer-manager",
     "href": "howto/named-entity-tagging/stanford-ner.html#install-the-layer-manager",
-    "title": "Stanford Named Entity Recognizer",
+    "title": "Named Entity Recognition",
     "section": "",
     "text": "In LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordNERecognizer layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger, and an option to upload a tagger file, which we don’t need to do.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.",
     "crumbs": [
       "How-to",
-      "Stanford Named Entity Recognizer"
+      "Named Entity Recognition"
     ]
   },
   {
     "objectID": "howto/named-entity-tagging/stanford-ner.html#create-a-named-entity-layer",
     "href": "howto/named-entity-tagging/stanford-ner.html#create-a-named-entity-layer",
-    "title": "Stanford Named Entity Recognizer",
+    "title": "Named Entity Recognition",
     "section": "",
     "text": "Now the layer manager is installed, we need to create a layer that is configured to use it to tag words that are names of entitities…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: namedEntity 1\nType: Text\nAlignment: None\n\nManager: Stanford Named Entity Recognizer\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nBy default, the Classifier to use options are all for English data; you can choose whether 3, 4, or 7 types of entities are tagged.\n\n\n\n\n\n\n\nNoteInstalling another Classifier\n\n\n\nIf your data is not in English, you can download a recognizer for your language from the Stanford CoreNLP website\nTo install a classifier:\n\nDownload the corresponding files from the CoreNLP website\nIn the layer configuration form, set Classifier to use to [other classifier]\nYou will be asked to select a file.\nSelect the file you just downloaded.\nAfter a short delay while the file is uploaded, you’ll see a message saying “Classifier(s) installed.”\nIn the layer configuration form, you can now set Classifier to use to the classifier you just installed.\n\n\n\n\nPress Set Parameters.\nNow press Regenerate to run the Named Entity Recognizer on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new namedEntity layer to display the tags.\nYou will see that some words have a tag above them - these identify the type of named entity found by the classifier.\n\n\n\n\nNamed Entity tags",
     "crumbs": [
       "How-to",
-      "Stanford Named Entity Recognizer"
+      "Named Entity Recognition"
     ]
   },
   {
     "objectID": "howto/named-entity-tagging/stanford-ner.html#editing-tags",
     "href": "howto/named-entity-tagging/stanford-ner.html#editing-tags",
-    "title": "Stanford Named Entity Recognizer",
+    "title": "Named Entity Recognition",
     "section": "",
     "text": "The NER tags can be manually corrected if required.\nTo change the label of a tag on the transcript page:\n\nHover the mouse over the tag you want to change.\nAn ‘edit’ button will appear to the right.\n\nPress the edit button.\nThe tag will become a text box you can type in.\n\nChange the tag’s label as desired.\nPress then save button  to save your changes.\nYou will see a message asking “Are you sure you want to save this tag?”\nPress OK to confirm your change.\n\nTo delete a tag, follow the steps to change the label, and set the label to be blank before saving.\nTo add a new tag for a word that the NER has not recognized:\n\nHover the mouse in the space above the word you want tag, where the tag would be if it had been recognized.\nAn ‘add tag’ button will appear.\n\nPress the ‘add tag’ button.\nAn empty text box will appear.\n\nType in the desired label.\n\nPress the save button  to save your changes.\nYou will see a message asking “Are you sure you want to create this tag?”\nPress OK to confirm your change.\n\nIf you manually add or edit Named Entity tags, and then run the StanforNER again, the manual changes will be preserved, although the tagger will re-create deleted entity tags.",
     "crumbs": [
       "How-to",
-      "Stanford Named Entity Recognizer"
+      "Named Entity Recognition"
     ]
   },
   {
     "objectID": "howto/named-entity-tagging/stanford-ner.html#footnotes",
     "href": "howto/named-entity-tagging/stanford-ner.html#footnotes",
-    "title": "Stanford Named Entity Recognizer",
+    "title": "Named Entity Recognition",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThere may already a layer called entity in your LaBB-CAT configuration under phrase layers, so if you want to call this layer entity, you will have to delete the phrase layer first.↩︎",
     "crumbs": [
       "How-to",
-      "Stanford Named Entity Recognizer"
+      "Named Entity Recognition"
     ]
   },
   {
@@ -1392,45 +1392,45 @@
   {
     "objectID": "howto/pos-tagging/stanford-pos-tagger.html",
     "href": "howto/pos-tagging/stanford-pos-tagger.html",
-    "title": "Stanford POS Tagger",
+    "title": "Part of Speech Tagging",
     "section": "",
     "text": "Depending on the language of your transcripts, you may be able to tag each word with its part of speech (Noun, Verb, Adjective, etc.) using the Stanford POS Tagger.\nThe Stanford POS Tagger has models for:\n\nArabic\nChinese\nEnglish\nFrench\nGerman\nSpanish\n\nThe steps for POS tagging your corpus are:\n\nInstall the Layer Manager\nConfigure a POS layer\n\n\n\n\nIn LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordPosTagger layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.\n\n\n\nNow the layer manager is installed, we need to create a layer that is configured to use it to tag words with their part of speech…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: pos\nType: Text\nAlignment: Intervals\nNB it’s important that this is not set to None because a single word can have multiple POS tags, one after another, which are strung between the start and the end of the word token.\nManager: Stanford POS Tagger\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nSet the Model to use setting to something that makes sense for your transcripts, which depends on their language. This is a setting you may experiment with to get the best results. For English recordings, you may find the english-bidirectional-distsim.tagger is slower but produces better results.\nPress Set Parameters.\nNow press Regenerate to run the POS tagger on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new pos layer to display the tags.\nYou will see that each word has one or more tags above it - these identify the parts of speech or syntactic categories of the words.\n\n\nThe tags can be searched, extracted, summarised, etc. just like any other annotations.\n\n\n\nOne possible aggregated analysis might be to compute the distributions of POS tags for each speaker.\nIn order to do that, you would set up the tagger as above to output the POS tags, and then set up a Frequency Layer Manager layer with the POS tags as input. In order to do that:\n\nIn LaBB-CAT, select the word layers menu option.\nAdd a new word layer with the following characteristics:\n\nLayer ID: posFrequency\nType: Number\nAlignment: None\nManager: Frequency Layer Manager\nGenerate: Always\n\nPress New.\nYou will see the Frequency Layer Manager configuration form.\nConfigure the layer as follows:\n\nSummary: Raw Count\nLayer to Summarize: pos (i.e. the POS layer we created earlier)\nScope of Summary: Speaker\nThe rest of the settings can be left with their defaults, except:\nAnnotate Tokens: unticked - we only want the summary information.\n\nPress Save.\nPress Regenerate to analyse your corpus.\nYou’ll see a progress bar while each POS label is counted for each participant.\nOnce the layer manager is finished, select layer managers on the menu.\nFind the Frequency Layer Manager in the list, and press its Extensions button.\nThis will show a page that lets you select from ‘dictionaries’ that are named after layers managed by the Frequency Layer Manager.\nSelect posFrequency and press Select\nA form is displayed that allows you to perform various operations on the frequency lists you have generated. Most likely, you just want to export a list of frequencies for a speaker:\nUnder Scope, select a speaker.\nOr if you want to include all speakers, select the [all scopes] option at the bottom of the dropdown box options.\nPress the Export button at the bottom.\nThis will give you a CSV file. If you open this in Excel (or any other data analysis tool), you’ll see that it contains three columns:\n\nScope - the speaker name\nType - the POS label\nFrequency - the number of times that speaker uttered a word with that POS label\n\n\n\nIf you prefer to have POS counts by transcript instead of by speaker, you can select Transcript as the scope at step 4 above. If you want both of these, create two word layers, one for summarising by participant, and the other by transcript.",
     "crumbs": [
       "How-to",
-      "Stanford POS Tagger"
+      "Part of Speech Tagging"
     ]
   },
   {
     "objectID": "howto/pos-tagging/stanford-pos-tagger.html#install-the-layer-manager",
     "href": "howto/pos-tagging/stanford-pos-tagger.html#install-the-layer-manager",
-    "title": "Stanford POS Tagger",
+    "title": "Part of Speech Tagging",
     "section": "",
     "text": "In LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordPosTagger layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.",
     "crumbs": [
       "How-to",
-      "Stanford POS Tagger"
+      "Part of Speech Tagging"
     ]
   },
   {
     "objectID": "howto/pos-tagging/stanford-pos-tagger.html#create-a-pos-layer",
     "href": "howto/pos-tagging/stanford-pos-tagger.html#create-a-pos-layer",
-    "title": "Stanford POS Tagger",
+    "title": "Part of Speech Tagging",
     "section": "",
     "text": "Now the layer manager is installed, we need to create a layer that is configured to use it to tag words with their part of speech…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: pos\nType: Text\nAlignment: Intervals\nNB it’s important that this is not set to None because a single word can have multiple POS tags, one after another, which are strung between the start and the end of the word token.\nManager: Stanford POS Tagger\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nSet the Model to use setting to something that makes sense for your transcripts, which depends on their language. This is a setting you may experiment with to get the best results. For English recordings, you may find the english-bidirectional-distsim.tagger is slower but produces better results.\nPress Set Parameters.\nNow press Regenerate to run the POS tagger on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new pos layer to display the tags.\nYou will see that each word has one or more tags above it - these identify the parts of speech or syntactic categories of the words.\n\n\nThe tags can be searched, extracted, summarised, etc. just like any other annotations.",
     "crumbs": [
       "How-to",
-      "Stanford POS Tagger"
+      "Part of Speech Tagging"
     ]
   },
   {
     "objectID": "howto/pos-tagging/stanford-pos-tagger.html#summarising-pos-tags",
     "href": "howto/pos-tagging/stanford-pos-tagger.html#summarising-pos-tags",
-    "title": "Stanford POS Tagger",
+    "title": "Part of Speech Tagging",
     "section": "",
     "text": "One possible aggregated analysis might be to compute the distributions of POS tags for each speaker.\nIn order to do that, you would set up the tagger as above to output the POS tags, and then set up a Frequency Layer Manager layer with the POS tags as input. In order to do that:\n\nIn LaBB-CAT, select the word layers menu option.\nAdd a new word layer with the following characteristics:\n\nLayer ID: posFrequency\nType: Number\nAlignment: None\nManager: Frequency Layer Manager\nGenerate: Always\n\nPress New.\nYou will see the Frequency Layer Manager configuration form.\nConfigure the layer as follows:\n\nSummary: Raw Count\nLayer to Summarize: pos (i.e. the POS layer we created earlier)\nScope of Summary: Speaker\nThe rest of the settings can be left with their defaults, except:\nAnnotate Tokens: unticked - we only want the summary information.\n\nPress Save.\nPress Regenerate to analyse your corpus.\nYou’ll see a progress bar while each POS label is counted for each participant.\nOnce the layer manager is finished, select layer managers on the menu.\nFind the Frequency Layer Manager in the list, and press its Extensions button.\nThis will show a page that lets you select from ‘dictionaries’ that are named after layers managed by the Frequency Layer Manager.\nSelect posFrequency and press Select\nA form is displayed that allows you to perform various operations on the frequency lists you have generated. Most likely, you just want to export a list of frequencies for a speaker:\nUnder Scope, select a speaker.\nOr if you want to include all speakers, select the [all scopes] option at the bottom of the dropdown box options.\nPress the Export button at the bottom.\nThis will give you a CSV file. If you open this in Excel (or any other data analysis tool), you’ll see that it contains three columns:\n\nScope - the speaker name\nType - the POS label\nFrequency - the number of times that speaker uttered a word with that POS label\n\n\n\nIf you prefer to have POS counts by transcript instead of by speaker, you can select Transcript as the scope at step 4 above. If you want both of these, create two word layers, one for summarising by participant, and the other by transcript.",
     "crumbs": [
       "How-to",
-      "Stanford POS Tagger"
+      "Part of Speech Tagging"
     ]
   },
   {
