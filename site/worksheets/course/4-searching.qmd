@@ -41,12 +41,13 @@ For example, if the last time you accessed the *participants* page, you selected
     under *Languages Spoken*\
     The page will then display a list of male participants who include
     *English* in their languages. It also includes participants who
-    speak other languages, and we want to eliminate these.\
+    speak additional languages, and we want to eliminate these.\
     The *Languages* filter box accepts a 'regular expression' for matching patterns,
     so if we enter `^English$` in the box, only those with English as their sole
     language will be listed. This is because, in regular expressions,
     `^` means "the beginning" and `$` means "the end", so
-    `^English$` means, "English at the beginning, and at the end"
+    `^English$` means, "English at the beginning (with nothing else before), 
+    and at the end (with nothing else after)"
 (@) Press the *Layered Search* button at the top of the list.\
     You will see the participants you selected listed at the top, above
     a list of annotation layers. Below that, there's a "Search Matrix",
@@ -64,12 +65,12 @@ For example, if the last time you accessed the *participants* page, you selected
 (@) Each match is highlighted and shown with some context (the previous
     word and the following word in the transcript). The amount of
     context is controlled by a drop-down list at the top.\
-    Select *5 words* to see more context around each match.
+    Select *up to 5 words* to see more context around each match.
 (@) Click on the first match.\
     You will see that the interactive transcript page opens in a new
-    tab, with the match at the top, and highlighted. You will
+    tab, with the match at the top, and highlighted in yellow. You will
     also see that all the other matches from the same transcript are
-    also highlighted.
+    also highlighted, in green.
 (@) We've already seen what can be done in the interactive transcript
     page, so close the tab to return to the results page.
 (@) Each result line has a ticked checkbox next to it. Scroll to the

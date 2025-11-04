@@ -137,7 +137,7 @@ You can also extract the annotations into CSV results from other searches...
     -   *Match frequency:* this lists the frequency of each word that
         matched, in order. i.e. in this case two numbers, the frequency
         of "the", followed by the frequency of the word after it.
-    -   *Target frequency:* this contains a single frequency, in this
+    -   *frequency:* this contains a single frequency, in this
         case the frequency of the first word that matched a pattern -
         i.e. "the"
 (@) As an aside, you can also select other layers to include in the CSV
@@ -235,6 +235,15 @@ the *orthography* layer, we can generate frequency data from the
     *frequency* layer, but a value of more than 1 on your new *stemFrequency* layer.\
     You will see all the words that were previously shown as 'rare', but are
     actually more common if you count all the tokens with the same stem together.
+
+:::{.callout-tip}
+
+For the last step, you will need to match against two layers at once.
+
+To do that, you need to tick both layers, and fill in the boxes as appropriate 
+for matching annotations on each layer.
+
+:::
 
 ## Pattern Matcher
 

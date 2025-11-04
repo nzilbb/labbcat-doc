@@ -47,12 +47,13 @@ be regenerated.
 (@) In the bottom right corner of the *Layers* tab is a button labelled *Generate*\
     Press it.\
     This will display a dropdown list to the left of the *Generate* button, with *All layers* selected.
-(@) Select the *speechRate* option in this dropdown list and press *Generate* again.\
+(@) Select the *speechRate* option in this dropdown list.\
     You will see a progress bar while the statistics for the transcript
     are computed again.
-(@) Once that's finished, go back to the transcript and check the
-    speech rate annotations again. You should see that at least some of
-    them are different.
+(@) Once that's finished, the transcript will reload itself.\
+    Check the speech rate annotations again. You should see that at least 
+    some of them are different; the rates will be higher because the inter-word
+    pauses are now excluded from the total time of the speech.
 
 These pauses can also be directly annotated, in case you're
 interesting in finding them for analysis.
@@ -148,7 +149,7 @@ because no single segment will ever match that pattern.
     to find the right
     symbol for the *FLEECE* vowel and click it.\
     If you used HTK for forced alignment, this will be `i`\
-    If you used MFA for forced alignment, this will be `iː`
+    If you used MFA for forced alignment, this may be `iː`
     
 In our particular database, if there's any annotation on the
 segments layer, then we can be sure that it's been aligned at least
@@ -164,15 +165,14 @@ on that layer.
     transcripts returned are those that include speakers you've done
     force-alignment on.
 (@) Click on the first result, to open its transcript.
-(@) Scroll to the top and tick the *include empty layers* option.
 (@) On the *Layers* tab, tick the *formants* project option.\
-    This will reveal the (empty) *F1* layer below segments in the list
+    This will reveal the (empty) *F1* layer in the *Segments* column in the list
     of layers.
 (@) Tick the *F1* layer.\
     The transcript will reload to include that layer (even though it's
     currently empty).
 (@) Also tick the *segments* layer if it's currently un-ticked.
-(@) Click on the first search result (which is highlighted in green).
+(@) Click on the first search result (which is highlighted in yello).
 (@) Select the *Open TextGrid* option.\
     This will open the audio of the line, with a TextGrid that includes
     the aligned words and segments.\
@@ -261,7 +261,7 @@ We are going to use these start/end times to get Praat to take
 formant measurements for us.
 
 (@) In LaBB-CAT, click the *extract* menu option.
-(@) Click the *process with praat* option.
+(@) Click the *Process with Praat* option.
 
 :::{.callout-tip}
 If the option *process with praat* is not there, it means that the **Praat Path**
@@ -274,9 +274,9 @@ attribute is not set. Go back to the steps above and ensure that
     You will see a form to fill in, and the first couple of settings
     (*Transcript Name column* and *Participant column* should be already
     filled in.
-(@) For the *Start Time column* ensure that the *Target segment start*
+(@) For the *Start Time column* ensure that the *segment start*
     option is selected.
-(@) For the *End Time column* ensure the *Target segment end* option is
+(@) For the *End Time column* ensure the *segment end* option is
     selected.\
     These two settings define the start/end times of the phone.
 
@@ -292,6 +292,9 @@ can expand the advanced settings section by clicking the triangular
 bullet next to "Formants" and other measurements, which allow you to
 specify more detail about how Praat should do its computations.
 Again, feel free to look at those and try different settings.
+(Some acoustic measurements require more audio context, so if you find there
+are values missing, chang the context to be more than 0.025s, and you should
+find the measurement is successful.)
 
 (@) Click *Process*.\
     You will see a progress bar while LaBB-CAT generates a Praat scripts
@@ -325,5 +328,5 @@ acoustic measurements automatically using Praat.
 
 Obviously these measurements are as reliable as the intervals
 themselves, so care needs to be taken to maximise the likelihood of good
-HTK alignments, and to check and possibly manually-correct those
+HTK/MFA alignments, and to check and possibly manually-correct those
 alignments.

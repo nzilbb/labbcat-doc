@@ -173,6 +173,7 @@ describes what the option is for.
     yet. We need to tweak a few other settings, and then align a single
     participant's speech.
     
+<!--
 When forced-alignment is done, the resulting aligned phones will be
 saved on the *segment* layer. By default, this has it's type set to
 *Phonological*, which assumes that the phoneme symbols will be those
@@ -228,6 +229,8 @@ a clickable list of possibilities.
 (@) At the bottom of the list, there's a *Save* button. Press it to
     save your changes.
     
+-->
+
 ## Alignment
 
 (@) Select the *participants* option on the menu.
@@ -252,18 +255,18 @@ Although we're only going to force-align the utterances of a single speaker in t
 Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT's integration with Praat.
 
 (@) Go to the *transcripts* page and open the *UC207YW.eaf* transcript.
-(@) Tick both the *mfa* layer and the *segment* layer. \
+(@) On the *Layers* tab, tick both the *mfa* layer and the *segment* layer.\
     You will see which lines have been force-aligned, as they have an
     MFA timestamp, and have the *segment* layer filled in.\
     
-The interactive transcript page doesn't show you the alignments of
+The interactive transcript page doesn't show you the *alignments* of
 the words or phones, but you can see those using Praat. You can open
 individual utterances in Praat directly from the transcript page,
 but first, the LaBB-CAT/Praat integration has to be set up; this
 only has to be done once:
 
 i.  On the top-right of the page, above the playback controls, there's
-    a Praat icon  - click it.
+    a Praat icon - click it.
 ii. Follow the instructions that appear (these vary depending on what
     web browser you use).\
     You may be asked whether to allow the "LaBB-CAT Integration Applet"
@@ -290,11 +293,11 @@ access Praat options in the transcript page from now on...
     with a TextGrid below that includes the words and the segments.
 (@) If you click on a word, and hit the {{< kbd tab >}} key, the word's
     interval is played. Try out various words, and see what you think
-    about how accurate HTK has been with its alignment.\
+    about how accurate MFA has been with its alignment.\
     Try this out with different lines in the transcript.\
     You will see that in some cases the alignment is pretty good, and in
     other cases, it's not so good. In the not-so-good cases, see if you
-    can figure out why HTK got it wrong.\
+    can figure out why MFA got it wrong.\
 
 You may have noticed that, each time you open an utterance in Praat,
 a button appears in the transcript to the left of the line, labelled
@@ -311,7 +314,7 @@ database.
 These changes are flagged as manual edits, so if forced-alignment is
 run again, they will not be over-written with new bad alignments.
 Therefore it's important that the changes you make are actually
-improvements, because HTK will never change them again.
+improvements, because MFA will never change them again.
 :::
 
 :::{.callout-important}

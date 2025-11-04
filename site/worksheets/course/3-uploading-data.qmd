@@ -438,12 +438,12 @@ You can press the ⌫ button at the top, to the right of the page filters, to cl
 
 (@) Under the *Corpus* heading, select the *CC* option.\
     You will see one participant; the one you just created by doing the task.
-(@) Press the participant ID to open their attributes page, and check
+(@) Click the participant's *Attributes* icon (the spanner/wrench on the right) 
+    to open their attributes page, and check
     that the demographic information you entered has been saved.
-(@) Click the participant ID to open their attributes page, and check
+(@) Press the *Transcripts* link at the bottom to list the transcripts.\
     You will see that the participant has five transcripts, one for each
     of the task steps where audio was recorded.
-(@) Press the *Transcripts* link at the bottom to list the transcripts.
 (@) Open the first transcript.\
     You will see that the transcript starts with a comment, which is the
     prompt text you were shown during the step, and that the transcript
@@ -454,7 +454,7 @@ You can press the ⌫ button at the top, to the right of the page filters, to cl
     in order to select audio for playback.)
 (@) On the right hand edge of the page, about halfway down, there is a green arrow icon ![](go-next.png).\
     Press it.\
-    You will see that this opens the next transcript in the 'episode' that you just recorded- i.e. the next set of words you read out. The green arrows on the left ![](go-previous.png) and the right ![](go-next.png) of the screen allow you to navigate between the different transcripts in the same recording episode.
+    You will see that this opens the next transcript in the 'episode' that you just recorded -- i.e. the next set of words you read out. The green arrows on the left ![](go-previous.png) and the right ![](go-next.png) of the screen allow you to navigate between the different transcripts in the same recording episode.
 
 Although these 'task step' transcripts are very short, they behave the
 same as any other transcript; they can be exported, annotated, searched,

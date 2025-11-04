@@ -132,11 +132,8 @@ Now we will create a layer for syntactic categories from CELEX.
 (@) Now find your instance of the word "fine" again (it's highlighted
     in the transcript text).\
     You will see that it has "A" for adjective above it.
-(@) Click on the word "fine" and select the *Edit* option on the menu
-    that appears.\
-    Now look for the *syntacticCategory* layer. You will see that, in
-    addition to "A", there are several other annotations that are
-    invisible on the transcript.\
+(@) Hover your mouse over the syntactic category label "A".\
+    You will see that a number of other labels appear: "V", "N", "ADV".\
     These are all the possible syntactic categories for the word "fine"
     ordered most-frequent first. Only the first one is displayed in the
     transcript, but when you do searches, all of them are searched.
