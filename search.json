@@ -1894,7 +1894,7 @@
     "href": "howto/pos-tagging/index.html",
     "title": "Part of Speech Tagging",
     "section": "",
-    "text": "Part of Speech Tagging\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB"
+    "text": "Part of Speech Tagging\nThere are two automated annotators that can be used to tag word tokens with disambiguated part of speech tags; i.e. labels like ‘Noun’, “Adjective’, etc. which are determined by taking into account the context of the word being tagged:\n\nCLAN’s MOR tagger\nStanford CoreNLP’s POS Tagger\n\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB"
   },
   {
     "objectID": "howto/index.html",
