@@ -78,14 +78,12 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="LaBB-CAT Documentation">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/tag.svg">
 <meta property="og:site_name" content="LaBB-CAT Documentation">
 <meta name="twitter:title" content="LaBB-CAT Documentation">
 <meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
-<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/tag.svg">
 <meta name="twitter:creator" content="@robertfromont">
 <meta name="twitter:site" content="@labbcat">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -824,41 +822,68 @@ Tip
 <li>Press <em>Set Parameters</em><br>
 We will <strong>not</strong> press <em>Regenerate</em> to force-align the whole corpus just yet. We need to tweak a few other settings, and then align a single participant’s speech.</li>
 </ol>
-<p>When forced-alignment is done, the resulting aligned phones will be saved on the <em>segment</em> layer. By default, this has it’s type set to <em>Phonological</em>, which assumes that the phoneme symbols will be those defined by the CELEX DISC encoding. However, MFA uses its own phoneme symbols, which are different from the CELEX DISC ones.</p>
-<p>To make later processing easier, we’re going to change the type of the <em>segment</em> layer to <em>Text</em>, and let LaBB-CAT know what the possible phoneme labels are.</p>
-<ol start="8" class="example" type="1">
-<li>Select the <em>segment layers</em> menu option.<br>
-You will see a single layer listed, called <em>segment</em>.</li>
-<li>Change the <em>Type</em> of the <em>segment</em> layer to <em>Text</em>.</li>
-<li>Press <em>Save</em>.<br>
-A new icon appears with a tag <img src="tag.svg" class="img-fluid" style="height: 15px;"> icon - if you hover the mouse over this button, you’ll see it’s for setting <em>Valid labels</em>.</li>
-<li>Press the <em>Valid labels</em> icon<br>
-You will see a page that allows you to add a list of possible labels.<br>
-But we don’t know what the valid labels are yet. The labels used by MFA depend on the dictionary/models selected when defining the layer. The details for all dictionaries are in <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary">MFA Models documentation</a>.</li>
-<li>Open the <a href="https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0">MFA Models documentation for <em>english_mfa</em></a>.<br>
-You will see a page that includes information about the dictionary including the <em>Phones</em> used by it.</li>
-<li>Select and copy the list of phones used by the <em>english_mfa</em> dictionary - i.e.&nbsp;all of these:</li>
-</ol>
-<pre><code>a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j 
+<!--
+When forced-alignment is done, the resulting aligned phones will be
+saved on the *segment* layer. By default, this has it's type set to
+*Phonological*, which assumes that the phoneme symbols will be those
+defined by the CELEX DISC encoding. However, MFA uses its own
+phoneme symbols, which are different from the CELEX DISC ones.
+
+To make later processing easier, we're going to change the type of
+the *segment* layer to *Text*, and let LaBB-CAT know what the
+possible phoneme labels are.
+
+(@) Select the *segment layers* menu option.\
+    You will see a single layer listed, called *segment*.
+(@) Change the *Type* of the *segment* layer to *Text*.
+(@) Press *Save*.\
+    A new icon appears with a tag ![](tag.svg){style="height: 15px;"} icon -
+    if you hover the mouse over this button, you'll see it's for
+    setting *Valid labels*.
+(@) Press the *Valid labels* icon\
+    You will see a page that allows you to add a list of possible
+    labels.\
+    But we don't know what the valid labels are yet. The labels used by
+    MFA depend on the dictionary/models selected when defining the
+    layer. The details for all dictionaries are in [MFA Models
+    documentation](https://mfa-models.readthedocs.io/en/latest/dictionary/index.html#dictionary).
+(@) Open the [MFA Models documentation for
+    *english\_mfa*](https://mfa-models.readthedocs.io/en/latest/dictionary/English/English%20MFA%20dictionary%20v2_0_0.html#English%20MFA%20dictionary%20v2_0_0).\
+    You will see a page that includes information about the dictionary
+    including the *Phones* used by it.
+(@) Select and copy the list of phones used by the *english_mfa*
+    dictionary - i.e. all of these:
+    
+```
+a aj aw aː b bʲ c cʰ d dʒ dʲ e ej f fʲ h i iː j 
 k kʰ l m mʲ m̩ n n̩ o ow p pʰ pʲ s t tʃ tʰ tʲ
 u uː v vʲ w z æ ç ð ŋ ɐ ɑ ɑː ɒ ɒː ɔ ɔj  ə əw 
-ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ</code></pre>
-<ol start="14" class="example" type="1">
-<li>Back in the <em>Valid Labels</em> page in LaBB-CAT, paste all of the phone symbols into the box labelled <em>Label</em><br>
-<img src="pasted-mfa-labels.png" class="img-fluid" alt="The Valid Labels form with the text box filled with all the MFA phoneme symbols"></li>
-<li>Press <em>New</em>.<br>
-You will see that all of the labels are separately added to the list of valid labels.<br>
-<img src="valid-mfa-labels-list.png" class="img-fluid" alt="The Valid Labels list is now populated, with each phoneme symbol on a separate line"></li>
-</ol>
-<p>Defining this list for the <em>segment</em> layer means that, when you search the <em>segment</em> layer for specific phones, LaBB-CAT can display a clickable list of possibilities.</p>
-<ol start="16" class="example" type="1">
-<li>At the bottom of the list, there’s a <em>Save</em> button. Press it to save your changes.</li>
-</ol>
+ɚ ɛ ɛː ɜ ɜː ɝ ɟ ɡ ɪ ɫ ɫ̩ ɱ ɲ ɹ ɾ ʃ ʉ ʉː ʊ ʎ ʒ ʔ θ
+```
+
+(@) Back in the *Valid Labels* page in LaBB-CAT, paste all of the phone
+    symbols into the box labelled *Label*\
+    ![The Valid Labels form with the text box filled with all the MFA
+    phoneme symbols](pasted-mfa-labels.png)
+(@) Press *New*.\
+    You will see that all of the labels are separately added to the list
+    of valid labels.\
+    ![The Valid Labels list is now populated, with each phoneme symbol
+    on a separate line](valid-mfa-labels-list.png)
+    
+Defining this list for the *segment* layer means that, when you
+search the *segment* layer for specific phones, LaBB-CAT can display
+a clickable list of possibilities.
+
+(@) At the bottom of the list, there's a *Save* button. Press it to
+    save your changes.
+    
+-->
 </section>
 </section>
 <section id="alignment" class="level2">
 <h2 class="anchored" data-anchor-id="alignment">Alignment</h2>
-<ol start="17" class="example" type="1">
+<ol start="8" class="example" type="1">
 <li>Select the <em>participants</em> option on the menu.</li>
 <li>Find the participant <em>UC207YW</em> and tick their checkbox.</li>
 </ol>
@@ -875,7 +900,7 @@ Note
 <p>Although we’re only going to force-align the utterances of a single speaker in this exercise, you can align the utterances of multiple speakers at once, by ticking all their checkboxes on the <em>participants</em> page before continuing with the next step…</p>
 </div>
 </div>
-<ol start="19" class="example" type="1">
+<ol start="10" class="example" type="1">
 <li>Press the <em>All Utterances</em> button above the list of participants</li>
 <li>Press <em>List</em>.<br>
 You will see a progress bar while all their utterances are identified. Then a results page will be displayed, listing the first 20 utterances.</li>
@@ -886,28 +911,28 @@ You will see a progress bar appear, while LaBB-CAT gathers the files that MFA ne
 <section id="inspectioncorrection" class="level2">
 <h2 class="anchored" data-anchor-id="inspectioncorrection">Inspection/Correction</h2>
 <p>Once forced alignment is complete, you can inspect/correct alignments using LaBB-CAT’s integration with Praat.</p>
-<ol start="22" class="example" type="1">
+<ol start="13" class="example" type="1">
 <li>Go to the <em>transcripts</em> page and open the <em>UC207YW.eaf</em> transcript.</li>
-<li>Tick both the <em>mfa</em> layer and the <em>segment</em> layer.&nbsp;<br>
+<li>On the <em>Layers</em> tab, tick both the <em>mfa</em> layer and the <em>segment</em> layer.<br>
 You will see which lines have been force-aligned, as they have an MFA timestamp, and have the <em>segment</em> layer filled in.<br>
 </li>
 </ol>
-<p>The interactive transcript page doesn’t show you the alignments of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
+<p>The interactive transcript page doesn’t show you the <em>alignments</em> of the words or phones, but you can see those using Praat. You can open individual utterances in Praat directly from the transcript page, but first, the LaBB-CAT/Praat integration has to be set up; this only has to be done once:</p>
 <ol type="i">
-<li>On the top-right of the page, above the playback controls, there’s a Praat icon &nbsp;- click it.</li>
+<li>On the top-right of the page, above the playback controls, there’s a Praat icon - click it.</li>
 <li>Follow the instructions that appear (these vary depending on what web browser you use).<br>
 You may be asked whether to allow the “LaBB-CAT Integration Applet” to run. If you tick the “Do not show this again” option, then this message will not appear every time you open a transcript.<br>
 You may need to grant a browser extension permission to install, and it’s possible you will need a connection to the internet in order to download this extension.<br>
 You also may be asked where Praat is installed; Navigate to the location where Praat is installed, and double-click the “Praat.exe” file (on some systems the file may simply be called “Praat”). The Praat program may open, and then immediately close, as LaBB-CAT tests it can communicate with Praat.</li>
 </ol>
 <p>Now Praat integration has been set up, and you should be able to access Praat options in the transcript page from now on…</p>
-<ol start="24" class="example" type="1">
+<ol start="15" class="example" type="1">
 <li>Click on a line that has been aligned, and select the <em>Open Text Grid in Praat</em> option on the menu.<br>
 You may be asked you if want to allow access to the “LaBB-CAT Integration Applet” - if so, tick “Do not show this again”, and click <em>Allow</em>.<br>
 Praat should open, and show you a spectrogram of the line’s audio, with a TextGrid below that includes the words and the segments.</li>
-<li>If you click on a word, and hit the <kbd title="tab" aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate HTK has been with its alignment.<br>
+<li>If you click on a word, and hit the <kbd title="tab" aria-hidden="true">tab</kbd><span class="visually-hidden">tab</span> key, the word’s interval is played. Try out various words, and see what you think about how accurate MFA has been with its alignment.<br>
 Try this out with different lines in the transcript.<br>
-You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why HTK got it wrong.<br>
+You will see that in some cases the alignment is pretty good, and in other cases, it’s not so good. In the not-so-good cases, see if you can figure out why MFA got it wrong.<br>
 </li>
 </ol>
 <p>You may have noticed that, each time you open an utterance in Praat, a button appears in the transcript to the left of the line, labelled <em>Import Changes</em>. This button allows you to save any adjustments you might want to make to the alignments back into the LaBB-CAT database.</p>
@@ -924,7 +949,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it’s important that the changes you make are actually improvements, because HTK will never change them again.</p>
+<p>These changes are flagged as manual edits, so if forced-alignment is run again, they will not be over-written with new bad alignments. Therefore it’s important that the changes you make are actually improvements, because MFA will never change them again.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">

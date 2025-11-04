@@ -664,9 +664,10 @@ ul.task-list li input[type="checkbox"] {
 <li>In the bottom right corner of the <em>Layers</em> tab is a button labelled <em>Generate</em><br>
 Press it.<br>
 This will display a dropdown list to the left of the <em>Generate</em> button, with <em>All layers</em> selected.</li>
-<li>Select the <em>speechRate</em> option in this dropdown list and press <em>Generate</em> again.<br>
+<li>Select the <em>speechRate</em> option in this dropdown list.<br>
 You will see a progress bar while the statistics for the transcript are computed again.</li>
-<li>Once that’s finished, go back to the transcript and check the speech rate annotations again. You should see that at least some of them are different.</li>
+<li>Once that’s finished, the transcript will reload itself.<br>
+Check the speech rate annotations again. You should see that at least some of them are different; the rates will be higher because the inter-word pauses are now excluded from the total time of the speech.</li>
 </ol>
 <p>These pauses can also be directly annotated, in case you’re interesting in finding them for analysis.</p>
 <ol start="6" class="example" type="1">
@@ -754,7 +755,7 @@ Important
 <ol start="16" class="example" type="1">
 <li>We want to search for all instances of the <em>FLEECE</em> vowel, so use the symbol selector – the <img src="phoneme-symbol-selector.png" class="img-fluid"> button – to find the right symbol for the <em>FLEECE</em> vowel and click it.<br>
 If you used HTK for forced alignment, this will be <code>i</code><br>
-If you used MFA for forced alignment, this will be <code>iː</code></li>
+If you used MFA for forced alignment, this may be <code>iː</code></li>
 </ol>
 <p>In our particular database, if there’s any annotation on the segments layer, then we can be sure that it’s been aligned at least by HTK or MFA (if not manually corrected). However, there are configurations of CELEX layers that would put unaligned annotations on that layer.</p>
 <ol start="17" class="example" type="1">
@@ -762,13 +763,12 @@ If you used MFA for forced alignment, this will be <code>iː</code></li>
 <li>Press <em>Search</em>.<br>
 Once the search is finished, you should notice that the only transcripts returned are those that include speakers you’ve done force-alignment on.</li>
 <li>Click on the first result, to open its transcript.</li>
-<li>Scroll to the top and tick the <em>include empty layers</em> option.</li>
 <li>On the <em>Layers</em> tab, tick the <em>formants</em> project option.<br>
-This will reveal the (empty) <em>F1</em> layer below segments in the list of layers.</li>
+This will reveal the (empty) <em>F1</em> layer in the <em>Segments</em> column in the list of layers.</li>
 <li>Tick the <em>F1</em> layer.<br>
 The transcript will reload to include that layer (even though it’s currently empty).</li>
 <li>Also tick the <em>segments</em> layer if it’s currently un-ticked.</li>
-<li>Click on the first search result (which is highlighted in green).</li>
+<li>Click on the first search result (which is highlighted in yello).</li>
 <li>Select the <em>Open TextGrid</em> option.<br>
 This will open the audio of the line, with a TextGrid that includes the aligned words and segments.<br>
 There’s also a tier for the <em>F1</em> layer.</li>
@@ -787,7 +787,7 @@ Tip
 <p>You can fix that using the <em>segments layers</em> option in the menu.</p>
 </div>
 </div>
-<ol start="26" class="example" type="1">
+<ol start="25" class="example" type="1">
 <li>In Praat, find our instance of the <em>FLEECE</em> vowel, and click on a good point in the spectrogram for measuring it’s F1 value.</li>
 <li>Get the F1 value (hit the <kbd title="F1" aria-hidden="true">F1</kbd><span class="visually-hidden">F1</span> key on your keyboard)</li>
 <li>Copy the value that is displayed on to the clipboard (i.e.&nbsp;select it and hit <kbd title="Ctrl" aria-hidden="true">Ctrl</kbd><span class="visually-hidden">Ctrl</span> + <kbd title="C" aria-hidden="true">C</kbd><span class="visually-hidden">C</span> on your keyboard)</li>
@@ -804,7 +804,7 @@ You will see that for each match you’ve annotated, the F1 value you entered ap
 You should see the annotation that you made is in the TextGrid, at the corresponding point in time.</li>
 </ol>
 <p>These manual annotations are also searchable (so for example you could search for all the <em>FLEECE</em> vowels with an F1 measure within a particular range), and can be exported in CSV search results. To see that in action:</p>
-<ol start="36" class="example" type="1">
+<ol start="35" class="example" type="1">
 <li>Repeat the segment search we did before (i.e.&nbsp;all aligned <em>FLEECE</em> vowels).</li>
 <li>Once you see the results page, click the ▼ button next to the <em>CSV Export</em> button link, and tick the <em>F1</em> layer.</li>
 <li>Press <em>CVS Export</em>.</li>
@@ -829,9 +829,9 @@ This shows a form with various options on it, one of which is <strong>Praat Path
 <p>If you don’t have it any more, repeat the search and export the results to CSV.</p>
 <p>The CSV file includes a column called “Target segment”, which contains the annotation that matched the pattern (in this case they will all be “i”), and columns called “Target segment start” and “Target segment end” - these are the start and end times of each matching <em>FLEECE</em> vowel.</p>
 <p>We are going to use these start/end times to get Praat to take formant measurements for us.</p>
-<ol start="40" class="example" type="1">
+<ol start="39" class="example" type="1">
 <li>In LaBB-CAT, click the <em>extract</em> menu option.</li>
-<li>Click the <em>process with praat</em> option.</li>
+<li>Click the <em>Process with Praat</em> option.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -846,16 +846,16 @@ Tip
 <p>If the option <em>process with praat</em> is not there, it means that the <strong>Praat Path</strong> attribute is not set. Go back to the steps above and ensure that <strong>Praat Path</strong> is set before continuing…</p>
 </div>
 </div>
-<ol start="42" class="example" type="1">
+<ol start="41" class="example" type="1">
 <li>Click <em>Choose File</em> and select the CSV results that you saved above.<br>
 You will see a form to fill in, and the first couple of settings (<em>Transcript Name column</em> and <em>Participant column</em> should be already filled in.</li>
-<li>For the <em>Start Time column</em> ensure that the <em>Target segment start</em> option is selected.</li>
-<li>For the <em>End Time column</em> ensure the <em>Target segment end</em> option is selected.<br>
+<li>For the <em>Start Time column</em> ensure that the <em>segment start</em> option is selected.</li>
+<li>For the <em>End Time column</em> ensure the <em>segment end</em> option is selected.<br>
 These two settings define the start/end times of the phone.</li>
 </ol>
 <p>For some measurements you might extract from Praat, processing signal that includes surrounding context is usually a good idea. You’ll see there’s a setting for that (which you can leave at the default of <em>0.025</em>s), and you will see options for various measurements.</p>
-<p>The default options are for <em>F1</em> and <em>F2</em> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand the advanced settings section by clicking the triangular bullet next to “Formants” and other measurements, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings.</p>
-<ol start="45" class="example" type="1">
+<p>The default options are for <em>F1</em> and <em>F2</em> only, but if you feel like getting other measurements, feel free to tick those options too. You can expand the advanced settings section by clicking the triangular bullet next to “Formants” and other measurements, which allow you to specify more detail about how Praat should do its computations. Again, feel free to look at those and try different settings. (Some acoustic measurements require more audio context, so if you find there are values missing, chang the context to be more than 0.025s, and you should find the measurement is successful.)</p>
+<ol start="44" class="example" type="1">
 <li>Click <em>Process</em>.<br>
 You will see a progress bar while LaBB-CAT generates a Praat scripts and runs them with Praat.</li>
 <li>Once Praat has finished processing the intervals, you will get a CSV file (you might have to click the <em>CSV file with measurements</em> link) - save and open it.<br>
@@ -866,7 +866,7 @@ Depending on your settings, this will include at least one column per measuremen
 <hr>
 <p>During this exercise, you have seen that the inter-word pauses created by forced alignment introduce the possibility of more accurate speech-rate statistics, and can themselves be automatically annotated, in case they are of interest for search or analysis.</p>
 <p>You’ve also seen that you can create manual time-aligned annotation layers, which can be used to annotate phones (they can also be used for words or spans of words, by creating word layers or phrase/span layers), and that you can also use intervals from CSV search results to extract acoustic measurements automatically using Praat.</p>
-<p>Obviously these measurements are as reliable as the intervals themselves, so care needs to be taken to maximise the likelihood of good HTK alignments, and to check and possibly manually-correct those alignments.</p>
+<p>Obviously these measurements are as reliable as the intervals themselves, so care needs to be taken to maximise the likelihood of good HTK/MFA alignments, and to check and possibly manually-correct those alignments.</p>
 
 
 </section>

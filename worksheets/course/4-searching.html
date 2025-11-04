@@ -663,8 +663,8 @@ Tip
 <li>We’re interested in male participants, so under the <em>Gender</em> attribute, select <em>M</em>.<br>
 After a short delay the page will display a list of all the male participants in the database.</li>
 <li>We want the participants who speak only English, so enter <code>English</code> under <em>Languages Spoken</em><br>
-The page will then display a list of male participants who include <em>English</em> in their languages. It also includes participants who speak other languages, and we want to eliminate these.<br>
-The <em>Languages</em> filter box accepts a ‘regular expression’ for matching patterns, so if we enter <code>^English$</code> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <code>^</code> means “the beginning” and <code>$</code> means “the end”, so <code>^English$</code> means, “English at the beginning, and at the end”</li>
+The page will then display a list of male participants who include <em>English</em> in their languages. It also includes participants who speak additional languages, and we want to eliminate these.<br>
+The <em>Languages</em> filter box accepts a ‘regular expression’ for matching patterns, so if we enter <code>^English$</code> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <code>^</code> means “the beginning” and <code>$</code> means “the end”, so <code>^English$</code> means, “English at the beginning (with nothing else before), and at the end (with nothing else after)”</li>
 <li>Press the <em>Layered Search</em> button at the top of the list.<br>
 You will see the participants you selected listed at the top, above a list of annotation layers. Below that, there’s a “Search Matrix”, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
 <li>In the box under the word “orthography” type the word <code>the</code><br>
@@ -672,9 +672,9 @@ You will see the participants you selected listed at the top, above a list of an
 <li>Now press the <em>Search</em> button at the bottom (or hit <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span>).<br>
 A progress bar will appear, and then shortly after that, a new browser tab will open, which has a list of search results in it. Your browser’s popup-blocker might prevent the results page from opening – you can fix that either by allowing the popups in your browser, or by clicking the <em>Display results</em> link that appears after the search finishes.</li>
 <li>Each match is highlighted and shown with some context (the previous word and the following word in the transcript). The amount of context is controlled by a drop-down list at the top.<br>
-Select <em>5 words</em> to see more context around each match.</li>
+Select <em>up to 5 words</em> to see more context around each match.</li>
 <li>Click on the first match.<br>
-You will see that the interactive transcript page opens in a new tab, with the match at the top, and highlighted. You will also see that all the other matches from the same transcript are also highlighted.</li>
+You will see that the interactive transcript page opens in a new tab, with the match at the top, and highlighted in yellow. You will also see that all the other matches from the same transcript are also highlighted, in green.</li>
 <li>We’ve already seen what can be done in the interactive transcript page, so close the tab to return to the results page.</li>
 <li>Each result line has a ticked checkbox next to it. Scroll to the bottom of the list.<br>
 You’ll see that there are buttons at the bottom, which perform operations on the ticked results, including <em>CSV Export</em>, <em>Utterance Export</em>, and <em>Audio Export</em>.</li>

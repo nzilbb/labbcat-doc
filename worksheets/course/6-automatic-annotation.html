@@ -745,7 +745,7 @@ In the search matrix, you will notice that, unlike the <em>orthography</em> laye
 You will notice that in the spreadsheet there are two columns:
 <ul>
 <li><em>Match frequency:</em> this lists the frequency of each word that matched, in order. i.e.&nbsp;in this case two numbers, the frequency of “the”, followed by the frequency of the word after it.</li>
-<li><em>Target frequency:</em> this contains a single frequency, in this case the frequency of the first word that matched a pattern - i.e.&nbsp;“the”</li>
+<li><em>frequency:</em> this contains a single frequency, in this case the frequency of the first word that matched a pattern - i.e.&nbsp;“the”</li>
 </ul></li>
 <li>As an aside, you can also select other layers to include in the CSV file. For example, some of the transcripts include topic-tags that were made in the original ELAN transcript.<br>
 Export your search results to CSV again, this time including the <em>topic</em> layer, and see what that looks like.<br>
@@ -812,6 +812,20 @@ The layer will be generated.</li>
 <li>Do a search of all speakers, for words with a value of 1 on your <em>frequency</em> layer, but a value of more than 1 on your new <em>stemFrequency</em> layer.<br>
 You will see all the words that were previously shown as ‘rare’, but are actually more common if you count all the tokens with the same stem together.</li>
 </ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the last step, you will need to match against two layers at once.</p>
+<p>To do that, you need to tick both layers, and fill in the boxes as appropriate for matching annotations on each layer.</p>
+</div>
+</div>
 </section>
 <section id="pattern-matcher" class="level2">
 <h2 class="anchored" data-anchor-id="pattern-matcher">Pattern Matcher</h2>
