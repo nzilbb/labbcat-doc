@@ -777,6 +777,61 @@
     ]
   },
   {
+    "objectID": "howto/named-entity-tagging/stanford-ner.html",
+    "href": "howto/named-entity-tagging/stanford-ner.html",
+    "title": "Stanford Named Entity Recognizer",
+    "section": "",
+    "text": "Depending on the language of your transcripts, you may be able to automatically tag dates and names of people, places and organisations, using the Stanford Named Entity Recognizer (NER).\nThe Stanford NER has recognizers for:\n\nArabic\nChinese\nEnglish\nFrench\nGerman\nHungarian\nItalian\nSpanish\n\n\nExample of named-entity tags\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEntities:\n\nPERSON\nPERSON\n\n\n\nLOCATION\n\n\n\n\nDATE\n\n\n\n\nWords:\nPresident\nBarack\nObama\nwas\nborn\nin\nHawaii.\nHe\nwas\nelected\nin\n2008.\n\n\n\nSeveral classifiers for English are included in the default installation. You can download classifiers for other languages from the Stanford CoreNLP site.\nDifferent classifiers include different possible entity labels:\n\n3 class : LOCATION, PERSON, ORGANIZATION\n4 class : LOCATION, PERSON, ORGANIZATION, MISC\n7 class : LOCATION, PERSON, ORGANIZATION, MONEY, PERCENT, DATE, TIME\n\nThe steps for Named Entity tagging your corpus are:\n\nInstall the Layer Manager\nConfigure a Named Entity layer\n\n\n\n\nIn LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordNERecognizer layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger, and an option to upload a tagger file, which we don’t need to do.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.\n\n\n\nNow the layer manager is installed, we need to create a layer that is configured to use it to tag words that are names of entitities…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: namedEntity 1\nType: Text\nAlignment: None\n\nManager: Stanford Named Entity Recognizer\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nBy default, the Classifier to use options are all for English data; you can choose whether 3, 4, or 7 types of entities are tagged.\n\n\n\n\n\n\n\nNoteInstalling another Classifier\n\n\n\nIf your data is not in English, you can download a recognizer for your language from the Stanford CoreNLP website\nTo install a classifier:\n\nDownload the corresponding files from the CoreNLP website\nIn the layer configuration form, set Classifier to use to [other classifier]\nYou will be asked to select a file.\nSelect the file you just downloaded.\nAfter a short delay while the file is uploaded, you’ll see a message saying “Classifier(s) installed.”\nIn the layer configuration form, you can now set Classifier to use to the classifier you just installed.\n\n\n\n\nPress Set Parameters.\nNow press Regenerate to run the Named Entity Recognizer on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new namedEntity layer to display the tags.\nYou will see that some words have a tag above them - these identify the type of named entity found by the classifier.\n\n\n\n\nNamed Entity tags\n\n\n\n\n\nThe NER tags can be manually corrected if required.\nTo change the label of a tag on the transcript page:\n\nHover the mouse over the tag you want to change.\nAn ‘edit’ button will appear to the right.\n\nPress the edit button.\nThe tag will become a text box you can type in.\n\nChange the tag’s label as desired.\nPress then save button  to save your changes.\nYou will see a message asking “Are you sure you want to save this tag?”\nPress OK to confirm your change.\n\nTo delete a tag, follow the steps to change the label, and set the label to be blank before saving.\nTo add a new tag for a word that the NER has not recognized:\n\nHover the mouse in the space above the word you want tag, where the tag would be if it had been recognized.\nAn ‘add tag’ button will appear.\n\nPress the ‘add tag’ button.\nAn empty text box will appear.\n\nType in the desired label.\n\nPress the save button  to save your changes.\nYou will see a message asking “Are you sure you want to create this tag?”\nPress OK to confirm your change.\n\nIf you manually add or edit Named Entity tags, and then run the StanforNER again, the manual changes will be preserved, although the tagger will re-create deleted entity tags.",
+    "crumbs": [
+      "How-to",
+      "Stanford Named Entity Recognizer"
+    ]
+  },
+  {
+    "objectID": "howto/named-entity-tagging/stanford-ner.html#install-the-layer-manager",
+    "href": "howto/named-entity-tagging/stanford-ner.html#install-the-layer-manager",
+    "title": "Stanford Named Entity Recognizer",
+    "section": "",
+    "text": "In LaBB-CAT, select the layer managers option on the menu at the top.\nAt the bottom, follow the link labelled: List of layer managers that are not yet installed.\nFind the StanfordNERecognizer layer manager in the list, and press its Install button, then Install again.\nYou will see a configuration page with some information about the tagger, and an option to upload a tagger file, which we don’t need to do.\nPress Configure.\nYou will see a progress bar while the layer manager downloads the Stanford POS Tagger files.\n\nOnce it’s finished, you’ll see a further information page.",
+    "crumbs": [
+      "How-to",
+      "Stanford Named Entity Recognizer"
+    ]
+  },
+  {
+    "objectID": "howto/named-entity-tagging/stanford-ner.html#create-a-named-entity-layer",
+    "href": "howto/named-entity-tagging/stanford-ner.html#create-a-named-entity-layer",
+    "title": "Stanford Named Entity Recognizer",
+    "section": "",
+    "text": "Now the layer manager is installed, we need to create a layer that is configured to use it to tag words that are names of entitities…\n\nSelect word layers on the menu at the top.\nYou will see a list of word tag layers that have already been configured. The column headings at the top are also a form for creating a new layer, so we’ll fill in that form now.\nFill in the following details on the form at the top:\n\nLayer ID: namedEntity 1\nType: Text\nAlignment: None\n\nManager: Stanford Named Entity Recognizer\nGenerate: Always\nProject: This can be left as the default value, unless you want to add the layer to a category of your choice.\n\nPress New\nYou will see the layer configuration form. Mostly you can leave the default values as they are.\nBy default, the Classifier to use options are all for English data; you can choose whether 3, 4, or 7 types of entities are tagged.\n\n\n\n\n\n\n\nNoteInstalling another Classifier\n\n\n\nIf your data is not in English, you can download a recognizer for your language from the Stanford CoreNLP website\nTo install a classifier:\n\nDownload the corresponding files from the CoreNLP website\nIn the layer configuration form, set Classifier to use to [other classifier]\nYou will be asked to select a file.\nSelect the file you just downloaded.\nAfter a short delay while the file is uploaded, you’ll see a message saying “Classifier(s) installed.”\nIn the layer configuration form, you can now set Classifier to use to the classifier you just installed.\n\n\n\n\nPress Set Parameters.\nNow press Regenerate to run the Named Entity Recognizer on your whole corpus.\nYou will see a progress bar while the transcripts are being tagged.\nOnce it’s complete, select the transcripts option on the menu, and click the first transcript in the list.\nTick the new namedEntity layer to display the tags.\nYou will see that some words have a tag above them - these identify the type of named entity found by the classifier.\n\n\n\n\nNamed Entity tags",
+    "crumbs": [
+      "How-to",
+      "Stanford Named Entity Recognizer"
+    ]
+  },
+  {
+    "objectID": "howto/named-entity-tagging/stanford-ner.html#editing-tags",
+    "href": "howto/named-entity-tagging/stanford-ner.html#editing-tags",
+    "title": "Stanford Named Entity Recognizer",
+    "section": "",
+    "text": "The NER tags can be manually corrected if required.\nTo change the label of a tag on the transcript page:\n\nHover the mouse over the tag you want to change.\nAn ‘edit’ button will appear to the right.\n\nPress the edit button.\nThe tag will become a text box you can type in.\n\nChange the tag’s label as desired.\nPress then save button  to save your changes.\nYou will see a message asking “Are you sure you want to save this tag?”\nPress OK to confirm your change.\n\nTo delete a tag, follow the steps to change the label, and set the label to be blank before saving.\nTo add a new tag for a word that the NER has not recognized:\n\nHover the mouse in the space above the word you want tag, where the tag would be if it had been recognized.\nAn ‘add tag’ button will appear.\n\nPress the ‘add tag’ button.\nAn empty text box will appear.\n\nType in the desired label.\n\nPress the save button  to save your changes.\nYou will see a message asking “Are you sure you want to create this tag?”\nPress OK to confirm your change.\n\nIf you manually add or edit Named Entity tags, and then run the StanforNER again, the manual changes will be preserved, although the tagger will re-create deleted entity tags.",
+    "crumbs": [
+      "How-to",
+      "Stanford Named Entity Recognizer"
+    ]
+  },
+  {
+    "objectID": "howto/named-entity-tagging/stanford-ner.html#footnotes",
+    "href": "howto/named-entity-tagging/stanford-ner.html#footnotes",
+    "title": "Stanford Named Entity Recognizer",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThere may already a layer called entity in your LaBB-CAT configuration under phrase layers, so if you want to call this layer entity, you will have to delete the phrase layer first.↩︎",
+    "crumbs": [
+      "How-to",
+      "Stanford Named Entity Recognizer"
+    ]
+  },
+  {
     "objectID": "howto/phonemic-tagging/multilingual-corpora.html",
     "href": "howto/phonemic-tagging/multilingual-corpora.html",
     "title": "Phonemic Tagging: Multilingual Corpora",
@@ -2456,6 +2511,13 @@
       "Phonemic Tagging",
       "Custom Lexicon"
     ]
+  },
+  {
+    "objectID": "howto/named-entity-tagging/index.html",
+    "href": "howto/named-entity-tagging/index.html",
+    "title": "Named Entity Tagging",
+    "section": "",
+    "text": "Named Entity Tagging\n\n\n\n\nReuseCC BY-SA 4.0Copyright© 2023-2024 NZILBB"
   },
   {
     "objectID": "worksheets/index.html",
