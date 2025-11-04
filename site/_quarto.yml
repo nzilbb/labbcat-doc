@@ -38,6 +38,7 @@ website:
             contents: howto/transcription/*
           - href: howto/word-frequency/index.qmd
           - href: howto/pos-tagging/stanford-pos-tagger.qmd
+          - href: howto/named-entity-tagging/stanford-ner.qmd
           - section: howto/phonemic-tagging/index.qmd
             contents:
               - href: howto/phonemic-tagging/celex.qmd
