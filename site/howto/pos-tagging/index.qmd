@@ -1,1 +1,8 @@
 # Part of Speech Tagging
+
+There are two automated annotators that can be used to tag word tokens with 
+disambiguated part of speech tags; i.e. labels like 'Noun', "Adjective', etc. 
+which are determined by taking into account the context of the word being tagged:
+
+- CLAN's MOR tagger
+- Stanford CoreNLP's [POS Tagger](stanford-pos-tagger.qmd)
