@@ -120,3 +120,7 @@ To start a forced-alignment process for a batch of selected participants, you ne
     A progress bar will appear while MFA gathers up all the utterance data, trains acoustic models, force-aligns the utterances, and then saves the resulting alignments back to LaBB-CAT. This process may take some time.
 
 Once the progress bar reaches 100% and the process is complete, the selected utterances will have word start/end times set, and aligned phones will have been added to the *segment* layer, using the same labels as appear in the *phonemes* layer
+
+## Troubleshooting
+
+{{< include fragment-mfa-troubleshooting.qmd >}}

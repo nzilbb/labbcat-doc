@@ -1,0 +1,29 @@
+:::{.callout-warning collapse=true}
+### 'Database' errors
+
+MFA uses a relational database during alignment.
+On some platforms and environments, the database can generate errors.
+
+There are two database engine options supported by MFA: PostgreSQL or SQLite.
+You can choose between these two options by using the *Use PostGres* checkbox 
+under the *MFA Options* of the layer configuration.
+
+If you see errors relating to the 'database', try changing the *Use PostGres* setting;
+i.e. if it's un-ticked, then tick it, or if it's ticked, then un-tick it.
+
+
+#### pg_ctl: could not start server
+
+If you have *Use PostGres* ticked, and you see an error in the log saying:
+
+```
+pg_ctl: could not start server
+```
+
+... this may be because the full path name of the database file is too long. 
+The database file, in part, includes the Participant ID. If the Participant's ID
+is quite long, this may be the cause of the error.
+
+To work around this problem, change the Participant ID to something shorter.
+
+:::
