@@ -69,7 +69,7 @@ annotations from CELEX - a layer with morphological annotations.
     -   **Alignment:** *None*
     -   **Manager:** *CELEX English*
     -   **Project:** *CELEX*
-    -   **Descript** `Morphological parses`
+    -   **Description** `Morphological parses`
     -   \...configured with the *Morphology* option selected, and the
         default values for everything else.
 

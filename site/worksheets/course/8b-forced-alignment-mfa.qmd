@@ -45,7 +45,7 @@ In this exercise you will
 :::{.callout-important}
 In this exercise, you will set up Praat Integration in your web
 browser. There is currently no Praat integration support for
-Microsoft's Edge' browser, so if you normally use 'Edge' on Windows,
+Microsoft's 'Edge' browser, so if you normally use 'Edge' on Windows,
 you may need to swap to another browser for this exercise - e.g.
 *Google Chrome*, or *Mozilla Firefox*.
 :::

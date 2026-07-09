@@ -53,10 +53,9 @@ Now we're going to create a layer to store our annotations...
 
 Now we're ready to find some tokens...
 
-(@) Select *participants* on the menu.
-(@) We're going to search all male monolinguals, so filter by the
-    appropriate attribute values if they're not already filtered,
-    and then press *Layered Search*.
+(@) Select *search* on the menu.
+(@) We're going to search all male monolinguals, so use the *Participants* tab
+    as before to filter by the appropriate participant attribute values.
 (@) Search for instances of the word "the" followed immediately by a
     word starting with a vowel, on the *orthography* layer.
 (@) Export the results to a CSV file and open it.
@@ -94,7 +93,7 @@ annotations into the new layer we created in LaBB-CAT...
 (@) Click *Insert Annotations*.\
     You will see a message about how many annotations were added. Now,
     within LaBB-CAT, each token mentioned in your CSV file has been
-    tagged with either "TP" or "FP"
+    tagged in LaBB-CAT with either "TP" or "FP"
 
 Now that we've seen one way to add annotations to the database,
 using CSV files, we will try another way - editing word annotations
@@ -104,8 +103,9 @@ We're going to find our 'true positive' tokens of the word "the",
 and annotate each depending on how the speaker pronounces it in the
 recording.
 
-(@) In LaBB-CAT, select the *search* menu option, which by default
-    searches utterances of all participants.\
+(@) In LaBB-CAT, select the *search* menu option. If we don't filter by participant
+    attributes, as we did before, the search page searches utterances of all participants,
+    which is what we're going to do now.\
     This time we're going to search for the true-positive annotations
     we just inserted.
 (@) There's now a "Projects" to the left of the layer checkboxes
