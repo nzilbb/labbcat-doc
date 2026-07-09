@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4897d45d2f75ed4f519693be625836c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -650,7 +650,10 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 <p>We’ll start with a very simple search - all the instances of the word “the” uttered by monolingual English-speaking males.</p>
 <ol class="example" type="1">
-<li>In LaBB-CAT, select the <em>participants</em> option on the menu.<br>
+<li>In LaBB-CAT, select the <em>search</em> option on the menu.<br>
+This takes you to a page with a number of tabs above a list of annotation layers. Below that, there’s a “Search Matrix”, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
+<li>Open the <em>Participants</em> tab at the top left.</li>
+<li>Press the <em>Filter Participants</em> button.<br>
 This takes you to a page listing all participants, where you can filter participants by their attributes. You can see various participant attributes listed across the top of page.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -667,14 +670,14 @@ Tip
 <p>For example, if the last time you accessed the <em>participants</em> page, you selected the <code>CC</code> corpus to show only <em>CC</em> participants, that filter may still be active. To remove that filter, just press <code>CC</code> again to de-select that option, or you can press the ⌫ button at the top, to the right of the page filters, to clear all filters.</p>
 </div>
 </div>
-<ol start="2" class="example" type="1">
+<ol start="4" class="example" type="1">
 <li>We’re interested in male participants, so under the <em>Gender</em> attribute, select <em>M</em>.<br>
 After a short delay the page will display a list of all the male participants in the database.</li>
 <li>We want the participants who speak only English, so enter <code>English</code> under <em>Languages Spoken</em><br>
 The page will then display a list of male participants who include <em>English</em> in their languages. It also includes participants who speak additional languages, and we want to eliminate these.<br>
 The <em>Languages</em> filter box accepts a ‘regular expression’ for matching patterns, so if we enter <code>^English$</code> in the box, only those with English as their sole language will be listed. This is because, in regular expressions, <code>^</code> means “the beginning” and <code>$</code> means “the end”, so <code>^English$</code> means, “English at the beginning (with nothing else before), and at the end (with nothing else after)”</li>
 <li>Press the <em>Layered Search</em> button at the top of the list.<br>
-You will see the participants you selected listed at the top, above a list of annotation layers. Below that, there’s a “Search Matrix”, although it doesn’t look much like a matrix yet, because it’s only one layer high and one word wide…</li>
+You will be returned to the search page. Now the participants you selected listed at the top.</li>
 <li>In the box under the word “orthography” type the word <code>the</code><br>
 <img src="orthography-the.png" class="img-fluid"></li>
 <li>Now press the <em>Search</em> button at the bottom (or hit <kbd title="Enter" aria-hidden="true">Enter</kbd><span class="visually-hidden">Enter</span>).<br>
@@ -701,7 +704,7 @@ Tip
 <p>You can select a group of matches by ticking the first one, and then holding down the <kbd title="Shift" aria-hidden="true">Shift</kbd><span class="visually-hidden">Shift</span> key while ticking the last one.</p>
 </div>
 </div>
-<ol start="12" class="example" type="1">
+<ol start="14" class="example" type="1">
 <li>Press the <em>Audio Export</em> button.</li>
 <li>Save and open the resulting zip file.<br>
 You’ll see that the files are systematically named to include:
@@ -749,11 +752,11 @@ Note
 </div>
 <p>You will see a spreadsheet with one line per selected result, and various columns containing information about the speaker, the corpus, the match line and word, and a URL to the interactive transcript for the match.</p>
 <p>With this spreadsheet, you can work ‘offline’ with the results, tagging them, computing statistics in Excel, R, or any other program that can work with CSV files. We’ll look at a few more uses for the CSV results files later…</p>
-<ol start="24" class="example" type="1">
+<ol start="26" class="example" type="1">
 <li>Close the CSV file, and the results page, and go back to the search matrix page.</li>
 </ol>
 <p>We’ve seen that you can search for exact word matches, but you can also&nbsp;search for patterns, using ‘regular expressions’. Now we’re going to search for words <em>beginning with</em> “the…”</p>
-<ol start="25" class="example" type="1">
+<ol start="27" class="example" type="1">
 <li>Change the <em>orthography</em> search text to <code>the.*</code> (i.e.&nbsp;after the word “the”, append a full-stop and an asterisk.<br>
 <img src="starts-the.png" class="img-fluid"><br>
 The full-stop means “any character at all”, and the asterisk means “zero or more of the previous thing”, so <code>.*</code> means “zero or more characters”.</li>
@@ -780,7 +783,7 @@ Note
 <p>While you are typing the regular expression, you may notice that the text goes red; this means that what’s currently in the box is not a valid regular expression. That’s fine while you’re still typing, but when you’re ready to search, if the text is red, the search will likely fail. If the regular expression text is red, you can see what the problem with it is by hovering your mouse over the red text; a ‘tip’ will appear showing an error message</p>
 </div>
 </div>
-<ol start="30" class="example" type="1">
+<ol start="32" class="example" type="1">
 <li>Press <em>Search</em>.<br>
 You will now see that the results include words like “think”, “that”, “thought”, etc.</li>
 </ol>
@@ -799,7 +802,7 @@ Tip
 </div>
 <p>Up until now, we’ve only been matching against one word at a time. Now&nbsp;we’re going to include patterns for a chain of words…<br>
 </p>
-<ol start="31" class="example" type="1">
+<ol start="33" class="example" type="1">
 <li>On the search page, to the right of the search matrix, there’s a <em>+</em> button. Click it.<br>
 <img src="two-words-wide.png" class="img-fluid"> &nbsp;&nbsp;&nbsp;<br>
 Now you will see that our search matrix is one layer high by two words wide.</li>
