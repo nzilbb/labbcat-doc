@@ -237,7 +237,7 @@ You can also filter the list by these values, using the column headings above th
     The page now lists only those with 'Female' set for the *Gender*
     attribute.
 
-### Elicitation Tasks
+## Elicitation Tasks
 
 LaBB-CAT can also make recordings of speech directly from the browser.
 
@@ -290,8 +290,8 @@ details about settings and important information about browser
 limitations.
 :::
         
-(@) Press *New* to add the task.
-(@) Press *Define Steps*.
+(@) Press *New* to add the task.\
+    The task will be created and you'll be shown a page titled "define elicitation steps for task"
 
 On this page you are going to add steps for the task. The first
 step, called "Welcome", has already been added, and we'll use it
