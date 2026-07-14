@@ -641,8 +641,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#automated-upload" id="toc-automated-upload" class="nav-link" data-scroll-target="#automated-upload">Automated Upload</a>
   <ul class="collapse">
   <li><a href="#participant-data-import" id="toc-participant-data-import" class="nav-link" data-scroll-target="#participant-data-import">Participant Data Import</a></li>
-  <li><a href="#elicitation-tasks" id="toc-elicitation-tasks" class="nav-link" data-scroll-target="#elicitation-tasks">Elicitation Tasks</a></li>
   </ul></li>
+  <li><a href="#elicitation-tasks" id="toc-elicitation-tasks" class="nav-link" data-scroll-target="#elicitation-tasks">Elicitation Tasks</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nzilbb/labbcat-doc/edit/main/site/worksheets/course/3-uploading-data.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nzilbb/labbcat-doc/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="3-uploading-data.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
@@ -815,8 +815,9 @@ The page also includes participant attribute values where they are known, and yo
 The page now lists only those with ‘Female’ set for the <em>Gender</em> attribute.</li>
 </ol>
 </section>
-<section id="elicitation-tasks" class="level3">
-<h3 class="anchored" data-anchor-id="elicitation-tasks">Elicitation Tasks</h3>
+</section>
+<section id="elicitation-tasks" class="level2">
+<h2 class="anchored" data-anchor-id="elicitation-tasks">Elicitation Tasks</h2>
 <p>LaBB-CAT can also make recordings of speech directly from the browser.</p>
 <p>Let’s suppose you want to record a number of participants reading lists of words. You can define an ‘Elicitation Task’ that includes a series of steps, one for each set of words you want participants to read.</p>
 <p>First we’re going to create a corpus to receive our recordings, and a transcript type to mark the recordings as word lists …</p>
@@ -868,11 +869,11 @@ Tip
 </div>
 </div>
 <ol start="51" class="example" type="1">
-<li>Press <em>New</em> to add the task.</li>
-<li>Press <em>Define Steps</em>.</li>
+<li>Press <em>New</em> to add the task.<br>
+The task will be created and you’ll be shown a page titled “define elicitation steps for task”</li>
 </ol>
 <p>On this page you are going to add steps for the task. The first step, called “Welcome”, has already been added, and we’ll use it for giving the participant some detailed instructions about what follows. We'll add a series of steps after the “Welcome” step, one for each group of words we want the participant to read.</p>
-<ol start="53" class="example" type="1">
+<ol start="52" class="example" type="1">
 <li><p>The form you can see defines the details of the first “Welcome” step.<br>
 <img src="help.png" class="img-fluid"> Check the online help on this page for further details about this page and the options on it.</p></li>
 <li><p>Close the online help page to return to the “define elicitation steps” page.</p></li>
@@ -889,7 +890,7 @@ Tip
 </ul></li>
 </ol>
 <p>Next we’ll define what demographic information we will ask each participant before they start recording. In this case, we will ask for their gender and what languages they speak.</p>
-<ol start="56" class="example" type="1">
+<ol start="55" class="example" type="1">
 <li>Press the <img src="add.png" class="img-fluid"> button to add a new step.</li>
 <li>Fill in the following details:
 <ul>
@@ -914,7 +915,7 @@ Tip
 </ul></li>
 </ol>
 <p>Now we can defined some prompts for them to read aloud.</p>
-<ol start="60" class="example" type="1">
+<ol start="59" class="example" type="1">
 <li>Press the <img src="add.png" class="img-fluid"> button to add a new step</li>
 <li>Fill in the following details:
 <ul>
@@ -947,13 +948,13 @@ Tip
 </ul></li>
 </ol>
 <p>This last step is what is displayed to the participant when they’ve finished all the steps.</p>
-<ol start="68" class="example" type="1">
+<ol start="67" class="example" type="1">
 <li>Press <em>Save Changes</em><br>
 <em><img src="TaskDefinition.png" class="img-fluid"></em><br>
 </li>
 </ol>
 <p>Your task is almost ready. We just need to define which options for <em>gender</em> they can see.</p>
-<ol start="69" class="example" type="1">
+<ol start="68" class="example" type="1">
 <li>Select the <em>elicitation tasks</em> option on the menu.</li>
 <li>Press <em>Participant Attributes</em>.</li>
 <li>Select <em>Options</em><br>
@@ -965,7 +966,7 @@ You will see that all the options (<code>M</code>, <code>F</code>, and ‘(not s
 </ol>
 <p>Your task is now fully defined and ready to go.</p>
 <p>Now you’re going to run through the elicitation task yourself …</p>
-<ol start="75" class="example" type="1">
+<ol start="74" class="example" type="1">
 <li>Select the <em>elicitation tasks</em> option on the menu.</li>
 <li>Press the <em>Elicitation Task</em> button on the bottom right.<br>
 You should see a page that displays the task’s ‘preamble’ that you defined earlier.</li>
@@ -984,7 +985,7 @@ You will be asked for the demographic details you defined earlier.<br>
 <p>If you don’t, and instead see a message about your browser not being supported, this means that your web browser doesn’t support recording sound. In this case, copy the address of the page at the top, and paste it into another browser (e.g.&nbsp;Google Chrome or Mozilla Firefox).</p>
 <p>Once you've enabled your browser for access to your microphone, the task steps will begin, and you should follow the instructions, reading the prompts aloud and clicking <em>Next</em> after each group of words.</p>
 <p>Each time somebody performs the task, they're assigned a unique Participant ID, which is linked to their demographic data and the recordings.</p>
-<ol start="83" class="example" type="1">
+<ol start="82" class="example" type="1">
 <li>Press the <em>Back</em> button on your browser to return to the <em>define elicitation tasks</em> page in LaBB-CAT.</li>
 <li>Press the <em>participants</em> option on the menu.</li>
 </ol>
@@ -1003,7 +1004,7 @@ Tip
 <p>You can press the ⌫ button at the top, to the right of the page filters, to clear all filters.</p>
 </div>
 </div>
-<ol start="85" class="example" type="1">
+<ol start="84" class="example" type="1">
 <li>Under the <em>Corpus</em> heading, select the <em>CC</em> option.<br>
 You will see one participant; the one you just created by doing the task.</li>
 <li>Click the participant’s <em>Attributes</em> icon (the spanner/wrench on the right) to open their attributes page, and check that the demographic information you entered has been saved.</li>
@@ -1023,7 +1024,6 @@ You will see that this opens the next transcript in the ‘episode’ that you j
 &nbsp;</p>
 
 
-</section>
 </section>
 </section>
 
