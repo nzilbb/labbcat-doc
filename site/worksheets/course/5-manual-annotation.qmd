@@ -82,17 +82,16 @@ Now that we've annotated our results, we're going to to load our
 annotations into the new layer we created in LaBB-CAT...
 
 (@) In LaBB-CAT, select the *upload* menu option.
-(@) Select the *upload csv annotations* option.
+(@) Select the *Annotations from CSV* option.
 (@) Press *Choose File* and select the annotated CSV file you just
     saved.
-(@) Press *Upload*.
 (@) On the form that appears, you can leave the default choices for the
-    options. Just ensure that the *Tag Words* option is selected at the
+    options. Just ensure that the *Tag Tokens* option is selected at the
     top, and at the bottom the *The* column in the spreadsheet is mapped
     to the *the* layer in LaBB-CAT.
-(@) Click *Insert Annotations*.\
-    You will see a message about how many annotations were added. Now,
-    within LaBB-CAT, each token mentioned in your CSV file has been
+(@) Press *Upload*.\
+    You will see a message about how many tokens were processed.\
+    Now, within LaBB-CAT, each token mentioned in your CSV file has been
     tagged in LaBB-CAT with either "TP" or "FP"
 
 Now that we've seen one way to add annotations to the database,
@@ -108,7 +107,7 @@ recording.
     which is what we're going to do now.\
     This time we're going to search for the true-positive annotations
     we just inserted.
-(@) There's now a "Projects" to the left of the layer checkboxes
+(@) There's now a "Projects" column to the left of the layer checkboxes
     which includes the "the" project we added at the start. Tick
     that project, so that the layer associated with it is displayed in
     the list of *Word* layers to the right.

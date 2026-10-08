@@ -42,28 +42,23 @@ folder, as you'll need it during the installation process.
 (@) Click the *List of layer managers that are not yet installed* link
     near the bottom.
 (@) Find "CELEX English" in the list, and click its *Install* button.
-(@) You will see a form asking for various details. You can leave most
-    of these with their default values. The one exception is the *CELEX
-     ENGLISH data folder* option.\
-    Set the *CELEX ENGLISH data folder* parameter to the directory path
-    that leads to the CELEX files on your LaBB-CAT computer.
-(@) Click *Install*.\
+(@) You will see a *Choose file* or *Browse* button. Press it, and select
+    the *ENGLISH.zip* file that contains the CELEX lexicon files.\
+    There will be a progress bar while the file is uploaded. Once the upload
+    is finished, the progress bar will disappear.
+(@) Press *Configure*.\
     You will see a progress bar while the layer manager loads the data
     from the CELEX files into the LaBB-CAT database. This will take a
     few minutes.
 (@) Once it's finished, you will see a new window open with information
-    about the CELEX English layer manager.\
-    Reading this information page, you will see some instructions on how
-    to create CELEX annotation layers - leave this tab open for now, as
-    we're going to need those instructions next.
+    about the CELEX English layer manager.
     
 ## Morphology
 
 Now that we've installed the layer manager, we'll create our first
 annotations from CELEX - a layer with morphological annotations.
 
-(@) Follow the instructions on the information page to create a layer
-    for word morphology - i.e.:
+(@) On the *word layers* page, create a layer for word morphology - i.e.:
     -   **Layer ID:** `morphology`
     -   **Type:** *Text*
     -   **Alignment:** *None*
@@ -74,10 +69,10 @@ annotations from CELEX - a layer with morphological annotations.
         default values for everything else.
 
 :::{.callout-tip}
-![](help.png) If you're curious about what the configuration
+ⓘ If you're curious about what the configuration
 options do, and how you can test out the results of your
-configuration, check the online help page when you are
-configuring the layer.
+configuration, check the online help, which is a section at the top of the configuration
+page that opens when you click the `ⓘ` icon.
 :::
 
 (@) Once the layer has finished generating, select the *transcripts* menu
@@ -124,6 +119,12 @@ Now we will create a layer for syntactic categories from CELEX.
     -   **Description:** `All possible syntactic categories`
     -   \...configured with the *Syntax* option ticked, and the default
         values for everything else.
+(@) Before pressing the *Set Parameters* button on the configuration page, 
+    change the *Test word* at the bottom to `fine` and check the resulting 
+    *Test Results*\
+    These are all the possible syntactic categories for the word "fine"
+    ordered most-frequent first. 
+(@) Press *Set Parameters* and the *Regenerate*.
 (@) Once the layer has finished generating, go to the search page and do
     a search for the word "fine" on the *orthography* layer.
 (@) Open the transcript of the first match.
@@ -212,19 +213,22 @@ Now we're going to create a phonemic-transcription layer.
     -   The layer type should be set to *Phonological*.
     -   The *Phonology* option should be selected in the layer
         configuration.
-    -   Make sure the *Pronounce Event Override* option is ticked.\
-        This means that if the original ELAN transcript contained a
-        'pronounce' annotation for a word (these are marked in ELAN with
-        square brackets), specifying its pronunciation, then the
-        'pronounce' annotation is used instead of the phonemic
-        transcription from CELEX.
-    -   Ensure the *Generates Segments* option is un-ticked.\
-        This option allows the layer manager to create *segment*
-        (sub-word) annotations from the phonemic transcriptions, but we
-        don't want this because in the next exercise, we're going to
-        get HTK to do that instead.
-(@) Once the layer is finished generating, go to a transcript to see
-    what it looks like.
+
+The original ELAN transcripts contain 'pronounce' annotations for some interrupted words 
+and disfluencies (these are marked in ELAN with square brackets). 
+These are tokens that will not be in the CELEX lexicon, but which can nevertheless 
+be tagged with a pronunciation, by copying the 'pronounce' annotations into the 
+*phonemes* layer.
+
+To do this automatically:
+
+(@) On the *word layers* page, find the *phonemes* layer, and press the 
+    *Pronounce Auxiliary* icon - it has a large plus-sign ➕ on it.\
+    This will display a confirmation message.
+(@) Press *yes*\
+    A progress bar will be displayed while the 'pronounce' annotations are copied.
+(@) Once the layer is finished generating, open the `AP513_Steve.eaf` transcript.
+(@) On the *Layers* tab, tick the *CELEX* project, and the *phonemes* and *pronounce* layers.
     
 You will notice that the annotations are displayed using IPA
 symbols. However, CELEX doesn't use IPA symbols directly, it
@@ -300,7 +304,7 @@ Now we're going to do a search for the word "the" followed by a word that starts
     `@` is the DISC symbol for *ə*, so in order to search for schwa, we
     have to use it in our search pattern.
 (@) We want words that start with schwa, so type `.*` after the `@` symbol.
-(@) Click *Search*.
+(@) Press *Search*.
 
 You will see that some of the words being matched are words that you
 might not normally think start with a schwa. LaBB-CAT is matching

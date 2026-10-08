@@ -269,7 +269,7 @@ attribute is not set. Go back to the steps above and ensure that
 **Praat Path** is set before continuing...
 :::
 
-(@) Click *Choose File* and select the CSV results that you saved
+(@) Click *Choose File* (or *Browse*) and select the CSV results that you saved
     above.\
     You will see a form to fill in, and the first couple of settings
     (*Transcript Name column* and *Participant column* should be already

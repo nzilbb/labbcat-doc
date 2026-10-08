@@ -98,7 +98,7 @@ one.
     -   the start and end time of the extracted utterance
 (@) Now go back to the results page and press the expand `▾` button to the right 
     of the *Audio Export* button, to reveal further options. 
-(@) Tick the *Prefix Names* checkbox that has been revealed.
+(@) Tick the *Add prefixed to file names* checkbox that has been revealed.
 (@) Press the *Audio Export* button again.
 (@) Save and open the resulting zip file.\
     This time you'll see that the files are also prefixed by the result

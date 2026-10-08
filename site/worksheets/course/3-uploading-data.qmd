@@ -32,7 +32,7 @@ You will see a page with some options to select on the top left,
 buttons on the top right, and in a middle, a rectangle with a dashed border;
 this is the 'upload queue', which lists files we want to upload.
 
-(@) In the top left corner of the 'upload queue' rectangle, there's a *Choose Files* button; press it, and select the file in the
+(@) In the top left corner of the 'upload queue' rectangle, there's a *Choose Files* or *Browse* button; press it, and select the file in the
     "QuakeStories" folder called `BR178LK_MargaretSpencer.eaf`
 
 You will see that the transcript file is listed in the 'upload queue'. 
@@ -172,7 +172,7 @@ check preconditions for uploading, and other functions the upload page can perfo
 (@) Use the *Transcript* box to find `UC013AM_Dom.eaf`\
     (you can type just part of the name if you like).
 (@) Press the *Attributes* icon for *UC013AM_Dom.eaf*\
-    (on the far right of the row).
+    (on the far right of the row, an icon that looks like a spanner/wrench).
 (@) Change *Transcript type* to *interview* and press *Save*.
 (@) Similarly, the following transcripts are interviews, so change their type accordingly
     -   UC215YW_DanielaMaoate-Cox.eaf
@@ -182,7 +182,8 @@ check preconditions for uploading, and other functions the upload page can perfo
 
 The transcripts are now in the database, but the meta-data for the
 participants hasn\'t been set yet (because it's not contained in the
-ELAN files). We could manually add this for each speaker, but
+ELAN files). We could manually add this for each speaker, 
+like we did for *BR178LK_MargaretSpencer* before, but
 fortunately we have it stored in a spreadsheet (actually, a CSV text
 file) that we can upload in one go.
 
@@ -259,16 +260,18 @@ and texts the participant sees during the task.
 (@) Click the *elicitation tasks* option on the menu. The page you see
     is a list of elicitation tasks defined, which is currently empty.
 (@) Fill in the blank form with the following details:
-    -   **ID:** `nze-wordlist`
-    -   **description:** `New Zealand English Word List`
-    -   **corpus:** *CC* (the corpus you just created)
-    -   **transcript type:** *wordlist* (the transcript type you just
+    -   **Name:** `nze-wordlist`
+    -   **Corpus:** *CC* (the corpus you just created)
+    -   **Transcript Type:** *wordlist* (the transcript type you just
         created)
-    -   **preamble:** "In this task your speech will be recorded. Please
+    -   **Description:** `New Zealand English Word List`
+(@) Press *New* to add the task.
+(@) Now you can enter the following details:
+    -   **Preamble:** "In this task your speech will be recorded. Please
         ensure you're in a quiet place."\
         This is the first text the participant sees when they access the
         task, before giving consent or going through the steps.
-    -   **consent:** "I give consent for the use of my speech data for
+    -   **Consent:** "I give consent for the use of my speech data for
         this research."\
         This is the text of the participant\'s consent for their
         participation and the use of their data. Before starting the
@@ -277,6 +280,7 @@ and texts the participant sees during the task.
         incorporated, with be made into a PDF file which is uploaded
         with their recordings, and is made available for them to
         download.
+    -   **End URL:** (leave this blank)
 
 ::: {.callout-note}
 For both the preamble and the consent form, you can format the
@@ -289,10 +293,11 @@ controls above the text area.
 details about settings and important information about browser
 limitations.
 :::
-        
-(@) Press *New* to add the task.\
-    The task will be created and you'll be shown a page titled "define elicitation steps for task"
 
+(@) Press *Save* to save the new task details.
+(@) Press *Define Steps*.\
+    You'll be shown a page titled "define elicitation steps for task"
+    
 On this page you are going to add steps for the task. The first
 step, called "Welcome", has already been added, and we'll use it
 for giving the participant some detailed instructions about what
@@ -314,29 +319,6 @@ for each group of words we want the participant to read.
     -   **Transcript:** (leave this box blank)
     -   **Image/Video:** *no image/video*\
 
-Next we'll define what demographic information we will ask
-each participant before they start recording. In this case, we will
-ask for their gender and what languages they speak.
-
-(@) Press the ![](add.png) button to add a new step.
-(@) Fill in the following details:
-    -   **Show:** *Always*
-    -   **Countdown Seconds:** 0
-    -   **Title:** Languages
-    -   **Prompt:** What languages do you speak?
-    -   **Elicit:** *Attribute Value*
-    -   **Attribute:** *participant_languagesSpoken*
-    -   **Image/Video:** *no image/video*
-(@) Press the ![](add.png) button to add a new step
-(@) Fill in the following details:
-    -   **Show:** *Always*
-    -   **Countdown Seconds:** 0
-    -   **Title:** Gender
-    -   **Prompt:** What is your gender?
-    -   **Elicit:** *Attribute Value*
-    -   **Attribute:** *participant\_gender*
-    -   **Image/Video:** *no image/video*
-
 Now we can defined some prompts for them to read aloud.
 
 (@) Press the ![](add.png) button to add a new step
@@ -357,6 +339,29 @@ Now we can defined some prompts for them to read aloud.
 (@) Add a new step for **Transcript:** `3. bird curt burn`
 (@) Add a new step for **Transcript:** `4. bat bad back bag ban`
 (@) Add a new step for **Transcript:** `5. bet bed beck beg ben`
+
+Next we'll define what demographic information we will ask
+each participant. In this case, we will
+ask for their gender and what languages they speak.
+
+(@) Press the ![](add.png) button to add a new step.
+(@) Fill in the following details:
+    -   **Show:** *Always*
+    -   **Countdown Seconds:** 0
+    -   **Title:** Languages
+    -   **Prompt:** What languages do you speak?
+    -   **Elicit:** *Attribute Value*
+    -   **Attribute:** *participant_languagesSpoken*
+    -   **Image/Video:** *no image/video*
+(@) Press the ![](add.png) button to add a new step
+(@) Fill in the following details:
+    -   **Show:** *Always*
+    -   **Countdown Seconds:** 0
+    -   **Title:** Gender
+    -   **Prompt:** What is your gender?
+    -   **Elicit:** *Attribute Value*
+    -   **Attribute:** *participant\_gender*
+    -   **Image/Video:** *no image/video*
 (@) Add one last step, with the following details:
     -   **Show:** *Always*
     -   **Countdown Seconds:** 0
@@ -395,19 +400,17 @@ Your task is now fully defined and ready to go.
 Now you're going to run through the elicitation task yourself ...
 
 (@) Select the *elicitation tasks* option on the menu.
-(@) Press the *Elicitation Task* button on the bottom right.\
-    You should see a page that displays the task's 'preamble' that you defined earlier.
+(@) Press the *Task URL* icon on the bottom right.\
+    You should see a page that displays the task's *Preamble* that you defined earlier.
 (@) Click *Next*.\
-    You should see a page that displays the task's *consent* form that
+    You should see a page that displays the task's *Consent* form that
     you defined earlier, with a box to enter your name in order to
     'sign' the consent.
 (@) Enter your name and click *Next*.\
     You will be given the chance to save your copy of the consent form.
 (@) Save the consent form and open it to check the contents.
-(@) Close the consent form to return to the task.\
-    You will be asked for the demographic details you defined earlier.\
-(@) Fill in your languages and press *Next*.
-(@) Fill in your gender and press *Next*.
+(@) Close the consent form to return to the task.
+(@) Press *Next*
 
 You should see a page with some text about enabling your microphone.
 
@@ -420,6 +423,11 @@ Once you\'ve enabled your browser for access to your microphone,
 the task steps will begin, and you should
 follow the instructions, reading the prompts aloud and clicking
 *Next* after each group of words.
+
+Finally you will be asked for the demographic details you defined earlier.
+
+(@) Fill in your languages and press *Next*.
+(@) Fill in your gender and press *Next*.
 
 Each time somebody performs the task, they\'re assigned a unique
 Participant ID, which is linked to their demographic data and the

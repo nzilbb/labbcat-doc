@@ -134,12 +134,12 @@ You can also extract the annotations into CSV results from other searches...
 (@) Press the *CSV Export* button.
 (@) Save and open the resulting CSV file.\
     You will notice that in the spreadsheet there are two columns:
-    -   *Match frequency:* this lists the frequency of each word that
-        matched, in order. i.e. in this case two numbers, the frequency
-        of "the", followed by the frequency of the word after it.
     -   *frequency:* this contains a single frequency, in this
         case the frequency of the first word that matched a pattern -
         i.e. "the"
+    -   *Match frequency:* this lists the frequency of each word that
+        matched, in order. i.e. in this case two numbers, the frequency
+        of "the", followed by the frequency of the word after it.
 (@) As an aside, you can also select other layers to include in the CSV
     file. For example, some of the transcripts include topic-tags that
     were made in the original ELAN transcript.\
