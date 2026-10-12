@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -673,7 +676,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>You will see a page with some options to select on the top left, buttons on the top right, and in a middle, a rectangle with a dashed border; this is the ‘upload queue’, which lists files we want to upload.</p>
 <ol start="3" class="example" type="1">
-<li>In the top left corner of the ‘upload queue’ rectangle, there’s a <em>Choose Files</em> button; press it, and select the file in the “QuakeStories” folder called <code>BR178LK_MargaretSpencer.eaf</code></li>
+<li>In the top left corner of the ‘upload queue’ rectangle, there’s a <em>Choose Files</em> or <em>Browse</em> button; press it, and select the file in the “QuakeStories” folder called <code>BR178LK_MargaretSpencer.eaf</code></li>
 </ol>
 <p>You will see that the transcript file is listed in the ‘upload queue’. We want to upload not only the transcript, but also its associated media files. Each transcript has an audio file and a video file, and you want to upload both.</p>
 <ol start="4" class="example" type="1">
@@ -769,7 +772,7 @@ You should see a list of nineteen transcripts.</li>
 <li>Use the <em>Transcript</em> box to find <code>UC013AM_Dom.eaf</code><br>
 (you can type just part of the name if you like).</li>
 <li>Press the <em>Attributes</em> icon for <em>UC013AM_Dom.eaf</em><br>
-(on the far right of the row).</li>
+(on the far right of the row, an icon that looks like a spanner/wrench).</li>
 <li>Change <em>Transcript type</em> to <em>interview</em> and press <em>Save</em>.</li>
 <li>Similarly, the following transcripts are interviews, so change their type accordingly
 <ul>
@@ -779,7 +782,7 @@ You should see a list of nineteen transcripts.</li>
 </ol>
 <section id="participant-data-import" class="level3">
 <h3 class="anchored" data-anchor-id="participant-data-import">Participant Data Import</h3>
-<p>The transcripts are now in the database, but the meta-data for the participants hasn't been set yet (because it’s not contained in the ELAN files). We could manually add this for each speaker, but fortunately we have it stored in a spreadsheet (actually, a CSV text file) that we can upload in one go.</p>
+<p>The transcripts are now in the database, but the meta-data for the participants hasn't been set yet (because it’s not contained in the ELAN files). We could manually add this for each speaker, like we did for <em>BR178LK_MargaretSpencer</em> before, but fortunately we have it stored in a spreadsheet (actually, a CSV text file) that we can upload in one go.</p>
 <ol start="36" class="example" type="1">
 <li>In LaBB-CAT, select the <em>participants</em> option on the menu.<br>
 You will see all the participants in the the transcripts you have uploaded, many of which include an interviewer as well as a main participant.</li>
@@ -832,14 +835,19 @@ The page now lists only those with ‘Female’ set for the <em>Gender</em> attr
 <li>Click the <em>elicitation tasks</em> option on the menu. The page you see is a list of elicitation tasks defined, which is currently empty.</li>
 <li>Fill in the blank form with the following details:
 <ul>
-<li><strong>ID:</strong> <code>nze-wordlist</code></li>
-<li><strong>description:</strong> <code>New Zealand English Word List</code></li>
-<li><strong>corpus:</strong> <em>CC</em> (the corpus you just created)</li>
-<li><strong>transcript type:</strong> <em>wordlist</em> (the transcript type you just created)</li>
-<li><strong>preamble:</strong> “In this task your speech will be recorded. Please ensure you’re in a quiet place.”<br>
+<li><strong>Name:</strong> <code>nze-wordlist</code></li>
+<li><strong>Corpus:</strong> <em>CC</em> (the corpus you just created)</li>
+<li><strong>Transcript Type:</strong> <em>wordlist</em> (the transcript type you just created)</li>
+<li><strong>Description:</strong> <code>New Zealand English Word List</code></li>
+</ul></li>
+<li>Press <em>New</em> to add the task.</li>
+<li>Now you can enter the following details:
+<ul>
+<li><strong>Preamble:</strong> “In this task your speech will be recorded. Please ensure you’re in a quiet place.”<br>
 This is the first text the participant sees when they access the task, before giving consent or going through the steps.</li>
-<li><strong>consent:</strong> “I give consent for the use of my speech data for this research.”<br>
+<li><strong>Consent:</strong> “I give consent for the use of my speech data for this research.”<br>
 This is the text of the participant's consent for their participation and the use of their data. Before starting the task steps, they must 'sign' this consent by typing their name in a box at the bottom. The text, with their name and the date incorporated, with be made into a PDF file which is uploaded with their recordings, and is made available for them to download.</li>
+<li><strong>End URL:</strong> (leave this blank)</li>
 </ul></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -868,12 +876,13 @@ Tip
 <p><img src="help.png" class="img-fluid"> Check the online help on this page for further details about settings and important information about browser limitations.</p>
 </div>
 </div>
-<ol start="51" class="example" type="1">
-<li>Press <em>New</em> to add the task.<br>
-The task will be created and you’ll be shown a page titled “define elicitation steps for task”</li>
+<ol start="53" class="example" type="1">
+<li>Press <em>Save</em> to save the new task details.</li>
+<li>Press <em>Define Steps</em>.<br>
+You’ll be shown a page titled “define elicitation steps for task”</li>
 </ol>
 <p>On this page you are going to add steps for the task. The first step, called “Welcome”, has already been added, and we’ll use it for giving the participant some detailed instructions about what follows. We'll add a series of steps after the “Welcome” step, one for each group of words we want the participant to read.</p>
-<ol start="52" class="example" type="1">
+<ol start="55" class="example" type="1">
 <li><p>The form you can see defines the details of the first “Welcome” step.<br>
 <img src="help.png" class="img-fluid"> Check the online help on this page for further details about this page and the options on it.</p></li>
 <li><p>Close the online help page to return to the “define elicitation steps” page.</p></li>
@@ -889,8 +898,31 @@ The task will be created and you’ll be shown a page titled “define elicitati
 </li>
 </ul></li>
 </ol>
-<p>Next we’ll define what demographic information we will ask each participant before they start recording. In this case, we will ask for their gender and what languages they speak.</p>
-<ol start="55" class="example" type="1">
+<p>Now we can defined some prompts for them to read aloud.</p>
+<ol start="58" class="example" type="1">
+<li>Press the <img src="add.png" class="img-fluid"> button to add a new step</li>
+<li>Fill in the following details:
+<ul>
+<li><strong>Show:</strong> <em>Always</em></li>
+<li><strong>Countdown Seconds:</strong> 0</li>
+<li><strong>Title:</strong> (leave this box blank)</li>
+<li><strong>Prompt:</strong> Please read the following aloud:</li>
+<li><strong>Elicit:</strong> <em>Audio</em></li>
+<li><strong>Transcript:</strong> <code>1. hit hid hint</code></li>
+<li><strong>Max Seconds:</strong> 30</li>
+<li><strong>Next Button:</strong> <em>Shown</em></li>
+<li><strong>Rerecord Button:</strong> <em>Hidden</em></li>
+<li><strong>Image/Video:</strong> <em>no image/video</em></li>
+</ul></li>
+<li>Press the <img src="add.png" class="img-fluid"> button to add a new step</li>
+<li>Fill in the same details as the previous step, except:<br>
+<strong>Transcript:</strong> <code>2. boot booed boo tune dune</code></li>
+<li>Add a new step for <strong>Transcript:</strong> <code>3. bird curt burn</code></li>
+<li>Add a new step for <strong>Transcript:</strong> <code>4. bat bad back bag ban</code></li>
+<li>Add a new step for <strong>Transcript:</strong> <code>5. bet bed beck beg ben</code></li>
+</ol>
+<p>Next we’ll define what demographic information we will ask each participant. In this case, we will ask for their gender and what languages they speak.</p>
+<ol start="65" class="example" type="1">
 <li>Press the <img src="add.png" class="img-fluid"> button to add a new step.</li>
 <li>Fill in the following details:
 <ul>
@@ -913,29 +945,6 @@ The task will be created and you’ll be shown a page titled “define elicitati
 <li><strong>Attribute:</strong> <em>participant_gender</em></li>
 <li><strong>Image/Video:</strong> <em>no image/video</em></li>
 </ul></li>
-</ol>
-<p>Now we can defined some prompts for them to read aloud.</p>
-<ol start="59" class="example" type="1">
-<li>Press the <img src="add.png" class="img-fluid"> button to add a new step</li>
-<li>Fill in the following details:
-<ul>
-<li><strong>Show:</strong> <em>Always</em></li>
-<li><strong>Countdown Seconds:</strong> 0</li>
-<li><strong>Title:</strong> (leave this box blank)</li>
-<li><strong>Prompt:</strong> Please read the following aloud:</li>
-<li><strong>Elicit:</strong> <em>Audio</em></li>
-<li><strong>Transcript:</strong> <code>1. hit hid hint</code></li>
-<li><strong>Max Seconds:</strong> 30</li>
-<li><strong>Next Button:</strong> <em>Shown</em></li>
-<li><strong>Rerecord Button:</strong> <em>Hidden</em></li>
-<li><strong>Image/Video:</strong> <em>no image/video</em></li>
-</ul></li>
-<li>Press the <img src="add.png" class="img-fluid"> button to add a new step</li>
-<li>Fill in the same details as the previous step, except:<br>
-<strong>Transcript:</strong> <code>2. boot booed boo tune dune</code></li>
-<li>Add a new step for <strong>Transcript:</strong> <code>3. bird curt burn</code></li>
-<li>Add a new step for <strong>Transcript:</strong> <code>4. bat bad back bag ban</code></li>
-<li>Add a new step for <strong>Transcript:</strong> <code>5. bet bed beck beg ben</code></li>
 <li>Add one last step, with the following details:
 <ul>
 <li><strong>Show:</strong> <em>Always</em></li>
@@ -948,13 +957,13 @@ The task will be created and you’ll be shown a page titled “define elicitati
 </ul></li>
 </ol>
 <p>This last step is what is displayed to the participant when they’ve finished all the steps.</p>
-<ol start="67" class="example" type="1">
+<ol start="70" class="example" type="1">
 <li>Press <em>Save Changes</em><br>
 <em><img src="TaskDefinition.png" class="img-fluid"></em><br>
 </li>
 </ol>
 <p>Your task is almost ready. We just need to define which options for <em>gender</em> they can see.</p>
-<ol start="68" class="example" type="1">
+<ol start="71" class="example" type="1">
 <li>Select the <em>elicitation tasks</em> option on the menu.</li>
 <li>Press <em>Participant Attributes</em>.</li>
 <li>Select <em>Options</em><br>
@@ -966,26 +975,28 @@ You will see that all the options (<code>M</code>, <code>F</code>, and ‘(not s
 </ol>
 <p>Your task is now fully defined and ready to go.</p>
 <p>Now you’re going to run through the elicitation task yourself …</p>
-<ol start="74" class="example" type="1">
+<ol start="77" class="example" type="1">
 <li>Select the <em>elicitation tasks</em> option on the menu.</li>
-<li>Press the <em>Elicitation Task</em> button on the bottom right.<br>
-You should see a page that displays the task’s ‘preamble’ that you defined earlier.</li>
+<li>Press the <em>Task URL</em> icon on the bottom right.<br>
+You should see a page that displays the task’s <em>Preamble</em> that you defined earlier.</li>
 <li>Click <em>Next</em>.<br>
-You should see a page that displays the task’s <em>consent</em> form that you defined earlier, with a box to enter your name in order to ‘sign’ the consent.</li>
+You should see a page that displays the task’s <em>Consent</em> form that you defined earlier, with a box to enter your name in order to ‘sign’ the consent.</li>
 <li>Enter your name and click <em>Next</em>.<br>
 You will be given the chance to save your copy of the consent form.</li>
 <li>Save the consent form and open it to check the contents.</li>
-<li>Close the consent form to return to the task.<br>
-You will be asked for the demographic details you defined earlier.<br>
-</li>
-<li>Fill in your languages and press <em>Next</em>.</li>
-<li>Fill in your gender and press <em>Next</em>.</li>
+<li>Close the consent form to return to the task.</li>
+<li>Press <em>Next</em></li>
 </ol>
 <p>You should see a page with some text about enabling your microphone.</p>
 <p>If you don’t, and instead see a message about your browser not being supported, this means that your web browser doesn’t support recording sound. In this case, copy the address of the page at the top, and paste it into another browser (e.g.&nbsp;Google Chrome or Mozilla Firefox).</p>
 <p>Once you've enabled your browser for access to your microphone, the task steps will begin, and you should follow the instructions, reading the prompts aloud and clicking <em>Next</em> after each group of words.</p>
+<p>Finally you will be asked for the demographic details you defined earlier.</p>
+<ol start="84" class="example" type="1">
+<li>Fill in your languages and press <em>Next</em>.</li>
+<li>Fill in your gender and press <em>Next</em>.</li>
+</ol>
 <p>Each time somebody performs the task, they're assigned a unique Participant ID, which is linked to their demographic data and the recordings.</p>
-<ol start="82" class="example" type="1">
+<ol start="86" class="example" type="1">
 <li>Press the <em>Back</em> button on your browser to return to the <em>define elicitation tasks</em> page in LaBB-CAT.</li>
 <li>Press the <em>participants</em> option on the menu.</li>
 </ol>
@@ -1004,7 +1015,7 @@ Tip
 <p>You can press the ⌫ button at the top, to the right of the page filters, to clear all filters.</p>
 </div>
 </div>
-<ol start="84" class="example" type="1">
+<ol start="88" class="example" type="1">
 <li>Under the <em>Corpus</em> heading, select the <em>CC</em> option.<br>
 You will see one participant; the one you just created by doing the task.</li>
 <li>Click the participant’s <em>Attributes</em> icon (the spanner/wrench on the right) to open their attributes page, and check that the demographic information you entered has been saved.</li>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -814,6 +817,29 @@ You should see the annotation that you made is in the TextGrid, at the correspon
 <p>These manual annotations are also searchable (so for example you could search for all the <em>FLEECE</em> vowels with an F1 measure within a particular range), and can be exported in CSV search results. To see that in action:</p>
 <ol start="35" class="example" type="1">
 <li>Repeat the segment search we did before (i.e.&nbsp;all aligned <em>FLEECE</em> vowels).</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you open the <em>History</em> tab of the search page, you will see a list of all the searches you’ve done recently.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="search-history.png" class="img-fluid figure-img"></p>
+<figcaption>Search History</figcaption>
+</figure>
+</div>
+<p>You can easily repeat a search by finding it in the list, and pressing the <em>Repeat</em> button, which will configure the seaerch matrix in the same way as before.</p>
+<p>You can then make any modifications desired, and then press <em>Search</em> to run the search again.</p>
+</div>
+</div>
+<ol start="36" class="example" type="1">
 <li>Once you see the results page, click the ▼ button next to the <em>CSV Export</em> button link, and tick the <em>F1</em> layer.</li>
 <li>Press <em>CVS Export</em>.</li>
 <li>Save and open the resulting file.<br>
@@ -855,7 +881,7 @@ Tip
 </div>
 </div>
 <ol start="41" class="example" type="1">
-<li>Click <em>Choose File</em> and select the CSV results that you saved above.<br>
+<li>Click <em>Choose File</em> (or <em>Browse</em>) and select the CSV results that you saved above.<br>
 You will see a form to fill in, and the first couple of settings (<em>Transcript Name column</em> and <em>Participant column</em> should be already filled in.</li>
 <li>For the <em>Start Time column</em> ensure that the <em>segment start</em> option is selected.</li>
 <li>For the <em>End Time column</em> ensure the <em>segment end</em> option is selected.<br>

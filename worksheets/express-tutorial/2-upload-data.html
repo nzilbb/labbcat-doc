@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/kbd/kbd.js"></script>
 <link href="../../site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -744,7 +747,7 @@ As the video plays, you will see the current utterance highlighted in the transc
 A menu will appear.</li>
 <li>Select the ‘Play’ option on the menu.<br>
 You will see that playback starts at that line. Playback will stop when the participant finishes the utterance.</li>
-<li>Select the <em>Formats</em> tab at the top of the transcript.<br>
+<li>Select the <em>Export</em> tab at the top of the transcript.<br>
 You will see a list of formats for exporting the transcript to.</li>
 <li>Select <em>Plain Text Document</em></li>
 <li>Save the resulting file and then open it.<br>
@@ -753,9 +756,9 @@ You will see the transcript in plain-text form.</li>
 You will see that the TextGrid has various tiers, one for whole utterances (or two if there are two speakers), and one for individual words (or two if there are two speakers).</li>
 <li>Back on the transcript page, select the <em>Attributes</em> tab at the top right.<br>
 This will display the attributes for the transcript (some of the attribute values are not set because the information was not in the .eaf transcript file)</li>
-<li>Now select the <em>Participants</em> tab on the top right.<br>
+<li>Now select the <em>Participants</em> tab at the top.<br>
 This will list both participants in the recording, the main participant, and the interviewer.</li>
-<li>Click <em>BR178LK_MargaretSpencer</em>.<br>
+<li>Click the <em>Attributes</em> icon next to “BR178LK_MargaretSpencer”.<br>
 This will display the participant meta-data. There’s not much here yet; we will be adding participant attributes soon. However, we can at least set the participant’s gender now.</li>
 <li><em>BR178LK_MargaretSpencer</em> is ‘Female’, so set her attributes to reflect that, and press <em>Save</em>.</li>
 </ol>
@@ -801,8 +804,8 @@ Tip
 You should see a list of twenty transcripts.</li>
 <li>Use the <em>Transcript</em> box to find <code>UC013AM_Dom.eaf</code><br>
 (you can type just part of the name if you like).</li>
-<li>press the <em>Attributes</em> icon for <em>UC013AM_Dom.eaf</em><br>
-(on the far right of the row).</li>
+<li>Press the <em>Attributes</em> icon for <em>UC013AM_Dom.eaf</em><br>
+(on the far right of the row, with a spanner/wrench icon).</li>
 <li>Change <em>Transcript type</em> to <em>interview</em> and press <em>Save</em>.</li>
 <li>Similarly, the following transcripts are interviews, so change their type accordingly
 <ul>
@@ -833,18 +836,12 @@ Set the other options as follows:<br>
 <ul>
 <li>The CSV column <strong>name:</strong> → <em>ignore</em> because it’s the <em>Participant Identity Column</em> identified above</li>
 <li>(The CSV column <strong>gender:</strong> → the <em>Gender</em> LaBB-CAT attribute</li>
-<li>The CSV column <strong>ageCategory:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Age Category</code>, Attribute ID: <code>ageCategory</code></li>
-<li>The CSV column <strong>ethnicity:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Ethnicity</code>, Attribute ID: <code>ethnicity</code></li>
-<li>The CSV column <strong>grewUp:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Country</code>, Attribute ID: <code>grewUp</code></li>
-<li>The CSV column <strong>grewUpRegion:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Region</code>, Attribute ID: <code>grewUpRegion</code></li>
-<li>The CSV column <strong>grewUpTown:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Town</code>, Attribute ID: <code>grewUpTown</code></li>
-<li>The CSV column <strong>languagesSpoken:</strong> → <em>create new attribute called:</em><br>
-Label: <code>Languages</code>, Attribute ID: <code>languagesSpoken</code></li>
+<li>The CSV column <strong>ageCategory:</strong> → <em>create new attribute called:</em> <code>ageCategory</code></li>
+<li>The CSV column <strong>ethnicity:</strong> → <em>create new attribute called:</em> <code>ethnicity</code></li>
+<li>The CSV column <strong>grewUp:</strong> → <em>create new attribute called:</em> <code>grewUp</code></li>
+<li>The CSV column <strong>grewUpRegion:</strong> → <em>create new attribute called:</em> <code>grewUpRegion</code></li>
+<li>The CSV column <strong>grewUpTown:</strong> → <em>create new attribute called:</em> <code>grewUpTown</code></li>
+<li>The CSV column <strong>languagesSpoken:</strong> → <em>create new attribute called:</em> <code>languagesSpoken</code></li>
 </ul></li>
 <li>Press <em>import</em>.<br>
 You should see a page with information about how many attributes/participants were added/updated.</li>

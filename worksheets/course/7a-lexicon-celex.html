@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -14,10 +14,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -42,10 +45,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bba5ebae505b5c03f3f0d8040a416a6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-55617497126496852ff9f5a59253c640.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -78,17 +81,17 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="LaBB-CAT Documentation">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/help.png">
+<meta property="og:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/search-fine-A.png">
 <meta property="og:site_name" content="LaBB-CAT Documentation">
-<meta property="og:image:height" content="16">
-<meta property="og:image:width" content="16">
+<meta property="og:image:height" content="123">
+<meta property="og:image:width" content="285">
 <meta name="twitter:title" content="LaBB-CAT Documentation">
 <meta name="twitter:description" content="Information, How-to, exercises, and documentation about the LaBB-CAT corpus management system.">
-<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/help.png">
+<meta name="twitter:image" content="https://nzilbb.github.io/labbcat-doc/worksheets/course/search-fine-A.png">
 <meta name="twitter:creator" content="@robertfromont">
 <meta name="twitter:site" content="@labbcat">
-<meta name="twitter:image-height" content="16">
-<meta name="twitter:image-width" content="16">
+<meta name="twitter:image-height" content="123">
+<meta name="twitter:image-width" content="285">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -670,19 +673,18 @@ ul.task-list li input[type="checkbox"] {
 <li>Click the <em>layer managers</em> menu option.</li>
 <li>Click the <em>List of layer managers that are not yet installed</em> link near the bottom.</li>
 <li>Find “CELEX English” in the list, and click its <em>Install</em> button.</li>
-<li>You will see a form asking for various details. You can leave most of these with their default values. The one exception is the <em>CELEX &nbsp;ENGLISH data folder</em> option.<br>
-Set the <em>CELEX ENGLISH data folder</em> parameter to the directory path that leads to the CELEX files on your LaBB-CAT computer.</li>
-<li>Click <em>Install</em>.<br>
+<li>You will see a <em>Choose file</em> or <em>Browse</em> button. Press it, and select the <em>ENGLISH.zip</em> file that contains the CELEX lexicon files.<br>
+There will be a progress bar while the file is uploaded. Once the upload is finished, the progress bar will disappear.</li>
+<li>Press <em>Configure</em>.<br>
 You will see a progress bar while the layer manager loads the data from the CELEX files into the LaBB-CAT database. This will take a few minutes.</li>
-<li>Once it’s finished, you will see a new window open with information about the CELEX English layer manager.<br>
-Reading this information page, you will see some instructions on how to create CELEX annotation layers - leave this tab open for now, as we’re going to need those instructions next.</li>
+<li>Once it’s finished, you will see a new window open with information about the CELEX English layer manager.</li>
 </ol>
 </section>
 <section id="morphology" class="level2">
 <h2 class="anchored" data-anchor-id="morphology">Morphology</h2>
 <p>Now that we’ve installed the layer manager, we’ll create our first annotations from CELEX - a layer with morphological annotations.</p>
 <ol start="8" class="example" type="1">
-<li>Follow the instructions on the information page to create a layer for word morphology - i.e.:
+<li>On the <em>word layers</em> page, create a layer for word morphology - i.e.:
 <ul>
 <li><strong>Layer ID:</strong> <code>morphology</code></li>
 <li><strong>Type:</strong> <em>Text</em></li>
@@ -703,7 +705,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><img src="help.png" class="img-fluid"> If you’re curious about what the configuration options do, and how you can test out the results of your configuration, check the online help page when you are configuring the layer.</p>
+<p>ⓘ If you’re curious about what the configuration options do, and how you can test out the results of your configuration, check the online help, which is a section at the top of the configuration page that opens when you click the <code>ⓘ</code> icon.</p>
 </div>
 </div>
 <ol start="9" class="example" type="1">
@@ -745,6 +747,9 @@ Important
 <li><strong>Description:</strong> <code>All possible syntactic categories</code></li>
 <li>...configured with the <em>Syntax</em> option ticked, and the default values for everything else.</li>
 </ul></li>
+<li>Before pressing the <em>Set Parameters</em> button on the configuration page, change the <em>Test word</em> at the bottom to <code>fine</code> and check the resulting <em>Test Results</em><br>
+These are all the possible syntactic categories for the word “fine” ordered most-frequent first.</li>
+<li>Press <em>Set Parameters</em> and the <em>Regenerate</em>.</li>
 <li>Once the layer has finished generating, go to the search page and do a search for the word “fine” on the <em>orthography</em> layer.</li>
 <li>Open the transcript of the first match.</li>
 <li>On the <em>Layers</em> tab, tick the syntactic category layer to display the annotations that have just been computed.</li>
@@ -764,7 +769,7 @@ Notice that the results are the same. This is because all of the instances of �
 <section id="syllable-count-and-speech-rate" class="level2">
 <h2 class="anchored" data-anchor-id="syllable-count-and-speech-rate">Syllable Count and Speech Rate</h2>
 <p>CELEX can be used to retrieve syllable-counts for words, which in turn can be used, with duration information, to compute speech rate. For each line in each transcript, we already have the start time and the end time, from which we can calculate the duration of the line. All we need now is the number of syllables per line, and we can compute the syllables-per-minute speech rate for each line.</p>
-<ol start="21" class="example" type="1">
+<ol start="23" class="example" type="1">
 <li>Create a new word layer:
 <ul>
 <li><strong>Layer ID:</strong> <code>syllableCount</code></li>
@@ -791,7 +796,7 @@ Important
 <p><img src="help.png" class="img-fluid"> If you’re not sure why, this is explained in the online help for the layer configuration page.</p>
 </div>
 </div>
-<ol start="22" class="example" type="1">
+<ol start="24" class="example" type="1">
 <li>Once the layer has finished generating, have a look at a transcript or two to check the results.</li>
 <li>Click the <em>phrase layers</em> menu option.</li>
 <li>Add a new phrase layer for speech rate. Key points are:
@@ -820,20 +825,25 @@ Tip
 <section id="phonology" class="level2">
 <h2 class="anchored" data-anchor-id="phonology">Phonology</h2>
 <p>Now we’re going to create a phonemic-transcription layer.</p>
-<ol start="26" class="example" type="1">
+<ol start="28" class="example" type="1">
 <li>Create a new word layer, called <em>phonemes</em>, similar to previous CELEX layers. Key points are:
 <ul>
 <li>The layer type should be set to <em>Phonological</em>.</li>
 <li>The <em>Phonology</em> option should be selected in the layer configuration.</li>
-<li>Make sure the <em>Pronounce Event Override</em> option is ticked.<br>
-This means that if the original ELAN transcript contained a ‘pronounce’ annotation for a word (these are marked in ELAN with square brackets), specifying its pronunciation, then the ‘pronounce’ annotation is used instead of the phonemic transcription from CELEX.</li>
-<li>Ensure the <em>Generates Segments</em> option is un-ticked.<br>
-This option allows the layer manager to create <em>segment</em> (sub-word) annotations from the phonemic transcriptions, but we don’t want this because in the next exercise, we’re going to get HTK to do that instead.</li>
 </ul></li>
-<li>Once the layer is finished generating, go to a transcript to see what it looks like.</li>
+</ol>
+<p>The original ELAN transcripts contain ‘pronounce’ annotations for some interrupted words and disfluencies (these are marked in ELAN with square brackets). These are tokens that will not be in the CELEX lexicon, but which can nevertheless be tagged with a pronunciation, by copying the ‘pronounce’ annotations into the <em>phonemes</em> layer.</p>
+<p>To do this automatically:</p>
+<ol start="29" class="example" type="1">
+<li>On the <em>word layers</em> page, find the <em>phonemes</em> layer, and press the <em>Pronounce Auxiliary</em> icon - it has a large plus-sign ➕ on it.<br>
+This will display a confirmation message.</li>
+<li>Press <em>yes</em><br>
+A progress bar will be displayed while the ‘pronounce’ annotations are copied.</li>
+<li>Once the layer is finished generating, open the <code>AP513_Steve.eaf</code> transcript.</li>
+<li>On the <em>Layers</em> tab, tick the <em>CELEX</em> project, and the <em>phonemes</em> and <em>pronounce</em> layers.</li>
 </ol>
 <p>You will notice that the annotations are displayed using IPA symbols. However, CELEX doesn’t use IPA symbols directly, it actually uses the ‘DISC’ encoding for phonemes, which uses ordinary ‘typewriter’ characters (ASCII), and uses exactly one character per phoneme. The IPA symbols are being displayed by LaBB-CAT to provide a linguist-friendly interpretation of the phonemic transcription. But you can disable this to see the underlying DISC characters by de-selecting the ‘interpretation’ option on the layer in the transcript.</p>
-<ol start="28" class="example" type="1">
+<ol start="33" class="example" type="1">
 <li>On the <em>Layers</em> tab, immediately to the right of the <em>phonemes</em> layer, there is a tags icon <img src="interpretation-option.png" class="img-fluid">.<br>
 Hover the mouse over it to check the description, and then click it.</li>
 </ol>
@@ -1114,12 +1124,12 @@ Hover the mouse over it to check the description, and then click it.</li>
 </tr>
 </tbody>
 </table>
-<ol start="29" class="example" type="1">
+<ol start="34" class="example" type="1">
 <li>Go to the <em>search</em> page.</li>
 <li>Create a search matrix that’s two words wide, and includes the <em>orthography</em> and <em>phonemes</em> layers.</li>
 </ol>
 <p>Now we’re going to do a search for the word “the” followed by a word that starts with schwa.</p>
-<ol start="31" class="example" type="1">
+<ol start="36" class="example" type="1">
 <li>Type <code>the</code> in the first <em>orthography</em> box.</li>
 <li>Click the second box on the <em>phonemes</em> layer, but don’t enter anything in the box yet.</li>
 <li>The box has a little <img src="phoneme-symbol-selector.png" style="height:12pt"> button to the right of it.<br>
@@ -1129,17 +1139,17 @@ You will see that a section opens with a bunch of phoneme symbols on it.</li>
 You will see that a <code>@</code> symbol appears in the box.<br>
 <code>@</code> is the DISC symbol for <em>ə</em>, so in order to search for schwa, we have to use it in our search pattern.</li>
 <li>We want words that start with schwa, so type <code>.*</code> after the <code>@</code> symbol.</li>
-<li>Click <em>Search</em>.</li>
+<li>Press <em>Search</em>.</li>
 </ol>
 <p>You will see that some of the words being matched are words that you might not normally think start with a schwa. LaBB-CAT is matching words against <em>all their possible phonemic transcriptions</em>, so if CELEX has multiple possible pronunciations for a word, and one of them starts with schwa, it will be matched.</p>
 <p>You can check this by clicking on a match, and then hovering your mouse over the phonemic transcription above the matching token. This displays all the annotations for the given token, i.e.&nbsp;in this case all the possible pronunciations of that word.</p>
 <p>Now that we have phonemic transcripts, we can do a better job of the search we tried in an earlier exercise – “the” followed by a word starting with a vowel…</p>
-<ol start="37" class="example" type="1">
+<ol start="42" class="example" type="1">
 <li>Change your search so that, instead of just <code>@</code> at the beginning of the word, it matches any vowel.</li>
 </ol>
 <p>You could use the square-brackets <code>[]</code> at the start of your pattern, and type all vowel symbols inside them - Note that the vowels in the DISC representation extend beyond a, e, i, o, and u - you should add in all the vowels you see in the list that appears when you expand the IPA helper, including all the diphthongs.</p>
 <p><em>Alternatively</em>, you can simply click the <em>VOWEL</em> link in the ‘Phoneme Symbol Selector’, which will add all the DISC vowels for you, already enclosed in square-brackets.</p>
-<ol start="38" class="example" type="1">
+<ol start="43" class="example" type="1">
 <li>Run the search and check that it’s giving you what you expect. Notice that now there are no ‘false positives’ like “the one” that we were getting when searching by orthography alone.</li>
 </ol>
 <p>Now that you’ve generated a few different layers, and have seen how the search matrix works, you might want to try out some of the following searches, or invent some others:</p>
