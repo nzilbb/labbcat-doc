@@ -219,6 +219,20 @@ see that in action:
 
 (@) Repeat the segment search we did before (i.e. all aligned *FLEECE*
     vowels).
+
+:::{.callout-tip}
+If you open the *History* tab of the search page, you will see a list of all the
+searches you've done recently.
+
+![Search History](search-history.png)
+
+You can easily repeat a search by finding it in the list, and pressing the *Repeat*
+button, which will configure the seaerch matrix in the same way as before. 
+
+You can then make any modifications desired, and then press *Search* to run the search again.
+
+:::
+
 (@) Once you see the results page, click the ▼ button next to the *CSV
     Export* button link, and tick the *F1* layer.
 (@) Press *CVS Export*.

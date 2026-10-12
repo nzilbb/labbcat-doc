@@ -129,7 +129,7 @@ You will see a page with transcript text, and the video appears in the top right
 (@) Select the 'Play' option on the menu.\
     You will see that playback starts at that line. 
     Playback will stop when the participant finishes the utterance.
-(@) Select the *Formats* tab at the top of the transcript.\
+(@) Select the *Export* tab at the top of the transcript.\
     You will see a list of formats for exporting the transcript to.
 (@) Select *Plain Text Document*
 (@) Save the resulting file and then open it.\
@@ -144,9 +144,9 @@ You will see a page with transcript text, and the video appears in the top right
     This will display the attributes for the transcript 
     (some of the attribute values are not set because the information 
     was not in the .eaf transcript file)
-(@) Now select the *Participants* tab on the top right.\
+(@) Now select the *Participants* tab at the top.\
     This will list both participants in the recording, the main participant, and the interviewer.
-(@) Click *BR178LK_MargaretSpencer*.\
+(@) Click the *Attributes* icon next to "BR178LK_MargaretSpencer".\
     This will display the participant meta-data. There's not much here yet; we will be adding participant 
     attributes soon. However, we can at least set the participant's gender now.
 (@) *BR178LK_MargaretSpencer* is 'Female', so set her attributes to reflect that, and press *Save*.
@@ -212,8 +212,8 @@ check preconditions for uploading, and other functions the upload page can perfo
     You should see a list of twenty transcripts.
 (@) Use the *Transcript* box to find `UC013AM_Dom.eaf`\
     (you can type just part of the name if you like).
-(@) press the *Attributes* icon for *UC013AM_Dom.eaf*\
-    (on the far right of the row).
+(@) Press the *Attributes* icon for *UC013AM_Dom.eaf*\
+    (on the far right of the row, with a spanner/wrench icon).
 (@) Change *Transcript type* to *interview* and press *Save*.
 (@) Similarly, the following transcripts are interviews, so change their type accordingly
     -   UC215YW_DanielaMaoate-Cox.eaf
@@ -252,18 +252,18 @@ including each of the participant attributes set up in LaBB-CAT, an
     -   The CSV column **name:** → *ignore* because it's the
         *Participant Identity Column* identified above
     -   (The CSV column **gender:** → the *Gender* LaBB-CAT attribute
-    -   The CSV column **ageCategory:** → *create new attribute called:*\
-        Label: `Age Category`, Attribute ID: `ageCategory`
-    -   The CSV column **ethnicity:** → *create new attribute called:* \
-        Label: `Ethnicity`, Attribute ID: `ethnicity`
-    -   The CSV column **grewUp:** → *create new attribute called:*\
-        Label: `Country`, Attribute ID: `grewUp`
-    -   The CSV column **grewUpRegion:** → *create new attribute called:*\
-        Label: `Region`, Attribute ID: `grewUpRegion`
-    -   The CSV column **grewUpTown:** → *create new attribute called:*\
-        Label: `Town`, Attribute ID: `grewUpTown`
-    -   The CSV column **languagesSpoken:** → *create new attribute called:*\
-        Label: `Languages`, Attribute ID: `languagesSpoken`
+    -   The CSV column **ageCategory:** → *create new attribute called:*
+        `ageCategory`
+    -   The CSV column **ethnicity:** → *create new attribute called:* 
+        `ethnicity`
+    -   The CSV column **grewUp:** → *create new attribute called:*
+        `grewUp`
+    -   The CSV column **grewUpRegion:** → *create new attribute called:*
+        `grewUpRegion`
+    -   The CSV column **grewUpTown:** → *create new attribute called:*
+        `grewUpTown`
+    -   The CSV column **languagesSpoken:** → *create new attribute called:*
+        `languagesSpoken`
 (@) Press *import*.\
     You should see a page with information about how many attributes/participants were added/updated.
 
